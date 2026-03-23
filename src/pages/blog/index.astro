@@ -52,33 +52,34 @@ const postViews: PostView[] = posts.map((post: Post) => {
 <body>
   <Header />
 
-  <section class="hero-banner hero-inner">
-    <div class="hero-content">
+  <div class="page-title-bar">
+    <div class="container">
       <h1>理財新知</h1>
     </div>
-  </section>
+  </div>
 
   <main class="section">
     <div class="container">
-      <div class="blog-grid">
+      <div class="blog-list">
         {postViews.map(p => (
-          <article class="blog-card">
-            {p.image && (
-              <a href={`${import.meta.env.BASE_URL}${p.slug}/`}>
-                <img src={p.image ? (import.meta.env.BASE_URL + p.image.replace(/^\//, '')) : ''} alt={p.title} width="400" height="250" loading="lazy" class="blog-card-img" />
-              </a>
-            )}
-            <div class="blog-card-body">
-              <h2><a href={`${import.meta.env.BASE_URL}${p.slug}/`}>{p.title}</a></h2>
+          <article class="blog-list-card">
+            <a href={`${import.meta.env.BASE_URL}${p.slug}/`} class="blog-list-img-wrap">
+              {p.image
+                ? <img src={import.meta.env.BASE_URL + p.image.replace(/^\//, '')} alt={p.title} width="320" height="200" loading="lazy" />
+                : <div class="blog-list-img-placeholder"></div>
+              }
+            </a>
+            <div class="blog-list-body">
               <div class="blog-card-meta">
-                <span>諾昇理財規劃顧問｜張惠芳 CFP</span>
-                <span>|</span>
+                <span>張惠芳 CFP®</span>
+                <span>·</span>
                 <span>{p.dateStr}</span>
-                <span>|</span>
+                <span>·</span>
                 <a href={p.catUrl}>{p.catLabel}</a>
               </div>
-              <p class="blog-card-excerpt">{p.description.slice(0, 60)}…</p>
-              <a href={`${import.meta.env.BASE_URL}${p.slug}/`} class="read-more">read more »</a>
+              <h2><a href={`${import.meta.env.BASE_URL}${p.slug}/`}>{p.title}</a></h2>
+              <p class="blog-card-excerpt">{p.description.slice(0, 100)}…</p>
+              <a href={`${import.meta.env.BASE_URL}${p.slug}/`} class="read-more">閱讀全文</a>
             </div>
           </article>
         ))}

@@ -53,7 +53,7 @@ a { color: inherit; }
 
 .main-nav > ul { list-style: none; display: flex; gap: 24px; align-items: center; }
 .main-nav ul { list-style: none; }
-.main-nav a { text-decoration: none; color: #171717; font-size: 15px; font-weight: 500; transition: color 0.2s; }
+.main-nav a { text-decoration: none; color: #171717; font-size: 18px; font-weight: 500; transition: color 0.2s; }
 .main-nav a:hover { color: var(--color-primary); }
 .has-sub { position: relative; }
 .sub-menu {
@@ -94,6 +94,30 @@ a { color: inherit; }
 .hero-banner .hero-content { position: relative; z-index: 1; padding: 20px; }
 .hero-home { min-height: 500px; background-image: url('/images/hero-home.jpg'); }
 .hero-inner { min-height: 280px; background-image: url('/images/aboutmehead.jpg'); }
+
+/* ===== LINE CTA BAR ===== */
+.line-cta-bar {
+  background: #f5f5f5;
+  padding: 10px 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.line-cta-bar .container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ===== PAGE TITLE BAR ===== */
+.page-title-bar {
+  background: var(--color-primary);
+  padding: 28px 20px;
+}
+.page-title-bar .container { max-width: var(--max-width); margin: 0 auto; }
+.page-title-bar h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700;
+  color: #fff;
+}
 
 .hero-banner h1 {
   font-family: var(--font-heading);
@@ -164,6 +188,27 @@ a { color: inherit; }
 .blog-card-excerpt { font-size: 14px; color: #555; margin-top: 8px; line-height: 1.6; }
 .read-more { display: inline-block; margin-top: 10px; font-size: 13px; color: var(--color-primary); text-decoration: none; }
 .read-more:hover { text-decoration: underline; }
+
+/* ===== BLOG HORIZONTAL LIST ===== */
+.blog-list { display: flex; flex-direction: column; gap: 0; }
+.blog-list-card {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 32px;
+  align-items: start;
+  padding: 28px 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+.blog-list-img-wrap { display: block; flex-shrink: 0; }
+.blog-list-img-wrap img { width: 100%; height: auto; display: block; border-radius: 4px; object-fit: cover; aspect-ratio: 16/10; }
+.blog-list-img-placeholder { width: 100%; aspect-ratio: 16/10; background: #e5e5e5; border-radius: 4px; }
+.blog-list-body { display: flex; flex-direction: column; gap: 8px; }
+.blog-list-body h2 { font-size: 22px; font-weight: 600; color: #000; line-height: 1.45; margin: 0; }
+.blog-list-body h2 a { text-decoration: none; color: inherit; }
+.blog-list-body h2 a:hover { color: var(--color-primary); }
+@media (max-width: 600px) {
+  .blog-list-card { grid-template-columns: 1fr; gap: 16px; }
+}
 
 /* ===== SERVICE CARDS ===== */
 .service-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
