@@ -1,5 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import Head from '../components/Head.astro';
 
 export async function getStaticPaths() {
@@ -56,43 +58,7 @@ const jsonLd = {
   
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <a href={import.meta.env.BASE_URL} class="logo-link">
-        <img src={import.meta.env.BASE_URL + "images/Nobleriselong1.png"} alt="諾昇理財規劃" width="200" height="50" loading="eager" />
-      </a>
-      <div class="header-right">
-        <div class="header-company">
-          <span class="header-company-cn">諾昇理財規劃顧問股份有限公司</span>
-          <span class="header-company-en">NobleRise Financial Planning Consultant co., LTD.</span>
-        </div>
-        <nav class="main-nav">
-        <ul>
-          <li><a href={import.meta.env.BASE_URL}>首頁</a></li>
-          <li class="has-sub">
-            <a href={import.meta.env.BASE_URL + "about/"}>關於諾昇</a>
-            <ul class="sub-menu">
-              <li><a href={import.meta.env.BASE_URL + "about/策略夥伴/"}>策略夥伴</a></li>
-            </ul>
-          </li>
-          <li><a href={import.meta.env.BASE_URL + "service/"}>服務項目</a></li>
-          <li class="has-sub">
-            <a href={import.meta.env.BASE_URL + "blog/"}>知識文章</a>
-            <ul class="sub-menu">
-              <li><a href={import.meta.env.BASE_URL + "blog/investment/"}>投資理財</a></li>
-              <li><a href={import.meta.env.BASE_URL + "blog/insurance/"}>保險權益</a></li>
-              <li><a href={import.meta.env.BASE_URL + "blog/certification/"}>證照進修</a></li>
-              <li><a href={import.meta.env.BASE_URL + "blog/business-planning/"}>財務規劃</a></li>
-              <li><a href={import.meta.env.BASE_URL + "blog/elderly-care-trust/"}>信託規劃</a></li>
-              <li><a href={import.meta.env.BASE_URL + "blog/tax-planning/"}>傳承稅務</a></li>
-            </ul>
-          </li>
-          <li><a href={import.meta.env.BASE_URL + "contact/"}>聯絡我們</a></li>
-        </ul>
-        </nav>
-      </div>
-    </div>
-  </header>
+  <Header />
 
   <main class="post-main">
     <div class="post-container">
@@ -126,88 +92,11 @@ const jsonLd = {
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-main">
-      <div class="footer-inner">
-        <div class="footer-left">
-          <img src={import.meta.env.BASE_URL + "images/footer-logo.jpg"} alt="諾昇理財規劃" width="150" height="92" loading="lazy" />
-          <p>財務規劃是幫個人或家庭做好管理財務的過程，幫助大家達成財務目標，包括儲蓄、退休、投資、孩子教育、購屋、買車、旅遊、稅務、傳承等，可以盤點目前的財務資源和收入，量化財務目標，以實現FIRE（Financial Independence Retire Early）的幸福財富人生！</p>
-        </div>
-        <div class="footer-right">
-          <h6 class="footer-contact-title">聯絡資訊：</h6>
-          <ul class="footer-contact-list">
-            <li>諾昇理財規劃顧問股份有限公司<br />Noblerise Financial Consultant co., LTD</li>
-            <li><a href="https://line.me/ti/p/~@noblerise" target="_blank" rel="noopener nofollow">LINE : <span class="footer-line-id">@noblerise</span></a></li>
-            <li><a href="mailto:contact@noblerise.com.tw">電子郵件：contact@noblerise.com.tw</a></li>
-            <li>地址：106 台北市大安區復興南路一段222號2樓</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copy">
-      <p>© 2025 諾昇理財規劃顧問股份有限公司 All Rights Reserved.</p>
-    </div>
-  </footer>
+  <Footer />
 </body>
 </html>
 
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: 'Poppins', 'Open Sans', sans-serif;
-  color: #000;
-  background: #fff;
-}
-
-/* Header */
-.site-header {
-  background: #fff;
-  border-bottom: 1px solid #e5e5e5;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-.header-inner {
-  max-width: 1170px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 90px;
-}
-.logo-link img { height: 65px; width: auto; }
-.header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
-.header-company { text-align: right; line-height: 1.4; }
-.header-company-cn { display: block; font-size: 15px; font-weight: 700; color: #0d383a; }
-.header-company-en { display: block; font-size: 12px; color: #555; }
-
-.main-nav > ul { list-style: none; display: flex; gap: 24px; }
-.main-nav ul { list-style: none; }
-.main-nav a { text-decoration: none; color: #171717; font-size: 15px; font-weight: 500; }
-.main-nav a:hover { color: #0d383a; }
-.has-sub { position: relative; }
-.sub-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  min-width: 160px;
-  flex-direction: column;
-  gap: 0;
-  z-index: 200;
-}
-.sub-menu li a {
-  display: block;
-  padding: 10px 16px;
-  white-space: nowrap;
-  font-size: 14px;
-}
-.has-sub:hover .sub-menu { display: flex; }
-
 /* Post */
 .post-main { padding: 40px 20px; min-height: 60vh; }
 .post-container { max-width: 860px; margin: 0 auto; }
@@ -255,28 +144,5 @@ body {
 .post-content ul, .post-content ol { margin: 16px 0 16px 24px; }
 .post-content li { margin-bottom: 8px; }
 
-/* Footer */
-.site-footer {
-  background: #171717;
-  color: #fff;
-  padding: 48px 20px;
-  margin-top: 80px;
-}
-.footer-inner {
-  max-width: 1170px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 24px;
-}
-.footer-info p { margin-bottom: 8px; font-size: 14px; line-height: 1.6; }
-.company-name { font-weight: 600; font-size: 15px; color: #85a14f; }
-.footer-info a { color: #85a14f; text-decoration: none; }
-.footer-copy { font-size: 12px; color: #aaa; align-self: flex-end; }
 
-@media (max-width: 768px) {
-  .main-nav { display: none; }
-  .footer-inner { flex-direction: column; }
-}
 </style>
