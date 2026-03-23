@@ -189,6 +189,29 @@ a { color: inherit; }
 .read-more { display: inline-block; margin-top: 10px; font-size: 13px; color: var(--color-primary); text-decoration: none; }
 .read-more:hover { text-decoration: underline; }
 
+/* ===== BLOG CATEGORY BAR ===== */
+.blog-cat-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 32px;
+  border-bottom: 2px solid #e5e5e5;
+  padding-bottom: 0;
+}
+.blog-cat-link {
+  display: inline-block;
+  padding: 8px 18px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #444;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.blog-cat-link:hover { color: var(--color-primary); border-bottom-color: var(--color-primary); }
+.blog-cat-link.active { color: var(--color-primary); border-bottom-color: var(--color-primary); font-weight: 600; }
+
 /* ===== BLOG HORIZONTAL LIST ===== */
 .blog-list { display: flex; flex-direction: column; gap: 0; }
 .blog-list-card {

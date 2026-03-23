@@ -11,10 +11,30 @@ interface PostView {
 
 interface Props {
   posts: PostView[];
+  currentCat?: string;
 }
 
-const { posts } = Astro.props;
+const { posts, currentCat = '' } = Astro.props;
+
+const categories = [
+  { slug: '',                 label: '全部文章',  url: import.meta.env.BASE_URL + 'blog/' },
+  { slug: 'investment',       label: '投資理財',  url: import.meta.env.BASE_URL + 'blog/investment/' },
+  { slug: 'insurance',        label: '保險權益',  url: import.meta.env.BASE_URL + 'blog/insurance/' },
+  { slug: 'certification',    label: '證照進修',  url: import.meta.env.BASE_URL + 'blog/certification/' },
+  { slug: 'business-planning',label: '財務規劃',  url: import.meta.env.BASE_URL + 'blog/business-planning/' },
+  { slug: 'elderly-care-trust',label: '信託規劃', url: import.meta.env.BASE_URL + 'blog/elderly-care-trust/' },
+  { slug: 'tax-planning',     label: '傳承稅務',  url: import.meta.env.BASE_URL + 'blog/tax-planning/' },
+];
 ---
+<nav class="blog-cat-bar">
+  {categories.map(cat => (
+    <a
+      href={cat.url}
+      class={`blog-cat-link${currentCat === cat.slug ? ' active' : ''}`}
+    >{cat.label}</a>
+  ))}
+</nav>
+
 <div class="blog-list">
   {posts.map(p => (
     <article class="blog-list-card">
