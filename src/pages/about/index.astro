@@ -1,0 +1,132 @@
+---
+import Head from '../../components/Head.astro';
+---
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <Head title="關於諾昇 | 張惠芳 CFP® | 諾昇理財規劃" description="諾昇以財務幸福為核心，由 CFP® 張惠芳領軍，以獨立理財顧問（IFA）立場提供中立、專業的財務建議。了解諾昇的理念與首席顧問背景。" />
+  
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href={import.meta.env.BASE_URL} class="logo-link">
+        <img src={import.meta.env.BASE_URL + "images/Nobleriselong1.png"} alt="諾昇理財規劃" width="200" height="50" loading="eager" />
+      </a>
+      <div class="header-right">
+        <div class="header-company">
+          <span class="header-company-cn">諾昇理財規劃顧問股份有限公司</span>
+          <span class="header-company-en">NobleRise Financial Planning Consultant co., LTD.</span>
+        </div>
+        <nav class="main-nav">
+        <ul>
+          <li><a href={import.meta.env.BASE_URL}>首頁</a></li>
+          <li class="has-sub">
+            <a href={import.meta.env.BASE_URL + "about/"}>關於諾昇</a>
+            <ul class="sub-menu">
+              <li><a href={import.meta.env.BASE_URL + "about/策略夥伴/"}>策略夥伴</a></li>
+            </ul>
+          </li>
+          <li><a href={import.meta.env.BASE_URL + "service/"}>服務項目</a></li>
+          <li class="has-sub">
+            <a href={import.meta.env.BASE_URL + "blog/"}>知識文章</a>
+            <ul class="sub-menu">
+              <li><a href={import.meta.env.BASE_URL + "blog/investment/"}>投資理財</a></li>
+              <li><a href={import.meta.env.BASE_URL + "blog/insurance/"}>保險權益</a></li>
+              <li><a href={import.meta.env.BASE_URL + "blog/certification/"}>證照進修</a></li>
+              <li><a href={import.meta.env.BASE_URL + "blog/business-planning/"}>財務規劃</a></li>
+              <li><a href={import.meta.env.BASE_URL + "blog/elderly-care-trust/"}>信託規劃</a></li>
+              <li><a href={import.meta.env.BASE_URL + "blog/tax-planning/"}>傳承稅務</a></li>
+            </ul>
+          </li>
+          <li><a href={import.meta.env.BASE_URL + "contact/"}>聯絡我們</a></li>
+        </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero-banner hero-inner">
+    <div class="hero-content">
+      <h1>關於諾昇</h1>
+    </div>
+  </section>
+
+  <main class="section">
+    <div class="container" style="max-width:960px;">
+
+      <section style="margin-bottom:64px;">
+        <h2 class="section-title" style="margin-bottom:24px;">關於諾昇</h2>
+        <p>諾昇以「財務幸福」為核心，由國際認證高級理財規劃顧問 CFP® 張惠芳領軍，以獨立理財顧問（IFA）的立場，提供中立、專業、以客戶利益優先的財務建議，諾昇陪伴您讓規劃真正落地，成為走向財務幸福的力量！</p>
+      </section>
+
+      <section style="margin-bottom:64px;">
+        <h2 class="section-title" style="margin-bottom:32px;">首席理財規劃顧問：張惠芳 CFP®</h2>
+        <div class="grid-2">
+          <div style="text-align:center;">
+            <img src={import.meta.env.BASE_URL + "images/yvonne-about.png"} alt="張惠芳 CFP® 首席理財規劃顧問" width="400" height="400" loading="lazy" style="max-width:100%;height:auto;" />
+          </div>
+          <div>
+            <p style="margin-bottom:20px;">惠芳CFP為諾昇執行長兼首席理財規劃顧問，以20年的金融實務經驗，建立諾昇的服務理念與方法，確保諾昇提供的每一項財務建議，都以客戶利益為核心出發點，陪伴客戶走向財務幸福。</p>
+
+            <h3 style="font-family:var(--font-heading);font-size:16px;font-weight:700;color:var(--color-primary);margin-bottom:12px;">證照與認證</h3>
+            <ul style="list-style:disc;padding-left:20px;margin-bottom:20px;font-size:15px;line-height:2;">
+              <li>CFP® 國際認證高級理財規劃顧問</li>
+              <li>RFA 退休理財規劃顧問</li>
+              <li>FChFP 特許財務規劃師</li>
+              <li>家族信託規劃顧問師</li>
+            </ul>
+
+            <h3 style="font-family:var(--font-heading);font-size:16px;font-weight:700;color:var(--color-primary);margin-bottom:12px;">現職</h3>
+            <ul style="list-style:disc;padding-left:20px;font-size:15px;line-height:2;">
+              <li>諾昇理財規劃顧問公司執行長</li>
+              <li>詠言法律事務所 稅務顧問</li>
+              <li>威瑞財富管理 信託團隊</li>
+              <li>專欄作家：風傳媒、天下雜誌、今周刊、Smart自學網、橘世代、好險有錢</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title" style="margin-bottom:32px;">獲獎紀錄</h2>
+        <div class="grid-3">
+          <div>
+            <img src={import.meta.env.BASE_URL + "images/award1.jpg"} alt="獲獎紀錄1" width="360" height="270" loading="lazy" style="width:100%;height:auto;border-radius:4px;" />
+          </div>
+          <div>
+            <img src={import.meta.env.BASE_URL + "images/award2.jpg"} alt="獲獎紀錄2" width="360" height="270" loading="lazy" style="width:100%;height:auto;border-radius:4px;" />
+          </div>
+          <div>
+            <img src={import.meta.env.BASE_URL + "images/award3.jpg"} alt="獲獎紀錄3" width="360" height="270" loading="lazy" style="width:100%;height:auto;border-radius:4px;" />
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <img src={import.meta.env.BASE_URL + "images/footer-logo.jpg"} alt="諾昇理財規劃" width="150" height="92" loading="lazy" />
+          <p>財務規劃是幫個人或家庭做好管理財務的過程，幫助大家達成財務目標，包括儲蓄、退休、投資、孩子教育、購屋、買車、旅遊、稅務、傳承等，可以盤點目前的財務資源和收入，量化財務目標，以實現FIRE（Financial Independence Retire Early）的幸福財富人生！</p>
+        </div>
+        <div class="footer-right">
+          <h6 class="footer-contact-title">聯絡資訊：</h6>
+          <ul class="footer-contact-list">
+            <li>諾昇理財規劃顧問股份有限公司<br />Noblerise Financial Consultant co., LTD</li>
+            <li><a href="https://line.me/ti/p/~@noblerise" target="_blank" rel="noopener nofollow">LINE : <span class="footer-line-id">@noblerise</span></a></li>
+            <li><a href="mailto:contact@noblerise.com.tw">電子郵件：contact@noblerise.com.tw</a></li>
+            <li>地址：106 台北市大安區復興南路一段222號2樓</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <p>© 2025 諾昇理財規劃顧問股份有限公司 All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

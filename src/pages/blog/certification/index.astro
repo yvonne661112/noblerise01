@@ -1,0 +1,130 @@
+---
+import Head from '../../../components/Head.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+type Post = CollectionEntry<'blog'>;
+
+const rawPosts = await getCollection('blog');
+const posts = rawPosts
+  .filter((p: Post) => p.data.categories?.includes('certification'))
+  .sort((a: Post, b: Post) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+interface PostView {
+  slug: string;
+  title: string;
+  image?: string;
+  description: string;
+  dateStr: string;
+}
+
+const postViews: PostView[] = posts.map((post: Post) => ({
+  slug: post.data.numericSlug,
+  title: post.data.title,
+  image: post.data.image,
+  description: post.data.description,
+  dateStr: new Date(post.data.date).toLocaleDateString('zh-TW'),
+}));
+---
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <Head title="證照進修 | 諾昇理財規劃" description="諾昇理財規劃 證照進修 相關文章，由 CFP® 張惠芳撰寫，提供專業財務知識。" />
+  
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href={import.meta.env.BASE_URL} class="logo-link">
+        <img src={import.meta.env.BASE_URL + "images/Nobleriselong1.png"} alt="諾昇理財規劃" width="200" height="50" loading="eager" />
+      </a>
+      <div class="header-right">
+        <div class="header-company">
+          <span class="header-company-cn">諾昇理財規劃顧問股份有限公司</span>
+          <span class="header-company-en">NobleRise Financial Planning Consultant co., LTD.</span>
+        </div>
+        <nav class="main-nav">
+        <ul>
+          <li><a href={import.meta.env.BASE_URL}>首頁</a></li>
+          <li class="has-sub">
+            <a href={import.meta.env.BASE_URL + "about/"}>關於諾昇</a>
+            <ul class="sub-menu">
+              <li><a href={import.meta.env.BASE_URL + "about/策略夥伴/"}>策略夥伴</a></li>
+            </ul>
+          </li>
+          <li><a href={import.meta.env.BASE_URL + "service/"}>服務項目</a></li>
+          <li class="has-sub">
+            <a href={import.meta.env.BASE_URL + "blog/"}>知識文章</a>
+            <ul class="sub-menu">
+              <li><a href={import.meta.env.BASE_URL + "blog/investment/"}>投資理財</a></li>
+              <li><a href={import.meta.env.BASE_URL + "blog/insurance/"}>保險權益</a></li>
+              <li><a href={import.meta.env.BASE_URL + "blog/certification/"}>證照進修</a></li>
+              <li><a href={import.meta.env.BASE_URL + "blog/business-planning/"}>財務規劃</a></li>
+              <li><a href={import.meta.env.BASE_URL + "blog/elderly-care-trust/"}>信託規劃</a></li>
+              <li><a href={import.meta.env.BASE_URL + "blog/tax-planning/"}>傳承稅務</a></li>
+            </ul>
+          </li>
+          <li><a href={import.meta.env.BASE_URL + "contact/"}>聯絡我們</a></li>
+        </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero-banner hero-inner">
+    <div class="hero-content">
+      <h1>證照進修</h1>
+    </div>
+  </section>
+
+  <main class="section">
+    <div class="container">
+      <div class="blog-grid">
+        {postViews.map(p => (
+          <article class="blog-card">
+            {p.image && (
+              <a href={`${import.meta.env.BASE_URL}${p.slug}/`}>
+                <img src={p.image ? (import.meta.env.BASE_URL + p.image.replace(/^\//, '')) : ''} alt={p.title} width="400" height="250" loading="lazy" class="blog-card-img" />
+              </a>
+            )}
+            <div class="blog-card-body">
+              <h2><a href={`${import.meta.env.BASE_URL}${p.slug}/`}>{p.title}</a></h2>
+              <div class="blog-card-meta">
+                <span>諾昇理財規劃顧問｜張惠芳 CFP</span>
+                <span>|</span>
+                <span>{p.dateStr}</span>
+                <span>|</span>
+                <a href={import.meta.env.BASE_URL + "blog/certification/"}>證照進修</a>
+              </div>
+              <p class="blog-card-excerpt">{p.description.slice(0, 60)}…</p>
+              <a href={`${import.meta.env.BASE_URL}${p.slug}/`} class="read-more">read more »</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <img src={import.meta.env.BASE_URL + "images/footer-logo.jpg"} alt="諾昇理財規劃" width="150" height="92" loading="lazy" />
+          <p>財務規劃是幫個人或家庭做好管理財務的過程，幫助大家達成財務目標，包括儲蓄、退休、投資、孩子教育、購屋、買車、旅遊、稅務、傳承等，可以盤點目前的財務資源和收入，量化財務目標，以實現FIRE（Financial Independence Retire Early）的幸福財富人生！</p>
+        </div>
+        <div class="footer-right">
+          <h6 class="footer-contact-title">聯絡資訊：</h6>
+          <ul class="footer-contact-list">
+            <li>諾昇理財規劃顧問股份有限公司<br />Noblerise Financial Consultant co., LTD</li>
+            <li><a href="https://line.me/ti/p/~@noblerise" target="_blank" rel="noopener nofollow">LINE : <span class="footer-line-id">@noblerise</span></a></li>
+            <li><a href="mailto:contact@noblerise.com.tw">電子郵件：contact@noblerise.com.tw</a></li>
+            <li>地址：106 台北市大安區復興南路一段222號2樓</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <p>© 2025 諾昇理財規劃顧問股份有限公司 All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

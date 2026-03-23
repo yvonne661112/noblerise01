@@ -1,0 +1,289 @@
+---
+import Head from '../components/Head.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 6);
+
+const categoryLabels: Record<string, string> = {
+  investment: '投資理財',
+  insurance: '保險權益',
+  certification: '證照進修',
+  'business-planning': '財務規劃',
+  'elderly-care-trust': '信託規劃',
+  'tax-planning': '傳承稅務',
+};
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "諾昇理財規劃顧問股份有限公司",
+    "url": "https://noblerise.com.tw",
+    "logo": "https://noblerise.com.tw/wp-content/uploads/2026/01/Nobleriselong1-scaled.png",
+    "email": "contact@noblerise.com.tw",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "復興南路一段222號2樓",
+      "addressLocality": "大安區",
+      "addressRegion": "台北市",
+      "postalCode": "106",
+      "addressCountry": "TW"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "諾昇理財規劃",
+    "url": "https://noblerise.com.tw"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "張惠芳",
+    "jobTitle": "CFP® 國際認證高級理財規劃顧問",
+    "worksFor": { "@type": "Organization", "name": "諾昇理財規劃顧問股份有限公司" }
+  }
+];
+---
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <Head
+    title="諾昇理財規劃｜張惠芳 CFP® 獨立理財顧問｜財務幸福"
+    description="諾昇以財務幸福為核心，由 CFP® 張惠芳領軍，提供中立、專業、以客戶利益優先的獨立財務規劃服務，涵蓋投資、保險、退休、信託、稅務規劃。"
+  />
+  {jsonLd.map(ld => (
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(ld)} />
+  ))}
+  
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href={import.meta.env.BASE_URL} class="logo-link">
+        <img src={import.meta.env.BASE_URL + "images/Nobleriselong1.png"} alt="諾昇理財規劃" width="200" height="50" loading="eager" />
+      </a>
+      <div class="header-right">
+        <div class="header-company">
+          <span class="header-company-cn">諾昇理財規劃顧問股份有限公司</span>
+          <span class="header-company-en">NobleRise Financial Planning Consultant co., LTD.</span>
+        </div>
+        <nav class="main-nav">
+        <ul>
+          <li><a href={import.meta.env.BASE_URL}>首頁</a></li>
+          <li class="has-sub">
+            <a href={import.meta.env.BASE_URL + "about/"}>關於諾昇</a>
+            <ul class="sub-menu">
+              <li><a href={import.meta.env.BASE_URL + "about/策略夥伴/"}>策略夥伴</a></li>
+            </ul>
+          </li>
+          <li><a href={import.meta.env.BASE_URL + "service/"}>服務項目</a></li>
+          <li class="has-sub">
+            <a href={import.meta.env.BASE_URL + "blog/"}>知識文章</a>
+            <ul class="sub-menu">
+              <li><a href={import.meta.env.BASE_URL + "blog/investment/"}>投資理財</a></li>
+              <li><a href={import.meta.env.BASE_URL + "blog/insurance/"}>保險權益</a></li>
+              <li><a href={import.meta.env.BASE_URL + "blog/certification/"}>證照進修</a></li>
+              <li><a href={import.meta.env.BASE_URL + "blog/business-planning/"}>財務規劃</a></li>
+              <li><a href={import.meta.env.BASE_URL + "blog/elderly-care-trust/"}>信託規劃</a></li>
+              <li><a href={import.meta.env.BASE_URL + "blog/tax-planning/"}>傳承稅務</a></li>
+            </ul>
+          </li>
+          <li><a href={import.meta.env.BASE_URL + "contact/"}>聯絡我們</a></li>
+        </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-banner hero-home">
+    <div class="hero-content">
+      <h1>— 諾昇理財規劃<br>讓財務規劃陪您走向財務幸福 —</h1>
+      <a href="https://line.me/ti/p/~@noblerise" class="btn btn-line" target="_blank" rel="noopener">加入諾昇 LINE</a>
+    </div>
+  </section>
+
+  <!-- 關於區塊 -->
+  <section class="section">
+    <div class="container">
+      <div class="grid-2">
+        <div>
+          <h2 class="section-title">關於諾昇</h2>
+          <p>諾昇以「財務幸福」為核心，由國際認證高級理財規劃顧問 CFP® 張惠芳領軍，以獨立理財顧問（IFA）的立場，提供中立、專業、以客戶利益優先的財務建議，諾昇陪伴您讓規劃真正落地，成為走向財務幸福的力量！</p>
+          <br />
+          <a href={import.meta.env.BASE_URL + "about/"} class="btn btn-primary">了解更多</a>
+        </div>
+        <div style="text-align:center;">
+          <img src={import.meta.env.BASE_URL + "images/yvonneCFP.jpeg"} alt="張惠芳 CFP® 首席理財規劃顧問" width="360" height="360" loading="lazy" style="max-width:360px;width:100%;height:auto;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 核心價值 -->
+  <section class="section" style="background:#f7f7f7;">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;margin-bottom:40px;">我們的核心價值</h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-body">
+            <h3>真正獨立 不賣產品</h3>
+            <p>不受任何金融機構KPI影響，完全站在客戶立場，提供最適合客戶的建議。</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h3>專業規劃 客製方案</h3>
+            <p>依國際理財規劃顧問認證總會(FPSB)的流程客製規劃，由 CFP 專業分析，並採規劃收費，確保建議客觀、動機單純，全程以您的需求為核心。</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h3>全程陪伴 規劃＋執行</h3>
+            <p>不只給建議，更協助落地，隨人生變化調整，讓財務真正做到、看得見成果。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 財務規劃定義 -->
+  <section class="section">
+    <div class="container">
+      <div class="grid-2">
+        <div>
+          <img src={import.meta.env.BASE_URL + "images/financial-planning.jpg"} alt="財務規劃" width="540" height="360" loading="lazy" style="width:100%;height:auto;border-radius:4px;" />
+        </div>
+        <div>
+          <h2 class="section-title">財務規劃的目的</h2>
+          <p>財務規劃是幫助個人或家庭做好管理財務的過程，幫助大家達成財務目標，包括儲蓄、投資、退休、孩子教育、購屋、買車、旅遊、稅務、傳承等，可以盤點目前的財務資源和收入，量化財務目標以實現幸福財富人生。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 為何聘請顧問 -->
+  <section class="section" style="background:#f7f7f7;">
+    <div class="container" style="max-width:800px;text-align:center;">
+      <h2 class="section-title">為何要找財務顧問</h2>
+      <p>財務顧問擁有豐富的理財領域經驗，並擁有相關的專業認證和資格。每個人都應該有一個健康的財務狀況，這不僅可以為自己和家人帶來更好的生活品質，還可以為未來的發展奠定基礎。</p>
+    </div>
+  </section>
+
+  <!-- 服務項目 -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;margin-bottom:40px;">服務項目</h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-img">
+            <img src={import.meta.env.BASE_URL + "images/home-item1.jpg"} alt="收支管理/資產管理" width="400" height="250" loading="lazy" />
+          </div>
+          <div class="card-body">
+            <h3>收支管理/資產管理</h3>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img">
+            <img src={import.meta.env.BASE_URL + "images/home-item2.jpg"} alt="信用管理/風險管理" width="400" height="250" loading="lazy" />
+          </div>
+          <div class="card-body">
+            <h3>信用管理/風險管理</h3>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img">
+            <img src={import.meta.env.BASE_URL + "images/home-item3.jpg"} alt="財務規劃/稅務規劃" width="400" height="250" loading="lazy" />
+          </div>
+          <div class="card-body">
+            <h3>財務規劃/稅務規劃</h3>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:32px;">
+        <a href={import.meta.env.BASE_URL + "service/"} class="btn btn-primary">查看完整服務</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 客戶見證 -->
+  <section class="section" style="background:#f7f7f7;">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;margin-bottom:40px;">客戶見證</h2>
+      <div class="testimonials">
+        <div class="testimonial">
+          <img src={import.meta.env.BASE_URL + "images/home-customer2.jpg"} alt="張先生" width="72" height="72" loading="lazy" class="testimonial-avatar" />
+          <p class="testimonial-text">「55歲退休能實現嗎？」惠芳CFP以專業財務顧問角度，科學量化精算一生的現金流，從退休資金、稅務、到資產信託規劃與實際執行，每一步都讓我更踏實，不只做規劃，更定期提醒與追蹤進度，讓我能專心衝刺事業，不再為未來焦慮，完成規劃後，我對人生財務藍圖更加安心！</p>
+          <p class="testimonial-name">張先生｜科技業主管</p>
+        </div>
+        <div class="testimonial">
+          <img src={import.meta.env.BASE_URL + "images/home-customer3.jpg"} alt="陳小姐" width="72" height="72" loading="lazy" class="testimonial-avatar" />
+          <p class="testimonial-text">我常思考：「保險買這麼多，真的都需要嗎？」惠芳CFP以獨立理財規劃顧問第三方角色，全面盤點保單與資產，揪出多餘的保障與不當理財商品，重新調整收支與現金流，繳更少保費，保障卻差不多，大幅降低保險支出，資產負債表一目了然，心更安定，讓我體會到：「找對顧問，是最聰明的省錢方式！」</p>
+          <p class="testimonial-name">陳小姐｜退休人士</p>
+        </div>
+        <div class="testimonial">
+          <img src={import.meta.env.BASE_URL + "images/home-customer1.jpg"} alt="王先生" width="72" height="72" loading="lazy" class="testimonial-avatar" />
+          <p class="testimonial-text">我是財務投資小白，在惠芳CFP指導下，從開戶到投資執行與收支掌控逐步建立，每月養成紀錄習慣，重新確立理財目標，一步步打造理想生活藍圖與財務秩序。我也開始學習用AI自學新知，提升專業能力與收入，財務壓力漸漸減輕，不再焦慮也不盲從，逐步邁向我的財務幸福。</p>
+          <p class="testimonial-name">王先生｜工程監工</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 媒體採訪 -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center;margin-bottom:32px;">媒體採訪</h2>
+
+      <ul class="media-list">
+        <li>TVBS 十點不一樣專訪：<a href="https://youtu.be/KdxAo-9BpdI?si=QiA8Up1xF-uInhRQ&t=180" target="_blank" rel="noopener nofollow">勞保年金差距曝光！電力業月領3.3萬 餐旅業僅1.7萬入不敷出</a></li>
+        <li>TVBS 十點不一樣專訪：<a href="https://www.youtube.com/watch?v=QktyMzy--68" target="_blank" rel="noopener nofollow">窮到只剩下錢？明明不缺錢卻對未來憂心的「貧窮妄想」</a></li>
+        <li>橘世代文章專訪：<a href="https://orange.udn.com/orange/story/121197/9136896" target="_blank" rel="noopener nofollow">癌症醫療燒掉的錢好驚人！一次看懂癌症險買多少、怎麼買及常見盲點｜橘世代</a></li>
+        <li>刊登天下雜誌：<a href="https://www.cw.com.tw/article/5136867" target="_blank" rel="noopener nofollow">一年存多少才正常？台灣家庭存錢力揭曉</a></li>
+        <li>刊登今周刊：<a href="https://www.businesstoday.com.tw/article/category/183035/post/202510270037/" target="_blank" rel="noopener nofollow">薇閣、康橋、復興...11所私校學費一次看！每年100萬值得嗎？專家教你如何籌出孩子教育費、還能兼存退休金－今周刊</a></li>
+        <li>FPAT 財務幸福之路podcast專訪：<a href="https://solink.soundon.fm/episode/5c950785-667b-4cd3-bc5a-2d108321a0c0" target="_blank" rel="noopener nofollow">EP6｜全方位理財師CFP® 張惠芳</a></li>
+        <li>FPAT 2022理財規劃書競賽活動：<a href="https://www.youtube.com/watch?v=ykfA1qhsj1w" target="_blank" rel="noopener nofollow">榮獲最佳顧問獎 影片</a></li>
+      </ul>
+
+      <div class="media-divider"></div>
+
+      <div class="media-videos">
+        <a href="https://www.youtube.com/watch?v=QktyMzy--68" target="_blank" rel="noopener nofollow">
+          <img src={import.meta.env.BASE_URL + "images/tvbs-thumbnail2.png"} alt="TVBS 十點不一樣專訪 - 窮到只剩下錢？" width="510" height="280" loading="lazy" />
+        </a>
+        <a href="https://youtu.be/KdxAo-9BpdI?si=QiA8Up1xF-uInhRQ&t=180" target="_blank" rel="noopener nofollow">
+          <img src={import.meta.env.BASE_URL + "images/tvbs-thumbnail.png"} alt="TVBS 十點不一樣專訪 - 勞保年金差距曝光" width="510" height="280" loading="lazy" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <img src={import.meta.env.BASE_URL + "images/footer-logo.jpg"} alt="諾昇理財規劃" width="150" height="92" loading="lazy" />
+          <p>財務規劃是幫個人或家庭做好管理財務的過程，幫助大家達成財務目標，包括儲蓄、退休、投資、孩子教育、購屋、買車、旅遊、稅務、傳承等，可以盤點目前的財務資源和收入，量化財務目標，以實現FIRE（Financial Independence Retire Early）的幸福財富人生！</p>
+        </div>
+        <div class="footer-right">
+          <h6 class="footer-contact-title">聯絡資訊：</h6>
+          <ul class="footer-contact-list">
+            <li>諾昇理財規劃顧問股份有限公司<br />Noblerise Financial Consultant co., LTD</li>
+            <li><a href="https://line.me/ti/p/~@noblerise" target="_blank" rel="noopener nofollow">LINE : <span class="footer-line-id">@noblerise</span></a></li>
+            <li><a href="mailto:contact@noblerise.com.tw">電子郵件：contact@noblerise.com.tw</a></li>
+            <li>地址：106 台北市大安區復興南路一段222號2樓</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <p>© 2025 諾昇理財規劃顧問股份有限公司 All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
