@@ -193,15 +193,16 @@ a { color: inherit; }
 .blog-cat-bar {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
+  justify-content: space-around;
+  gap: 0;
   margin-bottom: 32px;
   border-bottom: 2px solid #e5e5e5;
   padding-bottom: 0;
 }
 .blog-cat-link {
   display: inline-block;
-  padding: 8px 18px;
-  font-size: 15px;
+  padding: 12px 8px;
+  font-size: 18px;
   font-weight: 500;
   color: #444;
   text-decoration: none;
