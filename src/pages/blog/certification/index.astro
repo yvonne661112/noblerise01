@@ -2,6 +2,7 @@
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
 import Head from '../../../components/Head.astro';
+import BlogList from '../../../components/BlogList.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 type Post = CollectionEntry<'blog'>;
@@ -11,27 +12,20 @@ const posts = rawPosts
   .filter((p: Post) => p.data.categories?.includes('certification'))
   .sort((a: Post, b: Post) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 
-interface PostView {
-  slug: string;
-  title: string;
-  image?: string;
-  description: string;
-  dateStr: string;
-}
-
-const postViews: PostView[] = posts.map((post: Post) => ({
+const postViews = posts.map((post: Post) => ({
   slug: post.data.numericSlug,
   title: post.data.title,
   image: post.data.image,
   description: post.data.description,
   dateStr: new Date(post.data.date).toLocaleDateString('zh-TW'),
+  catLabel: '證照進修',
+  catUrl: import.meta.env.BASE_URL + 'blog/certification/',
 }));
 ---
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <Head title="證照進修 | 諾昇理財規劃" description="諾昇理財規劃 證照進修 相關文章，由 CFP® 張惠芳撰寫，提供專業財務知識。" />
-  
 </head>
 <body>
   <Header />
@@ -44,30 +38,7 @@ const postViews: PostView[] = posts.map((post: Post) => ({
 
   <main class="section">
     <div class="container">
-      <div class="blog-list">
-        {postViews.map(p => (
-          <article class="blog-list-card">
-            <a href={`${import.meta.env.BASE_URL}${p.slug}/`} class="blog-list-img-wrap">
-              {p.image
-                ? <img src={import.meta.env.BASE_URL + p.image.replace(/^\//, '')} alt={p.title} width="320" height="200" loading="lazy" />
-                : <div class="blog-list-img-placeholder"></div>
-              }
-            </a>
-            <div class="blog-list-body">
-              <div class="blog-card-meta">
-                <span>張惠芳 CFP®</span>
-                <span>·</span>
-                <span>{p.dateStr}</span>
-                <span>·</span>
-                <a href={import.meta.env.BASE_URL + "blog/certification/"}>證照進修</a>
-              </div>
-              <h2><a href={`${import.meta.env.BASE_URL}${p.slug}/`}>{p.title}</a></h2>
-              <p class="blog-card-excerpt">{p.description.slice(0, 100)}…</p>
-              <a href={`${import.meta.env.BASE_URL}${p.slug}/`} class="read-more">閱讀全文</a>
-            </div>
-          </article>
-        ))}
-      </div>
+      <BlogList posts={postViews} />
     </div>
   </main>
 
