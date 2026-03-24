@@ -23,6 +23,9 @@ const posts = rawPosts.sort(
 
 const postViews = posts.map((post: Post) => {
   const mainCat = post.data.categories?.find((c: string) => c !== 'blog') ?? '';
+  const catLabels = (post.data.categories ?? [])
+    .filter((c: string) => c !== 'blog' && categoryLabels[c])
+    .map((c: string) => categoryLabels[c]);
   return {
     slug: post.data.numericSlug,
     title: post.data.title,
@@ -31,6 +34,8 @@ const postViews = posts.map((post: Post) => {
     dateStr: new Date(post.data.date).toLocaleDateString('zh-TW'),
     catLabel: categoryLabels[mainCat] ?? '理財新知',
     catUrl: mainCat ? (import.meta.env.BASE_URL + `blog/${mainCat}/`) : (import.meta.env.BASE_URL + 'blog/'),
+    tags: post.data.tags ?? [],
+    catLabels,
   };
 });
 ---
