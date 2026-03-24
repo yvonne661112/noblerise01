@@ -15,9 +15,9 @@
 
   /* ===== FONT SIZE SCALE（改字級只需改這裡）===== */
   --fs-xs:   12px;   /* 極小標籤、次要說明 */
-  --fs-sm:   13px;   /* meta、tag、麵包屑 */
+  --fs-sm:   12px;   /* meta、tag、麵包屑 */
   --fs-base: 14px;   /* 次要內文、表單 */
-  --fs-body: 15px;   /* 標準內文、footer */
+  --fs-body: 16px;   /* 標準內文、footer */
   --fs-md:   16px;   /* 一般強調 */
   --fs-lg:   17px;   /* 小標、footer 標題 */
   --fs-xl:   18px;   /* 導覽列、文章內文 */
@@ -301,7 +301,7 @@ a { color: inherit; }
 .partner-photo { width: 160px; height: 200px; object-fit: cover; object-position: top; display: block; margin: 0 auto 16px; border-radius: 4px; }
 .partner-name { font-family: var(--font-heading); font-size: var(--fs-xl); font-weight: 700; color: var(--color-primary); margin-bottom: 4px; }
 .partner-title { font-size: var(--fs-base); color: var(--color-accent); font-weight: 600; margin-bottom: 12px; }
-.partner-bio { font-size: var(--fs-sm); color: #555; line-height: 1.7; text-align: left; }
+.partner-bio { font-size: var(--fs-md); color: #555; line-height: 1.7; text-align: left; }
 
 /* ===== FOOTER ===== */
 .site-footer { margin-top: 80px; }
