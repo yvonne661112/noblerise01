@@ -115,7 +115,7 @@ const jsonLd = {
   margin-bottom: 12px;
 }
 .post-meta {
-  font-size: 13px;
+  font-size: 16px;
   color: #05090a;
   display: flex;
   gap: 8px;
@@ -129,8 +129,8 @@ const jsonLd = {
 .post-cover img { width: 100%; height: auto; display: block; }
 
 .post-content {
-  font-size: 16px;
-  line-height: 1.9;
+  font-size: 18px;
+  line-height: 2.5;
   color: #222;
 }
 .post-content h2, .post-content h3 {
@@ -143,6 +143,28 @@ const jsonLd = {
 .post-content a { color: #0d383a; }
 .post-content ul, .post-content ol { margin: 16px 0 16px 24px; }
 .post-content li { margin-bottom: 8px; }
-
-
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+  font-family: 'Montserrat', sans-serif;
+  color: #0d383a;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.post-content h4 { margin: 28px 0 10px; }
+.post-content h5,
+.post-content h6 { margin: 20px 0 8px; }
+.post-content blockquote {
+  border-left: 4px solid #85a14f;
+  background: #f7f9f4;
+  margin: 24px 0;
+  padding: 16px 20px;
+  border-radius: 0 4px 4px 0;
+  color: #333;
+  font-style: normal;
+}
+.post-content blockquote p { margin-bottom: 8px; }
+.post-content blockquote p:last-child { margin-bottom: 0; }
+.post-content hr { border: none; border-top: 1px solid #e5e5e5; margin: 32px 0; }
 </style>
