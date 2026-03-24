@@ -21,10 +21,10 @@ import { author } from '../data/author';
 .author-card {
   margin-top: 48px;
   padding: 20px 24px;
-  border-top: 2px solid #85a14f;
+  border-top: 2px solid var(--color-accent);
   background: #f7f9f4;
   border-radius: 0 0 4px 4px;
-  font-size: 17px;
+  font-size: var(--fs-lg);
   line-height: 1.8;
   color: #333;
 }
@@ -36,17 +36,17 @@ import { author } from '../data/author';
   flex-wrap: wrap;
 }
 .author-label {
-  color: #0d383a;
+  color: var(--color-primary);
   font-weight: 700;
 }
 .author-name {
   font-weight: 700;
-  color: #0d383a;
-  font-size: 18px;
+  color: var(--color-primary);
+  font-size: var(--fs-xl);
 }
 .author-title {
   color: #555;
-  font-size: 17px;
+  font-size: var(--fs-lg);
 }
 .author-details {
   list-style: none;
@@ -59,20 +59,20 @@ import { author } from '../data/author';
 .author-details li {
   display: flex;
   gap: 8px;
-  font-size: 16px;
+  font-size: var(--fs-md);
   color: #444;
 }
 .detail-label {
   flex-shrink: 0;
   font-weight: 600;
-  color: #0d383a;
+  color: var(--color-primary);
   min-width: 32px;
 }
 .detail-label::after {
   content: '：';
 }
 .author-details a {
-  color: #0d383a;
+  color: var(--color-primary);
   word-break: break-all;
 }
 .author-details a:hover {
