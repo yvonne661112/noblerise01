@@ -14,9 +14,10 @@ interface PostView {
 interface Props {
   posts: PostView[];
   currentCat?: string;
+  showCatBar?: boolean;
 }
 
-const { posts, currentCat = '' } = Astro.props;
+const { posts, currentCat = '', showCatBar = true } = Astro.props;
 
 const categories = [
   { slug: '',                 label: '全部文章',  url: import.meta.env.BASE_URL + 'blog/' },
@@ -28,14 +29,14 @@ const categories = [
   { slug: 'tax-planning',     label: '傳承稅務',  url: import.meta.env.BASE_URL + 'blog/tax-planning/' },
 ];
 ---
-<nav class="blog-cat-bar">
+{showCatBar && <nav class="blog-cat-bar">
   {categories.map(cat => (
     <a
       href={cat.url}
       class={`blog-cat-link${currentCat === cat.slug ? ' active' : ''}`}
     >{cat.label}</a>
   ))}
-</nav>
+</nav>}
 
 <div class="blog-list">
   {posts.map(p => (
