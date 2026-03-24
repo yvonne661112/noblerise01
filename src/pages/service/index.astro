@@ -2,6 +2,7 @@
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Head from '../../components/Head.astro';
+import { SHOW_BOOKING } from '../../data/siteConfig';
 ---
 <!DOCTYPE html>
 <html lang="zh-TW">
@@ -70,7 +71,9 @@ import Head from '../../components/Head.astro';
         <p style="margin-bottom:16px;">若您想進一步了解財務規劃，我們提供 30 分鐘免費線上諮詢。協助釐清您的財務現況是否需要規劃，並說明諾昇的流程、服務內容與收費方式。</p>
         <p style="margin-bottom:24px;font-weight:600;">您將帶走清楚的下一步方向，以及選擇最適合自己方案所需的完整資訊。</p>
         <p style="font-size:var(--fs-sm);color:#777;margin-bottom:32px;">※ 30 分鐘諮詢僅為流程及方向建議，並無提供個別財務問題的深入分析與解決方案建議。</p>
-        <a href={import.meta.env.BASE_URL + "contact/"} class="btn btn-primary">預約免費諮詢</a>
+        {SHOW_BOOKING && (
+          <a href={import.meta.env.BASE_URL + "contact/"} class="btn btn-primary">預約免費諮詢</a>
+        )}
       </div>
     </section>
 

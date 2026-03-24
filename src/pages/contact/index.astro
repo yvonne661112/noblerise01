@@ -2,6 +2,7 @@
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Head from '../../components/Head.astro';
+import { SHOW_BOOKING } from '../../data/siteConfig';
 ---
 <!DOCTYPE html>
 <html lang="zh-TW">
@@ -20,7 +21,8 @@ import Head from '../../components/Head.astro';
 
   <main class="section">
     <div class="container">
-      <div class="grid-2" style="align-items:start;">
+      <div class={SHOW_BOOKING ? "grid-2" : ""} style="align-items:start;">
+        {SHOW_BOOKING && (
         <div>
           <h2 class="section-title" style="margin-bottom:32px;">預約諮詢</h2>
           <form class="contact-form" name="contact" method="POST" action="/contact/">
@@ -57,6 +59,7 @@ import Head from '../../components/Head.astro';
             <button type="submit" class="btn btn-primary">送出</button>
           </form>
         </div>
+        )}
 
         <div>
           <h2 class="section-title" style="margin-bottom:32px;">聯絡資訊</h2>
