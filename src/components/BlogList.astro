@@ -56,7 +56,7 @@ const categories = [
           <a href={p.catUrl}>{p.catLabel}</a>
         </div>
         <h2><a href={`${import.meta.env.BASE_URL}${p.slug}/`}>{p.title}</a></h2>
-        <p class="blog-card-excerpt">{p.description.slice(0, 100)}…</p>
+        <p class="blog-card-excerpt">{p.description.slice(0, 60)}…</p>
         <div class="blog-card-taxonomy">
           {p.catLabels && p.catLabels.map(label => (
             <span class="tax-cat">{label}</span>
