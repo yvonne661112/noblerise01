@@ -1,4 +1,5 @@
 ---
+import { CONTACT } from '../data/siteConfig';
 ---
 <footer class="site-footer">
   <div class="footer-main">
@@ -11,12 +12,12 @@
         <h6 class="footer-contact-title">聯絡資訊：</h6>
         <ul class="footer-contact-list">
           <li>
-            <span style="display:block;text-align:justify;text-align-last:justify;">諾昇理財規劃顧問股份有限公司</span>
-            <span style="display:block;text-align:justify;text-align-last:justify;">Noblerise Financial Consultant co., LTD</span>
+            <span style="display:block;text-align:justify;text-align-last:justify;">{CONTACT.companyNameZh}</span>
+            <span style="display:block;text-align:justify;text-align-last:justify;">{CONTACT.companyNameEn}</span>
           </li>
-          <li><a href="https://line.me/ti/p/~@noblerise" target="_blank" rel="noopener nofollow">LINE : <span class="footer-line-id">@noblerise</span></a></li>
-          <li><a href="mailto:contact@noblerise.com.tw">電子郵件：contact@noblerise.com.tw</a></li>
-          <li>地址：106 台北市大安區復興南路一段222號2樓</li>
+          <li><a href={CONTACT.lineUrl} target="_blank" rel="noopener nofollow">LINE : <span class="footer-line-id">{CONTACT.line}</span></a></li>
+          <li><a href={`mailto:${CONTACT.email}`}>電子郵件：{CONTACT.email}</a></li>
+          <li>地址：{CONTACT.address}</li>
         </ul>
       </div>
     </div>

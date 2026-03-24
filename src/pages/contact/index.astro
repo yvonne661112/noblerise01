@@ -2,7 +2,7 @@
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Head from '../../components/Head.astro';
-import { SHOW_BOOKING } from '../../data/siteConfig';
+import { SHOW_BOOKING, CONTACT } from '../../data/siteConfig';
 ---
 <!DOCTYPE html>
 <html lang="zh-TW">
@@ -64,13 +64,13 @@ import { SHOW_BOOKING } from '../../data/siteConfig';
         <div>
           <h2 class="section-title" style="margin-bottom:32px;">聯絡資訊</h2>
           <div style="font-size:var(--fs-body);line-height:2.2;">
-            <p><strong>公司</strong><br>諾昇理財規劃顧問股份有限公司<br>NobleRise Financial Consultant Co., Ltd.</p>
+            <p><strong>公司</strong><br>{CONTACT.companyNameZh}<br>{CONTACT.companyNameEn}</p>
             <br />
-            <p><strong>Email</strong><br><a href="mailto:contact@noblerise.com.tw" style="color:var(--color-primary);">contact@noblerise.com.tw</a></p>
+            <p><strong>Email</strong><br><a href={`mailto:${CONTACT.email}`} style="color:var(--color-primary);">{CONTACT.email}</a></p>
             <br />
-            <p><strong>LINE</strong><br><a href="https://line.me/ti/p/~@noblerise" target="_blank" rel="noopener" style="color:var(--color-primary);">@noblerise</a></p>
+            <p><strong>LINE</strong><br><a href={CONTACT.lineUrl} target="_blank" rel="noopener" style="color:var(--color-primary);">{CONTACT.line}</a></p>
             <br />
-            <p><strong>地址</strong><br>106 台北市大安區復興南路一段222號2樓</p>
+            <p><strong>地址</strong><br>{CONTACT.address}</p>
           </div>
         </div>
       </div>
