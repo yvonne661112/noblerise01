@@ -293,8 +293,8 @@ a { color: inherit; }
 .testimonials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .testimonial { background: #f9f9f9; border-radius: 8px; padding: 28px; }
 .testimonial-avatar { width: 72px; height: 72px; object-fit: cover; border-radius: 50%; margin-bottom: 16px; display: block; }
-.testimonial-text { font-size: var(--fs-base); line-height: 1.8; color: #333; font-style: italic; margin-bottom: 16px; }
-.testimonial-name { font-weight: 600; color: var(--color-primary); font-size: var(--fs-base); }
+.testimonial-text { font-size: var(--fs-body); line-height: 1.8; color: #333; font-style: italic; margin-bottom: 16px; }
+.testimonial-name { font-weight: 600; color: var(--color-primary); font-size: var(--fs-md); }
 
 /* ===== PERSON CARD (策略夥伴) ===== */
 .partner-card { text-align: center; padding: 20px; }
