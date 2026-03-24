@@ -1,0 +1,81 @@
+---
+import { author } from '../data/author';
+---
+
+<div class="author-card">
+  <div class="author-card-header">
+    <span class="author-label">【作者】</span>
+    <span class="author-name">{author.name}</span>
+    <span class="author-title">{author.title}</span>
+  </div>
+  <ul class="author-details">
+    <li><span class="detail-label">現職</span>{author.position}</li>
+    <li><span class="detail-label">證書</span>{author.certifications}</li>
+    <li><span class="detail-label">專長</span>{author.specialties}</li>
+    <li><span class="detail-label">得獎</span>{author.awards}</li>
+    <li><span class="detail-label">網站</span><a href={author.website} target="_blank" rel="noopener">{author.website}</a></li>
+  </ul>
+</div>
+
+<style>
+.author-card {
+  margin-top: 48px;
+  padding: 20px 24px;
+  border-top: 2px solid #85a14f;
+  background: #f7f9f4;
+  border-radius: 0 0 4px 4px;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #333;
+}
+.author-card-header {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.author-label {
+  color: #0d383a;
+  font-weight: 700;
+}
+.author-name {
+  font-weight: 700;
+  color: #0d383a;
+  font-size: 18px;
+}
+.author-title {
+  color: #555;
+  font-size: 17px;
+}
+.author-details {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.author-details li {
+  display: flex;
+  gap: 8px;
+  font-size: 16px;
+  color: #444;
+}
+.detail-label {
+  flex-shrink: 0;
+  font-weight: 600;
+  color: #0d383a;
+  min-width: 32px;
+}
+.detail-label::after {
+  content: '：';
+}
+.author-details a {
+  color: #0d383a;
+  word-break: break-all;
+}
+.author-details a:hover {
+  text-decoration: underline;
+}
+</style>
