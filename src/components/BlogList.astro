@@ -18,19 +18,13 @@ interface Props {
 }
 
 import { getAssetPath } from '../utils/assets';
+import { getCategoryNavItems } from '../data/categories';
+import { author } from '../data/author';
 
 const { posts, currentCat = '', showCatBar = true } = Astro.props;
 const base = import.meta.env.BASE_URL;
 
-const categories = [
-  { slug: '',                  label: '全部文章', url: base + 'blog/' },
-  { slug: 'investment',        label: '投資理財', url: base + 'blog/investment/' },
-  { slug: 'insurance',         label: '保險權益', url: base + 'blog/insurance/' },
-  { slug: 'certification',     label: '證照進修', url: base + 'blog/certification/' },
-  { slug: 'business-planning', label: '財務規劃', url: base + 'blog/business-planning/' },
-  { slug: 'elderly-care-trust',label: '信託規劃', url: base + 'blog/elderly-care-trust/' },
-  { slug: 'tax-planning',      label: '傳承稅務', url: base + 'blog/tax-planning/' },
-];
+const categories = getCategoryNavItems(base);
 ---
 {showCatBar && <nav class="blog-cat-bar">
   {categories.map(cat => (
@@ -52,7 +46,7 @@ const categories = [
       </a>
       <div class="blog-list-body">
         <div class="blog-card-meta">
-          <span>張惠芳 CFP®</span>
+          <span>{author.name}</span>
           <span>·</span>
           <span>{p.dateStr}</span>
           <span>·</span>

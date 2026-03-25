@@ -32,7 +32,7 @@ export function transformPost(
   return {
     slug: post.data.numericSlug,
     title: post.data.title,
-    image: post.data.image,
+    image: post.data.image ?? 'images/og-default.jpg',
     description: post.data.description,
     dateStr: new Date(post.data.date).toLocaleDateString('zh-TW'),
     catLabel: categoryLabels[mainCat] ?? '理財新知',

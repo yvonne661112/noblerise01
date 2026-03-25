@@ -12,7 +12,7 @@
 | Batch 1 | M 遷移連貫性（M-1~M-4、A-3） | ✅ 完成 |
 | Batch 2 | SEO 改善（A-1/C-6、A-2/C-2、A-4、A-5） | ✅ 完成 |
 | Batch 3 | 設計改善（B-1~B-4） | ✅ 完成 |
-| Batch 4 | 程式碼低效（C-1、C-3、C-4、C-5） | ⏳ 待處理 |
+| Batch 4 | 程式碼低效（C-1、C-3、C-4、C-5） | ✅ 完成 |
 
 **略過項目**（需外部資料或低風險高成本）：
 - A-6（聯絡頁電話：需取得實際號碼）
@@ -67,10 +67,10 @@
 
 | 子項 | 說明 | 步驟狀態 |
 |------|------|---------|
-| C-1 | data/categories.ts 加入 getCategoryNavItems()；BlogList.astro 使用 | ⏳ |
-| C-3 | BlogList.astro 作者名稱改由 author.ts 提供 | ⏳ |
-| C-4 | 擴充 src/utils/jsonld.ts 工廠函式，重構 blog/index 與 [category]/index | ⏳ |
-| C-5 | src/utils/post.ts transformPost 加入缺失圖片備用值 | ⏳ |
+| C-1 | data/categories.ts 加入 getCategoryNavItems()；BlogList.astro 使用 | ✅ |
+| C-3 | BlogList.astro 作者名稱改由 author.ts 提供 | ✅ |
+| C-4 | 擴充 src/utils/jsonld.ts 工廠函式，重構 blog/index 與 [category]/index | ✅ |
+| C-5 | src/utils/post.ts transformPost 加入缺失圖片備用值 | ✅ |
 
 ---
 
