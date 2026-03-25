@@ -17,7 +17,7 @@
   --fs-xs:   12px;   /* 極小標籤、次要說明 */
   --fs-sm:   12px;   /* meta、tag、麵包屑 */
   --fs-base: 14px;   /* 次要內文、表單 */
-  --fs-body: 16px;   /* 標準內文、footer */
+  --fs-body: 18px;   /* 標準內文、footer */
   --fs-md:   16px;   /* 一般強調 */
   --fs-lg:   17px;   /* 小標、footer 標題 */
   --fs-xl:   18px;   /* 導覽列、文章內文 */
@@ -29,6 +29,7 @@
 
 body {
   font-family: var(--font-body);
+  font-size: var(--fs-body);
   color: var(--color-text);
   background: var(--color-white);
   line-height: 1.7;
