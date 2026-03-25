@@ -1,0 +1,48 @@
+/**
+ * Theme: Kawazu（河津桜色系）
+ * 切換方式：將 src/data/siteConfig.ts 的 activeTheme 改為 'kawazu'
+ *
+ * 設計語言：深梅紫底蘊 × 河津桜暖粉點綴，傳遞春日溫柔與穩重的財富管理質感。
+ * 字型：Cormorant Garamond（英文標題）+ Noto Serif TC（中文標題）+ Noto Sans TC（內文）
+ */
+:root {
+  /* ── 主色系 ── */
+  --color-primary:       #3B2442;   /* 深梅紫 */
+  --color-accent:        #C95070;   /* 河津桜 深粉 */
+  --color-accent-light:  #E08FA0;   /* 花瓣淡粉 */
+  --color-accent-pale:   #FDF0F4;   /* 淡櫻白 */
+
+  /* ── 背景 / 區塊 ── */
+  --color-bg-subtle:     #FAF3F5;
+  --color-dark-section:  #2A1835;
+  --color-footer-bg:     #171717;
+
+  /* ── 邊框 ── */
+  --color-border:        #E8D0D8;
+  --color-border-accent: rgba(201, 80, 112, 0.15);
+
+  /* ── 文字 ── */
+  --color-text:          #1a1a1a;
+  --color-text-dark:     #1a1a1a;
+  --color-text-mid:      #5A4550;
+  --color-text-muted:    rgba(255, 255, 255, 0.55);
+  --color-white:         #ffffff;
+  --color-rose:          #ea3a60;
+
+  /* ── Hero ── */
+  --hero-overlay:        rgba(42, 24, 53, 0.88);
+  --hero-pattern:        radial-gradient(ellipse 60% 80% at 80% 40%, rgba(201, 80, 112, 0.14) 0%, transparent 70%),
+                         radial-gradient(ellipse 40% 60% at 15% 75%, rgba(224, 143, 160, 0.08) 0%, transparent 60%),
+                         linear-gradient(rgba(201, 80, 112, 0.03) 1px, transparent 1px),
+                         linear-gradient(90deg, rgba(201, 80, 112, 0.03) 1px, transparent 1px);
+
+  /* ── 卡片 ── */
+  --card-radius:         14px;
+  --card-shadow:         0 2px 10px rgba(59, 36, 66, 0.07);
+  --card-shadow-hover:   0 16px 48px rgba(59, 36, 66, 0.13);
+
+  /* ── 字型 ── */
+  --font-heading:        'Cormorant Garamond', 'Noto Serif TC', serif;
+  --font-body:           'Noto Sans TC', sans-serif;
+  --heading-weight:      400;
+}
