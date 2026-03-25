@@ -1,200 +1,81 @@
-# Process.md — 高優先度 TODO 執行記錄
+# Process.md — TODO 第二輪執行記錄
 
-> 對應 TODO.md 的高優先度項目（★★★）
-> 此檔用於中斷後重啟工作的續接依據
+> 對應 TODO.md 第二輪（含遷移連貫性 M 批次）
+> 此檔用於中斷後重啟的續接依據
 
 ---
 
-## 工作批次：高優先度項目
+## 批次總覽
 
-### 處理項目
-
-| 項目 | 說明 | 狀態 |
+| 批次 | 說明 | 狀態 |
 |------|------|------|
-| C-1 | 提取 `categoryLabels` → `src/data/categories.ts` | ✅ 完成（commit 7604181） |
-| C-2 | 提取 `transformPost()` → `src/utils/post.ts` | ✅ 完成（commit e5c23f2） |
-| A-4 | 移除策略夥伴頁重複 Google Fonts `<link>` | ✅ 完成（commit 8877684） |
+| Batch 1 | M 遷移連貫性（M-1~M-4、A-3） | ✅ 完成 |
+| Batch 2 | SEO 改善（A-1/C-6、A-2/C-2、A-4、A-5） | ⏳ 待處理 |
+| Batch 3 | 設計改善（B-1~B-4） | ⏳ 待處理 |
+| Batch 4 | 程式碼低效（C-1、C-3、C-4、C-5） | ⏳ 待處理 |
+
+**略過項目**（需外部資料或低風險高成本）：
+- A-6（聯絡頁電話：需取得實際號碼）
+- A-7（Astro Image 元件：改動範圍大，留待 task02 後評估）
+- B-5（頭像視覺語言：需設計師確認）
+- C-7（SakuraRain 效能：低優先度）
+- C-8（ViewTransitions：需測試相容性）
+- M-5（GSC 重新驗證：文件記錄，無程式碼改動）
 
 ---
 
-## C-1：提取 categoryLabels
+## Batch 1：遷移連貫性（M-1 ~ M-4、A-3）
 
-### 目標
-建立 `src/data/categories.ts`，將 `categoryLabels` 從以下 4 個頁面的重複定義中統一：
-- `src/pages/index.astro`（第 11–18 行）
-- `src/pages/blog/index.astro`（第 11–18 行）
-- `src/pages/blog/[category]/index.astro`（第 11–18 行）
-- `src/pages/[...slug].astro`（第 25–32 行）
+| 子項 | 說明 | 步驟狀態 |
+|------|------|---------|
+| M-1 | robots.txt 加入 DNS 切換 SOP 說明 | ✅ |
+| M-2 | Head.astro sitemap link 加入 base path；記錄 sitemap 檔名差異 | ✅ |
+| M-3 | `[...slug].astro` JSON-LD `@type` 改為 `BlogPosting` | ✅ |
+| M-4 | `[...slug].astro` datePublished/dateModified 加入 +08:00 時區 | ✅ |
+| A-3 | `[...slug].astro` JSON-LD 加入 `inLanguage: "zh-TW"` | ✅ |
 
-`[category]/index.astro` 的 `getStaticPaths` 也有重複的 slug 鍵名（第 22–29 行），一併由 `categories.ts` 匯出 `categorySlugs`。
-
-### 步驟
-1. [x] 建立 `src/data/categories.ts`
-2. [x] 更新 `src/pages/index.astro`
-3. [x] 更新 `src/pages/blog/index.astro`
-4. [x] 更新 `src/pages/blog/[category]/index.astro`
-5. [x] 更新 `src/pages/[...slug].astro`
-6. [x] 驗證 build 無誤 → commit
+### 修改目標檔案
+- `public/robots.txt`
+- `src/components/Head.astro`（第 29 行 sitemap link）
+- `src/pages/[...slug].astro`（jsonLd 物件）
 
 ---
 
-## C-2：提取 transformPost()
+## Batch 2：SEO 改善
 
-### 目標
-建立 `src/utils/post.ts`，將三個頁面重複的文章資料轉換邏輯統一：
-- `src/pages/index.astro`（第 24–40 行）
-- `src/pages/blog/index.astro`（第 38–54 行）
-- `src/pages/blog/[category]/index.astro`（第 54–69 行）
-
-### 步驟
-1. [x] 建立 `src/utils/post.ts`（含 `transformPost`、`sortPostsByDate`）
-2. [x] 更新 `src/pages/index.astro`
-3. [x] 更新 `src/pages/blog/index.astro`
-4. [x] 更新 `src/pages/blog/[category]/index.astro`
-5. [x] 驗證 build 無誤 → commit
+| 子項 | 說明 | 步驟狀態 |
+|------|------|---------|
+| A-1/C-6 | Head.astro og:image 加入 base path（`getAssetPath`） | ⏳ |
+| A-2/C-2 | 刪除遺留元件：BaseHead.astro、BlogPost.astro、FormattedDate.astro、HeaderLink.astro | ⏳ |
+| A-4 | blog/index.astro 與 [category]/index.astro 加入 BreadcrumbList JSON-LD | ⏳ |
+| A-5 | 策略夥伴頁 JSON-LD Person 物件加入 image URL | ⏳ |
 
 ---
 
-## A-4：移除策略夥伴頁重複字型
+## Batch 3：設計改善
 
-### 目標
-`src/pages/about/策略夥伴/index.astro`（第 33–35 行）手動 `<link>` Google Fonts，
-與 `Head.astro` 已統一載入的字型重複。
-
-### 步驟
-1. [x] 刪除第 33–35 行的三個 `<link>` 標籤
-2. [x] 確認 `Head.astro` 的 premium 主題已包含相同字型
-3. [x] 驗證頁面字型顯示正常 → commit
+| 子項 | 說明 | 步驟狀態 |
+|------|------|---------|
+| B-1 | 硬編碼色彩轉 CSS 變數（global.css、BlogList.astro、theme 檔） | ⏳ |
+| B-2 | 建立 CompanyName.astro 元件，取代 contact/footer 的內聯 style | ⏳ |
+| B-3 | PageHero.astro stats 加入 flex-wrap，小螢幕堆疊 | ⏳ |
+| B-4 | service/index.astro 服務卡片加入 aspect-ratio | ⏳ |
 
 ---
 
-## Commit 計劃（高優先度）
-- Commit 1：C-1（categories.ts + 4 頁面更新）✅
-- Commit 2：C-2（post.ts + 3 頁面更新）✅
-- Commit 3：A-4（策略夥伴頁字型清理）✅
+## Batch 4：程式碼低效
+
+| 子項 | 說明 | 步驟狀態 |
+|------|------|---------|
+| C-1 | data/categories.ts 加入 getCategoryNavItems()；BlogList.astro 使用 | ⏳ |
+| C-3 | BlogList.astro 作者名稱改由 author.ts 提供 | ⏳ |
+| C-4 | 擴充 src/utils/jsonld.ts 工廠函式，重構 blog/index 與 [category]/index | ⏳ |
+| C-5 | src/utils/post.ts transformPost 加入缺失圖片備用值 | ⏳ |
 
 ---
 
-## 工作批次：中優先度項目
-
-### 處理項目
-
-| 項目 | 說明 | 狀態 |
-|------|------|------|
-| A-2 | 文章 JSON-LD 補充 `mainEntityOfPage`、`dateModified` | ✅ 完成（commit 0ec559a） |
-| A-3 | 分類頁 JSON-LD 補充 `hasPart` | ✅ 完成（commit 429bf0c） |
-| B-4 | 策略夥伴頁響應式斷點 `540px` → `600px` | ✅ 完成（commit d05ea8a） |
-
----
-
-## A-2：文章 JSON-LD 補充關鍵欄位
-
-### 目標
-`src/pages/[...slug].astro` 的 Article JSON-LD 補充：
-- `mainEntityOfPage`：`{ "@type": "WebPage", "@id": canonicalUrl }`
-- `dateModified`：使用 `post.data.date`（目前無獨立更新日期欄位）
-
-### 步驟
-1. [x] 更新 `[...slug].astro` 的 `jsonLd` 物件
-2. [x] 驗證 build 無誤 → commit
-
----
-
-## A-3：分類頁 JSON-LD 補充 hasPart
-
-### 目標
-`src/pages/blog/[category]/index.astro` 的 CollectionPage JSON-LD 補充 `hasPart` 陣列，
-讓 Google 能理解該分類頁包含哪些文章。
-
-### 步驟
-1. [x] 將 posts 計算移至 jsonLd 之前（jsonLd 需引用 posts）
-2. [x] 更新 `[category]/index.astro` 的 `jsonLd` 物件
-3. [x] 驗證 build 無誤 → commit
-
----
-
-## B-4：統一響應式斷點
-
-### 目標
-`src/pages/about/策略夥伴/index.astro` 的 `<style>` 區塊中，
-將非標準斷點 `@media (max-width: 540px)` 改為全站標準 `600px`。
-
-### 步驟
-1. [x] 找出策略夥伴頁所有 `540px` 斷點並改為 `600px`
-2. [x] 驗證 build 無誤 → commit
-
-## Commit 計劃（中優先度）
-- Commit 4：A-2（文章 JSON-LD 補強）✅
-- Commit 5：A-3（分類頁 hasPart）✅
-- Commit 6：B-4（斷點統一）✅
-
----
-
-## 工作批次：低優先度項目
-
-### 處理項目
-
-| 項目 | 說明 | 狀態 |
-|------|------|------|
-| B-5 | AuthorCard 硬編碼色彩改為 CSS 變數 | ✅ 完成（commit 17a971c） |
-| C-3 | JSON-LD publisher 物件提取至共用 utils | ✅ 完成（commit 0bc7af9） |
-| C-4 | 建立圖片路徑工具，統一動態圖片路徑處理 | ✅ 完成（commit 3008956） |
-
----
-
-## B-5：AuthorCard 去硬編碼
-
-### 目標
-`src/components/AuthorCard.astro`（第 25、29、48、63 行）中的硬編碼色彩：
-- `background: #f7f9f4` → `var(--color-bg-subtle)`（兩主題皆已定義）
-- `color: #333` → `var(--color-text)`
-- `color: #555` → `var(--color-text-mid)`
-- `color: #444` → `var(--color-text-mid)`
-
-### 步驟
-1. [ ] 修改 AuthorCard.astro 的 4 個硬編碼值
-2. [ ] 驗證 build 無誤 → commit
-
----
-
-## C-3：JSON-LD publisher 提取
-
-### 目標
-`publisher` 物件在 3 個頁面硬編碼相同內容：
-- `src/pages/blog/index.astro`
-- `src/pages/blog/[category]/index.astro`
-- `src/pages/[...slug].astro`
-
-建立 `src/utils/jsonld.ts`，匯出 `publisher` 常數。
-
-### 步驟
-1. [ ] 建立 `src/utils/jsonld.ts`
-2. [ ] 更新 3 個頁面 import 並使用 `publisher`
-3. [ ] 驗證 build 無誤 → commit
-
----
-
-## C-4：圖片路徑工具
-
-### 目標
-建立 `src/utils/assets.ts`，解決動態圖片路徑需要手動 `.replace(/^\//, '')` 的問題，
-應用於 `BlogList.astro` 與 `[...slug].astro`。
-（靜態圖片 `BASE_URL + "images/..."` 模式保持不動，避免大量無謂 churn）
-
-### 步驟
-1. [ ] 建立 `src/utils/assets.ts`（含 `getAssetPath`）
-2. [ ] 更新 `BlogList.astro` 的動態圖片路徑
-3. [ ] 更新 `[...slug].astro` 的動態圖片路徑
-4. [ ] 驗證 build 無誤 → commit
-
-## Commit 計劃（低優先度）
-- Commit 7：B-5（AuthorCard 去硬編碼）✅
-- Commit 8：C-3（publisher 常數提取）✅
-- Commit 9：C-4（圖片路徑工具）✅
-
----
-
-## 全部 TODO 項目已完成
-
-所有高／中／低優先度項目均已處理完畢。
-如有新的改善需求，請更新 TODO.md 並開啟新批次。
+## Commit 計劃
+- Commit 1：Batch 1（遷移連貫性 M+A-3）
+- Commit 2：Batch 2（SEO 改善）
+- Commit 3：Batch 3（設計改善）
+- Commit 4：Batch 4（程式碼低效）

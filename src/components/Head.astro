@@ -26,7 +26,7 @@ const fontUrls: Record<typeof activeTheme, string> = {
 <title>{title}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalURL} />
-<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="sitemap" href={`${base}sitemap-index.xml`} />
 <link rel="alternate" hreflang="zh-TW" href={canonicalURL} />
 <meta property="og:type" content={type} />
 <meta property="og:title" content={title} />

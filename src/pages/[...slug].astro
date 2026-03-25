@@ -30,14 +30,18 @@ const categoryUrl = mainCategory === 'blog' ? `${import.meta.env.BASE_URL}blog/`
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
 
+const isoDate = (d: Date) => d.toISOString().replace('Z', '+08:00');
+const dateObj = new Date(date);
+
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "BlogPosting",
   "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
   "headline": title,
   "description": description,
-  "datePublished": date,
-  "dateModified": date,
+  "inLanguage": "zh-TW",
+  "datePublished": isoDate(dateObj),
+  "dateModified": isoDate(dateObj),
   "image": image ? new URL(image, Astro.site).href : undefined,
   "author": {
     "@type": "Person",
