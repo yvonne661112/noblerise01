@@ -434,6 +434,8 @@ a { color: inherit; }
   .service-card-grid { grid-template-columns: 1fr; }
   .main-nav { display: none; }
   .mobile-menu-btn { display: flex; }
+  .header-right { margin-left: auto; }
+  .header-line-btn { margin-left: 0; }
   .header-company { display: none; }
   .footer-inner { flex-direction: column; }
   .footer-left, .footer-right { flex: none; width: 100%; }
