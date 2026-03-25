@@ -1,4 +1,6 @@
 ---
+import SakuraRain from './SakuraRain.astro';
+import { SHOW_SAKURA } from '../data/siteConfig';
 const base = import.meta.env.BASE_URL;
 const path = Astro.url.pathname;
 
@@ -8,6 +10,7 @@ function isActive(href: string): boolean {
   return path.startsWith(href);
 }
 ---
+{SHOW_SAKURA && <SakuraRain />}
 <header class="site-header">
   <div class="header-inner">
     <a href={base} class="logo-link">

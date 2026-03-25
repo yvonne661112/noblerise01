@@ -16,6 +16,13 @@ export const activeTheme: 'classic' | 'premium' | 'prestige' | 'premium-dark' | 
 export const SHOW_BOOKING = false;
 
 /**
+ * 櫻花飄落特效（全站）
+ *   true  — 顯示
+ *   false — 關閉
+ */
+export const SHOW_SAKURA = true;
+
+/**
  * 公司聯絡資訊（統一管理，修改此處全站自動同步）
  */
 export const CONTACT = {

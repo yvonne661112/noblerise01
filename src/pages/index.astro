@@ -83,9 +83,6 @@ const jsonLd = [
   
 </head>
 <body>
-  <!-- 櫻花飄落 -->
-  <div class="sakura-container" aria-hidden="true"></div>
-
   <!-- Header -->
   <Header />
 
@@ -245,31 +242,6 @@ const jsonLd = [
 </body>
 </html>
 
-<style is:global>
-  /* ── 櫻花飄落（全域，JS 動態建立元素需用 is:global） ── */
-  .sakura-container {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 9999;
-  }
-  .sakura-petal {
-    position: absolute;
-    top: -20px;
-    border-radius: 50% 0 50% 0;
-    background: radial-gradient(ellipse at 40% 35%, #fff 0%, #ffb7c5 55%, #e8799a 100%);
-    opacity: 0;
-    animation: sakura-fall linear forwards;
-  }
-  @keyframes sakura-fall {
-    0%   { transform: translateY(0) rotate(0deg) scale(1);   opacity: 0; }
-    5%   { opacity: 0.85; }
-    85%  { opacity: 0.7; }
-    100% { transform: translateY(105vh) rotate(540deg) scale(0.8); opacity: 0; }
-  }
-</style>
-
 <style>
   .service-card-grid {
     display: grid;
@@ -294,30 +266,3 @@ const jsonLd = [
   }
 </style>
 
-<script>
-  (function () {
-    const container = document.querySelector('.sakura-container');
-    if (!container) return;
-
-    function spawnPetal() {
-      const size = Math.random() * 10 + 8;           // 8–18 px
-      const p = document.createElement('div');
-      p.className = 'sakura-petal';
-      p.style.left = Math.random() * 105 + 'vw';
-      p.style.width  = size + 'px';
-      p.style.height = size * (Math.random() * 0.4 + 0.7) + 'px';
-      const dur = Math.random() * 4 + 5;              // 5–9 s
-      p.style.animationDuration = dur + 's';
-      p.style.animationDelay = '0s';
-      container.appendChild(p);
-      setTimeout(() => p.remove(), dur * 1000 + 200);
-    }
-
-    // 初始批次：讓頁面一開始就有花瓣
-    for (let i = 0; i < 12; i++) {
-      setTimeout(spawnPetal, Math.random() * 3000);
-    }
-    // 持續生成
-    setInterval(spawnPetal, 600);
-  })();
-</script>
