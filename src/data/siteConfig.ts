@@ -4,7 +4,7 @@
  * 可選值：'classic'（原始 WordPress 風格）| 'premium'（策略夥伴風格）| 'prestige'（深藍銅金風格）| 'premium-dark'（Premium 深色模式）| 'kawazu'（河津桜色系）
  * 新增主題：在 public/styles/ 新增 theme-xxx.css，並在此擴充型別即可。
  */
-export const activeTheme: 'classic' | 'premium' | 'prestige' | 'premium-dark' | 'kawazu' = 'premium';
+export const activeTheme: 'classic' | 'premium' | 'prestige' | 'premium-dark' | 'kawazu' = 'kawazu';
 
 /**
  * 全站功能開關
