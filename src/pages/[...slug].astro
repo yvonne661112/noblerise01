@@ -26,12 +26,16 @@ const mainCategory = categories?.find(c => c !== 'blog') ?? 'blog';
 const categoryLabel = categoryLabels[mainCategory] ?? '理財新知';
 const categoryUrl = mainCategory === 'blog' ? `${import.meta.env.BASE_URL}blog/` : `${import.meta.env.BASE_URL}blog/${mainCategory}/`;
 
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
   "headline": title,
   "description": description,
   "datePublished": date,
+  "dateModified": date,
   "image": image ? new URL(image, Astro.site).href : undefined,
   "author": {
     "@type": "Person",
