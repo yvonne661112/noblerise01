@@ -82,7 +82,11 @@ const jsonLd = {
         <div>
           <h2 class="section-title" style="margin-bottom:32px;">聯絡資訊</h2>
           <div style="font-size:var(--fs-body);line-height:2.2;">
-            <p><strong>公司</strong><br>{CONTACT.companyNameZh}<br>{CONTACT.companyNameEn}</p>
+            <p>
+              <strong>公司</strong><br>
+              <span style="display:block;text-align:justify;text-align-last:justify;">{CONTACT.companyNameZh}</span>
+              <span style="display:block;text-align:justify;text-align-last:justify;">{CONTACT.companyNameEn}</span>
+            </p>
             <br />
             <p><strong>Email</strong><br><a href={`mailto:${CONTACT.email}`} style="color:var(--color-primary);">{CONTACT.email}</a></p>
             <br />
