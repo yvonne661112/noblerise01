@@ -4,7 +4,7 @@
  * 可選值：'classic'（原始 WordPress 風格）| 'premium'（策略夥伴風格）
  * 新增主題：在 public/styles/ 新增 theme-xxx.css，並在此擴充型別即可。
  */
-export const activeTheme: 'classic' | 'premium' = 'classic';
+export const activeTheme: 'classic' | 'premium' = 'premium';
 
 /**
  * 全站功能開關
