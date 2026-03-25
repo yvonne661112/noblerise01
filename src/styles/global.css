@@ -312,15 +312,15 @@ a { color: inherit; }
   max-width: var(--max-width);
   margin: 0 auto;
   display: flex;
-  gap: 60px;
+  gap: 40px;
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
 }
-.footer-left { flex: 0 1 640px; }
+.footer-left { flex: 0 1 680px; }
 .footer-left img { display: block; margin-bottom: 20px; }
 .footer-left p { font-size: var(--fs-body); line-height: 1.8; color: #fff; }
-.footer-right { flex: 0 1 320px; }
+.footer-right { flex: 0 1 450px; }
 .footer-contact-title { color: #fff; font-size: var(--fs-lg); font-weight: 600; margin-bottom: 16px; }
 .footer-contact-list { list-style: none; margin: 0; padding: 0; }
 .footer-contact-list li { font-size: var(--fs-body); color: #fff; margin-bottom: 12px; line-height: 1.7; }
