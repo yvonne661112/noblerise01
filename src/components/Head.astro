@@ -14,8 +14,10 @@ const absoluteImageUrl = new URL(image, Astro.site);
 const base = import.meta.env.BASE_URL;
 
 const fontUrls: Record<typeof activeTheme, string> = {
-  classic: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;500;600&family=Open+Sans:wght@400;600&display=swap',
-  premium: 'https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500&display=swap',
+  classic:       'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;500;600&family=Open+Sans:wght@400;600&display=swap',
+  premium:       'https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500&display=swap',
+  prestige:      'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Noto+Serif+TC:wght@400;500;700&family=Noto+Sans+TC:wght@300;400;500&display=swap',
+  'premium-dark':'https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500&display=swap',
 };
 ---
 <meta charset="utf-8" />

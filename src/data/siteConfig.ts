@@ -1,10 +1,10 @@
 /**
  * 全站主題設定
  * 切換主題只需修改 activeTheme 的值，其餘全站自動同步。
- * 可選值：'classic'（原始 WordPress 風格）| 'premium'（策略夥伴風格）
+ * 可選值：'classic'（原始 WordPress 風格）| 'premium'（策略夥伴風格）| 'prestige'（深藍銅金風格）| 'premium-dark'（Premium 深色模式）
  * 新增主題：在 public/styles/ 新增 theme-xxx.css，並在此擴充型別即可。
  */
-export const activeTheme: 'classic' | 'premium' = 'premium';
+export const activeTheme: 'classic' | 'premium' | 'prestige' | 'premium-dark' = 'premium';
 
 /**
  * 全站功能開關
