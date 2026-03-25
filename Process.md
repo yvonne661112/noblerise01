@@ -68,7 +68,62 @@
 
 ---
 
-## Commit 計劃
-- Commit 1：C-1（categories.ts + 4 頁面更新）
-- Commit 2：C-2（post.ts + 3 頁面更新）
-- Commit 3：A-4（策略夥伴頁字型清理）
+## Commit 計劃（高優先度）
+- Commit 1：C-1（categories.ts + 4 頁面更新）✅
+- Commit 2：C-2（post.ts + 3 頁面更新）✅
+- Commit 3：A-4（策略夥伴頁字型清理）✅
+
+---
+
+## 工作批次：中優先度項目
+
+### 處理項目
+
+| 項目 | 說明 | 狀態 |
+|------|------|------|
+| A-2 | 文章 JSON-LD 補充 `mainEntityOfPage`、`dateModified` | ✅ 完成（commit 0ec559a） |
+| A-3 | 分類頁 JSON-LD 補充 `hasPart` | ✅ 完成（commit 429bf0c） |
+| B-4 | 策略夥伴頁響應式斷點 `540px` → `600px` | ✅ 完成（commit d05ea8a） |
+
+---
+
+## A-2：文章 JSON-LD 補充關鍵欄位
+
+### 目標
+`src/pages/[...slug].astro` 的 Article JSON-LD 補充：
+- `mainEntityOfPage`：`{ "@type": "WebPage", "@id": canonicalUrl }`
+- `dateModified`：使用 `post.data.date`（目前無獨立更新日期欄位）
+
+### 步驟
+1. [x] 更新 `[...slug].astro` 的 `jsonLd` 物件
+2. [x] 驗證 build 無誤 → commit
+
+---
+
+## A-3：分類頁 JSON-LD 補充 hasPart
+
+### 目標
+`src/pages/blog/[category]/index.astro` 的 CollectionPage JSON-LD 補充 `hasPart` 陣列，
+讓 Google 能理解該分類頁包含哪些文章。
+
+### 步驟
+1. [x] 將 posts 計算移至 jsonLd 之前（jsonLd 需引用 posts）
+2. [x] 更新 `[category]/index.astro` 的 `jsonLd` 物件
+3. [x] 驗證 build 無誤 → commit
+
+---
+
+## B-4：統一響應式斷點
+
+### 目標
+`src/pages/about/策略夥伴/index.astro` 的 `<style>` 區塊中，
+將非標準斷點 `@media (max-width: 540px)` 改為全站標準 `600px`。
+
+### 步驟
+1. [x] 找出策略夥伴頁所有 `540px` 斷點並改為 `600px`
+2. [x] 驗證 build 無誤 → commit
+
+## Commit 計劃（中優先度）
+- Commit 4：A-2（文章 JSON-LD 補強）
+- Commit 5：A-3（分類頁 hasPart）
+- Commit 6：B-4（斷點統一）
