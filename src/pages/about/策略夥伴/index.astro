@@ -219,18 +219,17 @@ const base = import.meta.env.BASE_URL;
 </html>
 
 <style>
-  /* ── 設計 token（僅作用於此頁）── */
-  /* 品牌標準色：深邃綠 #014045 / 沉穩金 #979660 */
+  /* ── 設計 token（對應全域 theme vars，切換主題自動更新）── */
   .sp-hero, .sp-intro-banner, .sp-partners, .sp-value {
-    --gold: #979660;
-    --gold-light: #B8B87A;
-    --gold-pale: #F2F2EA;
-    --navy: #014045;
-    --navy-mid: #025558;
-    --text-mid: #5A5A5A;
-    --border: rgba(151,150,96,0.18);
-    --border-mid: rgba(151,150,96,0.35);
-    --bg: #F8FAF9;
+    --gold:       var(--color-accent);
+    --gold-light: var(--color-accent-light);
+    --gold-pale:  var(--color-accent-pale);
+    --navy:       var(--color-primary);
+    --navy-mid:   var(--color-primary);       /* 近似主色，無獨立 token */
+    --text-mid:   var(--color-text-mid);
+    --border:     var(--color-border-accent);
+    --border-mid: rgba(151,150,96,0.35);      /* 局部強調邊框，保留 */
+    --bg:         var(--color-bg-subtle);
   }
 
   /* ── HERO ── */
@@ -276,7 +275,7 @@ const base = import.meta.env.BASE_URL;
     background: var(--gold);
   }
   .sp-hero-h1 {
-    font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
+    font-family: var(--font-heading);
     font-size: clamp(32px, 5vw, 54px);
     font-weight: 300;
     color: #fff;
@@ -302,7 +301,7 @@ const base = import.meta.env.BASE_URL;
     border-top: 1px solid rgba(255,255,255,0.1);
   }
   .sp-stat-num {
-    font-family: 'Noto Serif TC', serif;
+    font-family: var(--font-heading);
     font-size: 30px;
     font-weight: 300;
     color: var(--gold-light);
@@ -359,7 +358,7 @@ const base = import.meta.env.BASE_URL;
     margin-bottom: 48px;
   }
   .sp-section-header h2 {
-    font-family: 'Noto Serif TC', serif;
+    font-family: var(--font-heading);
     font-size: 24px;
     font-weight: 400;
     color: var(--navy);
@@ -418,7 +417,7 @@ const base = import.meta.env.BASE_URL;
     padding: 20px 18px;
   }
   .sp-card-name {
-    font-family: 'Noto Serif TC', serif;
+    font-family: var(--font-heading);
     font-size: 22px;
     font-weight: 400;
     color: #fff;
@@ -525,7 +524,7 @@ const base = import.meta.env.BASE_URL;
     margin-bottom: 1rem;
   }
   .sp-value-header h2 {
-    font-family: 'Noto Serif TC', serif;
+    font-family: var(--font-heading);
     font-size: 28px;
     font-weight: 300;
     color: #fff;
@@ -549,7 +548,7 @@ const base = import.meta.env.BASE_URL;
     background: rgba(151,150,96,0.08);
   }
   .sp-value-num {
-    font-family: 'Noto Serif TC', serif;
+    font-family: var(--font-heading);
     font-size: 40px;
     font-weight: 300;
     color: rgba(151,150,96,0.25);

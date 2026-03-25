@@ -3,6 +3,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Head from '../../components/Head.astro';
 import BlogList from '../../components/BlogList.astro';
+import PageHero from '../../components/PageHero.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 type Post = CollectionEntry<'blog'>;
@@ -47,11 +48,7 @@ const postViews = posts.map((post: Post) => {
 <body>
   <Header />
 
-  <div class="page-title-bar">
-    <div class="container">
-      <h1>理財新知</h1>
-    </div>
-  </div>
+  <PageHero eyebrow="Knowledge" title="理財新知" />
 
   <main class="section">
     <div class="container">

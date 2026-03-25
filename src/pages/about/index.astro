@@ -2,6 +2,7 @@
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Head from '../../components/Head.astro';
+import PageHero from '../../components/PageHero.astro';
 ---
 
 <style>
@@ -27,11 +28,7 @@ import Head from '../../components/Head.astro';
 <body>
   <Header />
 
-  <div class="page-title-bar">
-    <div class="container">
-      <h1>關於諾昇</h1>
-    </div>
-  </div>
+  <PageHero eyebrow="About Us" title="關於諾昇" />
 
   <main class="section">
     <div class="container" style="max-width:960px;">

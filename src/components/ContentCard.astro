@@ -1,0 +1,91 @@
+---
+interface Props {
+  title: string;
+  body: string;
+  tag?: string;
+  href?: string;
+}
+const { title, body, tag, href } = Astro.props;
+---
+<div class:list={['content-card', href && 'content-card--link']}>
+  {tag && <span class="content-card-tag">{tag}</span>}
+  <h3 class="content-card-title">{title}</h3>
+  <div class="content-card-divider"></div>
+  <p class="content-card-body">{body}</p>
+  {href && <a href={href} class="content-card-cta">了解更多 →</a>}
+</div>
+
+<style>
+  .content-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border-accent);
+    border-radius: var(--card-radius);
+    padding: 28px 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  .content-card:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-3px);
+  }
+
+  /* tag */
+  .content-card-tag {
+    display: inline-flex;
+    align-items: center;
+    font-size: 11.5px;
+    color: var(--color-accent);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    background: var(--color-accent-pale);
+    padding: 4px 12px;
+    border-radius: 4px;
+    border: 1px solid var(--color-border-accent);
+    align-self: flex-start;
+    margin-bottom: 14px;
+  }
+
+  /* title */
+  .content-card-title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-lg);
+    font-weight: var(--heading-weight);
+    color: var(--color-primary);
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+
+  /* divider */
+  .content-card-divider {
+    width: 28px;
+    height: 2px;
+    background: var(--color-accent);
+    border-radius: 2px;
+    margin-bottom: 12px;
+  }
+
+  /* body */
+  .content-card-body {
+    font-size: var(--fs-base);
+    color: var(--color-text-mid);
+    line-height: 1.85;
+    flex: 1;
+  }
+
+  /* cta */
+  .content-card-cta {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: var(--fs-sm);
+    color: var(--color-accent);
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+  .content-card-cta:hover {
+    color: var(--color-primary);
+  }
+</style>
