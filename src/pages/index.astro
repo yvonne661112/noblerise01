@@ -5,17 +5,9 @@ import Head from '../components/Head.astro';
 import BlogList from '../components/BlogList.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { CONTACT } from '../data/siteConfig';
+import { categoryLabels } from '../data/categories';
 
 type Post = CollectionEntry<'blog'>;
-
-const categoryLabels: Record<string, string> = {
-  investment: '投資理財',
-  insurance: '保險權益',
-  certification: '證照進修',
-  'business-planning': '財務規劃',
-  'elderly-care-trust': '信託規劃',
-  'tax-planning': '傳承稅務',
-};
 
 const latestPosts = (await getCollection('blog'))
   .sort((a: Post, b: Post) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
