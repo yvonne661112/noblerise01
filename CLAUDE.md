@@ -1,1 +1,157 @@
-/Users/bruce/Downloads/noblerise_site/nr01/CLAUDE.md
+# CLAUDE.md — 諾昇理財網站維護與修改指南
+
+> 任務文件請參閱 [`docs/`](./docs/) 目錄，索引見 [`docs/INDEX.md`](./docs/INDEX.md)
+
+---
+
+## 專案概覽
+
+- **網站名稱**：諾昇理財規劃顧問
+- **框架**：Astro v6（靜態輸出）
+- **部署**：GitHub Pages → `https://yvonne661112.github.io/noblerise01/`
+- **目標網域**：`https://noblerise.com.tw/`（DNS 切換留待 task02）
+- **Git remote**：`https://github.com/yvonne661112/noblerise01.git`
+
+---
+
+## 技術架構
+
+### 關鍵檔案位置
+
+| 檔案 | 用途 |
+|------|------|
+| `src/data/siteConfig.ts` | 全站設定：主題切換（`activeTheme`）、功能開關、公司聯絡資訊 |
+| `src/components/Head.astro` | SEO 標籤 + 動態載入主題 CSS + Google Fonts |
+| `src/components/Header.astro` | 導覽列（含 active 狀態偵測） |
+| `src/components/Footer.astro` | 頁尾 |
+| `src/styles/global.css` | 全域樣式（使用 CSS 變數，無硬編碼色彩） |
+| `public/styles/theme-classic.css` | Classic 主題 CSS 變數定義 |
+| `public/styles/theme-premium.css` | Premium 主題 CSS 變數定義 |
+| `src/content.config.ts` | Content Collections 設定（Astro v5+） |
+| `astro.config.mjs` | Astro 設定（`base`、`site`、`trailingSlash`） |
+| `.github/workflows/deploy.yml` | GitHub Actions 自動部署 |
+
+### 可重用元件
+
+| 元件 | Props | 用途 |
+|------|-------|------|
+| `PageHero.astro` | `eyebrow?` `title` `description?` `stats[]?` | 各頁面 Hero 區塊 |
+| `SectionHeader.astro` | `eyebrow?` `title` `align?` | 各節標題 + 裝飾線 |
+| `ContentCard.astro` | `title` `body` `tag?` `href?` | 通用內容卡片 |
+| `TagBadge.astro` | `label` `variant?` | 標籤徽章 |
+
+### 主題系統
+
+切換主題：修改 `src/data/siteConfig.ts` 的 `activeTheme` 一行即可。
+
+```ts
+// 可選值：'classic' | 'premium'
+export const activeTheme: 'classic' | 'premium' = 'premium';
+```
+
+新增主題：
+1. 在 `public/styles/` 新增 `theme-xxx.css`，定義所有 CSS 變數（參考現有 theme 檔的變數清單）
+2. 在 `siteConfig.ts` 型別擴充：`'classic' | 'premium' | 'xxx'`
+3. 在 `Head.astro` 的 `fontUrls` 物件新增對應字型 URL
+
+**已驗證**：切換 classic ↔ premium 後，title、canonical、og:url、h1、hreflang、sitemap 完全相同，SEO 零影響。
+
+### 功能開關
+
+```ts
+// src/data/siteConfig.ts
+export const SHOW_BOOKING = false; // 預約諮詢功能（true = 顯示）
+```
+
+---
+
+## 禁止事項
+
+### SEO
+- ❌ 不可更改任何頁面的 URL slug
+- ❌ canonical 不可硬編碼，必須用 `new URL(Astro.url.pathname, Astro.site)` 動態產生
+- ❌ 不可將 `robots.txt` 設定為允許爬蟲索引（正式上線前必須維持 `Disallow: /`）
+- ❌ 不可加入 `public/CNAME` 檔案或設定自訂網域（留待 task02）
+
+### 主題系統
+- ❌ Theme 檔案（`public/styles/theme-*.css`）只能定義 **CSS 變數**，不可含任何 HTML 結構或 JavaScript
+- ❌ 不可在 theme 檔內移除或覆蓋 `<h1>`、canonical、og、twitter 等 SEO 標籤
+- ❌ 不可修改 `PageHero`、`SectionHeader` 等共用元件的 HTML 結構來達到主題差異，主題差異只能透過 CSS 變數實現
+- ❌ 切換主題只能修改 `siteConfig.ts` 的 `activeTheme` 一行，不可同時更動其他檔案
+
+### 圖片顯示（過去曾發生的錯誤，嚴禁重現）
+- ❌ 不可對任何圖片套用圓形裁切（禁止 `border-radius: 50%`、`rounded-full`、`clip-path: circle()` 或任何圓形遮罩）
+- ❌ 不可自行改變圖片的顯示尺寸或長寬比
+- ❌ 不可將原本小尺寸圖片放大至全寬或大容器
+- ❌ 不可使用固定高度容器搭配 `object-fit: cover` 裁切人物照片，除非原站即如此設計
+- ❌ 不可自行為圖片加上陰影、濾鏡、外框等視覺效果，除非原站即有此效果
+
+### 樣式撰寫
+- ❌ 不可在 `global.css` 或頁面 `<style>` 中硬編碼色彩、字型值，一律使用 `var(--...)` CSS 變數
+- ❌ 不可自行發揮設計創意，所有版面、元件以現有設計為依據
+
+---
+
+## 行為規範
+
+- 遇到錯誤或不確定的決策點，**暫停並回報**，不自行假設
+- 所有檔案操作前，**先確認路徑存在**，避免覆蓋或誤刪
+- 執行任何刪除操作前，**列出將被刪除的檔案清單並等待確認**
+- **git push 前須等待使用者確認**
+
+---
+
+## 常用指令
+
+```bash
+# 本機開發
+npm run dev
+
+# 建置（輸出至 dist/）
+npm run build
+
+# 預覽建置結果
+npm run preview
+```
+
+---
+
+## 網站結構
+
+### 頁面（6 頁）
+
+| 頁面名稱 | URL | 檔案路徑 |
+|----------|-----|---------|
+| 首頁 | `/` | `src/pages/index.astro` |
+| 關於諾昇 | `/about/` | `src/pages/about/index.astro` |
+| 策略夥伴 | `/about/策略夥伴/` | `src/pages/about/策略夥伴/index.astro` |
+| 服務項目 | `/service/` | `src/pages/service/index.astro` |
+| 理財新知 | `/blog/` | `src/pages/blog/index.astro` |
+| 聯繫我們 | `/contact/` | `src/pages/contact/index.astro` |
+
+### 文章（34 篇）
+
+動態路由：`src/pages/[...slug].astro`，透過 `numericSlug` frontmatter 產生數字 URL（如 `/123/`）。
+
+### 分類頁面（6 個）
+
+| 名稱 | URL | 檔案路徑 |
+|------|-----|---------|
+| 投資理財 | `/blog/investment/` | `src/pages/blog/investment/index.astro` |
+| 保險權益 | `/blog/insurance/` | `src/pages/blog/insurance/index.astro` |
+| 證照進修 | `/blog/certification/` | `src/pages/blog/certification/index.astro` |
+| 財務規劃 | `/blog/business-planning/` | `src/pages/blog/business-planning/index.astro` |
+| 信託規劃 | `/blog/elderly-care-trust/` | `src/pages/blog/elderly-care-trust/index.astro` |
+| 傳承稅務 | `/blog/tax-planning/` | `src/pages/blog/tax-planning/index.astro` |
+
+---
+
+## 品牌色彩（供參考）
+
+| 用途 | Classic | Premium |
+|------|---------|---------|
+| 主色 | `#0d383a` | `#014045` |
+| 強調色 | `#85a14f` | `#979660` |
+| 頁尾背景 | `#171717` | `#171717` |
+
+完整色彩變數清單請參閱 `public/styles/theme-classic.css` 與 `public/styles/theme-premium.css`。
