@@ -93,14 +93,18 @@ const jsonLd = {
               </span>
             </p>
             <ul class="contact-info-list">
-              <li>
-                <span class="contact-icon">
+              <li style="align-items:flex-start;">
+                <span class="contact-icon" style="margin-top:4px;">
                   <!-- Headset / LINE icon -->
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
                     <path d="M12 2C7.03 2 3 6.03 3 11v3a3 3 0 0 0 3 3h1a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1H5v-1c0-3.87 3.13-7 7-7s7 3.13 7 7v1h-2a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h1c.34 0 .67-.06.97-.16A5.002 5.002 0 0 1 12 21H11a1 1 0 0 0 0 2h1a7 7 0 0 0 6.92-5.95A3 3 0 0 0 21 14v-3c0-4.97-4.03-9-9-9z"/>
                   </svg>
                 </span>
-                <span>LINE : <a href={CONTACT.lineUrl} target="_blank" rel="noopener" style="color:var(--color-accent);">{CONTACT.line}</a></span>
+                <span>
+                  LINE : <a href={CONTACT.lineUrl} target="_blank" rel="noopener" style="color:var(--color-accent);">{CONTACT.line}</a>
+                  <br />
+                  <img src={import.meta.env.BASE_URL + "images/noblerise_line_at.png"} alt="諾昇理財 LINE QR Code" loading="lazy" style="width:120px;height:auto;margin-top:8px;display:block;" />
+                </span>
               </li>
               <li>
                 <span class="contact-icon">
