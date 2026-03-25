@@ -11,9 +11,9 @@
 
 | 項目 | 說明 | 狀態 |
 |------|------|------|
-| C-1 | 提取 `categoryLabels` → `src/data/categories.ts` | 🔄 進行中 |
-| C-2 | 提取 `transformPost()` → `src/utils/post.ts` | ⏳ 待處理 |
-| A-4 | 移除策略夥伴頁重複 Google Fonts `<link>` | ⏳ 待處理 |
+| C-1 | 提取 `categoryLabels` → `src/data/categories.ts` | ✅ 完成（commit 7604181） |
+| C-2 | 提取 `transformPost()` → `src/utils/post.ts` | ✅ 完成（commit e5c23f2） |
+| A-4 | 移除策略夥伴頁重複 Google Fonts `<link>` | ✅ 完成（commit 8877684） |
 
 ---
 
@@ -30,11 +30,11 @@
 
 ### 步驟
 1. [x] 建立 `src/data/categories.ts`
-2. [ ] 更新 `src/pages/index.astro`
-3. [ ] 更新 `src/pages/blog/index.astro`
-4. [ ] 更新 `src/pages/blog/[category]/index.astro`
-5. [ ] 更新 `src/pages/[...slug].astro`
-6. [ ] 驗證 build 無誤 → commit
+2. [x] 更新 `src/pages/index.astro`
+3. [x] 更新 `src/pages/blog/index.astro`
+4. [x] 更新 `src/pages/blog/[category]/index.astro`
+5. [x] 更新 `src/pages/[...slug].astro`
+6. [x] 驗證 build 無誤 → commit
 
 ---
 
@@ -47,11 +47,11 @@
 - `src/pages/blog/[category]/index.astro`（第 54–69 行）
 
 ### 步驟
-1. [ ] 建立 `src/utils/post.ts`（含 `transformPost`、`sortPostsByDate`）
-2. [ ] 更新 `src/pages/index.astro`
-3. [ ] 更新 `src/pages/blog/index.astro`
-4. [ ] 更新 `src/pages/blog/[category]/index.astro`
-5. [ ] 驗證 build 無誤 → commit
+1. [x] 建立 `src/utils/post.ts`（含 `transformPost`、`sortPostsByDate`）
+2. [x] 更新 `src/pages/index.astro`
+3. [x] 更新 `src/pages/blog/index.astro`
+4. [x] 更新 `src/pages/blog/[category]/index.astro`
+5. [x] 驗證 build 無誤 → commit
 
 ---
 
@@ -62,9 +62,9 @@
 與 `Head.astro` 已統一載入的字型重複。
 
 ### 步驟
-1. [ ] 刪除第 33–35 行的三個 `<link>` 標籤
-2. [ ] 確認 `Head.astro` 的 premium 主題已包含相同字型
-3. [ ] 驗證頁面字型顯示正常 → commit
+1. [x] 刪除第 33–35 行的三個 `<link>` 標籤
+2. [x] 確認 `Head.astro` 的 premium 主題已包含相同字型
+3. [x] 驗證頁面字型顯示正常 → commit
 
 ---
 
