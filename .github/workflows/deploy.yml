@@ -25,6 +25,12 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      # @astrojs/sitemap 外掛固定輸出 sitemap-index.xml（連字號），
+      # 無法透過設定改為底線。但舊 WordPress 網站在 Google Search Console
+      # 登錄的是 sitemap_index.xml（底線），為避免切換 DNS 後 GSC 索引中斷，
+      # 此步驟在每次部署時自動複製一份底線版本，確保兩個 URL 均可存取。
+      # DNS 切換並重新提交 sitemap 後，此步驟仍可保留（無害）或移除。
+      - run: cp dist/sitemap-index.xml dist/sitemap_index.xml
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist/
