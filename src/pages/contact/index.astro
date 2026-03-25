@@ -4,12 +4,33 @@ import Footer from '../../components/Footer.astro';
 import Head from '../../components/Head.astro';
 import PageHero from '../../components/PageHero.astro';
 import { SHOW_BOOKING, CONTACT } from '../../data/siteConfig';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "聯絡我們 | 諾昇理財規劃",
+  "description": "聯絡諾昇理財規劃，預約財務規劃諮詢。",
+  "url": "https://noblerise.com.tw/contact/",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "諾昇理財規劃顧問股份有限公司",
+    "email": "contact@noblerise.com.tw",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "復興南路一段222號2樓",
+      "addressLocality": "大安區",
+      "addressRegion": "台北市",
+      "postalCode": "106",
+      "addressCountry": "TW"
+    }
+  }
+};
 ---
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <Head title="聯絡我們 | 諾昇理財規劃" description="聯絡諾昇理財規劃，預約財務規劃諮詢。Email: contact@noblerise.com.tw，LINE: @noblerise，地址: 106 台北市大安區復興南路一段222號2樓。" />
-  
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
 </head>
 <body>
   <Header />

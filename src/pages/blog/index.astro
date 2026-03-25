@@ -22,6 +22,19 @@ const posts = rawPosts.sort(
   (a: Post, b: Post) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "理財新知 | 諾昇理財規劃",
+  "description": "諾昇理財規劃知識文章，涵蓋投資理財、保險權益、財務規劃、信託規劃、傳承稅務、證照進修等主題，由 CFP® 張惠芳撰寫。",
+  "url": "https://noblerise.com.tw/blog/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "諾昇理財規劃顧問股份有限公司",
+    "url": "https://noblerise.com.tw"
+  }
+};
+
 const postViews = posts.map((post: Post) => {
   const mainCat = post.data.categories?.find((c: string) => c !== 'blog') ?? '';
   const catLabels = (post.data.categories ?? [])
@@ -44,6 +57,7 @@ const postViews = posts.map((post: Post) => {
 <html lang="zh-TW">
 <head>
   <Head title="理財新知 | 諾昇理財規劃" description="諾昇理財規劃知識文章，涵蓋投資理財、保險權益、財務規劃、信託規劃、傳承稅務、證照進修等主題，由 CFP® 張惠芳撰寫。" />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
 </head>
 <body>
   <Header />

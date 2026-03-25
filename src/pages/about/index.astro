@@ -3,6 +3,29 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Head from '../../components/Head.astro';
 import PageHero from '../../components/PageHero.astro';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "關於諾昇 | 張惠芳 CFP® | 諾昇理財規劃",
+  "description": "諾昇以財務幸福為核心，由 CFP® 張惠芳領軍，以獨立理財顧問（IFA）立場提供中立、專業的財務建議。",
+  "url": "https://noblerise.com.tw/about/",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "張惠芳",
+    "jobTitle": "CFP® 國際認證高級理財規劃顧問",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "諾昇理財規劃顧問股份有限公司"
+    },
+    "hasCredential": [
+      "CFP® 國際認證高級理財規劃顧問",
+      "RFA 退休理財規劃顧問",
+      "FChFP 特許財務規劃師",
+      "家族信託規劃顧問師"
+    ]
+  }
+};
 ---
 
 <style>
@@ -23,7 +46,7 @@ import PageHero from '../../components/PageHero.astro';
 <html lang="zh-TW">
 <head>
   <Head title="關於諾昇 | 張惠芳 CFP® | 諾昇理財規劃" description="諾昇以財務幸福為核心，由 CFP® 張惠芳領軍，以獨立理財顧問（IFA）立場提供中立、專業的財務建議。了解諾昇的理念與首席顧問背景。" />
-  
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
 </head>
 <body>
   <Header />
