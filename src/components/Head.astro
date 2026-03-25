@@ -10,9 +10,9 @@ interface Props {
   type?: 'website' | 'article';
 }
 const { title, description, image = '/images/og-default.jpg', type = 'website' } = Astro.props;
+const base = import.meta.env.BASE_URL;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const absoluteImageUrl = new URL(getAssetPath(image, base), Astro.site);
-const base = import.meta.env.BASE_URL;
 
 const fontUrls: Record<typeof activeTheme, string> = {
   classic:       'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;500;600&family=Open+Sans:wght@400;600&display=swap',
