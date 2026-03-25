@@ -10,7 +10,7 @@
 | 批次 | 說明 | 狀態 |
 |------|------|------|
 | Batch 1 | M 遷移連貫性（M-1~M-4、A-3） | ✅ 完成 |
-| Batch 2 | SEO 改善（A-1/C-6、A-2/C-2、A-4、A-5） | ⏳ 待處理 |
+| Batch 2 | SEO 改善（A-1/C-6、A-2/C-2、A-4、A-5） | ✅ 完成 |
 | Batch 3 | 設計改善（B-1~B-4） | ⏳ 待處理 |
 | Batch 4 | 程式碼低效（C-1、C-3、C-4、C-5） | ⏳ 待處理 |
 
@@ -45,10 +45,10 @@
 
 | 子項 | 說明 | 步驟狀態 |
 |------|------|---------|
-| A-1/C-6 | Head.astro og:image 加入 base path（`getAssetPath`） | ⏳ |
-| A-2/C-2 | 刪除遺留元件：BaseHead.astro、BlogPost.astro、FormattedDate.astro、HeaderLink.astro | ⏳ |
-| A-4 | blog/index.astro 與 [category]/index.astro 加入 BreadcrumbList JSON-LD | ⏳ |
-| A-5 | 策略夥伴頁 JSON-LD Person 物件加入 image URL | ⏳ |
+| A-1/C-6 | Head.astro og:image 加入 base path（`getAssetPath`） | ✅ |
+| A-2/C-2 | 刪除遺留元件：BaseHead.astro、BlogPost.astro、FormattedDate.astro、HeaderLink.astro | ✅ |
+| A-4 | blog/index.astro 與 [category]/index.astro 加入 BreadcrumbList JSON-LD | ✅ |
+| A-5 | 策略夥伴頁 JSON-LD Person 物件加入 image URL | ✅ |
 
 ---
 
