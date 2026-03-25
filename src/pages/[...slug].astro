@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import Head from '../components/Head.astro';
 import AuthorCard from '../components/AuthorCard.astro';
 import { categoryLabels } from '../data/categories';
+import { publisher } from '../utils/jsonld';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -41,11 +42,7 @@ const jsonLd = {
     "@type": "Person",
     "name": "張惠芳 CFP"
   },
-  "publisher": {
-    "@type": "Organization",
-    "name": "諾昇理財規劃顧問股份有限公司",
-    "url": "https://noblerise.com.tw"
-  }
+  "publisher": publisher
 };
 ---
 <!DOCTYPE html>

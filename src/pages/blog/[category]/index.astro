@@ -7,6 +7,7 @@ import PageHero from '../../../components/PageHero.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { categoryLabels, categorySlugs } from '../../../data/categories';
 import { sortPostsByDate, transformPost } from '../../../utils/post';
+import { publisher } from '../../../utils/jsonld';
 
 type Post = CollectionEntry<'blog'>;
 
@@ -32,11 +33,7 @@ const jsonLd = {
   "name": `${label} | 諾昇理財規劃`,
   "description": `諾昇理財規劃 ${label} 相關文章，由 CFP® 張惠芳撰寫，提供專業財務知識。`,
   "url": `https://noblerise.com.tw/blog/${category}/`,
-  "publisher": {
-    "@type": "Organization",
-    "name": "諾昇理財規劃顧問股份有限公司",
-    "url": "https://noblerise.com.tw"
-  },
+  "publisher": publisher,
   "hasPart": posts.map(p => ({
     "@type": "Article",
     "url": `https://noblerise.com.tw/${p.data.numericSlug}/`,
