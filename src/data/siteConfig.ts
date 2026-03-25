@@ -28,8 +28,15 @@ export const SHOW_SAKURA = true;
 export const CONTACT = {
   companyNameZh: '諾昇理財規劃顧問股份有限公司',
   companyNameEn: 'Noblerise Financial Consultant co., LTD',
+  siteUrl: 'https://noblerise.com.tw',
   email: 'contact@noblerise.com.tw',
   line: '@noblerise',
   lineUrl: 'https://line.me/ti/p/~@noblerise',
   address: '106 台北市大安區復興南路一段222號2樓',
+  // JSON-LD PostalAddress 細分（Schema.org 用）
+  postalCode: '106',
+  streetAddress: '復興南路一段222號2樓',
+  addressLocality: '大安區',
+  addressRegion: '台北市',
+  addressCountry: 'TW',
 };

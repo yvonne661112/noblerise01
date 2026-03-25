@@ -4,6 +4,7 @@ import Footer from '../components/Footer.astro';
 import Head from '../components/Head.astro';
 import BlogList from '../components/BlogList.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { CONTACT } from '../data/siteConfig';
 
 type Post = CollectionEntry<'blog'>;
 
@@ -42,31 +43,31 @@ const jsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "諾昇理財規劃顧問股份有限公司",
-    "url": "https://noblerise.com.tw",
-    "logo": "https://noblerise.com.tw/wp-content/uploads/2026/01/Nobleriselong1-scaled.png",
-    "email": "contact@noblerise.com.tw",
+    "name": CONTACT.companyNameZh,
+    "url": CONTACT.siteUrl,
+    "logo": `${CONTACT.siteUrl}/wp-content/uploads/2026/01/Nobleriselong1-scaled.png`,
+    "email": CONTACT.email,
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "復興南路一段222號2樓",
-      "addressLocality": "大安區",
-      "addressRegion": "台北市",
-      "postalCode": "106",
-      "addressCountry": "TW"
+      "streetAddress": CONTACT.streetAddress,
+      "addressLocality": CONTACT.addressLocality,
+      "addressRegion": CONTACT.addressRegion,
+      "postalCode": CONTACT.postalCode,
+      "addressCountry": CONTACT.addressCountry,
     }
   },
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "諾昇理財規劃",
-    "url": "https://noblerise.com.tw"
+    "url": CONTACT.siteUrl,
   },
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "張惠芳",
     "jobTitle": "CFP® 國際認證高級理財規劃顧問",
-    "worksFor": { "@type": "Organization", "name": "諾昇理財規劃顧問股份有限公司" }
+    "worksFor": { "@type": "Organization", "name": CONTACT.companyNameZh }
   }
 ];
 ---
