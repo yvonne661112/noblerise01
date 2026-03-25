@@ -124,6 +124,77 @@
 2. [x] 驗證 build 無誤 → commit
 
 ## Commit 計劃（中優先度）
-- Commit 4：A-2（文章 JSON-LD 補強）
-- Commit 5：A-3（分類頁 hasPart）
-- Commit 6：B-4（斷點統一）
+- Commit 4：A-2（文章 JSON-LD 補強）✅
+- Commit 5：A-3（分類頁 hasPart）✅
+- Commit 6：B-4（斷點統一）✅
+
+---
+
+## 工作批次：低優先度項目
+
+### 處理項目
+
+| 項目 | 說明 | 狀態 |
+|------|------|------|
+| B-5 | AuthorCard 硬編碼色彩改為 CSS 變數 | ✅ 完成（commit 17a971c） |
+| C-3 | JSON-LD publisher 物件提取至共用 utils | ✅ 完成（commit 0bc7af9） |
+| C-4 | 建立圖片路徑工具，統一動態圖片路徑處理 | ✅ 完成（commit 3008956） |
+
+---
+
+## B-5：AuthorCard 去硬編碼
+
+### 目標
+`src/components/AuthorCard.astro`（第 25、29、48、63 行）中的硬編碼色彩：
+- `background: #f7f9f4` → `var(--color-bg-subtle)`（兩主題皆已定義）
+- `color: #333` → `var(--color-text)`
+- `color: #555` → `var(--color-text-mid)`
+- `color: #444` → `var(--color-text-mid)`
+
+### 步驟
+1. [ ] 修改 AuthorCard.astro 的 4 個硬編碼值
+2. [ ] 驗證 build 無誤 → commit
+
+---
+
+## C-3：JSON-LD publisher 提取
+
+### 目標
+`publisher` 物件在 3 個頁面硬編碼相同內容：
+- `src/pages/blog/index.astro`
+- `src/pages/blog/[category]/index.astro`
+- `src/pages/[...slug].astro`
+
+建立 `src/utils/jsonld.ts`，匯出 `publisher` 常數。
+
+### 步驟
+1. [ ] 建立 `src/utils/jsonld.ts`
+2. [ ] 更新 3 個頁面 import 並使用 `publisher`
+3. [ ] 驗證 build 無誤 → commit
+
+---
+
+## C-4：圖片路徑工具
+
+### 目標
+建立 `src/utils/assets.ts`，解決動態圖片路徑需要手動 `.replace(/^\//, '')` 的問題，
+應用於 `BlogList.astro` 與 `[...slug].astro`。
+（靜態圖片 `BASE_URL + "images/..."` 模式保持不動，避免大量無謂 churn）
+
+### 步驟
+1. [ ] 建立 `src/utils/assets.ts`（含 `getAssetPath`）
+2. [ ] 更新 `BlogList.astro` 的動態圖片路徑
+3. [ ] 更新 `[...slug].astro` 的動態圖片路徑
+4. [ ] 驗證 build 無誤 → commit
+
+## Commit 計劃（低優先度）
+- Commit 7：B-5（AuthorCard 去硬編碼）✅
+- Commit 8：C-3（publisher 常數提取）✅
+- Commit 9：C-4（圖片路徑工具）✅
+
+---
+
+## 全部 TODO 項目已完成
+
+所有高／中／低優先度項目均已處理完畢。
+如有新的改善需求，請更新 TODO.md 並開啟新批次。
