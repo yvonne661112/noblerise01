@@ -34,6 +34,19 @@ const { allPosts } = Astro.props;
 
 const label = categoryLabels[category] ?? '理財新知';
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": `${label} | 諾昇理財規劃`,
+  "description": `諾昇理財規劃 ${label} 相關文章，由 CFP® 張惠芳撰寫，提供專業財務知識。`,
+  "url": `https://noblerise.com.tw/blog/${category}/`,
+  "publisher": {
+    "@type": "Organization",
+    "name": "諾昇理財規劃顧問股份有限公司",
+    "url": "https://noblerise.com.tw"
+  }
+};
+
 const posts = (allPosts as Post[])
   .filter(p => p.data.categories?.includes(category))
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
@@ -62,6 +75,7 @@ const postViews = posts.map(post => {
     title={`${label} | 諾昇理財規劃`}
     description={`諾昇理財規劃 ${label} 相關文章，由 CFP® 張惠芳撰寫，提供專業財務知識。`}
   />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
 </head>
 <body>
   <Header />

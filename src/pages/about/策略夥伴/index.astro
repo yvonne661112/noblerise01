@@ -3,6 +3,24 @@ import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
 import Head from '../../../components/Head.astro';
 const base = import.meta.env.BASE_URL;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "策略夥伴 | 諾昇理財規劃",
+  "description": "諾昇理財規劃顧問策略夥伴團隊，結合會計師、律師、勞動法令顧問、信託顧問等專業，為客戶提供全方位的財務與法務支援。",
+  "url": "https://noblerise.com.tw/about/策略夥伴/",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "諾昇理財規劃顧問股份有限公司",
+    "member": [
+      { "@type": "Person", "name": "莊世金", "jobTitle": "會計師" },
+      { "@type": "Person", "name": "賴瑩真", "jobTitle": "律師" },
+      { "@type": "Person", "name": "劉奕男", "jobTitle": "顧問" },
+      { "@type": "Person", "name": "陳慶榮", "jobTitle": "CFP 顧問" }
+    ]
+  }
+};
 ---
 <!DOCTYPE html>
 <html lang="zh-TW">
@@ -11,6 +29,7 @@ const base = import.meta.env.BASE_URL;
     title="策略夥伴 | 諾昇理財規劃"
     description="諾昇理財規劃顧問策略夥伴團隊，結合會計師、律師、勞動法令顧問、信託顧問等專業，為客戶提供全方位的財務與法務支援。"
   />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
