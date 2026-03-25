@@ -129,7 +129,7 @@ a { color: inherit; }
   gap: 16px;
   font-family: var(--font-heading);
   font-size: clamp(20px, 2.8vw, 32px);
-  font-weight: var(--heading-weight);
+  font-weight: 700;
   color: var(--color-primary);
   letter-spacing: 0.08em;
   line-height: 1.4;
