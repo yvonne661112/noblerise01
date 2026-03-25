@@ -180,7 +180,7 @@ a { color: inherit; }
 .btn:hover { opacity: 0.88; transform: translateY(-1px); }
 .btn-primary { background: var(--color-primary); color: #fff; }
 .btn-accent { background: var(--color-accent); color: #fff; }
-.btn-line { background: #06c755; color: #fff; }
+.btn-line { background: var(--color-line); color: #fff; }
 
 /* ===== SECTIONS ===== */
 .section { padding: 64px 20px; }
@@ -275,12 +275,12 @@ a { color: inherit; }
 
 /* ===== SERVICE CARDS ===== */
 .service-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; align-items: end; }
-.service-img-card img { width: 100%; height: auto; display: block; }
+.service-img-card img { width: 100%; height: auto; display: block; aspect-ratio: 494 / 398; object-fit: cover; }
 
 /* ===== MEDIA COVERAGE ===== */
 .media-list { list-style: disc; margin: 0 0 0 20px; padding: 0; }
 .media-list li { padding: 6px 0; font-size: var(--fs-base); line-height: 1.6; color: var(--color-text); }
-.media-list a { color: #0000ff; text-decoration: none; }
+.media-list a { color: var(--color-link); text-decoration: none; }
 .media-list a:hover { text-decoration: underline; }
 .media-divider { border: none; border-top: 3px solid var(--color-rose); width: 10%; margin: 24px auto; }
 .media-videos { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 8px; }
@@ -326,7 +326,7 @@ a { color: inherit; }
 .footer-contact-list li { font-size: var(--fs-body); color: #fff; margin-bottom: 12px; line-height: 1.7; }
 .footer-contact-list a { color: #fff; text-decoration: none; }
 .footer-contact-list a:hover { text-decoration: underline; }
-.footer-line-id { color: #66b966; }
+.footer-line-id { color: var(--color-line-light); }
 .footer-copy {
   background: var(--color-accent);
   text-align: center;

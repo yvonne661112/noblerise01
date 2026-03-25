@@ -25,6 +25,9 @@
   --color-text-muted:    #cccccc;
   --color-white:         #ffffff;
   --color-rose:          #ea3a60;
+  --color-line:          #06c755;
+  --color-line-light:    #66b966;
+  --color-link:          #0000ff;
 
   /* ── Hero ── */
   --hero-overlay:        rgba(0, 0, 0, 0.5);

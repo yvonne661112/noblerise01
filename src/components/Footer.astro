@@ -1,5 +1,6 @@
 ---
 import { CONTACT } from '../data/siteConfig';
+import CompanyName from './CompanyName.astro';
 ---
 <footer class="site-footer">
   <div class="footer-main">
@@ -11,10 +12,7 @@ import { CONTACT } from '../data/siteConfig';
       <div class="footer-right">
         <h6 class="footer-contact-title">聯絡資訊：</h6>
         <ul class="footer-contact-list">
-          <li>
-            <span style="display:block;text-align:justify;text-align-last:justify;">{CONTACT.companyNameZh}</span>
-            <span style="display:block;text-align:justify;text-align-last:justify;">{CONTACT.companyNameEn}</span>
-          </li>
+          <li><CompanyName /></li>
           <li><a href={CONTACT.lineUrl} target="_blank" rel="noopener nofollow">LINE : <span class="footer-line-id">{CONTACT.line}</span></a></li>
           <li><a href={`mailto:${CONTACT.email}`}>電子郵件：{CONTACT.email}</a></li>
           <li>地址：{CONTACT.address}</li>

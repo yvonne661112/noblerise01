@@ -95,6 +95,7 @@ const { eyebrow, title, description, stats } = Astro.props;
   /* stats row */
   .page-hero-stats {
     display: flex;
+    flex-wrap: wrap;
     gap: 3rem;
     margin-top: 2.5rem;
     padding-top: 2rem;
@@ -118,5 +119,8 @@ const { eyebrow, title, description, stats } = Astro.props;
   @media (max-width: 900px) {
     .page-hero { padding: 48px 1.5rem 44px; }
     .page-hero-stats { gap: 2rem; }
+  }
+  @media (max-width: 600px) {
+    .page-hero-stats { flex-direction: column; gap: 1.25rem; }
   }
 </style>

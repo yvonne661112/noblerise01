@@ -4,6 +4,7 @@ import Footer from '../../components/Footer.astro';
 import Head from '../../components/Head.astro';
 import PageHero from '../../components/PageHero.astro';
 import { SHOW_BOOKING, CONTACT } from '../../data/siteConfig';
+import CompanyName from '../../components/CompanyName.astro';
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -87,10 +88,7 @@ const jsonLd = {
           <h2 class="section-title" style="margin-bottom:32px;">聯絡資訊</h2>
           <div style="font-size:var(--fs-body);line-height:2.2;">
             <p style="margin-bottom:1.5em;">
-              <span style="display:inline-block;width:fit-content;max-width:100%;">
-                <span style="display:block;text-align:justify;text-align-last:justify;">{CONTACT.companyNameZh}</span>
-                <span style="display:block;text-align:justify;text-align-last:justify;">{CONTACT.companyNameEn}</span>
-              </span>
+              <CompanyName />
             </p>
             <ul class="contact-info-list">
               <li style="align-items:flex-start;">

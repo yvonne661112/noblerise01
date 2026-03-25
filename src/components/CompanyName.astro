@@ -1,0 +1,13 @@
+---
+import { CONTACT } from '../data/siteConfig';
+---
+<span class="company-name">
+  <span class="company-name-zh">{CONTACT.companyNameZh}</span>
+  <span class="company-name-en">{CONTACT.companyNameEn}</span>
+</span>
+
+<style>
+.company-name { display: inline-block; width: fit-content; max-width: 100%; }
+.company-name-zh,
+.company-name-en { display: block; text-align: justify; text-align-last: justify; }
+</style>

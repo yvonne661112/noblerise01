@@ -11,7 +11,7 @@
 |------|------|------|
 | Batch 1 | M 遷移連貫性（M-1~M-4、A-3） | ✅ 完成 |
 | Batch 2 | SEO 改善（A-1/C-6、A-2/C-2、A-4、A-5） | ✅ 完成 |
-| Batch 3 | 設計改善（B-1~B-4） | ⏳ 待處理 |
+| Batch 3 | 設計改善（B-1~B-4） | ✅ 完成 |
 | Batch 4 | 程式碼低效（C-1、C-3、C-4、C-5） | ⏳ 待處理 |
 
 **略過項目**（需外部資料或低風險高成本）：
@@ -56,10 +56,10 @@
 
 | 子項 | 說明 | 步驟狀態 |
 |------|------|---------|
-| B-1 | 硬編碼色彩轉 CSS 變數（global.css、BlogList.astro、theme 檔） | ⏳ |
-| B-2 | 建立 CompanyName.astro 元件，取代 contact/footer 的內聯 style | ⏳ |
-| B-3 | PageHero.astro stats 加入 flex-wrap，小螢幕堆疊 | ⏳ |
-| B-4 | service/index.astro 服務卡片加入 aspect-ratio | ⏳ |
+| B-1 | 硬編碼色彩轉 CSS 變數（global.css、BlogList.astro、theme 檔） | ✅ |
+| B-2 | 建立 CompanyName.astro 元件，取代 contact/footer 的內聯 style | ✅ |
+| B-3 | PageHero.astro stats 加入 flex-wrap，小螢幕堆疊 | ✅ |
+| B-4 | service/index.astro 服務卡片加入 aspect-ratio | ✅ |
 
 ---
 
