@@ -3,33 +3,13 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Head from '../components/Head.astro';
 import BlogList from '../components/BlogList.astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 import { CONTACT } from '../data/siteConfig';
-import { categoryLabels } from '../data/categories';
+import { sortPostsByDate, transformPost } from '../utils/post';
 
-type Post = CollectionEntry<'blog'>;
-
-const latestPosts = (await getCollection('blog'))
-  .sort((a: Post, b: Post) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-  .slice(0, 3);
-
-const latestPostViews = latestPosts.map((post: Post) => {
-  const mainCat = post.data.categories?.find((c: string) => c !== 'blog') ?? '';
-  const catLabels = (post.data.categories ?? [])
-    .filter((c: string) => c !== 'blog' && categoryLabels[c])
-    .map((c: string) => categoryLabels[c]);
-  return {
-    slug: post.data.numericSlug,
-    title: post.data.title,
-    image: post.data.image,
-    description: post.data.description,
-    dateStr: new Date(post.data.date).toLocaleDateString('zh-TW'),
-    catLabel: categoryLabels[mainCat] ?? '理財新知',
-    catUrl: mainCat ? (import.meta.env.BASE_URL + `blog/${mainCat}/`) : (import.meta.env.BASE_URL + 'blog/'),
-    tags: post.data.tags ?? [],
-    catLabels,
-  };
-});
+const base = import.meta.env.BASE_URL;
+const latestPosts = sortPostsByDate(await getCollection('blog')).slice(0, 3);
+const latestPostViews = latestPosts.map(p => transformPost(p, base));
 
 const jsonLd = [
   {
