@@ -2,6 +2,7 @@
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Head from '../../components/Head.astro';
+import PageHero from '../../components/PageHero.astro';
 ---
 
 <style>
@@ -27,11 +28,7 @@ import Head from '../../components/Head.astro';
 <body>
   <Header />
 
-  <div class="page-title-bar">
-    <div class="container">
-      <h1>關於諾昇</h1>
-    </div>
-  </div>
+  <PageHero eyebrow="About Us" title="關於諾昇" />
 
   <main class="section">
     <div class="container" style="max-width:960px;">
@@ -50,20 +47,28 @@ import Head from '../../components/Head.astro';
           <div>
             <p style="margin-bottom:20px;">惠芳CFP為諾昇執行長兼首席理財規劃顧問，以20年的金融實務經驗，建立諾昇的服務理念與方法，確保諾昇提供的每一項財務建議，都以客戶利益為核心出發點，陪伴客戶走向財務幸福。</p>
 
-            <h3 style="font-family:var(--font-heading);font-size:var(--fs-md);font-weight:700;color:var(--color-primary);margin-bottom:12px;">證照與認證</h3>
-            <ul style="list-style:disc;padding-left:20px;margin-bottom:20px;font-size:var(--fs-body);line-height:2;">
-              <li>CFP® 國際認證高級理財規劃顧問</li>
-              <li>RFA 退休理財規劃顧問</li>
-              <li>FChFP 特許財務規劃師</li>
-              <li>家族信託規劃顧問師</li>
-            </ul>
-
             <h3 style="font-family:var(--font-heading);font-size:16px;font-weight:700;color:var(--color-primary);margin-bottom:12px;">現職</h3>
-            <ul style="list-style:disc;padding-left:20px;font-size:var(--fs-body);line-height:2;">
+            <ul style="list-style:disc;padding-left:20px;margin-bottom:20px;font-size:var(--fs-body);line-height:2;">
               <li>諾昇理財規劃顧問公司執行長</li>
               <li>詠言法律事務所 稅務顧問</li>
               <li>威瑞財富管理 信託團隊</li>
               <li>專欄作家：風傳媒、天下雜誌、今周刊、Smart自學網、橘世代、好險有錢</li>
+            </ul>
+
+            <h3 style="font-family:var(--font-heading);font-size:16px;font-weight:700;color:var(--color-primary);margin-bottom:12px;">經歷</h3>
+            <ul style="list-style:disc;padding-left:20px;margin-bottom:20px;font-size:var(--fs-body);line-height:2;">
+              <li>臺灣理財認證顧問協會「從員工福利信託看員工財務規劃」講師</li>
+              <li>金融研訓院 成人金融素養教育 講師</li>
+              <li>理財好聲音 極客年會財務規劃 講師</li>
+              <li>政大、淡江、文化大學、台電、竹北主婦聯盟、臺灣理財顧問認證協會、菁英財管、中華職能應用發展協會、公勝保經、三商美邦人壽等單位，受邀演講財商、財稅、退休、信託等專題</li>
+            </ul>
+
+            <h3 style="font-family:var(--font-heading);font-size:var(--fs-md);font-weight:700;color:var(--color-primary);margin-bottom:12px;">專業證照</h3>
+            <ul style="list-style:disc;padding-left:20px;font-size:var(--fs-body);line-height:2;">
+              <li>CFP® 國際認證高級理財規劃顧問</li>
+              <li>RFA 退休理財規劃顧問</li>
+              <li>FChFP 特許財務規劃師</li>
+              <li>家族信託規劃顧問師</li>
             </ul>
           </div>
         </div>

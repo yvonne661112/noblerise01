@@ -1,0 +1,69 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  align?: 'left' | 'center';
+}
+const { eyebrow, title, align = 'left' } = Astro.props;
+---
+<div class:list={['section-hdr', align === 'center' && 'section-hdr--center']}>
+  {eyebrow && <span class="section-hdr-eyebrow">{eyebrow}</span>}
+  <div class="section-hdr-row">
+    <h2 class="section-hdr-title">{title}</h2>
+    <div class="section-hdr-line"></div>
+  </div>
+</div>
+
+<style>
+  .section-hdr {
+    margin-bottom: 40px;
+  }
+  .section-hdr--center {
+    text-align: center;
+  }
+
+  /* eyebrow */
+  .section-hdr-eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+  }
+
+  /* title + decorative line */
+  .section-hdr-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .section-hdr--center .section-hdr-row {
+    justify-content: center;
+  }
+  .section-hdr-title {
+    font-family: var(--font-heading);
+    font-size: clamp(20px, 2.5vw, 28px);
+    font-weight: var(--heading-weight);
+    color: var(--color-primary);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  /* 橫線裝飾（Classic 主題下，--color-border-accent 偏綠；Premium 偏金） */
+  .section-hdr-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--color-border-accent), transparent);
+    min-width: 40px;
+  }
+  .section-hdr--center .section-hdr-line {
+    display: none;
+  }
+
+  /* 在深色背景 section 內使用時覆蓋文字色 */
+  .section-dark .section-hdr-title,
+  .section-primary .section-hdr-title {
+    color: #fff;
+  }
+</style>

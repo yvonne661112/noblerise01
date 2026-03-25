@@ -2,6 +2,7 @@
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Head from '../../components/Head.astro';
+import PageHero from '../../components/PageHero.astro';
 import { SHOW_BOOKING } from '../../data/siteConfig';
 ---
 <!DOCTYPE html>
@@ -13,16 +14,12 @@ import { SHOW_BOOKING } from '../../data/siteConfig';
 <body>
   <Header />
 
-  <div class="page-title-bar">
-    <div class="container">
-      <h1>服務項目</h1>
-    </div>
-  </div>
+  <PageHero eyebrow="Services" title="服務項目" />
 
   <main>
     <section class="section">
       <div class="container" style="max-width:960px;">
-        <p style="font-size:var(--fs-md);line-height:1.9;color:#1d1d1d;">面對眾多理財資訊與商品，您是否常常不知如何判斷？努力理財卻沒有回報，甚至虧損？想開始規劃，卻不知道第一步？在諾昇，財務規劃不是報告，而是陪你真正做好財務。不推銷、不賣產品，只讓金流更清楚、未來更安心。用策略把「現在的資源」連結到「想要的生活」，一起把財務幸福做到位。</p>
+        <p style="font-size:var(--fs-md);line-height:1.9;color:var(--color-text);">面對眾多理財資訊與商品，您是否常常不知如何判斷？努力理財卻沒有回報，甚至虧損？想開始規劃，卻不知道第一步？在諾昇，財務規劃不是報告，而是陪你真正做好財務。不推銷、不賣產品，只讓金流更清楚、未來更安心。用策略把「現在的資源」連結到「想要的生活」，一起把財務幸福做到位。</p>
       </div>
     </section>
 
@@ -59,7 +56,7 @@ import { SHOW_BOOKING } from '../../data/siteConfig';
       </div>
     </section>
 
-    <section class="section" style="background:#f7f7f7;">
+    <section class="section" style="background:var(--color-bg-subtle);">
       <div class="container">
         <img src={import.meta.env.BASE_URL + "images/service-steps-check.png"} alt="財務規劃六步驟" width="1536" height="1024" loading="lazy" style="width:100%;height:auto;display:block;" />
       </div>
@@ -70,14 +67,14 @@ import { SHOW_BOOKING } from '../../data/siteConfig';
         <h2 class="section-title" style="margin-bottom:20px;">30 分鐘免費諮詢</h2>
         <p style="margin-bottom:16px;">若您想進一步了解財務規劃，我們提供 30 分鐘免費線上諮詢。協助釐清您的財務現況是否需要規劃，並說明諾昇的流程、服務內容與收費方式。</p>
         <p style="margin-bottom:24px;font-weight:600;">您將帶走清楚的下一步方向，以及選擇最適合自己方案所需的完整資訊。</p>
-        <p style="font-size:var(--fs-sm);color:#777;margin-bottom:32px;">※ 30 分鐘諮詢僅為流程及方向建議，並無提供個別財務問題的深入分析與解決方案建議。</p>
+        <p style="font-size:var(--fs-sm);color:var(--color-text-mid);margin-bottom:32px;">※ 30 分鐘諮詢僅為流程及方向建議，並無提供個別財務問題的深入分析與解決方案建議。</p>
         {SHOW_BOOKING && (
           <a href={import.meta.env.BASE_URL + "contact/"} class="btn btn-primary">預約免費諮詢</a>
         )}
       </div>
     </section>
 
-    <section class="section" style="background:#f7f7f7;">
+    <section class="section" style="background:var(--color-bg-subtle);">
       <div class="container">
         <div class="grid-3">
           <div class="card">
