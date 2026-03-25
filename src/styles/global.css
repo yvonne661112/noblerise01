@@ -263,7 +263,7 @@ a { color: inherit; }
 }
 
 /* ===== SERVICE CARDS ===== */
-.service-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.service-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; align-items: end; }
 .service-img-card img { width: 100%; height: auto; display: block; }
 
 /* ===== MEDIA COVERAGE ===== */
@@ -420,7 +420,7 @@ a { color: inherit; }
 
 @media (max-width: 600px) {
   .grid-3, .testimonials, .blog-grid, .grid-4, .media-videos { grid-template-columns: 1fr; }
-  .service-card-grid { grid-template-columns: 1fr 1fr; }
+  .service-card-grid { grid-template-columns: 1fr; }
   .main-nav { display: none; }
   .mobile-menu-btn { display: flex; }
   .header-company { display: none; }
