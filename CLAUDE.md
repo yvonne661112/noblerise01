@@ -11,6 +11,7 @@
 - **部署**：GitHub Pages → `https://yvonne661112.github.io/noblerise01/`
 - **目標網域**：`https://noblerise.com.tw/`（DNS 切換留待 task02）
 - **Git remote**：`https://github.com/yvonne661112/noblerise01.git`
+- **對標舊站**：`https://noblerise.com.tw/`（WordPress 舊版，修改時以此為視覺與內容參考基準）
 
 ---
 
@@ -30,6 +31,11 @@
 | `src/content.config.ts` | Content Collections 設定（Astro v5+） |
 | `astro.config.mjs` | Astro 設定（`base`、`site`、`trailingSlash`） |
 | `.github/workflows/deploy.yml` | GitHub Actions 自動部署 |
+| `src/data/categories.ts` | 分類 slug 與標籤對照（`categoryLabels`、`categorySlugs`） |
+| `src/data/author.ts` | 作者姓名、頭銜、證照等固定資料 |
+| `src/utils/post.ts` | 文章排序、資料轉換工具函式 |
+| `src/utils/jsonld.ts` | JSON-LD 結構化資料產生（`blogListLd`、`breadcrumbLd`） |
+| `src/utils/assets.ts` | 動態圖片路徑轉完整 URL 工具 |
 
 ### 可重用元件
 
@@ -39,6 +45,10 @@
 | `SectionHeader.astro` | `eyebrow?` `title` `align?` | 各節標題 + 裝飾線 |
 | `ContentCard.astro` | `title` `body` `tag?` `href?` | 通用內容卡片 |
 | `TagBadge.astro` | `label` `variant?` | 標籤徽章 |
+| `AuthorCard.astro` | — | 作者資訊卡（讀取 `src/data/author.ts`） |
+| `BlogList.astro` | `posts[]` | 文章列表 |
+| `CompanyName.astro` | — | 公司名稱（中英文格式，讀取 `siteConfig.CONTACT`） |
+| `SakuraRain.astro` | — | 櫻花飄落特效（開關：`siteConfig.SHOW_SAKURA`） |
 
 ### 主題系統
 
@@ -61,6 +71,7 @@ export const activeTheme: 'classic' | 'premium' = 'premium';
 ```ts
 // src/data/siteConfig.ts
 export const SHOW_BOOKING = false; // 預約諮詢功能（true = 顯示）
+export const SHOW_SAKURA = true;   // 櫻花飄落特效（true = 顯示）
 ```
 
 ---
@@ -135,14 +146,16 @@ npm run preview
 
 ### 分類頁面（6 個）
 
-| 名稱 | URL | 檔案路徑 |
-|------|-----|---------|
-| 投資理財 | `/blog/investment/` | `src/pages/blog/investment/index.astro` |
-| 保險權益 | `/blog/insurance/` | `src/pages/blog/insurance/index.astro` |
-| 證照進修 | `/blog/certification/` | `src/pages/blog/certification/index.astro` |
-| 財務規劃 | `/blog/business-planning/` | `src/pages/blog/business-planning/index.astro` |
-| 信託規劃 | `/blog/elderly-care-trust/` | `src/pages/blog/elderly-care-trust/index.astro` |
-| 傳承稅務 | `/blog/tax-planning/` | `src/pages/blog/tax-planning/index.astro` |
+動態路由：`src/pages/blog/[category]/index.astro`，slug 清單定義於 `src/data/categories.ts`。
+
+| 名稱 | URL |
+|------|-----|
+| 投資理財 | `/blog/investment/` |
+| 保險權益 | `/blog/insurance/` |
+| 證照進修 | `/blog/certification/` |
+| 財務規劃 | `/blog/business-planning/` |
+| 信託規劃 | `/blog/elderly-care-trust/` |
+| 傳承稅務 | `/blog/tax-planning/` |
 
 ---
 
