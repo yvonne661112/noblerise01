@@ -20,13 +20,28 @@
     border-radius: 50% 0 50% 0;
     background: radial-gradient(ellipse at 40% 35%, #fff 0%, #ffb7c5 55%, #e8799a 100%);
     opacity: 0;
-    animation: sakura-fall linear forwards;
+    animation: sakura-fall ease-in-out forwards;
   }
   @keyframes sakura-fall {
-    0%   { transform: translateY(0) rotate(0deg) scale(1);   opacity: 0; }
+    0%   {
+      transform: translate(0, 0) rotate(0deg) scale(1);
+      opacity: 0;
+    }
     5%   { opacity: 0.85; }
-    85%  { opacity: 0.7; }
-    100% { transform: translateY(105vh) rotate(540deg) scale(0.8); opacity: 0; }
+    25%  {
+      transform: translate(var(--d1), 25vh) rotate(120deg) scale(0.97);
+    }
+    50%  {
+      transform: translate(var(--d2), 52vh) rotate(260deg) scale(0.93);
+    }
+    75%  {
+      transform: translate(var(--d3), 78vh) rotate(400deg) scale(0.88);
+      opacity: 0.65;
+    }
+    100% {
+      transform: translate(var(--d4), 108vh) rotate(540deg) scale(0.8);
+      opacity: 0;
+    }
   }
 </style>
 
@@ -42,6 +57,15 @@
       p.style.left = Math.random() * 105 + 'vw';
       p.style.width  = size + 'px';
       p.style.height = size * (Math.random() * 0.4 + 0.7) + 'px';
+
+      // 每片花瓣獨立的風向偏移：整體偏移 + 各段擾動
+      const wind = (Math.random() * 80 - 40);          // -40 ~ +40 px 整體風向
+      const jitter = () => (Math.random() * 50 - 25);  // 各段隨機擾動
+      p.style.setProperty('--d1', (wind * 0.25 + jitter()) + 'px');
+      p.style.setProperty('--d2', (wind * 0.55 + jitter()) + 'px');
+      p.style.setProperty('--d3', (wind * 0.80 + jitter()) + 'px');
+      p.style.setProperty('--d4', (wind        + jitter()) + 'px');
+
       const dur = Math.random() * 4 + 5;
       p.style.animationDuration = dur + 's';
       p.style.animationDelay = '0s';
