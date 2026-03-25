@@ -86,19 +86,41 @@ const jsonLd = {
         <div>
           <h2 class="section-title" style="margin-bottom:32px;">聯絡資訊</h2>
           <div style="font-size:var(--fs-body);line-height:2.2;">
-            <p>
-              <strong>公司</strong><br>
+            <p style="margin-bottom:1.5em;">
               <span style="display:inline-block;width:fit-content;max-width:100%;">
                 <span style="display:block;text-align:justify;text-align-last:justify;">{CONTACT.companyNameZh}</span>
                 <span style="display:block;text-align:justify;text-align-last:justify;">{CONTACT.companyNameEn}</span>
               </span>
             </p>
-            <br />
-            <p><strong>Email</strong><br><a href={`mailto:${CONTACT.email}`} style="color:var(--color-primary);">{CONTACT.email}</a></p>
-            <br />
-            <p><strong>LINE</strong><br><a href={CONTACT.lineUrl} target="_blank" rel="noopener" style="color:var(--color-primary);">{CONTACT.line}</a></p>
-            <br />
-            <p><strong>地址</strong><br>{CONTACT.address}</p>
+            <ul class="contact-info-list">
+              <li>
+                <span class="contact-icon">
+                  <!-- Headset / LINE icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+                    <path d="M12 2C7.03 2 3 6.03 3 11v3a3 3 0 0 0 3 3h1a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1H5v-1c0-3.87 3.13-7 7-7s7 3.13 7 7v1h-2a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h1c.34 0 .67-.06.97-.16A5.002 5.002 0 0 1 12 21H11a1 1 0 0 0 0 2h1a7 7 0 0 0 6.92-5.95A3 3 0 0 0 21 14v-3c0-4.97-4.03-9-9-9z"/>
+                  </svg>
+                </span>
+                <span>LINE : <a href={CONTACT.lineUrl} target="_blank" rel="noopener" style="color:var(--color-accent);">{CONTACT.line}</a></span>
+              </li>
+              <li>
+                <span class="contact-icon">
+                  <!-- Envelope / Email icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+                    <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.25-8 4.5-8-4.5V6l8 4.5L20 6v2.25z"/>
+                  </svg>
+                </span>
+                <span><a href={`mailto:${CONTACT.email}`} style="color:var(--color-accent);">{CONTACT.email}</a></span>
+              </li>
+              <li>
+                <span class="contact-icon">
+                  <!-- ID card / Address icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+                    <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zM8 13H6v-2h2v2zm0-4H6V7h2v2zm10 4h-8v-2h8v2zm0-4h-8V7h8v2z"/>
+                  </svg>
+                </span>
+                <span>{CONTACT.address}</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
