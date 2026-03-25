@@ -1,0 +1,1 @@
+/Users/bruce/Downloads/noblerise_site/nr01/CLAUDE.md

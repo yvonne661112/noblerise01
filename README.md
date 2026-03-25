@@ -5,6 +5,8 @@
 線上網址：[https://yvonne661112.github.io/noblerise01/](https://yvonne661112.github.io/noblerise01/)
 目標網域：[https://noblerise.com.tw/](https://noblerise.com.tw/)（DNS 切換留待 task02）
 
+> 任務進度與文件索引請見 [docs/INDEX.md](./docs/INDEX.md)
+
 ---
 
 ## 技術架構
