@@ -54,9 +54,13 @@ const jsonLd = {
 };
 
 /* ── 前/後一篇導覽 ── */
+/* 排序：新→舊（降序），與列表頁 sortPostsByDate 一致 */
+/* 列表中 idx 小 = 較新，idx 大 = 較舊 */
+/* 上一篇 = idx-1 = 較新的文章（列表中往上）*/
+/* 下一篇 = idx+1 = 較舊的文章（列表中往下）*/
 const base = import.meta.env.BASE_URL;
 const allSorted = (await getCollection('blog')).sort(
-  (a, b) => new Date(a.data.date).getTime() - new Date(b.data.date).getTime()
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
 
 type NavItem = { title: string; url: string } | null;
