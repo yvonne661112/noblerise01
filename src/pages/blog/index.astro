@@ -35,10 +35,15 @@ const crumbLd = breadcrumbLd([
 <body>
   <Header />
 
-  <PageHero eyebrow="Knowledge" title="知識文章" />
+  <PageHero
+    eyebrow="Knowledge"
+    title="理財新知"
+    description="專業觀點、實用知識，幫助你做出更好的財務決策。"
+  />
 
   <main class="section">
     <div class="container">
+      <div class="blog-count">共 {postViews.length} 篇文章</div>
       <BlogList posts={postViews} currentCat="" />
     </div>
   </main>
@@ -46,3 +51,12 @@ const crumbLd = breadcrumbLd([
   <Footer />
 </body>
 </html>
+
+<style>
+  .blog-count {
+    font-size: var(--fs-sm);
+    color: var(--color-text-mid);
+    margin-bottom: 8px;
+    text-align: right;
+  }
+</style>

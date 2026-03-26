@@ -62,6 +62,7 @@ const jsonLd = blogListLd({
 
   <main class="section">
     <div class="container">
+      <div class="blog-count">共 {postViews.length} 篇文章</div>
       <BlogList posts={postViews} currentCat={category} />
     </div>
   </main>
@@ -69,3 +70,12 @@ const jsonLd = blogListLd({
   <Footer />
 </body>
 </html>
+
+<style>
+  .blog-count {
+    font-size: var(--fs-sm);
+    color: var(--color-text-mid);
+    margin-bottom: 8px;
+    text-align: right;
+  }
+</style>

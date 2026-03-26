@@ -4,78 +4,99 @@ import { author } from '../data/author';
 
 <div class="author-card">
   <div class="author-card-header">
-    <span class="author-label">【作者】</span>
-    <span class="author-name">{author.name}</span>
+    <div>
+      <span class="author-label">作者</span>
+      <span class="author-name">{author.name}</span>
+    </div>
     <span class="author-title">{author.title}</span>
   </div>
-  <ul class="author-details">
-    <li><span class="detail-label">現職</span>{author.position}</li>
-    <li><span class="detail-label">證書</span>{author.certifications}</li>
-    <li><span class="detail-label">專長</span>{author.specialties}</li>
-    <li><span class="detail-label">得獎</span>{author.awards}</li>
-    <li><span class="detail-label">網站</span><a href={author.website} target="_blank" rel="noopener">{author.website}</a></li>
-  </ul>
+  <div class="author-card-body">
+    <div class="author-detail-row">
+      <span class="detail-label">現職</span>
+      <span>{author.position}</span>
+    </div>
+    <div class="author-detail-row">
+      <span class="detail-label">證照</span>
+      <span>{author.certifications}</span>
+    </div>
+    <div class="author-detail-row">
+      <span class="detail-label">專長</span>
+      <span>{author.specialties}</span>
+    </div>
+    <div class="author-detail-row">
+      <span class="detail-label">獲獎</span>
+      <span>{author.awards}</span>
+    </div>
+    <div class="author-detail-row">
+      <span class="detail-label">網站</span>
+      <span><a href={author.website} target="_blank" rel="noopener">{author.website}</a></span>
+    </div>
+  </div>
 </div>
 
 <style>
 .author-card {
-  margin-top: 48px;
-  padding: 20px 24px;
-  border-top: 2px solid var(--color-accent);
+  margin-top: 56px;
+  padding: 28px 32px;
+  border-left: 4px solid var(--color-accent);
   background: var(--color-bg-subtle);
-  border-radius: 0 0 4px 4px;
-  font-size: var(--fs-lg);
-  line-height: 1.8;
-  color: var(--color-text);
+  border-radius: 0 var(--card-radius) var(--card-radius) 0;
 }
 .author-card-header {
   display: flex;
   align-items: baseline;
-  gap: 6px;
-  margin-bottom: 12px;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
   flex-wrap: wrap;
 }
 .author-label {
-  color: var(--color-primary);
+  font-size: var(--fs-xs);
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  margin-right: 8px;
 }
 .author-name {
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-weight: var(--heading-weight);
   color: var(--color-primary);
-  font-size: var(--fs-xl);
+  font-size: var(--fs-2xl);
 }
 .author-title {
   color: var(--color-text-mid);
-  font-size: var(--fs-lg);
+  font-size: var(--fs-sm);
 }
-.author-details {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.author-card-body {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-}
-.author-details li {
-  display: flex;
   gap: 8px;
-  font-size: var(--fs-md);
-  color: var(--color-text-mid);
+}
+.author-detail-row {
+  display: flex;
+  gap: 12px;
+  font-size: var(--fs-base);
+  color: var(--color-text);
+  line-height: 1.7;
 }
 .detail-label {
   flex-shrink: 0;
   font-weight: 600;
   color: var(--color-primary);
-  min-width: 32px;
+  min-width: 36px;
+  font-size: var(--fs-sm);
 }
 .detail-label::after {
   content: '：';
 }
-.author-details a {
-  color: var(--color-primary);
+.author-detail-row a {
+  color: var(--color-accent);
   word-break: break-all;
 }
-.author-details a:hover {
+.author-detail-row a:hover {
   text-decoration: underline;
 }
 </style>
