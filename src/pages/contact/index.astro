@@ -1,7 +1,5 @@
 ---
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import Head from '../../components/Head.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import { SHOW_BOOKING, CONTACT } from '../../data/siteConfig';
 import CompanyName from '../../components/CompanyName.astro';
@@ -29,14 +27,11 @@ const jsonLd = {
   }
 };
 ---
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-  <Head title="聯絡我們 | 諾昇理財規劃" description={`聯絡諾昇理財規劃，預約財務規劃諮詢。Email: ${CONTACT.email}，LINE: ${CONTACT.line}，地址: ${CONTACT.address}。`} />
-  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
-</head>
-<body>
-  <Header />
+<BaseLayout
+  title="聯絡我們 | 諾昇理財規劃"
+  description={`聯絡諾昇理財規劃，預約財務規劃諮詢。Email: ${CONTACT.email}，LINE: ${CONTACT.line}，地址: ${CONTACT.address}。`}
+>
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
 
   <PageHero
     eyebrow="Contact"
@@ -149,9 +144,16 @@ const jsonLd = {
     </div>
   </main>
 
-  <Footer />
-</body>
-</html>
+  <!-- ▸ CTA -->
+  <section class="section section-primary contact-cta">
+    <div class="container text-center">
+      <h2 class="section-title" style="color: var(--color-on-primary)">30 分鐘免費諮詢，釐清方向、無壓力</h2>
+      <p class="contact-cta-desc">我們協助您了解財務現況是否需要規劃，並說明諾昇的服務流程與收費方式。</p>
+      <a href={CONTACT.lineUrl} target="_blank" rel="noopener" class="btn btn-accent btn-lg">LINE 預約諮詢</a>
+    </div>
+  </section>
+
+</BaseLayout>
 
 <style>
   /* ── LAYOUT ── */
@@ -164,4 +166,11 @@ const jsonLd = {
   .contact-qr { width: 120px; height: auto; margin-top: 8px; display: block; }
   .contact-map-wrap { aspect-ratio: 16 / 9; border-radius: var(--card-radius); overflow: hidden; }
   .contact-map { border: 0; display: block; width: 100%; height: 100%; }
+  .contact-cta { background-image: var(--hero-pattern); }
+  .contact-cta-desc {
+    color: var(--color-text-muted);
+    font-size: var(--fs-lg);
+    max-width: 520px;
+    margin: 0 auto 36px;
+  }
 </style>

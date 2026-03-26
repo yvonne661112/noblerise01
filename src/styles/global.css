@@ -8,7 +8,7 @@
   --fs-body: 17px;
   --fs-md:   16px;
   --fs-lg:   18px;
-  --fs-xl:   18px;
+  --fs-xl:   20px;
   --fs-2xl:  22px;
   --fs-3xl:  26px;
 
@@ -485,12 +485,12 @@ textarea:focus-visible,
   align-items: start;
 }
 .footer-left img { display: block; margin-bottom: 20px; }
-.footer-left p { font-size: var(--fs-base); line-height: 1.8; color: rgba(255,255,255,0.75); }
+.footer-left p { font-size: var(--fs-base); line-height: 1.8; color: var(--color-text-muted); }
 .footer-right { }
 .footer-contact-title { color: var(--color-on-primary); font-size: var(--fs-lg); font-weight: 600; margin-bottom: 20px; }
 .footer-contact-list { list-style: none; margin: 0; padding: 0; }
-.footer-contact-list li { font-size: var(--fs-base); color: rgba(255,255,255,0.8); margin-bottom: 14px; line-height: 1.7; }
-.footer-contact-list a { color: rgba(255,255,255,0.8); text-decoration: none; transition: color var(--transition); }
+.footer-contact-list li { font-size: var(--fs-base); color: var(--color-text-muted); margin-bottom: 14px; line-height: 1.7; }
+.footer-contact-list a { color: var(--color-text-muted); text-decoration: none; transition: color var(--transition); }
 .footer-contact-list a:hover { color: var(--color-on-primary); }
 .footer-line-id { color: var(--color-line-light); }
 .footer-copy {
@@ -613,17 +613,18 @@ textarea:focus-visible,
 .mobile-nav {
   position: fixed;
   top: 0;
-  right: -300px;
+  right: 0;
   width: 300px;
   height: 100%;
   background: var(--color-white);
   z-index: 400;
   padding: 72px 0 40px;
-  transition: right 0.3s ease;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
   overflow-y: auto;
   box-shadow: -4px 0 24px rgba(0,0,0,0.1);
 }
-.mobile-nav.open { right: 0; }
+.mobile-nav.open { transform: translateX(0); }
 .mobile-nav-close {
   position: absolute;
   top: 20px;
@@ -777,6 +778,18 @@ textarea:focus-visible,
   color: var(--color-primary);
   font-weight: 700;
   background: var(--color-accent-pale);
+  position: relative;
+}
+.main-nav > ul > li > a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: 1px;
 }
 .mobile-nav a.active {
   color: var(--color-accent);

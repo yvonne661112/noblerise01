@@ -28,6 +28,9 @@
     85%  { opacity: 0.7; }
     100% { transform: translateY(105vh) rotate(540deg) scale(0.8); opacity: 0; }
   }
+  @media (prefers-reduced-motion: reduce) {
+    .sakura-container { display: none; }
+  }
 </style>
 
 <script>

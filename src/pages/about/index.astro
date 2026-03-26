@@ -1,7 +1,5 @@
 ---
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import Head from '../../components/Head.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import { CONTACT } from '../../data/siteConfig';
 
@@ -30,14 +28,11 @@ const jsonLd = {
   }
 };
 ---
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-  <Head title="關於諾昇 | 張惠芳 CFP® | 諾昇理財規劃" description="諾昇以財務幸福為核心，由 CFP® 張惠芳領軍，以獨立理財顧問（IFA）立場提供中立、專業的財務建議。了解諾昇的理念與首席顧問背景。" />
-  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
-</head>
-<body>
-  <Header />
+<BaseLayout
+  title="關於諾昇 | 張惠芳 CFP® | 諾昇理財規劃"
+  description="諾昇以財務幸福為核心，由 CFP® 張惠芳領軍，以獨立理財顧問（IFA）立場提供中立、專業的財務建議。了解諾昇的理念與首席顧問背景。"
+>
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
 
   <PageHero
     eyebrow="About Us"
@@ -119,38 +114,33 @@ const jsonLd = {
           <h2 class="section-title">獲獎紀錄</h2>
           <hr class="section-divider section-divider--center" />
         </div>
-        <div class="award-timeline">
-          <div class="award-entry">
-            <div class="award-year">2021</div>
-            <div class="award-info">
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-year">2021</div>
               <h3>FPAT 理財規劃書競賽</h3>
               <p>團體組 第二名</p>
+              <img src={base + "images/award1.jpg"} alt="2021 FPAT 理財規劃書競賽 團體組第二名" width="360" height="270" loading="lazy" class="timeline-img" />
             </div>
           </div>
-          <div class="award-entry">
-            <div class="award-year">2022</div>
-            <div class="award-info">
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-year">2022</div>
               <h3>FPAT 理財規劃書競賽</h3>
               <p>最佳顧問獎</p>
+              <img src={base + "images/award2.jpg"} alt="2022 FPAT 理財規劃書競賽 最佳顧問獎" width="360" height="270" loading="lazy" class="timeline-img" />
             </div>
           </div>
-          <div class="award-entry">
-            <div class="award-year">2023</div>
-            <div class="award-info">
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-year">2023</div>
               <h3>FPAT 理財規劃書競賽</h3>
               <p>評審委員</p>
+              <img src={base + "images/award3.jpg"} alt="2023 FPAT 理財規劃書競賽 評審委員" width="360" height="270" loading="lazy" class="timeline-img" />
             </div>
-          </div>
-        </div>
-        <div class="grid-3 mt-48 award-photos">
-          <div class="award-item">
-            <img src={base + "images/award1.jpg"} alt="2021 FPAT 理財規劃書競賽 團體組第二名" width="360" height="270" loading="lazy" />
-          </div>
-          <div class="award-item">
-            <img src={base + "images/award2.jpg"} alt="2022 FPAT 理財規劃書競賽 最佳顧問獎" width="360" height="270" loading="lazy" />
-          </div>
-          <div class="award-item">
-            <img src={base + "images/award3.jpg"} alt="2023 FPAT 理財規劃書競賽 評審委員" width="360" height="270" loading="lazy" />
           </div>
         </div>
       </div>
@@ -166,9 +156,8 @@ const jsonLd = {
     </section>
   </main>
 
-  <Footer />
-</body>
-</html>
+
+</BaseLayout>
 
 <style>
   /* ── MISSION ── */
@@ -250,46 +239,68 @@ const jsonLd = {
     background: var(--color-accent);
   }
 
-  /* ── AWARDS TIMELINE ── */
-  .award-timeline {
-    display: flex;
-    justify-content: center;
-    gap: 48px;
-    max-width: 800px;
+  /* ── TIMELINE ── */
+  .timeline {
+    position: relative;
+    max-width: 680px;
     margin: 0 auto;
+    padding-left: 32px;
   }
-  .award-entry {
-    flex: 1;
-    text-align: center;
-    padding: 24px;
-    border-radius: var(--card-radius);
-    border: 1px solid var(--color-border);
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--color-accent), var(--color-border));
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 48px;
+  }
+  .timeline-item:last-child { margin-bottom: 0; }
+  .timeline-dot {
+    position: absolute;
+    left: -28px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    border: 3px solid var(--color-white);
+    box-shadow: 0 0 0 2px var(--color-accent);
+  }
+  .timeline-card {
     background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--card-radius);
+    padding: 28px;
   }
-  .award-year {
+  .timeline-year {
     font-family: var(--font-heading);
     font-size: clamp(28px, 4vw, 36px);
     font-weight: 700;
     color: var(--color-accent);
-    margin-bottom: 12px;
+    margin-bottom: 8px;
+    line-height: 1;
   }
-  .award-info h3 {
+  .timeline-card h3 {
     font-size: var(--fs-base);
     font-weight: 600;
     color: var(--color-primary);
     margin-bottom: 4px;
   }
-  .award-info p {
+  .timeline-card p {
     font-size: var(--fs-sm);
     color: var(--color-text-mid);
+    margin-bottom: 16px;
   }
-
-  .award-photos { }
-  .award-item img {
+  .timeline-img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: var(--card-radius);
+    height: auto;
+    border-radius: 8px;
+    display: block;
   }
 
   /* ── CTA ── */
@@ -310,6 +321,5 @@ const jsonLd = {
       text-align: center;
     }
     .advisor-certs { justify-content: center; }
-    .award-timeline { flex-direction: column; gap: 16px; }
   }
 </style>

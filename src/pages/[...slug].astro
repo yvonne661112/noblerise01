@@ -1,8 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import Head from '../components/Head.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import AuthorCard from '../components/AuthorCard.astro';
 import { categoryLabels } from '../data/categories';
 import { publisher } from '../utils/jsonld';
@@ -50,15 +48,8 @@ const jsonLd = {
   "publisher": publisher
 };
 ---
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-  <Head title={`${title} | 諾昇理財規劃`} description={description} image={image} type="article" />
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-  
-</head>
-<body>
-  <Header />
+<BaseLayout title={`${title} | 諾昇理財規劃`} description={description} image={image} type="article">
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   <main class="post-main">
     <div class="post-container">
@@ -93,7 +84,6 @@ const jsonLd = {
     </div>
   </main>
 
-  <Footer />
-</body>
-</html>
+
+</BaseLayout>
 

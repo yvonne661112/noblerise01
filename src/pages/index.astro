@@ -1,7 +1,5 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import Head from '../components/Head.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import BlogList from '../components/BlogList.astro';
 import { getCollection } from 'astro:content';
@@ -44,20 +42,13 @@ const jsonLd = [
   }
 ];
 ---
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-  <Head
-    title="諾昇理財規劃｜張惠芳 CFP® 獨立理財顧問｜財務幸福"
-    description="諾昇以財務幸福為核心，由 CFP® 張惠芳領軍，提供中立、專業、以客戶利益優先的獨立財務規劃服務，涵蓋投資、保險、退休、信託、稅務規劃。"
-  />
+<BaseLayout
+  title="諾昇理財規劃｜張惠芳 CFP® 獨立理財顧問｜財務幸福"
+  description="諾昇以財務幸福為核心，由 CFP® 張惠芳領軍，提供中立、專業、以客戶利益優先的獨立財務規劃服務，涵蓋投資、保險、退休、信託、稅務規劃。"
+>
   {jsonLd.map(ld => (
-    <script type="application/ld+json" is:inline set:html={JSON.stringify(ld)} />
+    <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(ld)} />
   ))}
-
-</head>
-<body>
-  <Header />
 
   <!-- ▸ HERO -->
   <PageHero
@@ -72,9 +63,9 @@ const jsonLd = [
   </PageHero>
 
   <!-- ▸ STATS BAR -->
-  <div class="stat-bar">
+  <div class="stat-bar" id="stat-bar">
     <div class="stat-item">
-      <span class="stat-number">20+</span>
+      <span class="stat-number" data-count="20" data-suffix="+">0</span>
       <span class="stat-label">年金融實務經驗</span>
     </div>
     <div class="stat-item">
@@ -82,51 +73,54 @@ const jsonLd = [
       <span class="stat-label">國際認證理財規劃顧問</span>
     </div>
     <div class="stat-item">
-      <span class="stat-number">4</span>
+      <span class="stat-number" data-count="4">0</span>
       <span class="stat-label">項國際專業認證</span>
     </div>
     <div class="stat-item">
-      <span class="stat-number">6</span>
+      <span class="stat-number" data-count="6">0</span>
       <span class="stat-label">大媒體專欄作家</span>
     </div>
   </div>
 
-  <!-- ▸ 顧問介紹 -->
+  <script>
+    const bar = document.getElementById('stat-bar');
+    if (bar) {
+      const counters = bar.querySelectorAll('[data-count]');
+      let animated = false;
+      const animate = () => {
+        if (animated) return;
+        animated = true;
+        counters.forEach(el => {
+          const target = parseInt(el.getAttribute('data-count')!, 10);
+          const suffix = el.getAttribute('data-suffix') || '';
+          const duration = 1200;
+          const start = performance.now();
+          const tick = (now: number) => {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.round(eased * target) + suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        });
+      };
+      const obs = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) { animate(); obs.disconnect(); }
+      }, { threshold: 0.5 });
+      obs.observe(bar);
+    }
+  </script>
+
+  <!-- ▸ ACT 1：引起共鳴 + 解決方案 -->
   <section class="section">
     <div class="container">
-      <div class="advisor-intro">
-        <div class="advisor-photo-wrap">
-          <img src={base + "images/yvonneCFP.jpeg"} alt="張惠芳 CFP® 首席理財規劃顧問" width="400" height="400" loading="lazy" class="advisor-photo" />
-        </div>
-        <div class="advisor-content">
-          <span class="section-eyebrow">Chief Planning Advisor</span>
-          <h2 class="section-title">張惠芳 CFP®</h2>
-          <p class="advisor-role">諾昇理財首席規劃顧問 ／ 執行長</p>
-          <hr class="section-divider" />
-          <p>以 20 年金融實務經驗，張惠芳建立了「不賣產品、只做規劃」的獨立顧問服務模式。她相信：真正的財務安全不是追求高報酬，而是讓每一分錢都為你的人生目標服務。</p>
-          <ul class="credential-list mt-24">
-            <li class="credential-badge">CFP® 國際認證</li>
-            <li class="credential-badge">RFA 退休理財顧問</li>
-            <li class="credential-badge">FChFP 特許財務規劃師</li>
-            <li class="credential-badge">家族信託規劃顧問師</li>
-          </ul>
-          <div class="mt-32">
-            <a href={base + "about/"} class="btn btn-primary">了解更多</a>
-          </div>
-        </div>
+      <div class="empathy-block text-center mb-48 reveal">
+        <span class="section-eyebrow">The Challenge</span>
+        <h2 class="section-title">面對理財，你是否也有這些疑問？</h2>
+        <p class="empathy-text">「努力存錢卻不知道夠不夠？」「買了一堆保險但真的有保到？」「想規劃退休，卻不知道從何開始？」</p>
+        <p class="empathy-answer">你不需要一個人面對。諾昇不是銀行、不是保險公司 — 我們是站在你身邊的獨立理財規劃夥伴。</p>
       </div>
-    </div>
-  </section>
-
-  <!-- ▸ 核心價值 -->
-  <section class="section section-subtle">
-    <div class="container">
-      <div class="text-center mb-48">
-        <span class="section-eyebrow">Our Values</span>
-        <h2 class="section-title">為什麼選擇諾昇？</h2>
-        <p class="section-subtitle" style="margin-bottom: 0; max-width: 640px; margin-left: auto; margin-right: auto;">我們不是銀行、不是保險公司，我們是站在你身邊的獨立理財規劃夥伴。</p>
-      </div>
-      <div class="grid-3 values-grid">
+      <div class="grid-3 values-grid reveal">
         <div class="value-card">
           <div class="value-icon">
             <img src={base + "images/真正獨立.png"} alt="真正獨立 不賣產品" loading="lazy" class="value-icon-img" />
@@ -152,7 +146,34 @@ const jsonLd = [
     </div>
   </section>
 
-  <!-- ▸ 服務項目 -->
+  <!-- ▸ ACT 2：信任建立 — 顧問介紹 -->
+  <section class="section section-subtle">
+    <div class="container">
+      <div class="advisor-intro reveal">
+        <div class="advisor-photo-wrap">
+          <img src={base + "images/yvonneCFP.jpeg"} alt="張惠芳 CFP® 首席理財規劃顧問" width="400" height="400" loading="lazy" class="advisor-photo" />
+        </div>
+        <div class="advisor-content">
+          <span class="section-eyebrow">Chief Planning Advisor</span>
+          <h2 class="section-title">張惠芳 CFP®</h2>
+          <p class="advisor-role">諾昇理財首席規劃顧問 ／ 執行長</p>
+          <hr class="section-divider" />
+          <p>以 20 年金融實務經驗，張惠芳建立了「不賣產品、只做規劃」的獨立顧問服務模式。她相信：真正的財務安全不是追求高報酬，而是讓每一分錢都為你的人生目標服務。</p>
+          <ul class="credential-list mt-24">
+            <li class="credential-badge">CFP® 國際認證</li>
+            <li class="credential-badge">RFA 退休理財顧問</li>
+            <li class="credential-badge">FChFP 特許財務規劃師</li>
+            <li class="credential-badge">家族信託規劃顧問師</li>
+          </ul>
+          <div class="mt-32">
+            <a href={base + "about/"} class="btn btn-primary">了解更多</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ▸ ACT 3：服務項目 -->
   <section class="section">
     <div class="container">
       <div class="text-center mb-48">
@@ -160,7 +181,7 @@ const jsonLd = [
         <h2 class="section-title">全方位財務規劃服務</h2>
         <p class="section-subtitle" style="margin-bottom: 0; max-width: 640px; margin-left: auto; margin-right: auto;">從日常收支到財富傳承，諾昇為你的每個人生階段提供專業規劃。</p>
       </div>
-      <div class="service-grid">
+      <div class="service-grid reveal">
         <a href={base + "service/"} class="service-item">
           <div class="service-icon-wrap">
             <img src={base + "images/home-service-items-01.png"} alt="收支管理與財務盤點" loading="lazy" />
@@ -210,28 +231,34 @@ const jsonLd = [
     </div>
   </section>
 
-  <!-- ▸ 客戶見證 -->
+  <!-- ▸ ACT 4：社會證明 — 客戶見證 -->
   <section class="section section-dark">
     <div class="container">
       <div class="text-center mb-48">
         <span class="section-eyebrow">Testimonials</span>
-        <h2 class="section-title">客戶這樣說</h2>
+        <h2 class="section-title">他們的故事，也許就是你的下一步</h2>
       </div>
-      <div class="testimonials">
-        <div class="testimonial testimonial--dark">
-          <img src={base + "images/home-customer2.jpg"} alt="張先生" width="56" height="56" loading="lazy" class="testimonial-avatar" />
+      <div class="testimonials reveal">
+        <div class="testimonial testimonial--dark testimonial--featured">
+          <div class="testimonial-quote" aria-hidden="true">"</div>
+          <img src={base + "images/home-customer2.jpg"} alt="張先生" width="72" height="72" loading="lazy" class="testimonial-avatar" />
           <p class="testimonial-text">「55 歲退休能實現嗎？」惠芳 CFP 以科學方式精算一生的現金流，從退休資金、稅務到資產信託規劃，每一步都讓我更踏實。完成規劃後，我對人生財務藍圖更加安心！</p>
-          <p class="testimonial-name">張先生｜科技業主管</p>
+          <p class="testimonial-name">張先生</p>
+          <p class="testimonial-role">科技業主管</p>
         </div>
-        <div class="testimonial testimonial--dark">
-          <img src={base + "images/home-customer3.jpg"} alt="陳小姐" width="56" height="56" loading="lazy" class="testimonial-avatar" />
+        <div class="testimonial testimonial--dark testimonial--featured">
+          <div class="testimonial-quote" aria-hidden="true">"</div>
+          <img src={base + "images/home-customer3.jpg"} alt="陳小姐" width="72" height="72" loading="lazy" class="testimonial-avatar" />
           <p class="testimonial-text">惠芳 CFP 以獨立第三方角色全面盤點保單，揪出多餘保障與不當理財商品，大幅降低保險支出，資產負債表一目了然。找對顧問，是最聰明的省錢方式！</p>
-          <p class="testimonial-name">陳小姐｜退休人士</p>
+          <p class="testimonial-name">陳小姐</p>
+          <p class="testimonial-role">退休人士</p>
         </div>
-        <div class="testimonial testimonial--dark">
-          <img src={base + "images/home-customer1.jpg"} alt="王先生" width="56" height="56" loading="lazy" class="testimonial-avatar" />
+        <div class="testimonial testimonial--dark testimonial--featured">
+          <div class="testimonial-quote" aria-hidden="true">"</div>
+          <img src={base + "images/home-customer1.jpg"} alt="王先生" width="72" height="72" loading="lazy" class="testimonial-avatar" />
           <p class="testimonial-text">在惠芳 CFP 指導下，從開戶到投資執行、收支掌控，我一步步建立理財秩序。財務壓力漸漸減輕，不再焦慮也不盲從，逐步邁向我的財務幸福。</p>
-          <p class="testimonial-name">王先生｜工程監工</p>
+          <p class="testimonial-name">王先生</p>
+          <p class="testimonial-role">工程監工</p>
         </div>
       </div>
     </div>
@@ -240,7 +267,7 @@ const jsonLd = [
   <!-- ▸ 媒體採訪 -->
   <section class="section">
     <div class="container">
-      <div class="media-section">
+      <div class="media-section reveal">
         <div class="media-left">
           <span class="section-eyebrow">Media Coverage</span>
           <h2 class="section-title">媒體採訪與專欄</h2>
@@ -258,9 +285,15 @@ const jsonLd = [
         <div class="media-right">
           <a href="https://www.youtube.com/watch?v=QktyMzy--68" target="_blank" rel="noopener nofollow noreferrer" class="media-video-link">
             <img src={base + "images/tvbs-thumbnail2.png"} alt="TVBS 十點不一樣專訪" width="510" height="280" loading="lazy" />
+            <span class="media-play-btn" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" width="48" height="48"><circle cx="24" cy="24" r="24" fill="rgba(0,0,0,0.55)"/><path d="M19 16l14 8-14 8V16z" fill="#fff"/></svg>
+            </span>
           </a>
           <a href="https://youtu.be/_XeCIzm6pOU" target="_blank" rel="noopener nofollow noreferrer" class="media-video-link">
             <img src={base + "images/社會保障支出破2.6兆.png"} alt="社會保障支出破 2.6 兆" width="510" height="280" loading="lazy" />
+            <span class="media-play-btn" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" width="48" height="48"><circle cx="24" cy="24" r="24" fill="rgba(0,0,0,0.55)"/><path d="M19 16l14 8-14 8V16z" fill="#fff"/></svg>
+            </span>
           </a>
         </div>
       </div>
@@ -294,11 +327,28 @@ const jsonLd = [
     </div>
   </section>
 
-  <Footer />
-</body>
-</html>
+
+</BaseLayout>
 
 <style>
+  /* ── EMPATHY BLOCK ── */
+  .empathy-text {
+    font-family: var(--font-heading);
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-weight: var(--heading-weight);
+    color: var(--color-accent);
+    line-height: 1.8;
+    max-width: 640px;
+    margin: 0 auto 16px;
+  }
+  .empathy-answer {
+    font-size: var(--fs-lg);
+    color: var(--color-text-mid);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
   /* ── ADVISOR INTRO ── */
   .advisor-intro {
     display: grid;
@@ -396,14 +446,39 @@ const jsonLd = [
     line-height: 1.6;
   }
 
-  /* ── TESTIMONIAL DARK VARIANT ── */
+  /* ── TESTIMONIAL UPGRADED ── */
+  .testimonial--featured {
+    position: relative;
+    padding-top: 48px;
+  }
+  .testimonial--featured::before { display: none; }
+  .testimonial-quote {
+    position: absolute;
+    top: 16px;
+    left: 24px;
+    font-family: var(--font-heading);
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-accent);
+    opacity: 0.3;
+  }
+  .testimonial--featured .testimonial-avatar {
+    width: 72px;
+    height: 72px;
+    border: 2px solid var(--color-accent-light);
+  }
+  .testimonial-role {
+    font-size: var(--fs-xs);
+    color: var(--color-text-muted);
+    margin-top: 2px;
+  }
   .testimonial--dark {
     background: rgba(255, 255, 255, 0.06);
     border-color: rgba(255, 255, 255, 0.1);
   }
-  .testimonial--dark .testimonial-text { color: rgba(255, 255, 255, 0.7); }
+  .testimonial--dark .testimonial-text { color: var(--color-text-muted); }
   .testimonial--dark .testimonial-name { color: var(--color-accent-light); }
-  .testimonial--dark::before { color: var(--color-accent-light); }
 
   /* ── MEDIA ── */
   .media-section {
@@ -432,6 +507,16 @@ const jsonLd = [
     transition: transform 0.25s;
   }
   .media-video-link:hover img { transform: scale(1.03); }
+  .media-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.25s, opacity 0.25s;
+    opacity: 0.85;
+  }
+  .media-video-link { position: relative; }
+  .media-video-link:hover .media-play-btn { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
 
   /* ── CTA ── */
   .cta-section {

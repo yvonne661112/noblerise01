@@ -1,7 +1,5 @@
 ---
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import Head from '../../components/Head.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import BlogList from '../../components/BlogList.astro';
 import PageHero from '../../components/PageHero.astro';
 import { getCollection } from 'astro:content';
@@ -25,15 +23,12 @@ const crumbLd = breadcrumbLd([
 ]);
 
 ---
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-  <Head title="理財新知 | 諾昇理財規劃" description="諾昇理財規劃知識文章，涵蓋投資理財、保險權益、財務規劃、信託規劃、傳承稅務、證照進修等主題，由 CFP® 張惠芳撰寫。" />
-  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
-  <script type="application/ld+json" is:inline set:html={JSON.stringify(crumbLd)} />
-</head>
-<body>
-  <Header />
+<BaseLayout
+  title="理財新知 | 諾昇理財規劃"
+  description="諾昇理財規劃知識文章，涵蓋投資理財、保險權益、財務規劃、信託規劃、傳承稅務、證照進修等主題，由 CFP® 張惠芳撰寫。"
+>
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(crumbLd)} />
 
   <PageHero
     eyebrow="Knowledge"
@@ -48,9 +43,8 @@ const crumbLd = breadcrumbLd([
     </div>
   </main>
 
-  <Footer />
-</body>
-</html>
+
+</BaseLayout>
 
 <style>
   .blog-count {

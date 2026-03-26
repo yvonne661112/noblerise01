@@ -1,7 +1,5 @@
 ---
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import Head from '../../components/Head.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import { SHOW_BOOKING, CONTACT } from '../../data/siteConfig';
 
@@ -20,14 +18,11 @@ const jsonLd = {
   }
 };
 ---
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-  <Head title="服務項目 | 諾昇理財規劃" description="諾昇提供收支管理、資產管理、風險管理、財務規劃、稅務規劃、傳承規劃等全方位服務，提供30分鐘免費線上諮詢。" />
-  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
-</head>
-<body>
-  <Header />
+<BaseLayout
+  title="服務項目 | 諾昇理財規劃"
+  description="諾昇提供收支管理、資產管理、風險管理、財務規劃、稅務規劃、傳承規劃等全方位服務，提供30分鐘免費線上諮詢。"
+>
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
 
   <PageHero
     eyebrow="Services"
@@ -236,9 +231,8 @@ const jsonLd = {
     </section>
   </main>
 
-  <Footer />
-</body>
-</html>
+
+</BaseLayout>
 
 <style>
   /* ── SERVICE PHILOSOPHY ── */
@@ -270,7 +264,7 @@ const jsonLd = {
   }
   .service-detail-img {
     flex-shrink: 0;
-    width: 200px;
+    width: clamp(180px, 25%, 280px);
   }
   .service-detail-img img {
     width: 100%;

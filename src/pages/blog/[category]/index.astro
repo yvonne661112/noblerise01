@@ -1,7 +1,5 @@
 ---
-import Header from '../../../components/Header.astro';
-import Footer from '../../../components/Footer.astro';
-import Head from '../../../components/Head.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BlogList from '../../../components/BlogList.astro';
 import PageHero from '../../../components/PageHero.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
@@ -45,18 +43,12 @@ const jsonLd = blogListLd({
   })),
 });
 ---
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-  <Head
-    title={`${label} | 諾昇理財規劃`}
-    description={`諾昇理財規劃 ${label} 相關文章，由 CFP® 張惠芳撰寫，提供專業財務知識。`}
-  />
-  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
-  <script type="application/ld+json" is:inline set:html={JSON.stringify(crumbLd)} />
-</head>
-<body>
-  <Header />
+<BaseLayout
+  title={`${label} | 諾昇理財規劃`}
+  description={`諾昇理財規劃 ${label} 相關文章，由 CFP® 張惠芳撰寫，提供專業財務知識。`}
+>
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(crumbLd)} />
 
   <PageHero eyebrow="Knowledge" title={label} />
 
@@ -67,9 +59,8 @@ const jsonLd = blogListLd({
     </div>
   </main>
 
-  <Footer />
-</body>
-</html>
+
+</BaseLayout>
 
 <style>
   .blog-count {

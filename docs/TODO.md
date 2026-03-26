@@ -5,49 +5,49 @@
 
 ---
 
-## Phase 1：基礎架構修正
+## Phase 1：基礎架構修正 ✅ 完成（2026-03-27）
 
 > 不影響現有視覺，解決維護性與一致性問題
 
-| 編號 | 類別 | 項目 | 說明 |
+| 編號 | 類別 | 項目 | 狀態 |
 |------|------|------|------|
-| P1-01 | 架構 | 建立共用 Layout 元件 | 建立 `BaseLayout.astro`，抽出 `<!DOCTYPE>` → `<Header/>` → `<slot/>` → `<Footer/>` 重複結構，目前 7 個頁面各自拼裝 |
-| P1-02 | 架構 | 策略夥伴頁改用 PageHero | 消除獨立 Hero 實作（`.sp-hero`），統一使用 `PageHero.astro` 元件 |
-| P1-03 | 主題 | 策略夥伴頁清理硬編碼色值 | `rgba(151,150,96,...)` 等舊 Premium 色值改為主題 CSS 變數，目前切主題時背景網格/hover 色不跟隨 |
-| P1-04 | 主題 | 策略夥伴頁 tag 背景硬編碼 | `#F0F3F7` 改為 `var(--color-bg-subtle)` 或主題變數 |
-| P1-05 | 主題 | Footer 硬編碼 rgba 色值 | `rgba(255,255,255,...)` 改用 `var(--color-text-muted)` 等主題變數 |
-| P1-06 | 無障礙 | SakuraRain 加 prefers-reduced-motion | 尊重用戶動畫偏好設定，動暈症用戶可能感到不適 |
-| P1-07 | 效能 | 手機導覽改用 transform | `.mobile-nav` 從 `right: -300px` 改為 `transform: translateX(300px)`，GPU 合成更高效 |
-| P1-08 | 設計 | 修正 Font size 變數語義 | `--fs-xl`(18px) 與 `--fs-lg`(18px) 重複，`--fs-xl` 應調為 20px 拉開差距 |
+| P1-01 | 架構 | 建立共用 Layout 元件 `BaseLayout.astro` | ✅ 完成 — 8 個頁面全部改用 |
+| P1-02 | 架構 | 策略夥伴頁改用 PageHero | ✅ 完成 — 刪除 `.sp-hero` 自訂 Hero，改用 PageHero + stats |
+| P1-03 | 主題 | 策略夥伴頁清理硬編碼色值 | ✅ 完成 — `rgba(151,150,96,...)` 全部改為 `var(--color-*)` |
+| P1-04 | 主題 | 策略夥伴頁 tag 背景硬編碼 | ✅ 完成 — `#F0F3F7` → `var(--color-bg-subtle)` |
+| P1-05 | 主題 | Footer 硬編碼 rgba 色值 | ✅ 完成 — Footer.astro + global.css 全部改用 `var(--color-text-muted)` |
+| P1-06 | 無障礙 | SakuraRain 加 prefers-reduced-motion | ✅ 完成 — 加入 `@media (prefers-reduced-motion: reduce)` |
+| P1-07 | 效能 | 手機導覽改用 transform | ✅ 完成 — `right: -300px` → `transform: translateX(100%)` |
+| P1-08 | 設計 | 修正 Font size 變數語義 | ✅ 完成 — `--fs-xl` 從 18px 調為 20px |
 
 ---
 
-## Phase 2：視覺提升
+## Phase 2：視覺提升 ✅ 完成（2026-03-27）
 
 > 核心視覺改造，提升訪客情感共鳴與轉換
 
-| 編號 | 類別 | 項目 | 說明 |
+| 編號 | 類別 | 項目 | 狀態 |
 |------|------|------|------|
-| P2-01 | 首頁 | 重構 storytelling 敘事流 | 從「問題引起共鳴 → 解決方案 → 專業背書 → 社會證明 → 行動號召」五幕式敘事，目前 8 區塊堆疊缺乏旅程感 |
-| P2-02 | 首頁 | 客戶見證區升級 | 大引號裝飾、更大圖片、背景色層次，目前只有文字+56px 小 avatar 太簡陋 |
-| P2-03 | 首頁 | 媒體影片區加播放按鈕 overlay | 目前 video thumbnail 沒有播放按鈕，用戶不知道可以點擊播放 |
-| P2-04 | 服務 | 六大服務卡重新設計 | 圖片佔比更大，改為 flex 比例而非固定 200px，大螢幕上圖片過小 |
-| P2-05 | 聯絡 | Contact 頁底部加 CTA 區塊 | 頁面在地圖後就結束，缺乏最後一推的行動號召 |
-| P2-06 | 全站 | 加「回到頂部」浮動按鈕 | 首頁、服務頁等長頁面滾動後不方便回到頂部 |
-| P2-07 | 導覽 | Header active 狀態增強 | 目前背景色幾乎看不出來在哪一頁，加底線指示器 |
+| P2-01 | 首頁 | 重構 storytelling 敘事流 | ✅ 完成 — 加入 empathy block（共鳴問句），重新排序為：共鳴→價值→信任→服務→見證→媒體→文章→CTA |
+| P2-02 | 首頁 | 客戶見證區升級 | ✅ 完成 — 大引號裝飾(72px)、avatar 放大至 72px + 邊框、拆分 name/role |
+| P2-03 | 首頁 | 媒體影片區加播放按鈕 overlay | ✅ 完成 — SVG play button + hover scale 動畫 |
+| P2-04 | 服務 | 六大服務卡圖片佔比 | ✅ 完成 — 從固定 200px 改為 `clamp(180px, 25%, 280px)` |
+| P2-05 | 聯絡 | Contact 頁底部加 CTA 區塊 | ✅ 完成 — 加入 section-primary CTA（30分鐘免費諮詢） |
+| P2-06 | 全站 | 加「回到頂部」浮動按鈕 | ✅ 完成 — BaseLayout.astro 加入固定按鈕，scroll > 400px 顯示 |
+| P2-07 | 導覽 | Header active 狀態增強 | ✅ 完成 — 加入 `::after` 底線指示器（accent 色 2px） |
 
 ---
 
-## Phase 3：進階體驗
+## Phase 3：進階體驗 ✅ 完成（2026-03-27）
 
 > 錦上添花，提升互動感與精緻度
 
-| 編號 | 類別 | 項目 | 說明 |
+| 編號 | 類別 | 項目 | 狀態 |
 |------|------|------|------|
-| P3-01 | 動畫 | 頁面滾動淡入動畫 | Intersection Observer + CSS `@keyframes fadeInUp`，區塊進入視窗時淡入 |
-| P3-02 | 關於 | 獲獎區改為 timeline 設計 | 垂直線連接 + 交替排列，目前 3 個卡片+3 張照片視覺上乾巴巴 |
-| P3-03 | 首頁 | 數字區 count-up 動畫 | 數字從 0 滾動到目標值（20+、4、6 等），增加互動感 |
-| P3-04 | 部落格 | 文章列表 skeleton loading | 圖片載入前顯示骨架畫面，改善感知載入速度 |
+| P3-01 | 動畫 | 頁面滾動淡入動畫 | ✅ 完成 — `ScrollReveal.astro` 元件 + Intersection Observer，首頁 6 個區塊加入 `.reveal` |
+| P3-02 | 關於 | 獲獎區改為 timeline 設計 | ✅ 完成 — 垂直線 + dot + card，照片整合進 card 內，加入 reveal 動畫 |
+| P3-03 | 首頁 | 數字區 count-up 動畫 | ✅ 完成 — `data-count` + easeOutCubic 動畫，1.2s 持續時間 |
+| P3-04 | 部落格 | 文章列表 skeleton loading | ⏸ 延後 — 靜態站效益低，複雜度較高，移至 deferred |
 
 ---
 
