@@ -4,6 +4,9 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Head from '../components/Head.astro';
 import AuthorCard from '../components/AuthorCard.astro';
+import { categoryLabels } from '../data/categories';
+import { publisher } from '../utils/jsonld';
+import { getAssetPath } from '../utils/assets';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -22,33 +25,29 @@ const formattedDate = new Date(date).toLocaleDateString('zh-TW', {
 });
 
 const mainCategory = categories?.find(c => c !== 'blog') ?? 'blog';
-const categoryLabels: Record<string, string> = {
-  investment: '投資理財',
-  insurance: '保險權益',
-  certification: '證照進修',
-  'business-planning': '財務規劃',
-  'elderly-care-trust': '信託規劃',
-  'tax-planning': '傳承稅務',
-};
 const categoryLabel = categoryLabels[mainCategory] ?? '理財新知';
 const categoryUrl = mainCategory === 'blog' ? `${import.meta.env.BASE_URL}blog/` : `${import.meta.env.BASE_URL}blog/${mainCategory}/`;
 
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
+
+const isoDate = (d: Date) => d.toISOString().replace('Z', '+08:00');
+const dateObj = new Date(date);
+
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
   "headline": title,
   "description": description,
-  "datePublished": date,
-  "image": image ? new URL(image, Astro.site).href : undefined,
+  "inLanguage": "zh-TW",
+  "datePublished": isoDate(dateObj),
+  "dateModified": isoDate(dateObj),
+  ...(image ? { "image": new URL(image, Astro.site).href } : {}),
   "author": {
     "@type": "Person",
     "name": "張惠芳 CFP"
   },
-  "publisher": {
-    "@type": "Organization",
-    "name": "諾昇理財規劃顧問股份有限公司",
-    "url": "https://noblerise.com.tw"
-  }
+  "publisher": publisher
 };
 ---
 <!DOCTYPE html>
@@ -81,7 +80,7 @@ const jsonLd = {
           </div>
           {image && (
             <div class="post-cover">
-              <img src={image ? (import.meta.env.BASE_URL + image.replace(/^\//, '')) : ''} alt={title} width="800" height="450" loading="eager" />
+              <img src={getAssetPath(image, import.meta.env.BASE_URL)} alt={title} width="800" height="450" loading="lazy" sizes="(max-width: 860px) 100vw, 800px" />
             </div>
           )}
         </header>

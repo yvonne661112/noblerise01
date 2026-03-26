@@ -4,7 +4,7 @@
  * 可選值：'classic'（原始 WordPress 風格）| 'premium'（策略夥伴風格）| 'prestige'（深藍銅金風格）| 'premium-dark'（Premium 深色模式）| 'kawazu'（河津桜色系）
  * 新增主題：在 public/styles/ 新增 theme-xxx.css，並在此擴充型別即可。
  */
-export const activeTheme: 'classic' | 'premium' | 'prestige' | 'premium-dark' | 'kawazu' = 'premium';
+export const activeTheme: 'classic' | 'premium' | 'prestige' | 'premium-dark' | 'kawazu' = 'kawazu';
 
 /**
  * 全站功能開關
@@ -16,13 +16,27 @@ export const activeTheme: 'classic' | 'premium' | 'prestige' | 'premium-dark' | 
 export const SHOW_BOOKING = false;
 
 /**
+ * 櫻花飄落特效（全站）
+ *   true  — 顯示
+ *   false — 關閉
+ */
+export const SHOW_SAKURA = true;
+
+/**
  * 公司聯絡資訊（統一管理，修改此處全站自動同步）
  */
 export const CONTACT = {
   companyNameZh: '諾昇理財規劃顧問股份有限公司',
   companyNameEn: 'Noblerise Financial Consultant co., LTD',
+  siteUrl: 'https://noblerise.com.tw',
   email: 'contact@noblerise.com.tw',
   line: '@noblerise',
   lineUrl: 'https://line.me/ti/p/~@noblerise',
   address: '106 台北市大安區復興南路一段222號2樓',
+  // JSON-LD PostalAddress 細分（Schema.org 用）
+  postalCode: '106',
+  streetAddress: '復興南路一段222號2樓',
+  addressLocality: '大安區',
+  addressRegion: '台北市',
+  addressCountry: 'TW',
 };

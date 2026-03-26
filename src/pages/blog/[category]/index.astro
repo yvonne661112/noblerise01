@@ -5,67 +5,44 @@ import Head from '../../../components/Head.astro';
 import BlogList from '../../../components/BlogList.astro';
 import PageHero from '../../../components/PageHero.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { categoryLabels, categorySlugs } from '../../../data/categories';
+import { sortPostsByDate, transformPost } from '../../../utils/post';
+import { blogListLd, breadcrumbLd } from '../../../utils/jsonld';
 
 type Post = CollectionEntry<'blog'>;
 
-const categoryLabels: Record<string, string> = {
-  investment:          '投資理財',
-  insurance:           '保險權益',
-  certification:       '證照進修',
-  'business-planning': '財務規劃',
-  'elderly-care-trust':'信託規劃',
-  'tax-planning':      '傳承稅務',
-};
-
 export async function getStaticPaths() {
   const allPosts = await getCollection('blog');
-  return Object.keys({
-    investment: 1,
-    insurance: 1,
-    certification: 1,
-    'business-planning': 1,
-    'elderly-care-trust': 1,
-    'tax-planning': 1,
-  }).map(slug => ({ params: { category: slug }, props: { allPosts } }));
+  return categorySlugs.map(slug => ({ params: { category: slug }, props: { allPosts } }));
 }
 
 const { category } = Astro.params;
 const { allPosts } = Astro.props;
+const base = import.meta.env.BASE_URL;
 
 const label = categoryLabels[category] ?? '理財新知';
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": `${label} | 諾昇理財規劃`,
-  "description": `諾昇理財規劃 ${label} 相關文章，由 CFP® 張惠芳撰寫，提供專業財務知識。`,
-  "url": `https://noblerise.com.tw/blog/${category}/`,
-  "publisher": {
-    "@type": "Organization",
-    "name": "諾昇理財規劃顧問股份有限公司",
-    "url": "https://noblerise.com.tw"
-  }
-};
+const posts = sortPostsByDate(
+  (allPosts as Post[]).filter(p => p.data.categories?.includes(category))
+);
+const postViews = posts.map(p => transformPost(p, base));
 
-const posts = (allPosts as Post[])
-  .filter(p => p.data.categories?.includes(category))
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+const crumbLd = breadcrumbLd([
+  { name: '首頁', item: 'https://noblerise.com.tw/' },
+  { name: '理財新知', item: 'https://noblerise.com.tw/blog/' },
+  { name: label, item: `https://noblerise.com.tw/blog/${category}/` },
+]);
 
-const postViews = posts.map(post => {
-  const catLabels = (post.data.categories ?? [])
-    .filter(c => c !== 'blog' && categoryLabels[c])
-    .map(c => categoryLabels[c]);
-  return {
-    slug: post.data.numericSlug,
-    title: post.data.title,
-    image: post.data.image,
-    description: post.data.description,
-    dateStr: new Date(post.data.date).toLocaleDateString('zh-TW'),
-    catLabel: label,
-    catUrl: import.meta.env.BASE_URL + `blog/${category}/`,
-    tags: post.data.tags ?? [],
-    catLabels,
-  };
+const jsonLd = blogListLd({
+  type: 'CollectionPage',
+  name: `${label} | 諾昇理財規劃`,
+  description: `諾昇理財規劃 ${label} 相關文章，由 CFP® 張惠芳撰寫，提供專業財務知識。`,
+  url: `https://noblerise.com.tw/blog/${category}/`,
+  hasPart: posts.map(p => ({
+    url: `https://noblerise.com.tw/${p.data.numericSlug}/`,
+    headline: p.data.title,
+    datePublished: String(p.data.date),
+  })),
 });
 ---
 <!DOCTYPE html>
@@ -76,6 +53,7 @@ const postViews = posts.map(post => {
     description={`諾昇理財規劃 ${label} 相關文章，由 CFP® 張惠芳撰寫，提供專業財務知識。`}
   />
   <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(crumbLd)} />
 </head>
 <body>
   <Header />

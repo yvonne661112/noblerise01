@@ -41,6 +41,23 @@ const jsonLd = {
     object-fit: cover;
     border-radius: 4px;
   }
+  .about-subheading {
+    font-family: var(--font-heading);
+    font-size: var(--fs-md);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 12px;
+  }
+  .about-list {
+    list-style: disc;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    font-size: var(--fs-body);
+    line-height: 2;
+  }
+  .about-list--last {
+    margin-bottom: 0;
+  }
 </style>
 <!DOCTYPE html>
 <html lang="zh-TW">
@@ -54,40 +71,40 @@ const jsonLd = {
   <PageHero eyebrow="About Us" title="關於諾昇" />
 
   <main class="section">
-    <div class="container" style="max-width:960px;">
+    <div class="container narrow-container">
 
-      <section style="margin-bottom:64px;">
-        <h2 class="section-title" style="margin-bottom:24px;">關於諾昇</h2>
+      <section class="mb-64">
+        <h2 class="section-title mb-24">關於諾昇</h2>
         <p>諾昇以「財務幸福」為核心，由國際認證高級理財規劃顧問 CFP® 張惠芳領軍，以獨立理財顧問（IFA）的立場，提供中立、專業、以客戶利益優先的財務建議，諾昇陪伴您讓規劃真正落地，成為走向財務幸福的力量！</p>
       </section>
 
-      <section style="margin-bottom:64px;">
-        <h2 class="section-title" style="margin-bottom:32px;">首席理財規劃顧問：張惠芳 CFP®</h2>
+      <section class="mb-64">
+        <h2 class="section-title mb-32">首席理財規劃顧問：張惠芳 CFP®</h2>
         <div class="grid-2">
-          <div style="text-align:center;">
-            <img src={import.meta.env.BASE_URL + "images/yvonne-about.png"} alt="張惠芳 CFP® 首席理財規劃顧問" width="400" height="400" loading="lazy" style="max-width:100%;height:auto;" />
+          <div class="text-center">
+            <img src={import.meta.env.BASE_URL + "images/yvonne-about.png"} alt="張惠芳 CFP® 首席理財規劃顧問" width="400" height="400" loading="lazy" />
           </div>
           <div>
-            <p style="margin-bottom:20px;">惠芳CFP為諾昇執行長兼首席理財規劃顧問，以20年的金融實務經驗，建立諾昇的服務理念與方法，確保諾昇提供的每一項財務建議，都以客戶利益為核心出發點，陪伴客戶走向財務幸福。</p>
+            <p class="mb-20">惠芳CFP為諾昇執行長兼首席理財規劃顧問，以20年的金融實務經驗，建立諾昇的服務理念與方法，確保諾昇提供的每一項財務建議，都以客戶利益為核心出發點，陪伴客戶走向財務幸福。</p>
 
-            <h3 style="font-family:var(--font-heading);font-size:16px;font-weight:700;color:var(--color-primary);margin-bottom:12px;">現職</h3>
-            <ul style="list-style:disc;padding-left:20px;margin-bottom:20px;font-size:var(--fs-body);line-height:2;">
+            <h3 class="about-subheading">現職</h3>
+            <ul class="about-list">
               <li>諾昇理財規劃顧問公司執行長</li>
               <li>詠言法律事務所 稅務顧問</li>
               <li>威瑞財富管理 信託團隊</li>
               <li>專欄作家：風傳媒、天下雜誌、今周刊、Smart自學網、橘世代、好險有錢</li>
             </ul>
 
-            <h3 style="font-family:var(--font-heading);font-size:16px;font-weight:700;color:var(--color-primary);margin-bottom:12px;">經歷</h3>
-            <ul style="list-style:disc;padding-left:20px;margin-bottom:20px;font-size:var(--fs-body);line-height:2;">
+            <h3 class="about-subheading">經歷</h3>
+            <ul class="about-list">
               <li>臺灣理財認證顧問協會「從員工福利信託看員工財務規劃」講師</li>
               <li>金融研訓院 成人金融素養教育 講師</li>
               <li>理財好聲音 極客年會財務規劃 講師</li>
               <li>政大、淡江、文化大學、台電、竹北主婦聯盟、臺灣理財顧問認證協會、菁英財管、中華職能應用發展協會、公勝保經、三商美邦人壽等單位，受邀演講財商、財稅、退休、信託等專題</li>
             </ul>
 
-            <h3 style="font-family:var(--font-heading);font-size:var(--fs-md);font-weight:700;color:var(--color-primary);margin-bottom:12px;">專業證照</h3>
-            <ul style="list-style:disc;padding-left:20px;font-size:var(--fs-body);line-height:2;">
+            <h3 class="about-subheading">專業證照</h3>
+            <ul class="about-list about-list--last">
               <li>CFP® 國際認證高級理財規劃顧問</li>
               <li>RFA 退休理財規劃顧問</li>
               <li>FChFP 特許財務規劃師</li>
@@ -98,7 +115,7 @@ const jsonLd = {
       </section>
 
       <section>
-        <h2 class="section-title" style="margin-bottom:32px;">獲獎紀錄</h2>
+        <h2 class="section-title mb-32">獲獎紀錄</h2>
         <div class="grid-3 award-grid">
           <div class="award-item">
             <img src={import.meta.env.BASE_URL + "images/award1.jpg"} alt="獲獎紀錄1" width="360" height="270" loading="lazy" />

@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { activeTheme } from '../data/siteConfig';
+import { getAssetPath } from '../utils/assets';
 
 interface Props {
   title: string;
@@ -9,9 +10,9 @@ interface Props {
   type?: 'website' | 'article';
 }
 const { title, description, image = '/images/og-default.jpg', type = 'website' } = Astro.props;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const absoluteImageUrl = new URL(image, Astro.site);
 const base = import.meta.env.BASE_URL;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const absoluteImageUrl = new URL(getAssetPath(image, base), Astro.site);
 
 const fontUrls: Record<typeof activeTheme, string> = {
   classic:       'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;500;600&family=Open+Sans:wght@400;600&display=swap',
@@ -25,8 +26,9 @@ const fontUrls: Record<typeof activeTheme, string> = {
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{title}</title>
 <meta name="description" content={description} />
+<meta name="robots" content="noindex, nofollow" />
 <link rel="canonical" href={canonicalURL} />
-<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="sitemap" href={`${base}sitemap-index.xml`} />
 <link rel="alternate" hreflang="zh-TW" href={canonicalURL} />
 <meta property="og:type" content={type} />
 <meta property="og:title" content={title} />
@@ -42,5 +44,5 @@ const fontUrls: Record<typeof activeTheme, string> = {
 <link rel="stylesheet" href={`${base}styles/theme-${activeTheme}.css`} />
 <!-- Google Fonts（依主題載入對應字型） -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 <link href={fontUrls[activeTheme]} rel="stylesheet" />

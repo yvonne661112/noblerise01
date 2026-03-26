@@ -4,60 +4,33 @@ import Footer from '../../components/Footer.astro';
 import Head from '../../components/Head.astro';
 import BlogList from '../../components/BlogList.astro';
 import PageHero from '../../components/PageHero.astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import { sortPostsByDate, transformPost } from '../../utils/post';
+import { blogListLd, breadcrumbLd } from '../../utils/jsonld';
 
-type Post = CollectionEntry<'blog'>;
+const base = import.meta.env.BASE_URL;
+const posts = sortPostsByDate(await getCollection('blog'));
+const postViews = posts.map(p => transformPost(p, base));
 
-const categoryLabels: Record<string, string> = {
-  investment: '投資理財',
-  insurance: '保險權益',
-  certification: '證照進修',
-  'business-planning': '財務規劃',
-  'elderly-care-trust': '信託規劃',
-  'tax-planning': '傳承稅務',
-};
-
-const rawPosts = await getCollection('blog');
-const posts = rawPosts.sort(
-  (a: Post, b: Post) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
-);
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Blog",
-  "name": "理財新知 | 諾昇理財規劃",
-  "description": "諾昇理財規劃知識文章，涵蓋投資理財、保險權益、財務規劃、信託規劃、傳承稅務、證照進修等主題，由 CFP® 張惠芳撰寫。",
-  "url": "https://noblerise.com.tw/blog/",
-  "publisher": {
-    "@type": "Organization",
-    "name": "諾昇理財規劃顧問股份有限公司",
-    "url": "https://noblerise.com.tw"
-  }
-};
-
-const postViews = posts.map((post: Post) => {
-  const mainCat = post.data.categories?.find((c: string) => c !== 'blog') ?? '';
-  const catLabels = (post.data.categories ?? [])
-    .filter((c: string) => c !== 'blog' && categoryLabels[c])
-    .map((c: string) => categoryLabels[c]);
-  return {
-    slug: post.data.numericSlug,
-    title: post.data.title,
-    image: post.data.image,
-    description: post.data.description,
-    dateStr: new Date(post.data.date).toLocaleDateString('zh-TW'),
-    catLabel: categoryLabels[mainCat] ?? '理財新知',
-    catUrl: mainCat ? (import.meta.env.BASE_URL + `blog/${mainCat}/`) : (import.meta.env.BASE_URL + 'blog/'),
-    tags: post.data.tags ?? [],
-    catLabels,
-  };
+const jsonLd = blogListLd({
+  type: 'Blog',
+  name: '理財新知 | 諾昇理財規劃',
+  description: '諾昇理財規劃知識文章，涵蓋投資理財、保險權益、財務規劃、信託規劃、傳承稅務、證照進修等主題，由 CFP® 張惠芳撰寫。',
+  url: 'https://noblerise.com.tw/blog/',
 });
+
+const crumbLd = breadcrumbLd([
+  { name: '首頁', item: 'https://noblerise.com.tw/' },
+  { name: '理財新知', item: 'https://noblerise.com.tw/blog/' },
+]);
+
 ---
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <Head title="理財新知 | 諾昇理財規劃" description="諾昇理財規劃知識文章，涵蓋投資理財、保險權益、財務規劃、信託規劃、傳承稅務、證照進修等主題，由 CFP® 張惠芳撰寫。" />
   <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(crumbLd)} />
 </head>
 <body>
   <Header />

@@ -17,17 +17,14 @@ interface Props {
   showCatBar?: boolean;
 }
 
-const { posts, currentCat = '', showCatBar = true } = Astro.props;
+import { getAssetPath } from '../utils/assets';
+import { getCategoryNavItems } from '../data/categories';
+import { author } from '../data/author';
 
-const categories = [
-  { slug: '',                 label: '全部文章',  url: import.meta.env.BASE_URL + 'blog/' },
-  { slug: 'investment',       label: '投資理財',  url: import.meta.env.BASE_URL + 'blog/investment/' },
-  { slug: 'insurance',        label: '保險權益',  url: import.meta.env.BASE_URL + 'blog/insurance/' },
-  { slug: 'certification',    label: '證照進修',  url: import.meta.env.BASE_URL + 'blog/certification/' },
-  { slug: 'business-planning',label: '財務規劃',  url: import.meta.env.BASE_URL + 'blog/business-planning/' },
-  { slug: 'elderly-care-trust',label: '信託規劃', url: import.meta.env.BASE_URL + 'blog/elderly-care-trust/' },
-  { slug: 'tax-planning',     label: '傳承稅務',  url: import.meta.env.BASE_URL + 'blog/tax-planning/' },
-];
+const { posts, currentCat = '', showCatBar = true } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+const categories = getCategoryNavItems(base);
 ---
 {showCatBar && <nav class="blog-cat-bar">
   {categories.map(cat => (
@@ -41,22 +38,22 @@ const categories = [
 <div class="blog-list">
   {posts.map(p => (
     <article class="blog-list-card">
-      <a href={`${import.meta.env.BASE_URL}${p.slug}/`} class="blog-list-img-wrap">
+      <a href={`${base}${p.slug}/`} class="blog-list-img-wrap">
         {p.image
-          ? <img src={import.meta.env.BASE_URL + p.image.replace(/^\//, '')} alt={p.title} width="320" height="200" loading="lazy" />
+          ? <img src={getAssetPath(p.image, base)} alt={p.title} width="320" height="200" loading="lazy" />
           : <div class="blog-list-img-placeholder"></div>
         }
       </a>
       <div class="blog-list-body">
         <div class="blog-card-meta">
-          <span>張惠芳 CFP®</span>
+          <span>{author.name}</span>
           <span>·</span>
           <span>{p.dateStr}</span>
           <span>·</span>
           <a href={p.catUrl}>{p.catLabel}</a>
         </div>
-        <h2><a href={`${import.meta.env.BASE_URL}${p.slug}/`}>{p.title}</a></h2>
-        <p class="blog-card-excerpt">{p.description.slice(0, 60)}…</p>
+        <h2><a href={`${base}${p.slug}/`}>{p.title}</a></h2>
+        <p class="blog-card-excerpt">{p.description}</p>
         <div class="blog-card-taxonomy">
           {p.catLabels && p.catLabels.map(label => (
             <span class="tax-cat">{label}</span>
@@ -82,7 +79,7 @@ const categories = [
   padding: 2px 10px;
   border-radius: 20px;
   background: var(--color-primary);
-  color: #fff;
+  color: var(--color-on-primary);
   font-weight: 600;
   white-space: nowrap;
 }
@@ -90,7 +87,7 @@ const categories = [
   font-size: var(--fs-sm);
   padding: 2px 10px;
   border-radius: 20px;
-  background: #f0f4ee;
+  background: var(--color-accent-pale);
   color: var(--color-accent);
   border: 1px solid var(--color-accent);
   white-space: nowrap;
