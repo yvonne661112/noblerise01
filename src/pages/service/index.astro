@@ -2,6 +2,7 @@
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Head from '../../components/Head.astro';
+import PageHero from '../../components/PageHero.astro';
 import { SHOW_BOOKING, CONTACT } from '../../data/siteConfig';
 
 const base = import.meta.env.BASE_URL;
@@ -28,16 +29,12 @@ const jsonLd = {
 <body>
   <Header />
 
-  <!-- ▸ HERO -->
-  <section class="service-hero">
-    <div class="service-hero-bg" style={`background-image: url('${base}images/aboutmehead.jpg')`}></div>
-    <div class="service-hero-overlay"></div>
-    <div class="service-hero-body">
-      <p class="hero-eyebrow">Services</p>
-      <h1 class="service-hero-title">讓金流更清楚<br/>未來更安心</h1>
-      <p class="service-hero-desc">不推銷、不賣產品，只用策略把「現在的資源」連結到「你想要的生活」。</p>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="Services"
+    title="讓金流更清楚<br/>未來更安心"
+    description="不推銷、不賣產品，只用策略把「現在的資源」連結到「你想要的生活」。"
+    backgroundImage="images/aboutmehead.jpg"
+  />
 
   <main>
     <!-- ▸ 服務理念 -->
@@ -244,56 +241,6 @@ const jsonLd = {
 </html>
 
 <style>
-  /* ── SERVICE HERO ── */
-  .service-hero {
-    position: relative;
-    min-height: 340px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-  .service-hero-bg {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-  }
-  .service-hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(15, 31, 43, 0.88) 0%, rgba(27, 58, 75, 0.78) 100%);
-  }
-  .service-hero-body {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    padding: 48px 24px;
-  }
-  .hero-eyebrow {
-    font-size: var(--fs-sm);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--color-accent-light);
-    margin-bottom: 16px;
-  }
-  .service-hero-title {
-    font-family: var(--font-heading);
-    font-size: clamp(26px, 4vw, 42px);
-    font-weight: var(--heading-weight);
-    color: var(--color-on-primary);
-    line-height: 1.35;
-    margin-bottom: 16px;
-    letter-spacing: 0.04em;
-  }
-  .service-hero-desc {
-    font-size: clamp(15px, 1.8vw, 18px);
-    color: rgba(255, 255, 255, 0.7);
-    max-width: 520px;
-    margin: 0 auto;
-  }
-
   /* ── SERVICE PHILOSOPHY ── */
   .service-philosophy {
     font-size: var(--fs-lg);

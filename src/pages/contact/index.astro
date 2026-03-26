@@ -2,6 +2,7 @@
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Head from '../../components/Head.astro';
+import PageHero from '../../components/PageHero.astro';
 import { SHOW_BOOKING, CONTACT } from '../../data/siteConfig';
 import CompanyName from '../../components/CompanyName.astro';
 
@@ -37,14 +38,11 @@ const jsonLd = {
 <body>
   <Header />
 
-  <!-- ▸ HERO -->
-  <section class="contact-hero">
-    <div class="contact-hero-inner">
-      <p class="hero-eyebrow">Contact</p>
-      <h1 class="contact-hero-title">聯絡我們</h1>
-      <p class="contact-hero-desc">有任何財務規劃問題，歡迎隨時與我們聯繫。</p>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="Contact"
+    title="聯絡我們"
+    description="有任何財務規劃問題，歡迎隨時與我們聯繫。"
+  />
 
   <main class="section">
     <div class="container">
@@ -156,37 +154,6 @@ const jsonLd = {
 </html>
 
 <style>
-  /* ── CONTACT HERO ── */
-  .contact-hero {
-    background: var(--color-primary);
-    background-image: var(--hero-pattern);
-    padding: 56px 24px 48px;
-    text-align: center;
-  }
-  .contact-hero-inner {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  .hero-eyebrow {
-    font-size: var(--fs-sm);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--color-accent-light);
-    margin-bottom: 12px;
-  }
-  .contact-hero-title {
-    font-family: var(--font-heading);
-    font-size: clamp(26px, 4vw, 40px);
-    font-weight: var(--heading-weight);
-    color: var(--color-on-primary);
-    margin-bottom: 12px;
-  }
-  .contact-hero-desc {
-    font-size: var(--fs-md);
-    color: rgba(255, 255, 255, 0.7);
-  }
-
   /* ── LAYOUT ── */
   .contact-grid { align-items: start; }
   .contact-company { margin-bottom: 1.5em; font-size: var(--fs-body); }
