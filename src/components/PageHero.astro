@@ -11,12 +11,14 @@ interface Props {
   backgroundImage?: string;
   stats?: Stat[];
   center?: boolean;
+  large?: boolean;
 }
-const { eyebrow, title, subtitle, description, backgroundImage, stats, center = true } = Astro.props;
+const { eyebrow, title, subtitle, description, backgroundImage, stats, center = true, large = false } = Astro.props;
+const hasSlot = Astro.slots.has('default');
 const base = import.meta.env.BASE_URL;
 const bgUrl = backgroundImage ? `${base}${backgroundImage}` : null;
 ---
-<section class:list={['page-hero', { 'page-hero--has-bg': !!bgUrl, 'page-hero--center': center }]}>
+<section class:list={['page-hero', { 'page-hero--has-bg': !!bgUrl, 'page-hero--center': center, 'page-hero--large': large }]}>
   {bgUrl && <div class="page-hero-img" style={`background-image: url('${bgUrl}')`}></div>}
   <div class="page-hero-overlay"></div>
   <div class="page-hero-inner">
@@ -34,6 +36,7 @@ const bgUrl = backgroundImage ? `${base}${backgroundImage}` : null;
         ))}
       </div>
     )}
+    {hasSlot && <div class="page-hero-actions"><slot /></div>}
   </div>
 </section>
 
@@ -46,6 +49,8 @@ const bgUrl = backgroundImage ? `${base}${backgroundImage}` : null;
     color: var(--color-on-primary);
   }
   .page-hero--has-bg { min-height: 340px; display: flex; align-items: center; justify-content: center; }
+  .page-hero--large { min-height: 520px; padding-top: 72px; padding-bottom: 64px; }
+  .page-hero--large .page-hero-title { font-size: clamp(30px, 5vw, 52px); }
   .page-hero--center .page-hero-inner { text-align: center; }
   .page-hero--center .page-hero-desc { margin-left: auto; margin-right: auto; }
 
@@ -154,12 +159,23 @@ const bgUrl = backgroundImage ? `${base}${backgroundImage}` : null;
     letter-spacing: 0.06em;
   }
 
+  /* actions slot */
+  .page-hero-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+  }
+  .page-hero--center .page-hero-actions { justify-content: center; }
+
   @media (max-width: 900px) {
     .page-hero { padding: 48px 20px 40px; }
     .page-hero--has-bg { min-height: 280px; }
+    .page-hero--large { min-height: 440px; }
     .page-hero-stats { gap: 2rem; }
   }
   @media (max-width: 600px) {
+    .page-hero--large { min-height: 400px; }
     .page-hero-stats { flex-direction: column; gap: 1.25rem; }
   }
 </style>

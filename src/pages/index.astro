@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Head from '../components/Head.astro';
+import PageHero from '../components/PageHero.astro';
 import BlogList from '../components/BlogList.astro';
 import { getCollection } from 'astro:content';
 import { CONTACT } from '../data/siteConfig';
@@ -59,19 +60,16 @@ const jsonLd = [
   <Header />
 
   <!-- ▸ HERO -->
-  <section class="hero-section">
-    <div class="hero-bg" style={`background-image: url('${base}images/hero-home.jpg')`}></div>
-    <div class="hero-overlay-layer"></div>
-    <div class="hero-body">
-      <p class="hero-eyebrow">Independent Financial Planning</p>
-      <h1 class="hero-headline">讓財務規劃<br/>成為你人生的底氣</h1>
-      <p class="hero-desc">不推銷、不賣產品 — 只為你的財務幸福而規劃</p>
-      <div class="hero-actions">
-        <a href={base + "service/"} class="btn btn-accent btn-lg">了解我們的服務</a>
-        <a href={base + "about/"} class="btn btn-outline-light btn-lg">認識諾昇</a>
-      </div>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="Independent Financial Planning"
+    title="讓財務規劃<br/>成為你人生的底氣"
+    description="不推銷、不賣產品 — 只為你的財務幸福而規劃"
+    backgroundImage="images/hero-home.jpg"
+    large
+  >
+    <a href={base + "service/"} class="btn btn-accent btn-lg">了解我們的服務</a>
+    <a href={base + "about/"} class="btn btn-outline-light btn-lg">認識諾昇</a>
+  </PageHero>
 
   <!-- ▸ STATS BAR -->
   <div class="stat-bar">
@@ -301,64 +299,6 @@ const jsonLd = [
 </html>
 
 <style>
-  /* ── HERO ── */
-  .hero-section {
-    position: relative;
-    min-height: 560px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  .hero-overlay-layer {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(15, 31, 43, 0.88) 0%, rgba(27, 58, 75, 0.75) 100%);
-  }
-  .hero-body {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    padding: 60px 24px;
-    max-width: 720px;
-  }
-  .hero-eyebrow {
-    font-size: var(--fs-sm);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--color-accent-light);
-    margin-bottom: 20px;
-  }
-  .hero-headline {
-    font-family: var(--font-heading);
-    font-size: clamp(30px, 5vw, 52px);
-    font-weight: var(--heading-weight);
-    color: var(--color-on-primary);
-    line-height: 1.3;
-    margin-bottom: 20px;
-    letter-spacing: 0.04em;
-  }
-  .hero-desc {
-    font-size: clamp(16px, 2vw, 20px);
-    color: rgba(255, 255, 255, 0.75);
-    margin-bottom: 40px;
-    line-height: 1.6;
-  }
-  .hero-actions {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
   /* ── ADVISOR INTRO ── */
   .advisor-intro {
     display: grid;
@@ -522,8 +462,6 @@ const jsonLd = [
     .media-section { grid-template-columns: 1fr; gap: 40px; }
   }
   @media (max-width: 600px) {
-    .hero-section { min-height: 480px; }
-    .hero-body { padding: 40px 16px; }
     .service-grid { grid-template-columns: 1fr; }
     .stat-bar { justify-content: space-around; }
   }
