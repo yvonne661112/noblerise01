@@ -1,0 +1,58 @@
+/**
+ * Theme: Noble（高雅信賴）
+ * 切換方式：將 src/data/siteConfig.ts 的 activeTheme 改為 'noble'
+ *
+ * 設計語言：深邃藍灰為底蘊，溫潤金色為點綴，傳遞穩健信賴與專業溫度。
+ *           靈感來自高級西裝面料的質感 — 沉穩但不冰冷，優雅但不浮華。
+ * 字型：Playfair Display（英文標題，經典優雅襯線體）
+ *       + Noto Serif TC（中文標題）+ Noto Sans TC（內文）
+ */
+:root {
+  /* ── 主色系 ── */
+  --color-primary:       #1B3A4B;   /* 深邃藍灰（西裝藍） */
+  --color-accent:        #C6923A;   /* 溫潤金（老金，非亮金） */
+  --color-accent-light:  #DAB872;   /* 淡金（陽光灑落） */
+  --color-accent-pale:   #FBF6ED;   /* 暖象牙（羊皮紙色） */
+
+  /* ── 背景 / 區塊 ── */
+  --color-bg-subtle:     #F5F3EF;   /* 暖灰白（亞麻色） */
+  --color-dark-section:  #0F1F2B;   /* 深夜藍 */
+  --color-footer-bg:     #0A1520;
+
+  /* ── 邊框 ── */
+  --color-border:        #E2DDD5;   /* 米灰 */
+  --color-border-accent: rgba(198, 146, 58, 0.20);
+
+  /* ── 文字 ── */
+  --color-text:          #1F2937;   /* 深灰（易讀） */
+  --color-text-dark:     #0F172A;   /* 極深（標題用） */
+  --color-text-mid:      #6B7280;   /* 中灰 */
+  --color-text-muted:    rgba(255, 255, 255, 0.55);
+  --color-white:         #FEFEFE;
+  --color-rose:          #C75B3F;   /* 赤陶（暖紅裝飾） */
+  --color-on-primary:    #FFFFFF;
+  --color-line:          #06c755;
+  --color-line-light:    #66b966;
+  --color-link:          #C6923A;
+
+  /* ── 櫻花花瓣（金色微粒飄落）── */
+  --sakura-mid:          #DAB872;
+  --sakura-deep:         #C6923A;
+
+  /* ── Hero ── */
+  --hero-overlay:        rgba(15, 31, 43, 0.82);
+  --hero-pattern:        radial-gradient(ellipse 60% 55% at 65% 45%, rgba(198, 146, 58, 0.10) 0%, transparent 70%),
+                         radial-gradient(ellipse 40% 60% at 25% 65%, rgba(198, 146, 58, 0.05) 0%, transparent 60%),
+                         linear-gradient(rgba(198, 146, 58, 0.02) 1px, transparent 1px),
+                         linear-gradient(90deg, rgba(198, 146, 58, 0.02) 1px, transparent 1px);
+
+  /* ── 卡片 ── */
+  --card-radius:         12px;
+  --card-shadow:         0 1px 3px rgba(15, 31, 43, 0.06), 0 4px 16px rgba(15, 31, 43, 0.04);
+  --card-shadow-hover:   0 8px 32px rgba(15, 31, 43, 0.12), 0 2px 8px rgba(15, 31, 43, 0.06);
+
+  /* ── 字型 ── */
+  --font-heading:        'Playfair Display', 'Noto Serif TC', serif;
+  --font-body:           'Noto Sans TC', sans-serif;
+  --heading-weight:      600;
+}
