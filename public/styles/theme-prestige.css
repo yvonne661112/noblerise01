@@ -28,6 +28,11 @@
   --color-text-muted:    rgba(255, 255, 255, 0.50);
   --color-white:         #ffffff;
   --color-rose:          #ea3a60;
+  --color-on-primary:    #ffffff;   /* 主色背景上的文字色 */
+
+  /* ── 櫻花花瓣 ── */
+  --sakura-mid:          #e0c4a8;  /* 銅金色調（搭配 Prestige 銅金主色）*/
+  --sakura-deep:         #c9956a;
 
   /* ── Hero ── */
   --hero-overlay:        rgba(15, 28, 54, 0.88);

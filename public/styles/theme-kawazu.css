@@ -28,6 +28,11 @@
   --color-text-muted:    rgba(255, 255, 255, 0.55);
   --color-white:         #ffffff;
   --color-rose:          #ea3a60;
+  --color-on-primary:    #ffffff;   /* 主色背景上的文字色 */
+
+  /* ── 櫻花花瓣（河津桜原色）── */
+  --sakura-mid:          #ffb7c5;
+  --sakura-deep:         #e8799a;
 
   /* ── Hero ── */
   --hero-overlay:        rgba(42, 24, 53, 0.88);

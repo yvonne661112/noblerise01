@@ -61,6 +61,49 @@
 
 ---
 
+## [review] 全站程式碼檢視（R-01 ~ R-21）
+
+> 完成日期：2026-03-26
+> 來源：全面檢視網站程式碼、設計、建置設定
+
+### 高優先（R-01 ~ R-10）
+
+| 編號 | 類別 | 修復內容 | 狀態 |
+|------|------|----------|------|
+| R-01 | SEO | JSON-LD image 欄位條件式輸出，無圖時省略欄位 | ✅ 完成 |
+| R-02 | 樣式 | 新增 `--color-on-primary` CSS 變數，取代 global.css / PageHero / BlogList 中硬編碼 `#fff` | ✅ 完成 |
+| R-03 | 樣式 | 四個頁面 inline style 抽出為 CSS class（utility + 語意 class） | ✅ 完成 |
+| R-04 | 無障礙 | 全域加入 `:focus-visible` 焦點樣式（使用 `--color-accent` 環） | ✅ 完成 |
+| R-05 | 安全 | 首頁外部連結補 `noreferrer` | ✅ 完成 |
+| R-06 | 無障礙 | 策略夥伴頁 SVG 補 `aria-hidden="true"` | ✅ 完成 |
+| R-07 | 內容 | 部落格摘要改用 CSS `-webkit-line-clamp` 截斷，避免斷詞 | ✅ 完成 |
+| R-08 | 建置 | 移除未使用的 `@astrojs/rss` 依賴 | ✅ 完成 |
+| R-09 | 無障礙 | Premium-Dark `--color-text-mid` 提升至 `#8fbfc3`（符合 WCAG AA） | ✅ 完成 |
+| R-10 | 樣式 | SakuraRain 花瓣改用 `--sakura-mid` / `--sakura-deep` 主題變數 | ✅ 完成 |
+
+### 中優先（R-11 ~ R-18）
+
+| 編號 | 類別 | 修復內容 | 狀態 |
+|------|------|----------|------|
+| R-11 | 響應式 | 統一斷點：contact layout 從 768px 改為 900px | ✅ 完成 |
+| R-12 | 無障礙 | 聯絡表單加入 placeholder、LINE ID 加 aria-describedby | ✅ 完成 |
+| R-13 | 效能 | 服務頁圖片移除固定 aspect-ratio，依賴原始比例自適應 | ✅ 完成 |
+| R-14 | 效能 | 文章封面圖改為 `loading="lazy"` | ✅ 完成 |
+| R-15 | 效能 | 文章封面圖加入 `sizes` 屬性 | ✅ 完成 |
+| R-16 | 語意 | 確認所有頁面已有 `<main>` 元素（無需修改） | ✅ 已符合 |
+| R-17 | SEO | Head.astro 加入 `<meta name="robots" content="noindex, nofollow">` | ✅ 完成 |
+| R-18 | 響應式 | Google Maps iframe 改用 aspect-ratio 容器，移除固定 height | ✅ 完成 |
+
+### 低優先（R-19 ~ R-21）
+
+| 編號 | 類別 | 修復內容 | 狀態 |
+|------|------|----------|------|
+| R-19 | 效能 | preconnect crossorigin 改為 `crossorigin="anonymous"` | ✅ 完成 |
+| R-20 | 樣式 | sub-menu box-shadow 改用 `--card-shadow` 主題變數 | ✅ 完成 |
+| R-21 | 內容 | 首頁服務圖片 alt 改為實際服務名稱 | ✅ 完成 |
+
+---
+
 ## 執行批次記錄
 
 > 來源：原 docs/Process.md，完成日期 2026-03-26

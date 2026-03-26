@@ -28,6 +28,11 @@
   --color-line:          #06c755;
   --color-line-light:    #66b966;
   --color-link:          #0000ff;
+  --color-on-primary:    #ffffff;   /* 主色背景上的文字色 */
+
+  /* ── 櫻花花瓣 ── */
+  --sakura-mid:          #d4d0a0;  /* 金綠色調（搭配 Premium 金主色）*/
+  --sakura-deep:         #979660;
 
   /* ── Hero ── */
   --hero-overlay:        rgba(1, 64, 69, 0.92);

@@ -42,7 +42,7 @@ const jsonLd = {
   "inLanguage": "zh-TW",
   "datePublished": isoDate(dateObj),
   "dateModified": isoDate(dateObj),
-  "image": image ? new URL(image, Astro.site).href : undefined,
+  ...(image ? { "image": new URL(image, Astro.site).href } : {}),
   "author": {
     "@type": "Person",
     "name": "張惠芳 CFP"
@@ -80,7 +80,7 @@ const jsonLd = {
           </div>
           {image && (
             <div class="post-cover">
-              <img src={getAssetPath(image, import.meta.env.BASE_URL)} alt={title} width="800" height="450" loading="eager" />
+              <img src={getAssetPath(image, import.meta.env.BASE_URL)} alt={title} width="800" height="450" loading="lazy" sizes="(max-width: 860px) 100vw, 800px" />
             </div>
           )}
         </header>

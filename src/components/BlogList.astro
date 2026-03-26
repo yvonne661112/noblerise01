@@ -53,7 +53,7 @@ const categories = getCategoryNavItems(base);
           <a href={p.catUrl}>{p.catLabel}</a>
         </div>
         <h2><a href={`${base}${p.slug}/`}>{p.title}</a></h2>
-        <p class="blog-card-excerpt">{p.description.slice(0, 60)}…</p>
+        <p class="blog-card-excerpt">{p.description}</p>
         <div class="blog-card-taxonomy">
           {p.catLabels && p.catLabels.map(label => (
             <span class="tax-cat">{label}</span>
@@ -79,7 +79,7 @@ const categories = getCategoryNavItems(base);
   padding: 2px 10px;
   border-radius: 20px;
   background: var(--color-primary);
-  color: #fff;
+  color: var(--color-on-primary);
   font-weight: 600;
   white-space: nowrap;
 }

@@ -29,9 +29,14 @@
   /* ── 文字 ── */
   --color-text:          #c4d8d8;   /* 一般內文：冷調亮灰 */
   --color-text-dark:     #deeaea;   /* 標題等深色文字 */
-  --color-text-mid:      #6fa0a4;   /* 次要文字 */
+  --color-text-mid:      #8fbfc3;   /* 次要文字（提升對比至 WCAG AA） */
   --color-text-muted:    rgba(255, 255, 255, 0.40);
   --color-rose:          #ff6b8a;   /* 深底下略亮 */
+  --color-on-primary:    #ffffff;   /* 主色背景上的文字色 */
+
+  /* ── 櫻花花瓣 ── */
+  --sakura-mid:          #8cd4d8;  /* 青藍色調（搭配 Premium-Dark 青藍主色）*/
+  --sakura-deep:         #2d9daa;
 
   /* ── Hero ── */
   --hero-overlay:        rgba(7, 18, 20, 0.86);

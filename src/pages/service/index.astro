@@ -31,12 +31,12 @@ const jsonLd = {
 
   <main>
     <section class="section">
-      <div class="container" style="max-width:960px;">
-        <p style="font-size:var(--fs-md);line-height:1.9;color:var(--color-text);">面對眾多理財資訊與商品，您是否常常不知如何判斷？努力理財卻沒有回報，甚至虧損？想開始規劃，卻不知道第一步？在諾昇，財務規劃不是報告，而是陪你真正做好財務。不推銷、不賣產品，只讓金流更清楚、未來更安心。用策略把「現在的資源」連結到「想要的生活」，一起把財務幸福做到位。</p>
+      <div class="container narrow-container">
+        <p class="service-intro">面對眾多理財資訊與商品，您是否常常不知如何判斷？努力理財卻沒有回報，甚至虧損？想開始規劃，卻不知道第一步？在諾昇，財務規劃不是報告，而是陪你真正做好財務。不推銷、不賣產品，只讓金流更清楚、未來更安心。用策略把「現在的資源」連結到「想要的生活」，一起把財務幸福做到位。</p>
       </div>
     </section>
 
-    <section class="section" style="padding-top:0;">
+    <section class="section service-cards-section">
       <div class="container">
         <div class="service-card-grid">
           <div class="service-img-card">
@@ -62,16 +62,16 @@ const jsonLd = {
     </section>
 
     <section class="section">
-      <div class="container" style="max-width:860px;">
-        <h2 class="section-title" style="margin-bottom:20px;">傳承規劃</h2>
-        <p style="line-height:1.9;margin-bottom:20px;">傳承規劃不僅是財產分配，更是為家人避開未來高成本風險的重要準備。若缺乏事前設計，家人可能面臨資產凍結、稅負提高、分配爭議與流程延誤，帶來時間與情感上的壓力。透過專業協作，提前設計稅務、信託與資產流向，讓財富分配更清楚、合法節稅、降低資金無法動用的風險，並確保資產確實留給最重要的人。</p>
-        <p style="font-weight:600;color:var(--color-primary);">傳承要得早布局；現在的準備，就是給家人未來最實在的安心。</p>
+      <div class="container narrow-container-sm">
+        <h2 class="section-title mb-20">傳承規劃</h2>
+        <p class="inline-line-height mb-20">傳承規劃不僅是財產分配，更是為家人避開未來高成本風險的重要準備。若缺乏事前設計，家人可能面臨資產凍結、稅負提高、分配爭議與流程延誤，帶來時間與情感上的壓力。透過專業協作，提前設計稅務、信託與資產流向，讓財富分配更清楚、合法節稅、降低資金無法動用的風險，並確保資產確實留給最重要的人。</p>
+        <p class="service-highlight">傳承要得早布局；現在的準備，就是給家人未來最實在的安心。</p>
       </div>
     </section>
 
-    <section class="section" style="background:var(--color-bg-subtle);">
+    <section class="section section-subtle">
       <div class="container">
-        <img src={import.meta.env.BASE_URL + "images/財務規劃六步驟00.png"} alt="財務規劃六步驟" loading="lazy" style="width:100%;height:auto;display:block;" />
+        <img src={import.meta.env.BASE_URL + "images/財務規劃六步驟00.png"} alt="財務規劃六步驟" loading="lazy" class="service-full-img" />
         <div class="service-card-grid">
           <div class="service-img-card">
             <img src={import.meta.env.BASE_URL + "images/財務規劃六步驟01.png"} alt="財務規劃六步驟 1" loading="lazy" />
@@ -96,11 +96,11 @@ const jsonLd = {
     </section>
 
     <section class="section">
-      <div class="container" style="max-width:860px;">
-        <h2 class="section-title" style="margin-bottom:20px;">30 分鐘免費諮詢</h2>
-        <p style="margin-bottom:16px;">若您想進一步了解財務規劃，我們提供 30 分鐘免費線上諮詢。協助釐清您的財務現況是否需要規劃，並說明諾昇的流程、服務內容與收費方式。</p>
-        <p style="margin-bottom:24px;font-weight:600;">您將帶走清楚的下一步方向，以及選擇最適合自己方案所需的完整資訊。</p>
-        <ul style="font-size:var(--fs-sm);color:var(--color-text-mid);margin-bottom:32px;padding-left:0;list-style:none;line-height:2;">
+      <div class="container narrow-container-sm">
+        <h2 class="section-title mb-20">30 分鐘免費諮詢</h2>
+        <p class="service-desc">若您想進一步了解財務規劃，我們提供 30 分鐘免費線上諮詢。協助釐清您的財務現況是否需要規劃，並說明諾昇的流程、服務內容與收費方式。</p>
+        <p class="service-cta-text">您將帶走清楚的下一步方向，以及選擇最適合自己方案所需的完整資訊。</p>
+        <ul class="service-notes">
           <li>※ <strong>諮詢定位：</strong>僅提供流程說明與方向建議，不含個別深入分析</li>
           <li>※ <strong>內容限制：</strong>30 分鐘內不針對個人財務問題提供具體解決方案</li>
           <li>※ <strong>法律聲明：</strong>本服務屬財務顧問性質，非投資或證券買賣建議</li>
@@ -112,7 +112,7 @@ const jsonLd = {
       </div>
     </section>
 
-    <section class="section" style="background:var(--color-bg-subtle);">
+    <section class="section section-subtle">
       <div class="container">
         <div class="grid-3">
           <div class="card">
@@ -147,3 +147,13 @@ const jsonLd = {
   <Footer />
 </body>
 </html>
+
+<style>
+  .service-intro { font-size: var(--fs-md); line-height: 1.9; color: var(--color-text); }
+  .service-cards-section { padding-top: 0; }
+  .service-highlight { font-weight: 600; color: var(--color-primary); }
+  .service-full-img { width: 100%; height: auto; display: block; }
+  .service-desc { margin-bottom: 16px; }
+  .service-cta-text { margin-bottom: 24px; font-weight: 600; }
+  .service-notes { font-size: var(--fs-sm); color: var(--color-text-mid); margin-bottom: 32px; padding-left: 0; list-style: none; line-height: 2; }
+</style>

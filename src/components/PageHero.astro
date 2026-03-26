@@ -36,7 +36,7 @@ const { eyebrow, title, description, stats } = Astro.props;
     overflow: hidden;
     background: var(--color-primary);
     padding: 64px 4rem 56px;
-    color: #fff;
+    color: var(--color-on-primary);
   }
   /* 格紋裝飾層（Premium 透過 --hero-pattern 啟用；Classic 為 none） */
   .page-hero-bg {
@@ -78,7 +78,7 @@ const { eyebrow, title, description, stats } = Astro.props;
     font-family: var(--font-heading);
     font-size: clamp(28px, 5vw, 48px);
     font-weight: var(--heading-weight);
-    color: #fff;
+    color: var(--color-on-primary);
     line-height: 1.3;
     letter-spacing: 0.04em;
     margin-bottom: 1rem;
