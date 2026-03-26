@@ -22,6 +22,11 @@ const formattedDate = new Date(date).toLocaleDateString('zh-TW', {
   year: 'numeric', month: 'long', day: 'numeric'
 });
 
+// 閱讀時間估算（中文約 500 字/分鐘）
+const body = post.body || '';
+const charCount = body.replace(/\s/g, '').length;
+const readingTime = Math.max(1, Math.ceil(charCount / 500));
+
 const mainCategory = categories?.find(c => c !== 'blog') ?? 'blog';
 const categoryLabel = categoryLabels[mainCategory] ?? '理財新知';
 const categoryUrl = mainCategory === 'blog' ? `${import.meta.env.BASE_URL}blog/` : `${import.meta.env.BASE_URL}blog/${mainCategory}/`;
@@ -63,11 +68,13 @@ const jsonLd = {
         <header class="post-header">
           <h1>{title}</h1>
           <div class="post-meta">
-            <span>諾昇理財規劃顧問｜張惠芳 CFP</span>
-            <span>|</span>
+            <a href={categoryUrl} class="post-category-badge">{categoryLabel}</a>
+            <span class="post-meta-sep">·</span>
+            <span>張惠芳 CFP®</span>
+            <span class="post-meta-sep">·</span>
             <span>{formattedDate}</span>
-            <span>|</span>
-            <a href={categoryUrl}>{categoryLabel}</a>
+            <span class="post-meta-sep">·</span>
+            <span>閱讀 {readingTime} 分鐘</span>
           </div>
           {image && (
             <div class="post-cover">
