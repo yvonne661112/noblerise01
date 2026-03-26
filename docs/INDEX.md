@@ -15,6 +15,7 @@
 | [TODO.md](./TODO.md) | 現行待辦：字型改善、延後項目、task02 DNS 切換 | 2026-03-26 | ⏳ 進行中 |
 | [DONE.md](./DONE.md) | 已完成項目存檔（第二輪 SEO、設計、程式碼改善） | 2026-03-26 | ✅ 封存 |
 | [Process.md](./Process.md) | 第二輪 TODO 執行批次紀錄（中斷重啟依據） | 2026-03-26 | ✅ 全部完成（2026-03-26）|
+| [plan_website_test.md](./plan_website_test.md) | 網站健康度驗測計畫：連結、截圖、SEO、JSON-LD 工具與執行順序 | 2026-03-26 | 📋 計畫文件 |
 
 ---
 
