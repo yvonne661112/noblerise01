@@ -38,62 +38,64 @@ const jsonLd = {
 
   <PageHero eyebrow="Contact" title="聯絡我們" />
 
-  <div class="container" style="padding-top:40px;padding-bottom:0;">
-    <img src={import.meta.env.BASE_URL + "images/聯絡我們.jpg"} alt="聯絡我們" loading="lazy" style="width:100%;max-width:380px;height:auto;display:block;" />
-  </div>
-
   <main class="section">
     <div class="container">
-      <div class={SHOW_BOOKING ? "grid-2" : ""} style="align-items:start;">
-        {SHOW_BOOKING && (
-        <div>
-          <h2 class="section-title" style="margin-bottom:32px;">預約諮詢</h2>
-          <form class="contact-form" name="contact" method="POST" action="/contact/">
-            <div class="form-group">
-              <label for="name">姓名 *</label>
-              <input type="text" id="name" name="name" required />
-            </div>
-            <div class="form-group">
-              <label for="phone">聯絡電話 *</label>
-              <input type="tel" id="phone" name="phone" required />
-            </div>
-            <div class="form-group">
-              <label for="email">Email *</label>
-              <input type="email" id="email" name="email" required />
-            </div>
-            <div class="form-group">
-              <label for="line">Line ID *</label>
-              <input type="text" id="line" name="line" required />
-            </div>
-            <div class="form-group">
-              <label for="topic">諮詢項目 *</label>
-              <select id="topic" name="topic" required>
-                <option value="">請選擇</option>
-                <option value="trust">信託規劃</option>
-                <option value="investment">投資理財</option>
-                <option value="tax">傳承稅務</option>
-                <option value="financial">財務規劃</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="message">內容概述 *</label>
-              <textarea id="message" name="message" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">送出</button>
-          </form>
+      {SHOW_BOOKING ? (
+        <div class="grid-2" style="align-items:start;">
+          <div>
+            <h2 class="section-title" style="margin-bottom:32px;">預約諮詢</h2>
+            <form class="contact-form" name="contact" method="POST" action="/contact/">
+              <div class="form-group">
+                <label for="name">姓名 *</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">聯絡電話 *</label>
+                <input type="tel" id="phone" name="phone" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="line">Line ID *</label>
+                <input type="text" id="line" name="line" required />
+              </div>
+              <div class="form-group">
+                <label for="topic">諮詢項目 *</label>
+                <select id="topic" name="topic" required>
+                  <option value="">請選擇</option>
+                  <option value="trust">信託規劃</option>
+                  <option value="investment">投資理財</option>
+                  <option value="tax">傳承稅務</option>
+                  <option value="financial">財務規劃</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">內容概述 *</label>
+                <textarea id="message" name="message" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">送出</button>
+            </form>
+          </div>
+          <div>
+            <h2 class="section-title" style="margin-bottom:32px;">聯絡資訊</h2>
+            <p style="margin-bottom:1.5em;font-size:var(--fs-body);"><CompanyName /></p>
+          </div>
         </div>
-        )}
-
-        <div>
-          <h2 class="section-title" style="margin-bottom:32px;">聯絡資訊</h2>
-          <div style="font-size:var(--fs-body);line-height:2.2;">
-            <p style="margin-bottom:1.5em;">
+      ) : (
+        <div class="contact-layout">
+          <div class="contact-image-col">
+            <img src={import.meta.env.BASE_URL + "images/聯絡我們.jpg"} alt="聯絡我們" loading="lazy" />
+          </div>
+          <div>
+            <h2 class="section-title" style="margin-bottom:32px;">聯絡資訊</h2>
+            <p style="margin-bottom:1.5em;font-size:var(--fs-body);">
               <CompanyName />
             </p>
             <ul class="contact-info-list">
               <li style="align-items:flex-start;">
                 <span class="contact-icon" style="margin-top:4px;">
-                  <!-- Headset / LINE icon -->
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
                     <path d="M12 2C7.03 2 3 6.03 3 11v3a3 3 0 0 0 3 3h1a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1H5v-1c0-3.87 3.13-7 7-7s7 3.13 7 7v1h-2a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h1c.34 0 .67-.06.97-.16A5.002 5.002 0 0 1 12 21H11a1 1 0 0 0 0 2h1a7 7 0 0 0 6.92-5.95A3 3 0 0 0 21 14v-3c0-4.97-4.03-9-9-9z"/>
                   </svg>
@@ -106,7 +108,6 @@ const jsonLd = {
               </li>
               <li>
                 <span class="contact-icon">
-                  <!-- Envelope / Email icon -->
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
                     <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.25-8 4.5-8-4.5V6l8 4.5L20 6v2.25z"/>
                   </svg>
@@ -115,7 +116,6 @@ const jsonLd = {
               </li>
               <li>
                 <span class="contact-icon">
-                  <!-- ID card / Address icon -->
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
                     <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zM8 13H6v-2h2v2zm0-4H6V7h2v2zm10 4h-8v-2h8v2zm0-4h-8V7h8v2z"/>
                   </svg>
@@ -123,9 +123,21 @@ const jsonLd = {
                 <span>{CONTACT.address}</span>
               </li>
             </ul>
+            <div style="margin-top:28px;">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.8488013209458!2d121.54089257480517!3d25.039204738083015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abd127faaaab%3A0xaa3abe32ac4257c7!2zMTA26Ie65YyX5biC5aSn5a6J5Y2A5b6p6IiI5Y2X6Lev5LiA5q61MjIy6JmfMuaokw!5e0!3m2!1szh-TW!2stw!4v1774483760498!5m2!1szh-TW!2stw"
+                width="100%"
+                height="360"
+                style="border:0;display:block;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="諾昇理財規劃顧問地圖"
+              ></iframe>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   </main>
 

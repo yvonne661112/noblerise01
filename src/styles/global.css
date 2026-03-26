@@ -357,6 +357,29 @@ a { color: inherit; }
   border-radius: 6px;
 }
 
+/* ===== CONTACT PAGE LAYOUT ===== */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 56px;
+  align-items: start;
+}
+.contact-image-col img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+@media (max-width: 768px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .contact-image-col img {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
+
 /* ===== CONTACT FORM ===== */
 .contact-form { max-width: 640px; }
 .form-group { margin-bottom: 20px; }
