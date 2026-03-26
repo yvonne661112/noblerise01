@@ -8,7 +8,7 @@ import { CONTACT } from '../data/siteConfig';
 import { sortPostsByDate, transformPost } from '../utils/post';
 
 const base = import.meta.env.BASE_URL;
-const latestPosts = sortPostsByDate(await getCollection('blog')).slice(0, 3);
+const latestPosts = sortPostsByDate(await getCollection('blog')).slice(0, 6);
 const latestPostViews = latestPosts.map(p => transformPost(p, base));
 
 const jsonLd = [
@@ -53,190 +53,478 @@ const jsonLd = [
   {jsonLd.map(ld => (
     <script type="application/ld+json" is:inline set:html={JSON.stringify(ld)} />
   ))}
-  
+
 </head>
 <body>
-  <!-- Header -->
   <Header />
 
-  <!-- LINE CTA 列 + Slogan -->
-  <div class="line-cta-bar">
-    <div class="container">
-      <h1 class="home-slogan-text">諾昇理財規劃陪您走向財務幸福</h1>
+  <!-- ▸ HERO -->
+  <section class="hero-section">
+    <div class="hero-bg" style={`background-image: url('${base}images/hero-home.jpg')`}></div>
+    <div class="hero-overlay-layer"></div>
+    <div class="hero-body">
+      <p class="hero-eyebrow">Independent Financial Planning</p>
+      <h1 class="hero-headline">讓財務規劃<br/>成為你人生的底氣</h1>
+      <p class="hero-desc">不推銷、不賣產品 — 只為你的財務幸福而規劃</p>
+      <div class="hero-actions">
+        <a href={base + "service/"} class="btn btn-accent btn-lg">了解我們的服務</a>
+        <a href={base + "about/"} class="btn btn-outline-light btn-lg">認識諾昇</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ▸ STATS BAR -->
+  <div class="stat-bar">
+    <div class="stat-item">
+      <span class="stat-number">20+</span>
+      <span class="stat-label">年金融實務經驗</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">CFP®</span>
+      <span class="stat-label">國際認證理財規劃顧問</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">4</span>
+      <span class="stat-label">項國際專業認證</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">6</span>
+      <span class="stat-label">大媒體專欄作家</span>
     </div>
   </div>
 
-  <!-- 關於區塊 -->
+  <!-- ▸ 顧問介紹 -->
   <section class="section">
     <div class="container">
-      <div class="grid-2">
-        <div>
-          <h2 class="section-title">關於諾昇</h2>
-          <p>諾昇以「財務幸福」為核心，由國際認證高級理財規劃顧問 CFP® 張惠芳領軍，以獨立理財顧問（IFA）的立場，提供中立、專業、以客戶利益優先的財務建議，諾昇陪伴您讓規劃真正落地，成為走向財務幸福的力量！</p>
-          <br />
-          <a href={import.meta.env.BASE_URL + "about/"} class="btn btn-primary">了解更多</a>
+      <div class="advisor-intro">
+        <div class="advisor-photo-wrap">
+          <img src={base + "images/yvonneCFP.jpeg"} alt="張惠芳 CFP® 首席理財規劃顧問" width="400" height="400" loading="lazy" class="advisor-photo" />
         </div>
-        <div class="text-center">
-          <img src={import.meta.env.BASE_URL + "images/yvonneCFP.jpeg"} alt="張惠芳 CFP® 首席理財規劃顧問" width="360" height="360" loading="lazy" class="about-portrait" />
+        <div class="advisor-content">
+          <span class="section-eyebrow">Chief Planning Advisor</span>
+          <h2 class="section-title">張惠芳 CFP®</h2>
+          <p class="advisor-role">諾昇理財首席規劃顧問 ／ 執行長</p>
+          <hr class="section-divider" />
+          <p>以 20 年金融實務經驗，張惠芳建立了「不賣產品、只做規劃」的獨立顧問服務模式。她相信：真正的財務安全不是追求高報酬，而是讓每一分錢都為你的人生目標服務。</p>
+          <ul class="credential-list mt-24">
+            <li class="credential-badge">CFP® 國際認證</li>
+            <li class="credential-badge">RFA 退休理財顧問</li>
+            <li class="credential-badge">FChFP 特許財務規劃師</li>
+            <li class="credential-badge">家族信託規劃顧問師</li>
+          </ul>
+          <div class="mt-32">
+            <a href={base + "about/"} class="btn btn-primary">了解更多</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 核心價值 -->
+  <!-- ▸ 核心價值 -->
   <section class="section section-subtle">
     <div class="container">
-      <h2 class="section-title section-title--center">我們的核心價值</h2>
-      <div class="grid-3">
-        <div class="card">
-          <div class="card-body">
-            <img src={import.meta.env.BASE_URL + "images/真正獨立.png"} alt="真正獨立 不賣產品" loading="lazy" class="value-icon-img" />
-            <h3 class="text-center">真正獨立 不賣產品</h3>
-            <p>不受任何金融機構KPI影響，完全站在客戶立場，提供最適合客戶的建議。</p>
+      <div class="text-center mb-48">
+        <span class="section-eyebrow">Our Values</span>
+        <h2 class="section-title">為什麼選擇諾昇？</h2>
+        <p class="section-subtitle" style="margin-bottom: 0; max-width: 640px; margin-left: auto; margin-right: auto;">我們不是銀行、不是保險公司，我們是站在你身邊的獨立理財規劃夥伴。</p>
+      </div>
+      <div class="grid-3 values-grid">
+        <div class="value-card">
+          <div class="value-icon">
+            <img src={base + "images/真正獨立.png"} alt="真正獨立 不賣產品" loading="lazy" class="value-icon-img" />
           </div>
+          <h3>真正獨立，不賣產品</h3>
+          <p>不受金融機構 KPI 影響，完全站在客戶立場，只給最適合你的建議。</p>
         </div>
-        <div class="card">
-          <div class="card-body">
-            <img src={import.meta.env.BASE_URL + "images/專業規劃客製方案.png"} alt="專業規劃 客製方案" loading="lazy" class="value-icon-img" />
-            <h3 class="text-center">專業規劃 客製方案</h3>
-            <p>依國際理財規劃顧問認證總會(FPSB)的流程客製規劃，由 CFP 專業分析，並採規劃收費，確保建議客觀、動機單純，全程以您的需求為核心。</p>
+        <div class="value-card">
+          <div class="value-icon">
+            <img src={base + "images/專業規劃客製方案.png"} alt="專業規劃 客製方案" loading="lazy" class="value-icon-img" />
           </div>
+          <h3>專業規劃，客製方案</h3>
+          <p>依國際理財規劃 FPSB 流程量身打造，採規劃收費，確保建議客觀純粹。</p>
         </div>
-        <div class="card">
-          <div class="card-body">
-            <img src={import.meta.env.BASE_URL + "images/全程陪伴規劃.png"} alt="全程陪伴 規劃＋執行" loading="lazy" class="value-icon-img" />
-            <h3 class="text-center">全程陪伴 規劃＋執行</h3>
-            <p>不只給建議，更協助落地，隨人生變化調整，讓財務真正做到、看得見成果。</p>
+        <div class="value-card">
+          <div class="value-icon">
+            <img src={base + "images/全程陪伴規劃.png"} alt="全程陪伴 規劃＋執行" loading="lazy" class="value-icon-img" />
           </div>
+          <h3>全程陪伴，規劃到執行</h3>
+          <p>不只給建議，更協助落地執行。隨人生變化調整，讓財務規劃看得見成果。</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 財務規劃定義 -->
+  <!-- ▸ 服務項目 -->
   <section class="section">
     <div class="container">
-      <div class="grid-2">
-        <div>
-          <img src={import.meta.env.BASE_URL + "images/financial-planning.jpg"} alt="財務規劃" width="540" height="360" loading="lazy" class="img-fluid" />
-        </div>
-        <div>
-          <h2 class="section-title">財務規劃的目的</h2>
-          <p>財務規劃是幫助個人或家庭做好管理財務的過程，幫助大家達成財務目標，包括儲蓄、投資、退休、孩子教育、購屋、買車、旅遊、稅務、傳承等，可以盤點目前的財務資源和收入，量化財務目標以實現幸福財富人生。</p>
-        </div>
+      <div class="text-center mb-48">
+        <span class="section-eyebrow">Services</span>
+        <h2 class="section-title">全方位財務規劃服務</h2>
+        <p class="section-subtitle" style="margin-bottom: 0; max-width: 640px; margin-left: auto; margin-right: auto;">從日常收支到財富傳承，諾昇為你的每個人生階段提供專業規劃。</p>
+      </div>
+      <div class="service-grid">
+        <a href={base + "service/"} class="service-item">
+          <div class="service-icon-wrap">
+            <img src={base + "images/home-service-items-01.png"} alt="收支管理與財務盤點" loading="lazy" />
+          </div>
+          <h3>收支管理與財務盤點</h3>
+          <p>釐清收支全貌，建立可執行的財務架構。</p>
+        </a>
+        <a href={base + "service/"} class="service-item">
+          <div class="service-icon-wrap">
+            <img src={base + "images/home-service-items-02.png"} alt="保險保障規劃" loading="lazy" />
+          </div>
+          <h3>保險保障規劃</h3>
+          <p>以第三方角度審視保單，花更少、保更好。</p>
+        </a>
+        <a href={base + "service/"} class="service-item">
+          <div class="service-icon-wrap">
+            <img src={base + "images/home-service-items-03.png"} alt="教育與家庭目標規劃" loading="lazy" />
+          </div>
+          <h3>教育與家庭規劃</h3>
+          <p>為孩子的教育金、家庭里程碑做好財務準備。</p>
+        </a>
+        <a href={base + "service/"} class="service-item">
+          <div class="service-icon-wrap">
+            <img src={base + "images/home-service-items-04.png"} alt="房產與重大資產決策" loading="lazy" />
+          </div>
+          <h3>房產與重大資產決策</h3>
+          <p>理性評估買房時機，做出聰明的資產配置。</p>
+        </a>
+        <a href={base + "service/"} class="service-item">
+          <div class="service-icon-wrap">
+            <img src={base + "images/home-service-items-05.png"} alt="退休與投資積累策略" loading="lazy" />
+          </div>
+          <h3>退休與投資策略</h3>
+          <p>科學規劃退休金，讓未來的自己無後顧之憂。</p>
+        </a>
+        <a href={base + "service/"} class="service-item">
+          <div class="service-icon-wrap">
+            <img src={base + "images/home-service-items-06.png"} alt="傳承與高齡照護規劃" loading="lazy" />
+          </div>
+          <h3>傳承與高齡照護</h3>
+          <p>信託、稅務、傳承一站規劃，守護家族財富。</p>
+        </a>
+      </div>
+      <div class="text-center mt-48">
+        <a href={base + "service/"} class="btn btn-primary">查看完整服務</a>
       </div>
     </div>
   </section>
 
-  <!-- 為何聘請顧問 -->
-  <section class="section section-subtle">
+  <!-- ▸ 客戶見證 -->
+  <section class="section section-dark">
     <div class="container">
-      <div class="intro-block">
-        <h2 class="section-title">為何要找財務顧問</h2>
-        <p>財務顧問擁有豐富的理財領域經驗，並擁有相關的專業認證和資格。每個人都應該有一個健康的財務狀況，這不僅可以為自己和家人帶來更好的生活品質，還可以為未來的發展奠定基礎。</p>
+      <div class="text-center mb-48">
+        <span class="section-eyebrow">Testimonials</span>
+        <h2 class="section-title">客戶這樣說</h2>
       </div>
-      <div class="service-card-grid">
-        <img src={import.meta.env.BASE_URL + "images/home-service-items-01.png"} alt="收支管理與財務盤點" width="405" height="329" loading="lazy" />
-        <img src={import.meta.env.BASE_URL + "images/home-service-items-02.png"} alt="保險保障規劃" width="424" height="329" loading="lazy" />
-        <img src={import.meta.env.BASE_URL + "images/home-service-items-03.png"} alt="教育與家庭目標規劃" width="405" height="329" loading="lazy" />
-        <img src={import.meta.env.BASE_URL + "images/home-service-items-04.png"} alt="房產與重大資產決策" width="405" height="294" loading="lazy" />
-        <img src={import.meta.env.BASE_URL + "images/home-service-items-05.png"} alt="退休與投資積累策略" width="424" height="294" loading="lazy" />
-        <img src={import.meta.env.BASE_URL + "images/home-service-items-06.png"} alt="傳承與高齡照護規劃" width="405" height="294" loading="lazy" />
-      </div>
-    </div>
-  </section>
-
-  <!-- 客戶見證 -->
-  <section class="section section-subtle">
-    <div class="container">
-      <h2 class="section-title section-title--center">客戶見證</h2>
       <div class="testimonials">
-        <div class="testimonial">
-          <img src={import.meta.env.BASE_URL + "images/home-customer2.jpg"} alt="張先生" width="72" height="72" loading="lazy" class="testimonial-avatar" />
-          <p class="testimonial-text">「55歲退休能實現嗎？」惠芳CFP以專業財務顧問角度，科學量化精算一生的現金流，從退休資金、稅務、到資產信託規劃與實際執行，每一步都讓我更踏實，不只做規劃，更定期提醒與追蹤進度，讓我能專心衝刺事業，不再為未來焦慮，完成規劃後，我對人生財務藍圖更加安心！</p>
+        <div class="testimonial testimonial--dark">
+          <img src={base + "images/home-customer2.jpg"} alt="張先生" width="56" height="56" loading="lazy" class="testimonial-avatar" />
+          <p class="testimonial-text">「55 歲退休能實現嗎？」惠芳 CFP 以科學方式精算一生的現金流，從退休資金、稅務到資產信託規劃，每一步都讓我更踏實。完成規劃後，我對人生財務藍圖更加安心！</p>
           <p class="testimonial-name">張先生｜科技業主管</p>
         </div>
-        <div class="testimonial">
-          <img src={import.meta.env.BASE_URL + "images/home-customer3.jpg"} alt="陳小姐" width="72" height="72" loading="lazy" class="testimonial-avatar" />
-          <p class="testimonial-text">我常思考：「保險買這麼多，真的都需要嗎？」惠芳CFP以獨立理財規劃顧問第三方角色，全面盤點保單與資產，揪出多餘的保障與不當理財商品，重新調整收支與現金流，繳更少保費，保障卻差不多，大幅降低保險支出，資產負債表一目了然，心更安定，讓我體會到：「找對顧問，是最聰明的省錢方式！」</p>
+        <div class="testimonial testimonial--dark">
+          <img src={base + "images/home-customer3.jpg"} alt="陳小姐" width="56" height="56" loading="lazy" class="testimonial-avatar" />
+          <p class="testimonial-text">惠芳 CFP 以獨立第三方角色全面盤點保單，揪出多餘保障與不當理財商品，大幅降低保險支出，資產負債表一目了然。找對顧問，是最聰明的省錢方式！</p>
           <p class="testimonial-name">陳小姐｜退休人士</p>
         </div>
-        <div class="testimonial">
-          <img src={import.meta.env.BASE_URL + "images/home-customer1.jpg"} alt="王先生" width="72" height="72" loading="lazy" class="testimonial-avatar" />
-          <p class="testimonial-text">我是財務投資小白，在惠芳CFP指導下，從開戶到投資執行與收支掌控逐步建立，每月養成紀錄習慣，重新確立理財目標，一步步打造理想生活藍圖與財務秩序。我也開始學習用AI自學新知，提升專業能力與收入，財務壓力漸漸減輕，不再焦慮也不盲從，逐步邁向我的財務幸福。</p>
+        <div class="testimonial testimonial--dark">
+          <img src={base + "images/home-customer1.jpg"} alt="王先生" width="56" height="56" loading="lazy" class="testimonial-avatar" />
+          <p class="testimonial-text">在惠芳 CFP 指導下，從開戶到投資執行、收支掌控，我一步步建立理財秩序。財務壓力漸漸減輕，不再焦慮也不盲從，逐步邁向我的財務幸福。</p>
           <p class="testimonial-name">王先生｜工程監工</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 媒體採訪 -->
+  <!-- ▸ 媒體採訪 -->
   <section class="section">
     <div class="container">
-      <h2 class="section-title section-title--center-sm">媒體採訪</h2>
-
-      <ul class="media-list">
-        <li>TVBS 十點不一樣專訪：<a href="https://youtu.be/_XeCIzm6pOU" target="_blank" rel="noopener nofollow noreferrer">社會保障支出破2.6兆! 平均每人11.5萬 為何民眾喊「無感」?</a></li>
-        <li>TVBS 十點不一樣專訪：<a href="https://youtu.be/KdxAo-9BpdI?si=QiA8Up1xF-uInhRQ&t=180" target="_blank" rel="noopener nofollow noreferrer">勞保年金差距曝光！電力業月領3.3萬 餐旅業僅1.7萬入不敷出</a></li>
-        <li>TVBS 十點不一樣專訪：<a href="https://www.youtube.com/watch?v=QktyMzy--68" target="_blank" rel="noopener nofollow noreferrer">窮到只剩下錢？明明不缺錢卻對未來憂心的「貧窮妄想」</a></li>
-        <li>橘世代文章專訪：<a href="https://orange.udn.com/orange/story/121197/9136896" target="_blank" rel="noopener nofollow noreferrer">癌症醫療燒掉的錢好驚人！一次看懂癌症險買多少、怎麼買及常見盲點｜橘世代</a></li>
-        <li>刊登天下雜誌：<a href="https://www.cw.com.tw/article/5136867" target="_blank" rel="noopener nofollow noreferrer">一年存多少才正常？台灣家庭存錢力揭曉</a></li>
-        <li>刊登今周刊：<a href="https://www.businesstoday.com.tw/article/category/183035/post/202510270037/" target="_blank" rel="noopener nofollow noreferrer">薇閣、康橋、復興...11所私校學費一次看！每年100萬值得嗎？專家教你如何籌出孩子教育費、還能兼存退休金－今周刊</a></li>
-        <li>FPAT 財務幸福之路podcast專訪：<a href="https://solink.soundon.fm/episode/5c950785-667b-4cd3-bc5a-2d108321a0c0" target="_blank" rel="noopener nofollow noreferrer">EP6｜全方位理財師CFP® 張惠芳</a></li>
-        <li>FPAT 2022理財規劃書競賽活動：<a href="https://www.youtube.com/watch?v=ykfA1qhsj1w" target="_blank" rel="noopener nofollow noreferrer">榮獲最佳顧問獎 影片</a></li>
-      </ul>
-
-      <div class="media-divider"></div>
-
-      <div class="media-videos">
-        <a href="https://www.youtube.com/watch?v=QktyMzy--68" target="_blank" rel="noopener nofollow noreferrer">
-          <img src={import.meta.env.BASE_URL + "images/tvbs-thumbnail2.png"} alt="TVBS 十點不一樣專訪 - 窮到只剩下錢？" width="510" height="280" loading="lazy" />
-        </a>
-        <a href="https://youtu.be/_XeCIzm6pOU" target="_blank" rel="noopener nofollow noreferrer">
-          <img src={import.meta.env.BASE_URL + "images/社會保障支出破2.6兆.png"} alt="社會保障支出破2.6兆" width="510" height="280" loading="lazy" />
-        </a>
+      <div class="media-section">
+        <div class="media-left">
+          <span class="section-eyebrow">Media Coverage</span>
+          <h2 class="section-title">媒體採訪與專欄</h2>
+          <hr class="section-divider" />
+          <ul class="media-list">
+            <li><strong>TVBS 十點不一樣</strong>：<a href="https://youtu.be/_XeCIzm6pOU" target="_blank" rel="noopener nofollow noreferrer">社會保障支出破 2.6 兆</a></li>
+            <li><strong>TVBS 十點不一樣</strong>：<a href="https://youtu.be/KdxAo-9BpdI?si=QiA8Up1xF-uInhRQ&t=180" target="_blank" rel="noopener nofollow noreferrer">勞保年金差距曝光</a></li>
+            <li><strong>TVBS 十點不一樣</strong>：<a href="https://www.youtube.com/watch?v=QktyMzy--68" target="_blank" rel="noopener nofollow noreferrer">窮到只剩下錢？貧窮妄想</a></li>
+            <li><strong>天下雜誌</strong>：<a href="https://www.cw.com.tw/article/5136867" target="_blank" rel="noopener nofollow noreferrer">一年存多少才正常？</a></li>
+            <li><strong>今周刊</strong>：<a href="https://www.businesstoday.com.tw/article/category/183035/post/202510270037/" target="_blank" rel="noopener nofollow noreferrer">11 所私校學費一次看</a></li>
+            <li><strong>橘世代</strong>：<a href="https://orange.udn.com/orange/story/121197/9136896" target="_blank" rel="noopener nofollow noreferrer">癌症醫療花費與癌症險</a></li>
+            <li><strong>FPAT Podcast</strong>：<a href="https://solink.soundon.fm/episode/5c950785-667b-4cd3-bc5a-2d108321a0c0" target="_blank" rel="noopener nofollow noreferrer">全方位理財師 CFP® 張惠芳</a></li>
+          </ul>
+        </div>
+        <div class="media-right">
+          <a href="https://www.youtube.com/watch?v=QktyMzy--68" target="_blank" rel="noopener nofollow noreferrer" class="media-video-link">
+            <img src={base + "images/tvbs-thumbnail2.png"} alt="TVBS 十點不一樣專訪" width="510" height="280" loading="lazy" />
+          </a>
+          <a href="https://youtu.be/_XeCIzm6pOU" target="_blank" rel="noopener nofollow noreferrer" class="media-video-link">
+            <img src={base + "images/社會保障支出破2.6兆.png"} alt="社會保障支出破 2.6 兆" width="510" height="280" loading="lazy" />
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 最新文章 -->
+  <!-- ▸ 最新文章 -->
   <section class="section section-subtle">
     <div class="container">
-      <h2 class="section-title section-title--center-sm">最新文章</h2>
+      <div class="text-center mb-48">
+        <span class="section-eyebrow">Latest Articles</span>
+        <h2 class="section-title">理財新知</h2>
+        <p class="section-subtitle" style="margin-bottom: 0; max-width: 560px; margin-left: auto; margin-right: auto;">專業觀點、實用知識，幫助你做出更好的財務決策。</p>
+      </div>
       <BlogList posts={latestPostViews} showCatBar={false} />
-      <div class="text-center mt-32">
-        <a href={import.meta.env.BASE_URL + "blog/"} class="btn btn-primary">查看所有文章</a>
+      <div class="text-center mt-48">
+        <a href={base + "blog/"} class="btn btn-primary">查看所有文章</a>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ▸ CTA -->
+  <section class="section section-primary cta-section">
+    <div class="container text-center">
+      <h2 class="section-title" style="color: var(--color-on-primary)">準備好開始你的財務規劃了嗎？</h2>
+      <p style="color: rgba(255,255,255,0.8); font-size: var(--fs-lg); max-width: 560px; margin: 0 auto 36px;">我們提供 30 分鐘免費線上諮詢，協助釐清你的財務現況與下一步方向。</p>
+      <div class="cta-buttons">
+        <a href={CONTACT.lineUrl} target="_blank" rel="noopener" class="btn btn-accent btn-lg">LINE 預約諮詢</a>
+        <a href={base + "contact/"} class="btn btn-outline-light btn-lg">聯絡我們</a>
+      </div>
+    </div>
+  </section>
+
   <Footer />
 </body>
 </html>
 
 <style>
-  .about-portrait { max-width: 360px; width: 100%; height: auto; }
-  .service-card-grid {
+  /* ── HERO ── */
+  .hero-section {
+    position: relative;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .hero-overlay-layer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(15, 31, 43, 0.88) 0%, rgba(27, 58, 75, 0.75) 100%);
+  }
+  .hero-body {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 60px 24px;
+    max-width: 720px;
+  }
+  .hero-eyebrow {
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-accent-light);
+    margin-bottom: 20px;
+  }
+  .hero-headline {
+    font-family: var(--font-heading);
+    font-size: clamp(30px, 5vw, 52px);
+    font-weight: var(--heading-weight);
+    color: var(--color-on-primary);
+    line-height: 1.3;
+    margin-bottom: 20px;
+    letter-spacing: 0.04em;
+  }
+  .hero-desc {
+    font-size: clamp(16px, 2vw, 20px);
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 40px;
+    line-height: 1.6;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ── ADVISOR INTRO ── */
+  .advisor-intro {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 0;
-    align-items: end;
+    grid-template-columns: 380px 1fr;
+    gap: 64px;
+    align-items: center;
   }
-  @media (min-width: 600px) {
-    .service-card-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+  .advisor-photo-wrap {
+    position: relative;
   }
-  @media (min-width: 900px) {
-    .service-card-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  .service-card-grid img {
+  .advisor-photo {
     width: 100%;
     height: auto;
     display: block;
   }
-</style>
+  .advisor-content { }
+  .advisor-role {
+    font-size: var(--fs-md);
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
 
+  /* ── VALUES ── */
+  .values-grid { }
+  .value-card {
+    background: var(--color-white);
+    border-radius: var(--card-radius);
+    padding: 36px 28px;
+    text-align: center;
+    border: 1px solid var(--color-border);
+    transition: box-shadow 0.25s, transform 0.25s;
+  }
+  .value-card:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-4px);
+  }
+  .value-card .value-icon { margin-bottom: 20px; }
+  .value-card h3 {
+    font-family: var(--font-heading);
+    font-size: var(--fs-xl);
+    font-weight: var(--heading-weight);
+    color: var(--color-primary);
+    margin-bottom: 12px;
+  }
+  .value-card p {
+    font-size: var(--fs-base);
+    color: var(--color-text-mid);
+    line-height: 1.7;
+  }
+
+  /* ── SERVICE GRID ── */
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .service-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 32px 20px;
+    border-radius: var(--card-radius);
+    border: 1px solid var(--color-border);
+    background: var(--color-white);
+    text-decoration: none;
+    transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+  }
+  .service-item:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-3px);
+    border-color: var(--color-accent);
+  }
+  .service-icon-wrap {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 20px;
+  }
+  .service-icon-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .service-item h3 {
+    font-family: var(--font-heading);
+    font-size: var(--fs-lg);
+    font-weight: var(--heading-weight);
+    color: var(--color-primary);
+    margin-bottom: 8px;
+  }
+  .service-item p {
+    font-size: var(--fs-base);
+    color: var(--color-text-mid);
+    line-height: 1.6;
+  }
+
+  /* ── TESTIMONIAL DARK VARIANT ── */
+  .testimonial--dark {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  .testimonial--dark .testimonial-text { color: rgba(255, 255, 255, 0.7); }
+  .testimonial--dark .testimonial-name { color: var(--color-accent-light); }
+  .testimonial--dark::before { color: var(--color-accent-light); }
+
+  /* ── MEDIA ── */
+  .media-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .media-left { }
+  .media-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .media-video-link {
+    display: block;
+    overflow: hidden;
+    border-radius: var(--card-radius);
+    aspect-ratio: 16 / 9;
+  }
+  .media-video-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.25s;
+  }
+  .media-video-link:hover img { transform: scale(1.03); }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: var(--color-primary);
+    background-image: var(--hero-pattern);
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .advisor-intro {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      text-align: center;
+    }
+    .advisor-photo-wrap {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+    .advisor-content .section-divider { margin-left: auto; margin-right: auto; }
+    .credential-list { justify-content: center; }
+    .service-grid { grid-template-columns: 1fr 1fr; }
+    .media-section { grid-template-columns: 1fr; gap: 40px; }
+  }
+  @media (max-width: 600px) {
+    .hero-section { min-height: 480px; }
+    .hero-body { padding: 40px 16px; }
+    .service-grid { grid-template-columns: 1fr; }
+    .stat-bar { justify-content: space-around; }
+  }
+</style>
