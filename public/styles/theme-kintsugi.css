@@ -1,0 +1,58 @@
+/**
+ * Theme: Kintsugi（金繼 — 黃金修復）
+ * 切換方式：將 src/data/siteConfig.ts 的 activeTheme 改為 'kintsugi'
+ *
+ * 設計語言：以日本金繼藝術為靈感 — 深漆器褐黑為底蘊，溫潤金色為點綴，
+ *           傳遞「將缺憾化為黃金」的財務規劃哲學。沉穩、智慧、溫暖而不失奢華。
+ * 字型：Cormorant Infant（英文標題，纖細優雅的襯線體）
+ *       + Noto Serif TC（中文標題）+ Noto Sans TC（內文）
+ */
+:root {
+  /* ── 主色系 ── */
+  --color-primary:       #2C2420;   /* 漆器褐黑（urushi lacquer） */
+  --color-accent:        #C6A355;   /* 金繼黃金 */
+  --color-accent-light:  #DBBF78;   /* 淡金（磨光後的金粉） */
+  --color-accent-pale:   #FBF6EB;   /* 溫暖象牙（陶器釉面） */
+
+  /* ── 背景 / 區塊 ── */
+  --color-bg-subtle:     #F7F3EC;   /* 陶瓷暖白 */
+  --color-dark-section:  #1E1914;   /* 深漆黑 */
+  --color-footer-bg:     #141110;
+
+  /* ── 邊框 ── */
+  --color-border:        #E2D9CC;   /* 溫暖米灰 */
+  --color-border-accent: rgba(198, 163, 85, 0.22);
+
+  /* ── 文字 ── */
+  --color-text:          #2C2420;
+  --color-text-dark:     #1A1714;
+  --color-text-mid:      #7A6E63;   /* 溫灰褐 */
+  --color-text-muted:    rgba(255, 255, 255, 0.50);
+  --color-white:         #FEFCF8;   /* 微暖白，非純白 */
+  --color-rose:          #D4654A;   /* 陶土赤（搭配金色的暖紅） */
+  --color-on-primary:    #FEFCF8;   /* 主色背景上的文字色 */
+  --color-line:          #06c755;
+  --color-line-light:    #66b966;
+  --color-link:          #C6A355;
+
+  /* ── 櫻花花瓣（金繼金粉飄落）── */
+  --sakura-mid:          #DBBF78;   /* 淡金色 */
+  --sakura-deep:         #C6A355;   /* 金繼金 */
+
+  /* ── Hero ── */
+  --hero-overlay:        rgba(30, 25, 20, 0.85);
+  --hero-pattern:        radial-gradient(ellipse 50% 65% at 70% 40%, rgba(198, 163, 85, 0.12) 0%, transparent 65%),
+                         radial-gradient(ellipse 35% 50% at 20% 70%, rgba(198, 163, 85, 0.06) 0%, transparent 55%),
+                         linear-gradient(rgba(198, 163, 85, 0.025) 1px, transparent 1px),
+                         linear-gradient(90deg, rgba(198, 163, 85, 0.025) 1px, transparent 1px);
+
+  /* ── 卡片 ── */
+  --card-radius:         8px;       /* 微圓角，如陶器邊緣 */
+  --card-shadow:         0 2px 12px rgba(44, 36, 32, 0.08);
+  --card-shadow-hover:   0 14px 42px rgba(44, 36, 32, 0.14);
+
+  /* ── 字型 ── */
+  --font-heading:        'Cormorant Infant', 'Noto Serif TC', serif;
+  --font-body:           'Noto Sans TC', sans-serif;
+  --heading-weight:      500;
+}
