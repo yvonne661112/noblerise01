@@ -2,21 +2,23 @@
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Head from '../../components/Head.astro';
-import PageHero from '../../components/PageHero.astro';
+import { CONTACT } from '../../data/siteConfig';
+
+const base = import.meta.env.BASE_URL;
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
   "name": "關於諾昇 | 張惠芳 CFP® | 諾昇理財規劃",
   "description": "諾昇以財務幸福為核心，由 CFP® 張惠芳領軍，以獨立理財顧問（IFA）立場提供中立、專業的財務建議。",
-  "url": "https://noblerise.com.tw/about/",
+  "url": `${CONTACT.siteUrl}/about/`,
   "mainEntity": {
     "@type": "Person",
     "name": "張惠芳",
     "jobTitle": "CFP® 國際認證高級理財規劃顧問",
     "worksFor": {
       "@type": "Organization",
-      "name": "諾昇理財規劃顧問股份有限公司"
+      "name": CONTACT.companyNameZh
     },
     "hasCredential": [
       "CFP® 國際認證高級理財規劃顧問",
@@ -27,38 +29,6 @@ const jsonLd = {
   }
 };
 ---
-
-<style>
-  .award-grid {
-    align-items: stretch;
-  }
-  .award-item {
-    display: flex;
-  }
-  .award-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 4px;
-  }
-  .about-subheading {
-    font-family: var(--font-heading);
-    font-size: var(--fs-md);
-    font-weight: 700;
-    color: var(--color-primary);
-    margin-bottom: 12px;
-  }
-  .about-list {
-    list-style: disc;
-    padding-left: 20px;
-    margin-bottom: 20px;
-    font-size: var(--fs-body);
-    line-height: 2;
-  }
-  .about-list--last {
-    margin-bottom: 0;
-  }
-</style>
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -68,70 +38,324 @@ const jsonLd = {
 <body>
   <Header />
 
-  <PageHero eyebrow="About Us" title="關於諾昇" />
-
-  <main class="section">
-    <div class="container narrow-container">
-
-      <section class="mb-64">
-        <h2 class="section-title mb-24">關於諾昇</h2>
-        <p>諾昇以「財務幸福」為核心，由國際認證高級理財規劃顧問 CFP® 張惠芳領軍，以獨立理財顧問（IFA）的立場，提供中立、專業、以客戶利益優先的財務建議，諾昇陪伴您讓規劃真正落地，成為走向財務幸福的力量！</p>
-      </section>
-
-      <section class="mb-64">
-        <h2 class="section-title mb-32">首席理財規劃顧問：張惠芳 CFP®</h2>
-        <div class="grid-2">
-          <div class="text-center">
-            <img src={import.meta.env.BASE_URL + "images/yvonne-about.png"} alt="張惠芳 CFP® 首席理財規劃顧問" width="400" height="400" loading="lazy" />
-          </div>
-          <div>
-            <p class="mb-20">惠芳CFP為諾昇執行長兼首席理財規劃顧問，以20年的金融實務經驗，建立諾昇的服務理念與方法，確保諾昇提供的每一項財務建議，都以客戶利益為核心出發點，陪伴客戶走向財務幸福。</p>
-
-            <h3 class="about-subheading">現職</h3>
-            <ul class="about-list">
-              <li>諾昇理財規劃顧問公司執行長</li>
-              <li>詠言法律事務所 稅務顧問</li>
-              <li>威瑞財富管理 信託團隊</li>
-              <li>專欄作家：風傳媒、天下雜誌、今周刊、Smart自學網、橘世代、好險有錢</li>
-            </ul>
-
-            <h3 class="about-subheading">經歷</h3>
-            <ul class="about-list">
-              <li>臺灣理財認證顧問協會「從員工福利信託看員工財務規劃」講師</li>
-              <li>金融研訓院 成人金融素養教育 講師</li>
-              <li>理財好聲音 極客年會財務規劃 講師</li>
-              <li>政大、淡江、文化大學、台電、竹北主婦聯盟、臺灣理財顧問認證協會、菁英財管、中華職能應用發展協會、公勝保經、三商美邦人壽等單位，受邀演講財商、財稅、退休、信託等專題</li>
-            </ul>
-
-            <h3 class="about-subheading">專業證照</h3>
-            <ul class="about-list about-list--last">
-              <li>CFP® 國際認證高級理財規劃顧問</li>
-              <li>RFA 退休理財規劃顧問</li>
-              <li>FChFP 特許財務規劃師</li>
-              <li>家族信託規劃顧問師</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h2 class="section-title mb-32">獲獎紀錄</h2>
-        <div class="grid-3 award-grid">
-          <div class="award-item">
-            <img src={import.meta.env.BASE_URL + "images/award1.jpg"} alt="獲獎紀錄1" width="360" height="270" loading="lazy" />
-          </div>
-          <div class="award-item">
-            <img src={import.meta.env.BASE_URL + "images/award2.jpg"} alt="獲獎紀錄2" width="360" height="270" loading="lazy" />
-          </div>
-          <div class="award-item">
-            <img src={import.meta.env.BASE_URL + "images/award3.jpg"} alt="獲獎紀錄3" width="360" height="270" loading="lazy" />
-          </div>
-        </div>
-      </section>
-
+  <!-- ▸ HERO -->
+  <section class="about-hero">
+    <div class="about-hero-bg" style={`background-image: url('${base}images/aboutmehead.jpg')`}></div>
+    <div class="about-hero-overlay"></div>
+    <div class="about-hero-body">
+      <p class="hero-eyebrow">About Us</p>
+      <h1 class="about-hero-title">以財務幸福為信念<br/>用專業陪伴每一個家庭</h1>
     </div>
+  </section>
+
+  <main>
+    <!-- ▸ 關於諾昇 -->
+    <section class="section">
+      <div class="container narrow-container">
+        <div class="text-center">
+          <span class="section-eyebrow">Our Mission</span>
+          <h2 class="section-title">關於諾昇</h2>
+          <hr class="section-divider section-divider--center" />
+        </div>
+        <p class="about-mission">諾昇以「財務幸福」為核心，由國際認證高級理財規劃顧問 CFP® 張惠芳領軍，以獨立理財顧問（IFA）的立場，提供中立、專業、以客戶利益優先的財務建議。我們不推銷金融商品，不受任何機構 KPI 影響 — 諾昇陪伴您，讓規劃真正落地，成為走向財務幸福的力量。</p>
+      </div>
+    </section>
+
+    <!-- ▸ 首席顧問 -->
+    <section class="section section-subtle">
+      <div class="container">
+        <div class="advisor-profile">
+          <div class="advisor-photo-col">
+            <img src={base + "images/yvonne-about.png"} alt="張惠芳 CFP® 首席理財規劃顧問" width="400" height="400" loading="lazy" class="advisor-portrait" />
+            <div class="advisor-certs">
+              <span class="credential-badge">CFP® 國際認證</span>
+              <span class="credential-badge">RFA 退休理財顧問</span>
+              <span class="credential-badge">FChFP 特許財務規劃師</span>
+              <span class="credential-badge">家族信託規劃顧問師</span>
+            </div>
+          </div>
+          <div class="advisor-detail">
+            <span class="section-eyebrow">Chief Planning Advisor</span>
+            <h2 class="section-title">張惠芳 CFP®</h2>
+            <p class="advisor-tagline">諾昇理財執行長 ／ 首席規劃顧問</p>
+            <hr class="section-divider" />
+            <p class="advisor-bio">惠芳以 20 年金融實務經驗建立諾昇的服務理念與方法。她堅持「不賣產品、只做規劃」的獨立顧問模式，確保每一項財務建議都以客戶利益為核心出發點，陪伴客戶走向財務幸福。</p>
+
+            <div class="detail-block">
+              <h3 class="detail-title">現職</h3>
+              <ul class="detail-list">
+                <li>諾昇理財規劃顧問公司執行長</li>
+                <li>詠言法律事務所 稅務顧問</li>
+                <li>威瑞財富管理 信託團隊</li>
+                <li>專欄作家：風傳媒、天下雜誌、今周刊、Smart 自學網、橘世代、好險有錢</li>
+              </ul>
+            </div>
+
+            <div class="detail-block">
+              <h3 class="detail-title">專業經歷</h3>
+              <ul class="detail-list">
+                <li>臺灣理財認證顧問協會「從員工福利信託看員工財務規劃」講師</li>
+                <li>金融研訓院 成人金融素養教育 講師</li>
+                <li>理財好聲音 極客年會財務規劃 講師</li>
+                <li>受邀於政大、淡江、文化大學、台電、竹北主婦聯盟、FPAT、菁英財管、中華職能應用發展協會、公勝保經、三商美邦人壽等單位演講</li>
+              </ul>
+            </div>
+
+            <div class="detail-block">
+              <h3 class="detail-title">媒體曝光</h3>
+              <ul class="detail-list">
+                <li>TVBS 十點不一樣 — 多次受邀財經專題訪問</li>
+                <li>天下雜誌、今周刊、橘世代 — 專欄文章刊載</li>
+                <li>FPAT 財務幸福之路 Podcast 專訪</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ▸ 獲獎紀錄 -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center mb-48">
+          <span class="section-eyebrow">Awards</span>
+          <h2 class="section-title">獲獎紀錄</h2>
+          <hr class="section-divider section-divider--center" />
+        </div>
+        <div class="award-timeline">
+          <div class="award-entry">
+            <div class="award-year">2021</div>
+            <div class="award-info">
+              <h3>FPAT 理財規劃書競賽</h3>
+              <p>團體組 第二名</p>
+            </div>
+          </div>
+          <div class="award-entry">
+            <div class="award-year">2022</div>
+            <div class="award-info">
+              <h3>FPAT 理財規劃書競賽</h3>
+              <p>最佳顧問獎</p>
+            </div>
+          </div>
+          <div class="award-entry">
+            <div class="award-year">2023</div>
+            <div class="award-info">
+              <h3>FPAT 理財規劃書競賽</h3>
+              <p>評審委員</p>
+            </div>
+          </div>
+        </div>
+        <div class="grid-3 mt-48 award-photos">
+          <div class="award-item">
+            <img src={base + "images/award1.jpg"} alt="2021 FPAT 理財規劃書競賽 團體組第二名" width="360" height="270" loading="lazy" />
+          </div>
+          <div class="award-item">
+            <img src={base + "images/award2.jpg"} alt="2022 FPAT 理財規劃書競賽 最佳顧問獎" width="360" height="270" loading="lazy" />
+          </div>
+          <div class="award-item">
+            <img src={base + "images/award3.jpg"} alt="2023 FPAT 理財規劃書競賽 評審委員" width="360" height="270" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ▸ CTA -->
+    <section class="section section-primary cta-section">
+      <div class="container text-center">
+        <h2 class="section-title" style="color: var(--color-on-primary)">想和我們聊聊你的財務目標？</h2>
+        <p style="color: rgba(255,255,255,0.8); font-size: var(--fs-lg); max-width: 520px; margin: 0 auto 36px;">30 分鐘免費諮詢，釐清方向、無壓力。</p>
+        <a href={CONTACT.lineUrl} target="_blank" rel="noopener" class="btn btn-accent btn-lg">LINE 預約諮詢</a>
+      </div>
+    </section>
   </main>
 
   <Footer />
 </body>
 </html>
+
+<style>
+  /* ── ABOUT HERO ── */
+  .about-hero {
+    position: relative;
+    min-height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .about-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+  }
+  .about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(15, 31, 43, 0.88) 0%, rgba(27, 58, 75, 0.78) 100%);
+  }
+  .about-hero-body {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 48px 24px;
+  }
+  .hero-eyebrow {
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-accent-light);
+    margin-bottom: 16px;
+  }
+  .about-hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(24px, 4vw, 40px);
+    font-weight: var(--heading-weight);
+    color: var(--color-on-primary);
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── MISSION ── */
+  .about-mission {
+    font-size: var(--fs-lg);
+    line-height: 2;
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+    color: var(--color-text);
+  }
+
+  /* ── ADVISOR PROFILE ── */
+  .advisor-profile {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .advisor-photo-col {
+    position: sticky;
+    top: 100px;
+  }
+  .advisor-portrait {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 24px;
+  }
+  .advisor-certs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .advisor-tagline {
+    font-size: var(--fs-md);
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .advisor-bio {
+    font-size: var(--fs-body);
+    line-height: 1.9;
+    margin-bottom: 32px;
+  }
+
+  .detail-block {
+    margin-bottom: 28px;
+  }
+  .detail-title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-lg);
+    font-weight: var(--heading-weight);
+    color: var(--color-primary);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .detail-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .detail-list li {
+    padding: 8px 0 8px 20px;
+    position: relative;
+    font-size: var(--fs-base);
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+  .detail-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 16px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-accent);
+  }
+
+  /* ── AWARDS TIMELINE ── */
+  .award-timeline {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .award-entry {
+    flex: 1;
+    text-align: center;
+    padding: 24px;
+    border-radius: var(--card-radius);
+    border: 1px solid var(--color-border);
+    background: var(--color-white);
+  }
+  .award-year {
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 12px;
+  }
+  .award-info h3 {
+    font-size: var(--fs-base);
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 4px;
+  }
+  .award-info p {
+    font-size: var(--fs-sm);
+    color: var(--color-text-mid);
+  }
+
+  .award-photos { }
+  .award-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--card-radius);
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    background-image: var(--hero-pattern);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .advisor-profile {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .advisor-photo-col {
+      position: static;
+      max-width: 320px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .advisor-certs { justify-content: center; }
+    .award-timeline { flex-direction: column; gap: 16px; }
+  }
+</style>
