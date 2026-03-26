@@ -55,16 +55,16 @@
 切換主題：修改 `src/data/siteConfig.ts` 的 `activeTheme` 一行即可。
 
 ```ts
-// 可選值：'classic' | 'premium'
-export const activeTheme: 'classic' | 'premium' = 'premium';
+// 可選值：'classic' | 'premium' | 'prestige' | 'premium-dark' | 'kawazu'
+export const activeTheme: 'classic' | 'premium' | 'prestige' | 'premium-dark' | 'kawazu' = 'kawazu';
 ```
 
 新增主題：
 1. 在 `public/styles/` 新增 `theme-xxx.css`，定義所有 CSS 變數（參考現有 theme 檔的變數清單）
-2. 在 `siteConfig.ts` 型別擴充：`'classic' | 'premium' | 'xxx'`
+2. 在 `siteConfig.ts` 型別擴充：`'classic' | 'premium' | ... | 'xxx'`
 3. 在 `Head.astro` 的 `fontUrls` 物件新增對應字型 URL
 
-**已驗證**：切換 classic ↔ premium 後，title、canonical、og:url、h1、hreflang、sitemap 完全相同，SEO 零影響。
+**已驗證**：任意切換主題後，title、canonical、og:url、h1、hreflang、sitemap 完全相同，SEO 零影響。
 
 ### 功能開關
 
@@ -161,10 +161,10 @@ npm run preview
 
 ## 品牌色彩（供參考）
 
-| 用途 | Classic | Premium |
-|------|---------|---------|
-| 主色 | `#0d383a` | `#014045` |
-| 強調色 | `#85a14f` | `#979660` |
-| 頁尾背景 | `#171717` | `#171717` |
+| 用途 | Classic | Premium | Prestige | Premium-Dark | Kawazu（目前） |
+|------|---------|---------|----------|--------------|---------------|
+| 主色 | `#0d383a` | `#014045` | `#1a2744` | `#2d9daa` | `#3B2442` |
+| 強調色 | `#85a14f` | `#979660` | `#c9956a` | `#c8c87a` | `#C95070` |
+| 頁尾背景 | `#171717` | `#171717` | `#171717` | `#171717` | `#171717` |
 
-完整色彩變數清單請參閱 `public/styles/theme-classic.css` 與 `public/styles/theme-premium.css`。
+完整色彩變數清單請參閱 `public/styles/theme-*.css`。

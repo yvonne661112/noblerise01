@@ -18,7 +18,7 @@
 | 頁面遷移 | 6 頁靜態頁面（首頁、關於、策略夥伴、服務、部落格、聯絡）|
 | 文章遷移 | 34 篇 Markdown 文章，numericSlug 保留原 URL 結構 |
 | 分類系統 | 6 個分類頁面（投資、保險、證照、財務、信託、傳承）|
-| 主題系統 | CSS 變數雙主題（classic / premium），一行切換 |
+| 主題系統 | CSS 變數多主題（classic / premium / prestige / premium-dark / kawazu），一行切換 |
 | SEO 基礎 | canonical、og、hreflang、JSON-LD、sitemap |
 | 元件重用 | PageHero、SectionHeader、ContentCard、TagBadge |
 
@@ -40,3 +40,4 @@
 
 ### Markdown 圖片修正
 自訂 `remarkFixImageBase` plugin，修正 Markdown 內嵌圖片路徑的 base path 問題。
+Plugin 定義直接內嵌於 `astro.config.mjs`（第 10 行），並非獨立的 `src/plugins/` 目錄。
