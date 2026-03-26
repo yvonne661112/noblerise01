@@ -52,6 +52,35 @@ const jsonLd = {
   },
   "publisher": publisher
 };
+
+/* ── 前/後一篇導覽 ── */
+const base = import.meta.env.BASE_URL;
+const allSorted = (await getCollection('blog')).sort(
+  (a, b) => new Date(a.data.date).getTime() - new Date(b.data.date).getTime()
+);
+
+type NavItem = { title: string; url: string } | null;
+type NavPair = { prev: NavItem; next: NavItem };
+
+function buildNavPair(posts: typeof allSorted): NavPair {
+  const idx = posts.findIndex(p => p.data.numericSlug === post.data.numericSlug);
+  const prev = idx > 0 ? posts[idx - 1] : null;
+  const next = idx < posts.length - 1 ? posts[idx + 1] : null;
+  return {
+    prev: prev ? { title: prev.data.title, url: `${base}${prev.data.numericSlug}/` } : null,
+    next: next ? { title: next.data.title, url: `${base}${next.data.numericSlug}/` } : null,
+  };
+}
+
+const navMap: Record<string, NavPair> = { all: buildNavPair(allSorted) };
+const artCats = (categories || []).filter((c: string) => c !== 'blog');
+for (const cat of artCats) {
+  navMap[cat] = buildNavPair(allSorted.filter(p => p.data.categories?.includes(cat)));
+}
+
+const defaultNavCat = artCats.length > 0 ? mainCategory : 'all';
+const defaultNav = navMap[defaultNavCat] || navMap.all;
+const defaultNavLabel = defaultNavCat === 'all' ? '全部文章' : (categoryLabels[defaultNavCat] || '全部文章');
 ---
 <BaseLayout title={`${title} | 諾昇理財規劃`} description={description} image={image} type="article">
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
@@ -87,10 +116,89 @@ const jsonLd = {
           <Content />
         </div>
         <AuthorCard />
+
+        {/* ── 前/後一篇導覽 ── */}
+        <nav class="post-nav" id="postNav"
+          data-nav={JSON.stringify(navMap)}
+          data-default={defaultNavCat}
+          data-cat-labels={JSON.stringify({ all: '全部文章', ...categoryLabels })}
+        >
+          <div class="post-nav-inner">
+            {defaultNav.prev ? (
+              <a href={defaultNav.prev.url} class="post-nav-link post-nav-prev" data-dir="prev">
+                <span class="post-nav-label">← 上一篇</span>
+                <span class="post-nav-title">{defaultNav.prev.title}</span>
+              </a>
+            ) : <span class="post-nav-link post-nav-placeholder" data-dir="prev"></span>}
+            {defaultNav.next ? (
+              <a href={defaultNav.next.url} class="post-nav-link post-nav-next" data-dir="next">
+                <span class="post-nav-label">下一篇 →</span>
+                <span class="post-nav-title">{defaultNav.next.title}</span>
+              </a>
+            ) : <span class="post-nav-link post-nav-placeholder" data-dir="next"></span>}
+          </div>
+          <div class="post-nav-context" id="postNavContext">
+            瀏覽：{defaultNavLabel}
+          </div>
+        </nav>
       </article>
     </div>
   </main>
 
+  {/* 依 ?cat= query param 動態切換導覽 context */}
+  <script is:inline define:vars={{ defaultNavCat }}>
+    (function() {
+      var nav = document.getElementById('postNav');
+      if (!nav) return;
+      var navMap = JSON.parse(nav.dataset.nav || '{}');
+      var catLabels = JSON.parse(nav.dataset.catLabels || '{}');
+      var params = new URLSearchParams(window.location.search);
+      var cat = params.get('cat') || defaultNavCat;
+      var data = navMap[cat] || navMap[defaultNavCat] || navMap.all;
+      if (!data) return;
 
+      function setLink(dir, item) {
+        var el = nav.querySelector('[data-dir="' + dir + '"]');
+        if (!el) return;
+        if (item) {
+          var href = item.url + '?cat=' + encodeURIComponent(cat);
+          if (el.tagName === 'SPAN') {
+            var a = document.createElement('a');
+            a.className = 'post-nav-link post-nav-' + dir;
+            a.setAttribute('data-dir', dir);
+            a.href = href;
+            a.innerHTML = '<span class="post-nav-label">' +
+              (dir === 'prev' ? '← 上一篇' : '下一篇 →') +
+              '</span><span class="post-nav-title">' +
+              item.title.replace(/</g,'&lt;') + '</span>';
+            el.replaceWith(a);
+          } else {
+            el.href = href;
+            el.querySelector('.post-nav-title').textContent = item.title;
+          }
+        } else {
+          if (el.tagName === 'A') {
+            var sp = document.createElement('span');
+            sp.className = 'post-nav-link post-nav-placeholder';
+            sp.setAttribute('data-dir', dir);
+            el.replaceWith(sp);
+          }
+        }
+      }
+
+      setLink('prev', data.prev);
+      setLink('next', data.next);
+
+      // 也幫已存在的連結補上 ?cat=
+      nav.querySelectorAll('a.post-nav-link').forEach(function(a) {
+        if (a.href && a.href.indexOf('?cat=') === -1) {
+          a.href = a.href.split('?')[0] + '?cat=' + encodeURIComponent(cat);
+        }
+      });
+
+      var ctx = document.getElementById('postNavContext');
+      if (ctx) ctx.textContent = '瀏覽：' + (catLabels[cat] || '全部文章');
+    })();
+  </script>
 </BaseLayout>
 

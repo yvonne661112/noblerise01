@@ -23,6 +23,7 @@ import { author } from '../data/author';
 
 const { posts, currentCat = '', showCatBar = true } = Astro.props;
 const base = import.meta.env.BASE_URL;
+const catParam = currentCat ? `?cat=${currentCat}` : '?cat=all';
 
 const categories = getCategoryNavItems(base);
 ---
@@ -38,7 +39,7 @@ const categories = getCategoryNavItems(base);
 <div class="blog-list">
   {posts.map(p => (
     <article class="blog-list-card">
-      <a href={`${base}${p.slug}/`} class="blog-list-img-wrap">
+      <a href={`${base}${p.slug}/${catParam}`} class="blog-list-img-wrap">
         {p.image
           ? <img src={getAssetPath(p.image, base)} alt={p.title} width="320" height="200" loading="lazy" />
           : <div class="blog-list-img-placeholder"></div>
@@ -49,7 +50,7 @@ const categories = getCategoryNavItems(base);
           <a href={p.catUrl} class="blog-card-cat">{p.catLabel}</a>
           <span class="blog-card-date">{p.dateStr}</span>
         </div>
-        <h2><a href={`${base}${p.slug}/`}>{p.title}</a></h2>
+        <h2><a href={`${base}${p.slug}/${catParam}`}>{p.title}</a></h2>
         <p class="blog-card-excerpt">{p.description}</p>
         <div class="blog-card-taxonomy">
           {p.catLabels && p.catLabels.map(label => (

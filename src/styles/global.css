@@ -960,6 +960,59 @@ textarea:focus-visible,
 }
 .post-content tr:nth-child(even) td { background: var(--color-bg-subtle); }
 
+/* ── Post Navigation (前/後一篇) ── */
+.post-nav {
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 2px solid var(--color-border);
+}
+.post-nav-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+a.post-nav-link {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 48%;
+  padding: 16px 20px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+a.post-nav-link:hover {
+  background: var(--color-bg-subtle);
+  border-color: var(--color-accent-light);
+  box-shadow: var(--card-shadow);
+}
+.post-nav-prev { align-items: flex-start; }
+.post-nav-next { align-items: flex-end; text-align: right; margin-left: auto; }
+.post-nav-label {
+  font-size: var(--fs-xs);
+  color: var(--color-accent);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.post-nav-title {
+  font-size: var(--fs-base);
+  color: var(--color-primary);
+  font-weight: 600;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.post-nav-placeholder { flex: 1; min-width: 0; }
+.post-nav-context {
+  text-align: center;
+  margin-top: 20px;
+  font-size: var(--fs-sm);
+  color: var(--color-text-mid);
+}
+
 /* ── Post Mobile ── */
 @media (max-width: 600px) {
   .post-main { padding: 36px 16px; }
@@ -969,6 +1022,9 @@ textarea:focus-visible,
   .post-content blockquote { padding: 20px 20px 20px 44px; }
   .post-content blockquote::before { left: 12px; font-size: 40px; }
   .post-content ol > li { padding-left: 32px; }
+  .post-nav-inner { flex-direction: column; gap: 12px; }
+  a.post-nav-link { max-width: 100%; }
+  .post-nav-next { align-items: flex-start; text-align: left; margin-left: 0; }
 }
 
 /* ===== UTILITY / LAYOUT HELPERS ===== */
