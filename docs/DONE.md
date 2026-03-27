@@ -104,6 +104,65 @@
 
 ---
 
+## [design-audit] 全站設計審查三階段（2026-03-27）
+
+> 來源：2026-03-27 全站設計審查
+> 分三階段執行：Phase 1（基礎架構）→ Phase 2（視覺提升）→ Phase 3（進階體驗）
+
+### Phase 1：基礎架構修正 ✅ 完成（2026-03-27）
+
+> 不影響現有視覺，解決維護性與一致性問題
+
+| 編號 | 類別 | 項目 | 狀態 |
+|------|------|------|------|
+| P1-01 | 架構 | 建立共用 Layout 元件 `BaseLayout.astro` | ✅ 完成 — 8 個頁面全部改用 |
+| P1-02 | 架構 | 策略夥伴頁改用 PageHero | ✅ 完成 — 刪除 `.sp-hero` 自訂 Hero，改用 PageHero + stats |
+| P1-03 | 主題 | 策略夥伴頁清理硬編碼色值 | ✅ 完成 — `rgba(151,150,96,...)` 全部改為 `var(--color-*)` |
+| P1-04 | 主題 | 策略夥伴頁 tag 背景硬編碼 | ✅ 完成 — `#F0F3F7` → `var(--color-bg-subtle)` |
+| P1-05 | 主題 | Footer 硬編碼 rgba 色值 | ✅ 完成 — Footer.astro + global.css 全部改用 `var(--color-text-muted)` |
+| P1-06 | 無障礙 | SakuraRain 加 prefers-reduced-motion | ✅ 完成 — 加入 `@media (prefers-reduced-motion: reduce)` |
+| P1-07 | 效能 | 手機導覽改用 transform | ✅ 完成 — `right: -300px` → `transform: translateX(100%)` |
+| P1-08 | 設計 | 修正 Font size 變數語義 | ✅ 完成 — `--fs-xl` 從 18px 調為 20px |
+
+### Phase 2：視覺提升 ✅ 完成（2026-03-27）
+
+> 核心視覺改造，提升訪客情感共鳴與轉換
+
+| 編號 | 類別 | 項目 | 狀態 |
+|------|------|------|------|
+| P2-01 | 首頁 | 重構 storytelling 敘事流 | ✅ 完成 — 加入 empathy block（共鳴問句），重新排序為：共鳴→價值→信任→服務→見證→媒體→文章→CTA |
+| P2-02 | 首頁 | 客戶見證區升級 | ✅ 完成 — 大引號裝飾(72px)、avatar 放大至 72px + 邊框、拆分 name/role |
+| P2-03 | 首頁 | 媒體影片區加播放按鈕 overlay | ✅ 完成 — SVG play button + hover scale 動畫 |
+| P2-04 | 服務 | 六大服務卡圖片佔比 | ✅ 完成 — 從固定 200px 改為 `clamp(180px, 25%, 280px)` |
+| P2-05 | 聯絡 | Contact 頁底部加 CTA 區塊 | ✅ 完成 — 加入 section-primary CTA（30分鐘免費諮詢） |
+| P2-06 | 全站 | 加「回到頂部」浮動按鈕 | ✅ 完成 — BaseLayout.astro 加入固定按鈕，scroll > 400px 顯示 |
+| P2-07 | 導覽 | Header active 狀態增強 | ✅ 完成 — 加入 `::after` 底線指示器（accent 色 2px） |
+
+### Phase 3：進階體驗 ✅ 完成（2026-03-27）
+
+> 錦上添花，提升互動感與精緻度
+
+| 編號 | 類別 | 項目 | 狀態 |
+|------|------|------|------|
+| P3-01 | 動畫 | 頁面滾動淡入動畫 | ✅ 完成 — `ScrollReveal.astro` 元件 + Intersection Observer，首頁 6 個區塊加入 `.reveal` |
+| P3-02 | 關於 | 獲獎區改為 timeline 設計 | ✅ 完成 — 垂直線 + dot + card，照片整合進 card 內，加入 reveal 動畫 |
+| P3-03 | 首頁 | 數字區 count-up 動畫 | ✅ 完成 — `data-count` + easeOutCubic 動畫，1.2s 持續時間 |
+
+---
+
+## [article-redesign] 文章排版全面升級（2026-03-27）
+
+| 項目 | 狀態 |
+|------|------|
+| 文章 CSS 重寫 — h2/h3/h4/h5/h6 視覺層級、行高 2.2→1.9、strong 主色突顯 | ✅ 完成 |
+| 列表樣式 — 品牌色圓點（ul）、粉色圓底數字（ol） | ✅ 完成 |
+| Blockquote 大引號裝飾、HR 漸層短線、Table 樣式 | ✅ 完成 |
+| 文章模板 — 閱讀時間估算、分類徽章 badge、Meta 上下邊線 | ✅ 完成 |
+| 前/後一篇導覽 — 依分類 + 時間序，?cat= 傳遞 context | ✅ 完成 |
+| Footer 樣式統一 — 清除舊版死碼，global.css 單一管理 3 欄 grid | ✅ 完成 |
+
+---
+
 ## 執行批次記錄
 
 > 來源：原 docs/Process.md，完成日期 2026-03-26
