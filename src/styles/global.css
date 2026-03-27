@@ -314,16 +314,16 @@ textarea:focus-visible,
 .stat-item { text-align: center; }
 .stat-number {
   font-family: var(--font-heading);
-  font-size: clamp(28px, 4vw, 40px);
+  font-size: clamp(36px, 5vw, 52px);
   font-weight: 700;
   color: var(--color-accent);
   line-height: 1.2;
   display: block;
 }
 .stat-label {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-body);
   color: var(--color-text-mid);
-  margin-top: 4px;
+  margin-top: 12px;
   display: block;
 }
 
