@@ -5,6 +5,7 @@ import AuthorCard from '../components/AuthorCard.astro';
 import { categoryLabels } from '../data/categories';
 import { publisher } from '../utils/jsonld';
 import { getAssetPath } from '../utils/assets';
+import { CONTACT } from '../data/siteConfig';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -48,9 +49,12 @@ const jsonLd = {
   ...(image ? { "image": new URL(image, Astro.site).href } : {}),
   "author": {
     "@type": "Person",
-    "name": "張惠芳 CFP"
+    "name": "張惠芳 CFP",
+    "url": `${CONTACT.siteUrl}/about/`
   },
-  "publisher": publisher
+  "publisher": publisher,
+  "articleSection": categoryLabel,
+  ...(post.data.tags?.length ? { "keywords": post.data.tags.join(', ') } : {})
 };
 
 /* ── 前/後一篇導覽 ── */
