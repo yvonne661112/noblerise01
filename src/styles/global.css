@@ -528,9 +528,9 @@ textarea:focus-visible,
 .contact-info-list li {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-bottom: 20px;
-  font-size: var(--fs-body);
+  gap: 16px;
+  margin-bottom: 28px;
+  font-size: var(--fs-xl);
   line-height: 1.7;
 }
 .contact-icon {
@@ -538,8 +538,8 @@ textarea:focus-visible,
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 42px;
-  height: 42px;
+  width: 52px;
+  height: 52px;
   background: var(--color-primary);
   color: var(--color-on-primary);
   border-radius: 10px;
