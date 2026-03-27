@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
-import { SHOW_BOOKING, CONTACT } from '../../data/siteConfig';
+import { SHOW_BOOKING, SHOW_CTA, CONTACT } from '../../data/siteConfig';
 
 const base = import.meta.env.BASE_URL;
 
@@ -164,7 +164,8 @@ const jsonLd = {
       </div>
     </section>
 
-    <!-- ▸ 免費諮詢 CTA -->
+    {/* ▸ 免費諮詢 CTA */}
+    {SHOW_CTA && (
     <section class="section section-primary cta-section">
       <div class="container">
         <div class="cta-layout">
@@ -197,6 +198,7 @@ const jsonLd = {
         </div>
       </div>
     </section>
+    )}
 
     <!-- ▸ 補充服務卡 -->
     <section class="section section-subtle">

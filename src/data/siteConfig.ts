@@ -16,11 +16,18 @@ export const activeTheme: 'classic' | 'premium' | 'prestige' | 'premium-dark' | 
 export const SHOW_BOOKING = false;
 
 /**
+ * CTA 區塊（全站）
+ *   true  — 顯示各頁面底部的 CTA（LINE 預約諮詢）
+ *   false — 隱藏所有 CTA 區塊，不留空白
+ */
+export const SHOW_CTA = false;
+
+/**
  * 櫻花飄落特效（全站）
  *   true  — 顯示
  *   false — 關閉
  */
-export const SHOW_SAKURA = true;
+export const SHOW_SAKURA = false;
 
 /**
  * 公司聯絡資訊（統一管理，修改此處全站自動同步）
