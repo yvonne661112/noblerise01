@@ -58,9 +58,9 @@ textarea:focus-visible,
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 92px;
+  height: 108px;
 }
-.logo-link img { height: 72px; width: auto; }
+.logo-link img { height: 88px; width: auto; }
 .header-right {
   display: flex;
   flex-direction: row;
@@ -87,9 +87,9 @@ textarea:focus-visible,
 .main-nav a {
   text-decoration: none;
   color: var(--color-text-dark);
-  font-size: var(--fs-lg);
+  font-size: var(--fs-xl);
   font-weight: 500;
-  padding: 8px 14px;
+  padding: 8px 16px;
   border-radius: 6px;
   transition: color var(--transition), background var(--transition);
 }
