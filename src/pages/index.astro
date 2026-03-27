@@ -13,7 +13,7 @@ const latestPostViews = latestPosts.map(p => transformPost(p, base));
 const jsonLd = [
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "FinancialService",
     "name": CONTACT.companyNameZh,
     "url": CONTACT.siteUrl,
     "logo": `${CONTACT.siteUrl}/wp-content/uploads/2026/01/Nobleriselong1-scaled.png`,
@@ -25,6 +25,13 @@ const jsonLd = [
       "addressRegion": CONTACT.addressRegion,
       "postalCode": CONTACT.postalCode,
       "addressCountry": CONTACT.addressCountry,
+    },
+    "areaServed": { "@type": "Country", "name": "TW" },
+    "serviceType": ["財務規劃", "退休規劃", "資產信託", "稅務規劃", "保險規劃", "投資顧問"],
+    "founder": {
+      "@type": "Person",
+      "name": "張惠芳",
+      "jobTitle": "CFP® 國際認證高級理財規劃顧問"
     }
   },
   {
@@ -33,12 +40,27 @@ const jsonLd = [
     "name": "諾昇理財規劃",
     "url": CONTACT.siteUrl,
   },
+  // 客戶見證 Review Schema
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "張惠芳",
-    "jobTitle": "CFP® 國際認證高級理財規劃顧問",
-    "worksFor": { "@type": "Organization", "name": CONTACT.companyNameZh }
+    "@type": "Review",
+    "itemReviewed": { "@type": "FinancialService", "name": CONTACT.companyNameZh },
+    "author": { "@type": "Person", "name": "張先生" },
+    "reviewBody": "55 歲退休能實現嗎？惠芳 CFP 以科學方式精算一生的現金流，從退休資金、稅務到資產信託規劃，每一步都讓我更踏實。完成規劃後，我對人生財務藍圖更加安心！"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": { "@type": "FinancialService", "name": CONTACT.companyNameZh },
+    "author": { "@type": "Person", "name": "陳小姐" },
+    "reviewBody": "惠芳 CFP 以獨立第三方角色全面盤點保單，揪出多餘保障與不當理財商品，大幅降低保險支出，資產負債表一目了然。找對顧問，是最聰明的省錢方式！"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": { "@type": "FinancialService", "name": CONTACT.companyNameZh },
+    "author": { "@type": "Person", "name": "王先生" },
+    "reviewBody": "在惠芳 CFP 指導下，從開戶到投資執行、收支掌控，我一步步建立理財秩序。財務壓力漸漸減輕，不再焦慮也不盲從，逐步邁向我的財務幸福。"
   }
 ];
 ---
