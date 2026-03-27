@@ -130,6 +130,7 @@ export const SHOW_SAKURA = false;  // 櫻花飄落特效（true = 顯示）
 - `docs/TODO.md` 中已完成的項目，完成後須移至 `docs/DONE.md` 存檔，不可留在 TODO 中
 - 執行任何刪除操作前，**列出將被刪除的檔案清單並等待確認**
 - **git push 前須等待使用者確認**
+- 當 Telegram `chat_id: "8747758312"` 傳來工作要求時，完成所有任務後**自動執行** commit → `push origin` → `push github`，無需另行確認
 
 ---
 
