@@ -31,6 +31,7 @@ import { author } from '../data/author';
       <span class="detail-label">網站</span>
       <span><a href={author.website} target="_blank" rel="noopener">{author.website}</a></span>
     </div>
+    <a href={`${import.meta.env.BASE_URL}about/`} class="author-more-link">了解更多關於 {author.name} →</a>
   </div>
 </div>
 
@@ -97,6 +98,17 @@ import { author } from '../data/author';
   word-break: break-all;
 }
 .author-detail-row a:hover {
+  text-decoration: underline;
+}
+.author-more-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: var(--fs-base);
+  font-weight: 600;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+.author-more-link:hover {
   text-decoration: underline;
 }
 </style>
