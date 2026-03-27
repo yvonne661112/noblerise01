@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Head from '../components/Head.astro';
 import ScrollReveal from '../components/ScrollReveal.astro';
+import { CONTACT } from '../data/siteConfig';
 
 interface Props {
   title: string;
@@ -11,6 +12,7 @@ interface Props {
   type?: 'website' | 'article';
 }
 const { title, description, image, type } = Astro.props;
+const base = import.meta.env.BASE_URL;
 ---
 <!DOCTYPE html>
 <html lang="zh-TW">
@@ -24,59 +26,53 @@ const { title, description, image, type } = Astro.props;
   <Footer />
   <ScrollReveal />
 
-  <!-- Back to top -->
-  <button class="back-to-top" aria-label="回到頂部" type="button">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true">
-      <path d="M18 15l-6-6-6 6"/>
-    </svg>
-  </button>
+  <!-- Floating contact icons -->
+  <div class="floating-contacts">
+    <a href={CONTACT.lineUrl} target="_blank" rel="noopener noreferrer" class="floating-btn" aria-label="LINE 聯繫我們">
+      <img src={`${base}images/LINE_New_App_Icon.png`} alt="LINE" width="52" height="52" />
+    </a>
+    <a href={`mailto:${CONTACT.email}`} class="floating-btn floating-btn--email" aria-label="Email 聯繫我們">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="M2 7l10 7 10-7"/>
+      </svg>
+    </a>
+  </div>
 
   <style>
-    .back-to-top {
+    .floating-contacts {
       position: fixed;
-      bottom: 32px;
       right: 32px;
-      width: 44px;
-      height: 44px;
+      bottom: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 50;
+    }
+    .floating-btn {
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
-      background: var(--color-primary);
-      color: var(--color-on-primary);
-      border: none;
-      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(12px);
-      transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background 0.2s;
-      z-index: 50;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s, box-shadow 0.2s;
+      overflow: hidden;
     }
-    .back-to-top.visible {
-      opacity: 0.85;
-      visibility: visible;
-      transform: translateY(0);
+    .floating-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     }
-    .back-to-top:hover {
-      opacity: 1;
+    .floating-btn--email {
       background: var(--color-accent);
     }
     @media (max-width: 600px) {
-      .back-to-top { bottom: 20px; right: 20px; width: 40px; height: 40px; }
+      .floating-contacts { right: 14px; bottom: 20px; }
+      .floating-btn { width: 46px; height: 46px; }
     }
   </style>
-
-  <script>
-    const btn = document.querySelector('.back-to-top') as HTMLButtonElement;
-    if (btn) {
-      window.addEventListener('scroll', () => {
-        btn.classList.toggle('visible', window.scrollY > 400);
-      }, { passive: true });
-      btn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    }
-  </script>
 </body>
 </html>
