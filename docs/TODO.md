@@ -53,6 +53,53 @@
 
 ---
 
+## [theme] 主題審查改善
+
+> 來源：2026-03-27 全主題審查（7 個主題逐一比對）
+> 影響檔案：`src/styles/global.css`、`public/styles/theme-*.css`
+
+### 嚴重：Header 背景硬編碼導致深色主題失效【高】
+
+`global.css:53` 的 `.site-header` 有兩行 `background`，後一行硬編碼 `rgba(254,254,254,0.95)` 覆蓋了前一行的 `var(--color-white)`。
+
+| 主題 | `--color-text-dark`（導覽文字） | 實際 Header 背景 | 結果 |
+|------|---------------------------------|------------------|------|
+| classic | `#171717`（深灰） | `rgba(254,254,254,0.95)`（近白） | ✅ 正常 |
+| premium | `#1a1a1a`（深灰） | 同上 | ✅ 正常 |
+| prestige | `#111111`（黑） | 同上 | ✅ 正常 |
+| **premium-dark** | **`#deeaea`（淡青灰）** | **同上** | **❌ 幾乎看不到（對比 ≈ 1.1:1）** |
+| kawazu | `#1a1a1a`（深灰） | 同上 | ✅ 正常 |
+| kintsugi | `#1A1714`（深褐） | 同上 | ✅ 正常 |
+| noble | `#0F172A`（深藍） | 同上 | ✅ 正常 |
+
+**修正方案**：移除硬編碼行，改為 `background: color-mix(in srgb, var(--color-white) 95%, transparent)`，或新增 `--header-bg` 變數讓各主題自行定義。
+
+| 編號 | 優先 | 項目 | 說明 | 涉及檔案 |
+|------|------|------|------|----------|
+| T-01 | 高 | Header 背景改用 CSS 變數 | 移除 `rgba(254,254,254,0.95)` 硬編碼，改用 `var(--color-white)` 搭配透明度 | `global.css:53` |
+
+### 中：表單 focus 陰影硬編碼【中】
+
+`global.css:593` 的 `box-shadow` 使用硬編碼色 `rgba(198, 146, 58, 0.12)`（noble 主題金色），其他主題 focus 陰影色不匹配。
+
+| 編號 | 優先 | 項目 | 說明 | 涉及檔案 |
+|------|------|------|------|----------|
+| T-02 | 中 | 表單 focus 陰影改用 accent 變數 | `rgba(198,146,58,0.12)` → 基於 `var(--color-accent)` 的動態色 | `global.css:593` |
+
+### 中：部分主題缺少 CSS 變數【中】
+
+| 編號 | 優先 | 缺少變數 | 受影響主題 | 說明 |
+|------|------|----------|-----------|------|
+| T-03 | 中 | `--color-line` | kawazu、prestige、premium-dark | LINE 按鈕背景色，缺少時 fallback 至全域預設 |
+| T-04 | 低 | `--color-line-light` | prestige、premium、premium-dark | Footer LINE ID 顯示色 |
+| T-05 | 低 | `--color-link` | kawazu、premium、prestige、premium-dark | 連結色，目前僅 1 處使用 |
+
+### 低：Classic 主題字型缺中文 fallback【低】
+
+已列於 [typography] 問題三，此處備查。Classic 的 `--font-heading: 'Montserrat'` 與 `--font-body: 'Poppins'` 無中文字型，中文字 fallback 至系統字型。
+
+---
+
 ## [typography] 字型與字體大小改善（擱置）
 
 > 來源：2026-03-26 字型審查
