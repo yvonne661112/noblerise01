@@ -150,6 +150,20 @@
 
 ---
 
+## [theme] 主題審查改善（T-01 ~ T-05，2026-03-27）
+
+> 來源：2026-03-27 全主題審查（7 個主題逐一比對）
+
+| 編號 | 類別 | 修復內容 | 狀態 |
+|------|------|----------|------|
+| T-01 | 高 | Header 背景 `rgba(254,254,254,0.95)` 硬編碼 → `color-mix(in srgb, var(--color-white) 95%, transparent)`，修正 premium-dark 導覽文字不可見問題 | ✅ 完成 |
+| T-02 | 中 | 表單 focus 陰影 `rgba(198,146,58,0.12)` → `color-mix(in srgb, var(--color-accent) 12%, transparent)`，各主題 focus 色自動匹配 | ✅ 完成 |
+| T-03 | 中 | kawazu、prestige、premium-dark 補 `--color-line: #06c755` | ✅ 完成 |
+| T-04 | 低 | prestige、premium-dark 補 `--color-line-light: #66b966` | ✅ 完成 |
+| T-05 | 低 | kawazu、prestige、premium-dark 補 `--color-link`（各主題使用對應 accent 色） | ✅ 完成 |
+
+---
+
 ## [article-redesign] 文章排版全面升級（2026-03-27）
 
 | 項目 | 狀態 |
