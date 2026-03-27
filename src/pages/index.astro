@@ -257,30 +257,41 @@ const jsonLd = [
   <section class="section section-dark">
     <div class="container">
       <div class="text-center mb-48">
-        <span class="section-eyebrow">Testimonials</span>
         <h2 class="section-title">他們的故事，也許就是你的下一步</h2>
       </div>
       <div class="testimonials reveal">
         <div class="testimonial testimonial--dark testimonial--featured">
           <div class="testimonial-quote" aria-hidden="true">"</div>
-          <img src={base + "images/home-customer2.jpg"} alt="張先生" width="72" height="72" loading="lazy" class="testimonial-avatar" />
           <p class="testimonial-text">「55 歲退休能實現嗎？」惠芳 CFP 以科學方式精算一生的現金流，從退休資金、稅務到資產信託規劃，每一步都讓我更踏實。完成規劃後，我對人生財務藍圖更加安心！</p>
-          <p class="testimonial-name">張先生</p>
-          <p class="testimonial-role">科技業主管</p>
+          <div class="testimonial-author">
+            <img src={base + "images/home-customer2.jpg"} alt="張先生" width="72" height="72" loading="lazy" class="testimonial-avatar" />
+            <div class="testimonial-meta">
+              <p class="testimonial-name">張先生</p>
+              <p class="testimonial-role">科技業主管</p>
+            </div>
+          </div>
         </div>
         <div class="testimonial testimonial--dark testimonial--featured">
           <div class="testimonial-quote" aria-hidden="true">"</div>
-          <img src={base + "images/home-customer3.jpg"} alt="陳小姐" width="72" height="72" loading="lazy" class="testimonial-avatar" />
           <p class="testimonial-text">惠芳 CFP 以獨立第三方角色全面盤點保單，揪出多餘保障與不當理財商品，大幅降低保險支出，資產負債表一目了然。找對顧問，是最聰明的省錢方式！</p>
-          <p class="testimonial-name">陳小姐</p>
-          <p class="testimonial-role">退休人士</p>
+          <div class="testimonial-author">
+            <img src={base + "images/home-customer3.jpg"} alt="陳小姐" width="72" height="72" loading="lazy" class="testimonial-avatar" />
+            <div class="testimonial-meta">
+              <p class="testimonial-name">陳小姐</p>
+              <p class="testimonial-role">退休人士</p>
+            </div>
+          </div>
         </div>
         <div class="testimonial testimonial--dark testimonial--featured">
           <div class="testimonial-quote" aria-hidden="true">"</div>
-          <img src={base + "images/home-customer1.jpg"} alt="王先生" width="72" height="72" loading="lazy" class="testimonial-avatar" />
           <p class="testimonial-text">在惠芳 CFP 指導下，從開戶到投資執行、收支掌控，我一步步建立理財秩序。財務壓力漸漸減輕，不再焦慮也不盲從，逐步邁向我的財務幸福。</p>
-          <p class="testimonial-name">王先生</p>
-          <p class="testimonial-role">工程監工</p>
+          <div class="testimonial-author">
+            <img src={base + "images/home-customer1.jpg"} alt="王先生" width="72" height="72" loading="lazy" class="testimonial-avatar" />
+            <div class="testimonial-meta">
+              <p class="testimonial-name">王先生</p>
+              <p class="testimonial-role">工程監工</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -503,6 +514,14 @@ const jsonLd = [
   }
   .testimonial--dark .testimonial-text { color: var(--color-text-muted); }
   .testimonial--dark .testimonial-name { color: var(--color-accent-light); }
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 20px;
+  }
+  .testimonial-author .testimonial-avatar { margin-bottom: 0; }
+  .testimonial-meta { display: flex; flex-direction: column; gap: 2px; }
 
   /* ── MEDIA ── */
   .media-section {
