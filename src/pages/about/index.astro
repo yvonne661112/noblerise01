@@ -264,13 +264,16 @@ const jsonLd = {
   }
   .award-card:hover {
     box-shadow: var(--card-shadow-hover);
-    transform: translateY(-2px);
   }
   .award-img {
     width: 100%;
     aspect-ratio: 3 / 4;
     object-fit: cover;
     display: block;
+    transition: aspect-ratio 0.3s ease, object-fit 0.3s ease;
+  }
+  .award-card:hover .award-img {
+    aspect-ratio: auto;
   }
   .award-body {
     padding: 20px 24px;
