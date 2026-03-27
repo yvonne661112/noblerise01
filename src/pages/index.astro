@@ -88,7 +88,9 @@ const jsonLd = [
       <span class="stat-label">年金融實務經驗</span>
     </div>
     <div class="stat-item">
-      <img src={base + "images/cfp-logo.png"} alt="CFP® 國際認證" class="stat-cfp-logo" />
+      <span class="stat-number stat-cfp-wrap">
+        <img src={base + "images/cfp-logo.png"} alt="CFP® 國際認證" class="stat-cfp-logo" />
+      </span>
       <span class="stat-label">國際認證理財規劃顧問</span>
     </div>
     <div class="stat-item">
@@ -136,7 +138,7 @@ const jsonLd = [
       <div class="empathy-block text-center mb-48 reveal">
         <h2 class="section-title">面對理財，你是否也有這些疑問？</h2>
         <p class="empathy-text">「努力存錢卻不知道夠不夠？」<br/>「買了一堆保險不知道有沒有重複或永遠買不夠？」<br/>「想規劃退休，卻不知道從何開始？」</p>
-        <p class="empathy-answer">你不需要一個人面對，諾昇不是銀行、不是保險公司<br/>我們是站在您身邊的獨立理財規劃夥伴。</p>
+        <p class="empathy-answer">你不需要一個人面對，諾昇不是銀行、不是保險公司，<br/>我們是站在您身邊的獨立理財規劃夥伴。</p>
       </div>
       <div class="grid-3 values-grid reveal">
         <div class="value-card">
@@ -426,11 +428,15 @@ const jsonLd = [
   }
 
   /* ── CFP LOGO ── */
+  .stat-cfp-wrap {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
   .stat-cfp-logo {
     height: 52px;
     width: auto;
     display: block;
-    margin: 0 auto;
   }
 
   /* ── SERVICE GRID ── */
