@@ -55,8 +55,8 @@
 切換主題：修改 `src/data/siteConfig.ts` 的 `activeTheme` 一行即可。
 
 ```ts
-// 可選值：'classic' | 'premium' | 'prestige' | 'premium-dark' | 'kawazu'
-export const activeTheme: 'classic' | 'premium' | 'prestige' | 'premium-dark' | 'kawazu' = 'kawazu';
+// 可選值：'classic' | 'premium' | 'prestige' | 'premium-dark' | 'kawazu' | 'kintsugi' | 'noble'
+export const activeTheme: 'classic' | 'premium' | 'prestige' | 'premium-dark' | 'kawazu' | 'kintsugi' | 'noble' = 'classic';
 ```
 
 新增主題：
@@ -71,7 +71,8 @@ export const activeTheme: 'classic' | 'premium' | 'prestige' | 'premium-dark' | 
 ```ts
 // src/data/siteConfig.ts
 export const SHOW_BOOKING = false; // 預約諮詢功能（true = 顯示）
-export const SHOW_SAKURA = true;   // 櫻花飄落特效（true = 顯示）
+export const SHOW_CTA = false;     // 全站 CTA 區塊（true = 顯示）
+export const SHOW_SAKURA = false;  // 櫻花飄落特效（true = 顯示）
 ```
 
 ---
@@ -100,6 +101,24 @@ export const SHOW_SAKURA = true;   // 櫻花飄落特效（true = 顯示）
 ### 樣式撰寫
 - ❌ 不可在 `global.css` 或頁面 `<style>` 中硬編碼色彩、字型值，一律使用 `var(--...)` CSS 變數
 - ❌ 不可自行發揮設計創意，所有版面、元件以現有設計為依據
+
+---
+
+## Blog 文章 Markdown 規範
+
+處理 `src/content/blog/` 下的文章時，必須遵守以下排版規則：
+
+1. **Frontmatter**：每篇文章必須包含 `title`、`description`、`date`、`tags` 四個欄位
+2. **標題層級**：h2（`##`）作為主要段落，h3（`###`）作為子項，不使用 h4 以下層級
+3. **清單**：有序清單（`1.`）用於步驟流程，無序清單（`-`）用於並列項目
+4. **強調**：重要名詞或金額用 `**粗體**`，警示或引言用 `>` 區塊引言
+5. **表格**：數字比較類內容改為 Markdown 表格格式
+6. **空行與斷行**：
+   - 每個 h2 段落前空一行，內文段落間空一行
+   - 連續兩個以上的空白行合併為一個空白行
+   - 同一語意未結束即斷行者，合併回同一段落
+7. **禁止偽標題**：不可用獨立一行的 `**粗體**` 代替標題，應升為對應 `##` / `###`，或合併為段落開頭粗體
+8. **不修改中文文字內容**：僅調整排版格式，不改動任何正文文字
 
 ---
 
@@ -163,10 +182,10 @@ npm run preview
 
 ## 品牌色彩（供參考）
 
-| 用途 | Classic | Premium | Prestige | Premium-Dark | Kawazu（目前） |
-|------|---------|---------|----------|--------------|---------------|
-| 主色 | `#0d383a` | `#014045` | `#1a2744` | `#2d9daa` | `#3B2442` |
-| 強調色 | `#85a14f` | `#979660` | `#c9956a` | `#c8c87a` | `#C95070` |
-| 頁尾背景 | `#171717` | `#171717` | `#171717` | `#171717` | `#171717` |
+| 用途 | Classic（目前） | Premium | Prestige | Premium-Dark | Kawazu | Kintsugi | Noble |
+|------|----------------|---------|----------|--------------|--------|----------|-------|
+| 主色 | `#0d383a` | `#014045` | `#1a2744` | `#2d9daa` | `#3B2442` | `#2C2420` | `#1B3A4B` |
+| 強調色 | `#85a14f` | `#979660` | `#c9956a` | `#c8c87a` | `#C95070` | `#C6A355` | `#C6923A` |
+| 頁尾背景 | `#171717` | `#171717` | `#171717` | `#171717` | `#171717` | `#141110` | `#0A1520` |
 
 完整色彩變數清單請參閱 `public/styles/theme-*.css`。
