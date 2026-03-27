@@ -13,9 +13,11 @@ const jsonLd = {
   "description": "聯絡諾昇理財規劃，預約財務規劃諮詢。",
   "url": `${CONTACT.siteUrl}/contact/`,
   "mainEntity": {
-    "@type": "Organization",
+    "@type": "LocalBusiness",
     "name": CONTACT.companyNameZh,
+    "url": CONTACT.siteUrl,
     "email": CONTACT.email,
+    "image": `${CONTACT.siteUrl}/images/yvonne-about.png`,
     "address": {
       "@type": "PostalAddress",
       "streetAddress": CONTACT.streetAddress,
@@ -23,6 +25,17 @@ const jsonLd = {
       "addressRegion": CONTACT.addressRegion,
       "postalCode": CONTACT.postalCode,
       "addressCountry": CONTACT.addressCountry,
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 25.0418,
+      "longitude": 121.5437
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
     }
   }
 };
