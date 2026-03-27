@@ -5,17 +5,33 @@ import { SHOW_BOOKING, SHOW_CTA, CONTACT } from '../../data/siteConfig';
 
 const base = import.meta.env.BASE_URL;
 
+const provider = {
+  "@type": "FinancialService",
+  "name": CONTACT.companyNameZh,
+  "url": CONTACT.siteUrl
+};
+
+const services = [
+  { name: "收支管理與財務盤點", description: "全面釐清收入與支出結構，建立可持續的財務管理架構，讓每一筆錢都花在對的地方。" },
+  { name: "保險保障規劃", description: "以第三方角度審視現有保單，揪出多餘保障與不當商品，花更少保費、享更好保障。" },
+  { name: "教育與家庭目標規劃", description: "為孩子教育金、買房購車等家庭里程碑做好財務準備，讓夢想有實現的時間表。" },
+  { name: "房產與重大資產決策", description: "理性評估買房時機與金額，做出聰明的資產配置決策，避免過度負債。" },
+  { name: "退休與投資策略", description: "科學規劃退休金缺口、設定合理投資目標，讓未來的自己無後顧之憂。" },
+  { name: "傳承與高齡照護規劃", description: "信託、稅務、傳承一站規劃。提前設計資產流向，守護家族財富，避免爭議。" },
+];
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "服務項目 | 諾昇理財規劃",
   "description": "諾昇提供收支管理、資產管理、風險管理、財務規劃、稅務規劃、傳承規劃等全方位服務，提供30分鐘免費線上諮詢。",
-  "url": "https://noblerise.com.tw/service/",
-  "provider": {
-    "@type": "Organization",
-    "name": "諾昇理財規劃顧問股份有限公司",
-    "url": "https://noblerise.com.tw"
-  }
+  "url": `${CONTACT.siteUrl}/service/`,
+  "mainEntity": services.map(s => ({
+    "@type": "Service",
+    "name": s.name,
+    "description": s.description,
+    "provider": provider
+  }))
 };
 ---
 <BaseLayout
