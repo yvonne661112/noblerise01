@@ -163,6 +163,42 @@
 
 ---
 
+## [seo] SEO / E-E-A-T 結構化資料改善（2026-03-27）
+
+> 來源：`docs/seo_改良建議.md` × 現況比對
+> YMYL 領域強化專業信任度（E-E-A-T）與結構化資料
+
+### 結構化資料（Schema Markup）
+
+| 編號 | 項目 | 狀態 |
+|------|------|------|
+| S-01 | 首頁 Organization → FinancialService，加入 areaServed、serviceType、founder | ✅ 完成 |
+| S-02 | 首頁客戶見證加 Review Schema（3 則） | ✅ 完成 |
+| S-03 | 關於頁 Person Schema 補完（sameAs、image、award、url、description） | ✅ 完成 |
+| S-04 | BlogPosting author 加 url 連結至 /about/ | ✅ 完成 |
+| S-05 | 服務頁加 Service Schema（6 大服務） | ✅ 完成 |
+| S-06 | 聯絡頁 Organization → LocalBusiness，加入 geo、openingHours | ✅ 完成 |
+
+### E-E-A-T 強化
+
+| 編號 | 項目 | 狀態 |
+|------|------|------|
+| S-07 | AuthorCard 加「了解更多」連結至 /about/ | ✅ 完成 |
+| S-08 | BlogPosting 加 keywords（由 frontmatter tags 帶入） | ✅ 完成 |
+| S-09 | BlogPosting 加 articleSection（由主要分類帶入） | ✅ 完成 |
+
+### 已達成 / 無需處理
+
+| 建議項目 | 現狀 |
+|----------|------|
+| Meta Title / Description 優化 | ✅ 6 個頁面均已設定，品質良好 |
+| Open Graph / Twitter Card | ✅ Head.astro 完整實作 |
+| 作者標註（BlogPosting author） | ✅ 已有 Person JSON-LD + AuthorCard |
+| Google 地圖嵌入 | ✅ 聯絡頁已嵌入 iframe |
+| robots noindex | ⏸ DNS 切換前須維持，已列於 task02 |
+
+---
+
 ## 執行批次記錄
 
 > 來源：原 docs/Process.md，完成日期 2026-03-26
