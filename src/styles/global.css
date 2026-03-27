@@ -480,14 +480,37 @@ textarea:focus-visible,
   max-width: var(--max-width);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: 1.4fr 0.8fr 1fr;
   gap: 48px;
   align-items: start;
 }
-.footer-left img { display: block; margin-bottom: 20px; }
-.footer-left p { font-size: var(--fs-base); line-height: 1.8; color: var(--color-text-muted); }
-.footer-right { }
-.footer-contact-title { color: var(--color-on-primary); font-size: var(--fs-lg); font-weight: 600; margin-bottom: 20px; }
+.footer-brand img { display: block; margin-bottom: 16px; }
+.footer-desc {
+  font-size: var(--fs-base);
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+.footer-section-title {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent-light);
+  margin-bottom: 20px;
+}
+.footer-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-nav-list li { margin-bottom: 10px; }
+.footer-nav-list a {
+  color: var(--color-text-muted);
+  font-size: var(--fs-base);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-nav-list a:hover { color: var(--color-on-primary); }
 .footer-contact-list { list-style: none; margin: 0; padding: 0; }
 .footer-contact-list li { font-size: var(--fs-base); color: var(--color-text-muted); margin-bottom: 14px; line-height: 1.7; }
 .footer-contact-list a { color: var(--color-text-muted); text-decoration: none; transition: color var(--transition); }
@@ -498,7 +521,7 @@ textarea:focus-visible,
   text-align: center;
   padding: 14px 24px;
   font-size: var(--fs-sm);
-  color: rgba(255,255,255,0.5);
+  color: var(--color-text-muted);
 }
 
 /* ===== CONTACT INFO LIST ===== */
@@ -580,7 +603,7 @@ textarea:focus-visible,
   .service-card-grid { grid-template-columns: 1fr 1fr; }
   .section { padding: 56px 20px; }
   .stat-bar { gap: 24px; flex-wrap: wrap; }
-  .footer-inner { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 32px; }
 }
 
 /* ===== MOBILE NAV ===== */
