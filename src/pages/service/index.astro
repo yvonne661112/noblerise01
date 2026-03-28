@@ -143,50 +143,54 @@ const jsonLd = {
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 360" fill="none" aria-hidden="true">
                 <rect width="400" height="360" rx="16" fill="var(--color-accent-pale)" />
                 <!-- 第一代（祖父母） -->
-                <circle cx="200" cy="55" r="20" fill="var(--color-primary)"/>
-                <text x="200" y="61" text-anchor="middle" font-size="16" fill="white" font-weight="600">1</text>
-                <text x="200" y="95" text-anchor="middle" font-size="13" fill="var(--color-primary)" font-weight="600">第一代</text>
+                <circle cx="200" cy="50" r="20" fill="var(--color-primary)"/>
+                <text x="200" y="56" text-anchor="middle" font-size="16" fill="white" font-weight="600">1</text>
+                <text x="200" y="88" text-anchor="middle" font-size="13" fill="var(--color-primary)" font-weight="600">第一代</text>
                 <!-- 連接線 第一代→第二代 -->
-                <line x1="200" y1="75" x2="200" y2="110" stroke="var(--color-accent)" stroke-width="2"/>
-                <line x1="120" y1="130" x2="280" y2="130" stroke="var(--color-accent)" stroke-width="2"/>
-                <line x1="120" y1="110" x2="120" y2="130" stroke="var(--color-accent)" stroke-width="2"/>
-                <line x1="200" y1="110" x2="200" y2="130" stroke="var(--color-accent)" stroke-width="2"/>
-                <line x1="280" y1="110" x2="280" y2="130" stroke="var(--color-accent)" stroke-width="2"/>
+                <line x1="200" y1="70" x2="200" y2="100" stroke="var(--color-accent)" stroke-width="2"/>
+                <line x1="120" y1="120" x2="280" y2="120" stroke="var(--color-accent)" stroke-width="2"/>
+                <line x1="120" y1="100" x2="120" y2="120" stroke="var(--color-accent)" stroke-width="2"/>
+                <line x1="200" y1="100" x2="200" y2="120" stroke="var(--color-accent)" stroke-width="2"/>
+                <line x1="280" y1="100" x2="280" y2="120" stroke="var(--color-accent)" stroke-width="2"/>
                 <!-- 第二代（子女） -->
-                <circle cx="120" cy="150" r="17" fill="var(--color-accent)"/>
-                <circle cx="200" cy="150" r="17" fill="var(--color-accent)"/>
-                <circle cx="280" cy="150" r="17" fill="var(--color-accent)"/>
-                <text x="120" y="155" text-anchor="middle" font-size="14" fill="white" font-weight="600">2</text>
-                <text x="200" y="155" text-anchor="middle" font-size="14" fill="white" font-weight="600">2</text>
-                <text x="280" y="155" text-anchor="middle" font-size="14" fill="white" font-weight="600">2</text>
-                <text x="200" y="190" text-anchor="middle" font-size="13" fill="var(--color-accent)" font-weight="600">第二代</text>
+                <circle cx="120" cy="140" r="17" fill="var(--color-accent)"/>
+                <circle cx="200" cy="140" r="17" fill="var(--color-accent)"/>
+                <circle cx="280" cy="140" r="17" fill="var(--color-accent)"/>
+                <text x="120" y="145" text-anchor="middle" font-size="14" fill="white" font-weight="600">2</text>
+                <text x="200" y="145" text-anchor="middle" font-size="14" fill="white" font-weight="600">2</text>
+                <text x="280" y="145" text-anchor="middle" font-size="14" fill="white" font-weight="600">2</text>
+                <text x="200" y="178" text-anchor="middle" font-size="13" fill="var(--color-accent)" font-weight="600">第二代</text>
                 <!-- 連接線 第二代→第三代 -->
-                <line x1="120" y1="167" x2="120" y2="210" stroke="var(--color-accent)" stroke-width="1.5" opacity="0.6"/>
-                <line x1="200" y1="167" x2="200" y2="210" stroke="var(--color-accent)" stroke-width="1.5" opacity="0.6"/>
-                <line x1="280" y1="167" x2="280" y2="210" stroke="var(--color-accent)" stroke-width="1.5" opacity="0.6"/>
+                <line x1="120" y1="157" x2="120" y2="195" stroke="var(--color-accent)" stroke-width="1.5" opacity="0.6"/>
+                <line x1="200" y1="157" x2="200" y2="195" stroke="var(--color-accent)" stroke-width="1.5" opacity="0.6"/>
+                <line x1="280" y1="157" x2="280" y2="195" stroke="var(--color-accent)" stroke-width="1.5" opacity="0.6"/>
                 <!-- 第三代（孫子女） -->
-                <circle cx="95" cy="225" r="12" fill="var(--color-primary)" opacity="0.5"/>
-                <circle cx="145" cy="225" r="12" fill="var(--color-primary)" opacity="0.5"/>
-                <circle cx="200" cy="225" r="12" fill="var(--color-primary)" opacity="0.5"/>
-                <circle cx="255" cy="225" r="12" fill="var(--color-primary)" opacity="0.5"/>
-                <circle cx="305" cy="225" r="12" fill="var(--color-primary)" opacity="0.5"/>
-                <line x1="95" y1="210" x2="145" y2="210" stroke="var(--color-accent)" stroke-width="1.5" opacity="0.5"/>
-                <text x="200" y="260" text-anchor="middle" font-size="13" fill="var(--color-primary)" opacity="0.6" font-weight="600">第三代</text>
-                <!-- 資產項目 -->
+                <!-- 左組：兩個圓 + 橫線 -->
+                <line x1="95" y1="198" x2="145" y2="198" stroke="var(--color-accent)" stroke-width="1.5" opacity="0.5"/>
+                <circle cx="95" cy="212" r="12" fill="var(--color-primary)" opacity="0.5"/>
+                <circle cx="145" cy="212" r="12" fill="var(--color-primary)" opacity="0.5"/>
+                <!-- 中間：單圓 -->
+                <circle cx="200" cy="212" r="12" fill="var(--color-primary)" opacity="0.5"/>
+                <!-- 右組：兩個圓 + 橫線 -->
+                <line x1="255" y1="198" x2="305" y2="198" stroke="var(--color-accent)" stroke-width="1.5" opacity="0.5"/>
+                <circle cx="255" cy="212" r="12" fill="var(--color-primary)" opacity="0.5"/>
+                <circle cx="305" cy="212" r="12" fill="var(--color-primary)" opacity="0.5"/>
+                <text x="200" y="248" text-anchor="middle" font-size="13" fill="var(--color-primary)" opacity="0.6" font-weight="600">第三代</text>
+                <!-- 資產項目：房產、信託（中間）、稅務 -->
                 <!-- 房產 -->
-                <rect x="40" y="280" width="90" height="55" rx="8" fill="white" stroke="var(--color-border)" stroke-width="1"/>
-                <path d="M85 290 L60 305 L60 325 L110 325 L110 305 Z" fill="var(--color-primary)" opacity="0.15" stroke="var(--color-primary)" stroke-width="1"/>
-                <text x="85" y="342" text-anchor="middle" font-size="10" fill="var(--color-text-mid)">房產</text>
-                <!-- 信託 -->
-                <rect x="155" y="280" width="90" height="55" rx="8" fill="white" stroke="var(--color-border)" stroke-width="1"/>
-                <path d="M200 288 L200 310 C200 322 190 328 185 330 C180 328 170 322 170 310 L170 288 L185 284 L200 288 Z" fill="var(--color-accent)" opacity="0.3" stroke="var(--color-accent)" stroke-width="1"/>
-                <path d="M179 306 L183 310 L192 300" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <text x="200" y="342" text-anchor="middle" font-size="10" fill="var(--color-text-mid)">信託</text>
+                <rect x="40" y="270" width="90" height="55" rx="8" fill="white" stroke="var(--color-border)" stroke-width="1"/>
+                <path d="M85 280 L60 295 L60 315 L110 315 L110 295 Z" fill="var(--color-primary)" opacity="0.15" stroke="var(--color-primary)" stroke-width="1"/>
+                <text x="85" y="332" text-anchor="middle" font-size="11" fill="var(--color-text-mid)" font-weight="600">房產</text>
+                <!-- 信託（中間） -->
+                <rect x="155" y="270" width="90" height="55" rx="8" fill="white" stroke="var(--color-accent)" stroke-width="1.5"/>
+                <path d="M200 278 L200 300 C200 312 190 318 185 320 C180 318 170 312 170 300 L170 278 L185 274 L200 278 Z" fill="var(--color-accent)" opacity="0.3" stroke="var(--color-accent)" stroke-width="1"/>
+                <path d="M179 296 L183 300 L192 290" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <text x="200" y="332" text-anchor="middle" font-size="11" fill="var(--color-accent)" font-weight="700">信託</text>
                 <!-- 稅務 -->
-                <rect x="270" y="280" width="90" height="55" rx="8" fill="white" stroke="var(--color-border)" stroke-width="1"/>
-                <rect x="295" y="290" width="30" height="38" rx="3" fill="var(--color-white)" stroke="var(--color-primary)" stroke-width="1" opacity="0.7"/>
-                <text x="310" y="308" text-anchor="middle" font-size="14" fill="var(--color-primary)" opacity="0.6" font-weight="700">%</text>
-                <text x="315" y="342" text-anchor="middle" font-size="10" fill="var(--color-text-mid)">稅務</text>
+                <rect x="270" y="270" width="90" height="55" rx="8" fill="white" stroke="var(--color-border)" stroke-width="1"/>
+                <rect x="295" y="280" width="30" height="38" rx="3" fill="var(--color-white)" stroke="var(--color-primary)" stroke-width="1" opacity="0.7"/>
+                <text x="310" y="298" text-anchor="middle" font-size="14" fill="var(--color-primary)" opacity="0.6" font-weight="700">%</text>
+                <text x="315" y="332" text-anchor="middle" font-size="11" fill="var(--color-text-mid)" font-weight="600">稅務</text>
               </svg>
             </div>
           </div>
@@ -249,7 +253,7 @@ const jsonLd = {
             <div class="pricing-item">
               <h4>諮詢費</h4>
               <p class="pricing-amount">5,000 元 / 時</p>
-              <p class="pricing-note">第一小時優惠 3,600 元（半小時 1,800 元）</p>
+              <p class="pricing-note">第一小時優惠 3,600 元<br />（半小時 1,800 元）</p>
             </div>
             <div class="pricing-item">
               <h4>財務規劃</h4>
@@ -257,7 +261,7 @@ const jsonLd = {
             </div>
           </div>
           <div class="consultation-cta">
-            <a href={CONTACT.lineUrl} target="_blank" rel="noopener" class="btn consultation-btn">LINE 預約諮詢</a>
+            <a href={CONTACT.lineUrl} target="_blank" rel="noopener" class="btn consultation-btn">LINE 預約免費諮詢</a>
           </div>
           <p class="consultation-disclaimer">免費諮詢此為流程與方向說明，我們不會在 30 分鐘內提供個別財務問題的深入分析和解決方案建議。</p>
         </div>
@@ -506,7 +510,7 @@ const jsonLd = {
     max-width: 320px;
   }
   .pricing-item h4 {
-    font-size: var(--fs-base);
+    font-size: var(--fs-xl);
     font-weight: 700;
     color: var(--color-primary);
     margin-bottom: 8px;
