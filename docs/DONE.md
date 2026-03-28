@@ -213,6 +213,37 @@
 
 ---
 
+## [session-2026-03-28] 視覺設計修改（Telegram 指令批次）
+
+> 完成日期：2026-03-28
+> 來源：Telegram chat_id 8747758312 指令批次
+
+| 項目 | 說明 | 狀態 |
+|------|------|------|
+| 首頁 FPAT Podcast 連結文字 | 改為「投資不是賺更多，是規劃更好-優雅轉身CFP®張惠芳」 | ✅ 完成 |
+| 首頁客戶見證區塊 | 移除英文 eyebrow「Testimonials」；名字與職稱移至照片旁 | ✅ 完成 |
+| 首頁首席顧問圖片外框 | 移除白色外框（section-subtle → section，解決 JPEG 白角問題） | ✅ 完成 |
+| 首頁 Header logo 放大 | logo 60→88px、導覽文字 16→20px、header 高度 80→108px | ✅ 完成（兩輪調整） |
+| 聯絡我們 QR code 移除 | 移除 LINE QR code 圖片，文字放大（--fs-body→--fs-xl），icon 與文字對齊 | ✅ 完成 |
+| 首頁 Hero 文案與底色 | 文案改「諾昇理財規劃成為您人生的底氣」、移除英文 eyebrow、底色改企業主色（深綠） | ✅ 完成 |
+| 首頁 Hero 標題換行調整 | 分三行：「諾昇理財規劃 / 成為您人生的底氣 / 陪您走向財務幸福」 | ✅ 完成 |
+| 首頁客戶見證文案更新 | 三則見證全部換新文案，字體放大（--fs-base→--fs-body），底色改 #014045 | ✅ 完成 |
+| 首頁服務項目卡片 | 移除黑色說明 `<p>` 文字，只保留圖片與綠色 h3 標題 | ✅ 完成 |
+| Stats bar 尺寸優化 | 數字 clamp(28→36px,40→52px)、標籤 --fs-sm→--fs-body、間距 4→12px | ✅ 完成 |
+| Stats bar CFP® 改圖 | CFP® 文字換為 CFP logo 圖片（cfp-logo.png） | ✅ 完成 |
+| Stats bar label 對齊 | 加 `.stat-cfp-wrap` wrapper（min-height: 65px），四個 label 統一底部對齊 | ✅ 完成 |
+| Stats bar CFP label 更名 | 「國際認證理財規劃顧問」→「國際認證高級理財規劃顧問」 | ✅ 完成 |
+| 首頁疑問區塊 | 三個問題各自換行，移除英文 eyebrow「The Challenge」，文案更新 | ✅ 完成 |
+| 首頁 empathy 回答文案 | 「不是保險公司」加逗號，改為兩行顯示 | ✅ 完成 |
+| 首頁理財新知數量 | 只顯示最新三則（slice(0,6)→slice(0,3)） | ✅ 完成 |
+| 首頁服務卡片改 SVG icon | 六張插圖換為內嵌 SVG icon，品牌色（淡綠底 + 深綠圖），hover 反白效果 | ✅ 完成 |
+| 頁尾 logo 放大 | footer-logo.jpg 130→180px | ✅ 完成 |
+| 頁尾文字改微軟黑體粗體 | footer-desc / footer-section-title / footer-nav-list / footer-contact-list 改 Microsoft JhengHei 700，字級 15→16px | ✅ 完成 |
+| 關於諾昇頁文字加粗放大 | about-mission +bold +20px；advisor-bio +bold +18px；detail-list li +bold +17px | ✅ 完成 |
+| 服務項目六大服務改版 | service-detail-card（圖文橫排）→ service-icon-card（SVG icon + 綠色標題 + 黑色說明） | ✅ 完成 |
+
+---
+
 ## 執行批次記錄
 
 > 來源：原 docs/Process.md，完成日期 2026-03-26
