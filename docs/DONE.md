@@ -244,6 +244,41 @@
 
 ---
 
+## [v0.0.1 → v0.0.2] 主題切換影響分析（2026-03-28）
+
+> 來源：`git diff v0.0.1 v0.0.2` 逐項分析
+> 問題：哪些改變在切換到其他 themes 時會被影響？哪些不會？
+
+### 會受主題切換影響（顏色或視覺因主題 CSS 變數不同而改變）
+
+| 項目 | 說明 | 受影響原因 |
+|------|------|-----------|
+| 首頁 Hero 底色 | 移除 `backgroundImage`，改由背景色填滿 | 背景色為 `var(--color-primary)`，各主題主色不同 |
+| 首頁服務卡片 SVG icon 顏色 | icon box 淡色底、icon 主色、hover 強調色 | 使用 `var(--color-accent-pale)` / `var(--color-primary)` / `var(--color-accent)`，各主題值不同 |
+| 服務項目頁六大服務 icon 卡片顏色 | icon box、h3 標題色、hover border 色 | 使用 `var(--color-accent)` / `var(--color-accent-pale)` / `var(--color-primary)` |
+| 客戶見證區塊底色（`section-dark`） | 底色由 `#1d1d1d` 改為 `#014045` | 此改動只寫入 `theme-classic.css`（`--color-dark-section`），其他主題未同步，切換後恢復舊深色 |
+
+### 不受主題切換影響（結構、內容、global.css 固定值）
+
+| 項目 | 說明 | 不受影響原因 |
+|------|------|-------------|
+| Header logo 放大（60→88px）、header 高度（80→108px）、導覽文字（16→20px） | `global.css` 尺寸修改 | 尺寸值非 CSS 變數，全主題共用 |
+| Stats bar 數字放大、flex-column 佈局、label 字級 | `global.css` layout 調整 | 純佈局與尺寸，與主題無關 |
+| Stats bar CFP® 換為 cfp-logo.png | HTML 結構變更 | 圖片資源，與主題無關 |
+| 頁尾 logo 放大（130→180px） | `Footer.astro` img 尺寸 | HTML 屬性，與主題無關 |
+| 頁尾文字改 Microsoft JhengHei 粗體 | `global.css` font-family 硬編碼 | 字型名稱固定寫入 global.css，全主題共用 |
+| 聯絡頁移除 LINE QR Code、icon 放大（42→52px）、文字放大 | `contact/index.astro` + `global.css` | 結構與尺寸變更，不依賴主題變數 |
+| 首頁 Hero 文案改版（三行標題、移除英文 eyebrow） | `index.astro` 內容修改 | 純文字內容，與主題無關 |
+| 首頁疑問區塊文案更新、移除英文 eyebrow | `index.astro` 內容修改 | 純文字內容，與主題無關 |
+| 首頁理財新知顯示數量 6→3 則 | `slice(0,3)` 邏輯修改 | 資料邏輯，與主題無關 |
+| 首頁服務卡片改為 SVG（移除原圖及說明文字） | HTML 結構改變 | 僅結構，顏色已計入上方受影響項 |
+| 首頁客戶見證 HTML 結構重構（名字移至照片旁） | HTML 結構改變 | 結構與排版，與主題無關 |
+| 首頁客戶見證文案全部更新 | `index.astro` 內容修改 | 純文字內容，與主題無關 |
+| 關於諾昇頁文字加粗放大（mission / advisor-bio / detail-list） | `about/index.astro` `<style>` 修改 | `font-weight: 700` 為固定值；字級使用 `--fs-xl`/`--fs-lg`/`--fs-body`，全主題共用 |
+| 服務項目頁改為 icon-grid 3 欄佈局 | `service/index.astro` HTML + 頁內 `<style>` | 佈局結構，顏色已計入上方受影響項 |
+
+---
+
 ## 執行批次記錄
 
 > 來源：原 docs/Process.md，完成日期 2026-03-26
