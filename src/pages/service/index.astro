@@ -156,25 +156,36 @@ const jsonLd = {
           <span class="section-eyebrow">Process</span>
           <h2 class="section-title">財務規劃六步驟</h2>
         </div>
-        <img src={base + "images/財務規劃六步驟00.png"} alt="財務規劃六步驟" loading="lazy" class="service-full-img mb-32" />
-        <div class="steps-grid">
-          <div class="step-card">
-            <img src={base + "images/財務規劃六步驟01.png"} alt="步驟 1" loading="lazy" />
+        <div class="step-icon-grid">
+          <div class="step-icon-card">
+            <div class="step-number">1</div>
+            <h3>線上諮詢</h3>
+            <p>30分鐘免費諮詢，了解需求，服務內容與合作方式，初步確認合作方向。</p>
           </div>
-          <div class="step-card">
-            <img src={base + "images/財務規劃六步驟02.png"} alt="步驟 2" loading="lazy" />
+          <div class="step-icon-card">
+            <div class="step-number">2</div>
+            <h3>初次面談及正式合約</h3>
+            <p>溝通理財價值觀、合作方式，並明訂雙方權利義務以及保密條款。</p>
           </div>
-          <div class="step-card">
-            <img src={base + "images/財務規劃六步驟03.png"} alt="步驟 3" loading="lazy" />
+          <div class="step-icon-card">
+            <div class="step-number">3</div>
+            <h3>財務面談</h3>
+            <p>設定財務目標與風險責任，協助建立家庭財務報表並蒐集相關資料，進行風險承受度分析。</p>
           </div>
-          <div class="step-card">
-            <img src={base + "images/財務規劃六步驟04.png"} alt="步驟 4" loading="lazy" />
+          <div class="step-icon-card">
+            <div class="step-number">4</div>
+            <h3>規劃報告</h3>
+            <p>說明財務需求、分析結果，提供可執行的策略方案與效益比較。</p>
           </div>
-          <div class="step-card">
-            <img src={base + "images/財務規劃六步驟05.png"} alt="步驟 5" loading="lazy" />
+          <div class="step-icon-card">
+            <div class="step-number">5</div>
+            <h3>方案執行</h3>
+            <p>依目標協助執行：收支管理，保障規劃、資產規劃、稅務與其他需求。</p>
           </div>
-          <div class="step-card">
-            <img src={base + "images/財務規劃六步驟06.png"} alt="步驟 6" loading="lazy" />
+          <div class="step-icon-card">
+            <div class="step-number">6</div>
+            <h3>定期檢視</h3>
+            <p>追蹤財務目標達成率、投資組合表現與行為紀律，並依人生階段滾動式調整。</p>
           </div>
         </div>
       </div>
@@ -326,17 +337,57 @@ const jsonLd = {
   .service-highlight { font-weight: 600; color: var(--color-accent); }
 
   /* ── STEPS ── */
-  .service-full-img { width: 100%; height: auto; display: block; border-radius: var(--card-radius); }
-  .steps-grid {
+  .step-icon-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    gap: 24px;
   }
-  .step-card img {
-    width: 100%;
-    height: auto;
-    display: block;
+  .step-icon-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 32px 20px;
     border-radius: var(--card-radius);
+    border: 1px solid var(--color-border);
+    background: var(--color-white);
+    transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+  }
+  .step-icon-card:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-3px);
+    border-color: var(--color-accent);
+  }
+  .step-number {
+    width: 56px;
+    height: 56px;
+    background: var(--color-accent-pale);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-family: var(--font-heading);
+    font-size: var(--fs-2xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    transition: background 0.25s, color 0.25s;
+  }
+  .step-icon-card:hover .step-number {
+    background: var(--color-accent);
+    color: var(--color-white);
+  }
+  .step-icon-card h3 {
+    font-family: var(--font-heading);
+    font-size: var(--fs-lg);
+    font-weight: var(--heading-weight);
+    color: var(--color-accent);
+    margin-bottom: 12px;
+  }
+  .step-icon-card p {
+    font-size: var(--fs-base);
+    color: var(--color-text-mid);
+    line-height: 1.7;
   }
 
   /* ── CTA ── */
@@ -382,10 +433,10 @@ const jsonLd = {
     .service-icon-grid { grid-template-columns: 1fr 1fr; }
     .inheritance-block { grid-template-columns: 1fr; gap: 32px; }
     .cta-layout { grid-template-columns: 1fr; gap: 32px; }
-    .steps-grid { grid-template-columns: 1fr 1fr; }
+    .step-icon-grid { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 600px) {
     .service-icon-grid { grid-template-columns: 1fr; }
-    .steps-grid { grid-template-columns: 1fr; }
+    .step-icon-grid { grid-template-columns: 1fr; }
   }
 </style>
