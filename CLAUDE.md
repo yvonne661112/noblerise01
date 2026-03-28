@@ -104,6 +104,19 @@ export const SHOW_SAKURA = false;  // 櫻花飄落特效（true = 顯示）
 
 ---
 
+## 從外部網址匯入文章
+
+將外部文章上傳至 `src/content/blog/` 時，必須遵守以下規則：
+
+1. **使用 Playwright 渲染頁面**：外部文章（尤其 Wix、WordPress 等 JS 渲染網站）必須用 Playwright 實際瀏覽，而非 WebFetch，以取得完整內容與圖片。
+2. **原文一字不改**：正文文字須完整保留，不得改寫、精簡或重新組織段落。
+3. **下載所有內嵌圖片**：用 Playwright evaluate 取得文章 body 內所有 `<img>` 的完整 URL，下載至 `public/images/`，並在 Markdown 中依原始位置插入。
+4. **封面不重複**：frontmatter `image` 欄位為封面，文章 body 開頭不可再放相同或功能重複的首圖。
+5. **移除延伸閱讀**：匯入時移除原文中的「延伸閱讀」區塊（避免站外或非諾昇的連結混入）。
+6. **不加作者 bio**：文章 body 末尾不加作者資訊，post 頁面已有 `AuthorCard` 元件自動顯示。
+
+---
+
 ## Blog 文章 Markdown 規範
 
 處理 `src/content/blog/` 下的文章時，必須遵守以下排版規則：
