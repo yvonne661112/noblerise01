@@ -139,10 +139,31 @@ const jsonLd = {
             <p class="service-highlight mt-24">傳承要得早布局；現在的準備，就是給家人未來最實在的安心。</p>
           </div>
           <div class="inheritance-visual">
-            <div class="card">
-              <div class="card-img">
-                <img src={base + "images/home-item3.jpg"} alt="財務規劃" width="400" height="250" loading="lazy" />
-              </div>
+            <div class="inheritance-illustration">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" fill="none" aria-hidden="true">
+                <!-- 背景圓 -->
+                <circle cx="200" cy="160" r="140" fill="var(--color-accent-pale)" />
+                <!-- 房屋（資產象徵） -->
+                <path d="M200 60 L130 120 L130 200 L270 200 L270 120 Z" fill="var(--color-primary)" opacity="0.15" stroke="var(--color-primary)" stroke-width="2"/>
+                <rect x="150" y="140" width="40" height="60" rx="2" fill="var(--color-accent)" opacity="0.6"/>
+                <rect x="210" y="140" width="40" height="60" rx="2" fill="var(--color-accent)" opacity="0.6"/>
+                <rect x="175" y="160" width="50" height="40" rx="2" fill="var(--color-primary)" opacity="0.3"/>
+                <!-- 上方家族連結線 -->
+                <circle cx="200" cy="230" r="16" fill="var(--color-primary)" opacity="0.8"/>
+                <circle cx="155" cy="270" r="12" fill="var(--color-accent)" opacity="0.8"/>
+                <circle cx="245" cy="270" r="12" fill="var(--color-accent)" opacity="0.8"/>
+                <line x1="200" y1="246" x2="155" y2="258" stroke="var(--color-primary)" stroke-width="2" opacity="0.5"/>
+                <line x1="200" y1="246" x2="245" y2="258" stroke="var(--color-primary)" stroke-width="2" opacity="0.5"/>
+                <!-- 盾牌（保障象徵） -->
+                <path d="M320 80 L320 120 C320 145 300 160 290 165 C280 160 260 145 260 120 L260 80 L290 70 Z" fill="var(--color-accent)" opacity="0.3" stroke="var(--color-accent)" stroke-width="1.5"/>
+                <path d="M282 110 L288 116 L300 100" stroke="var(--color-accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- 文件（規劃象徵） -->
+                <rect x="60" y="75" width="50" height="65" rx="4" fill="var(--color-white)" stroke="var(--color-primary)" stroke-width="1.5" opacity="0.8"/>
+                <line x1="72" y1="92" x2="98" y2="92" stroke="var(--color-primary)" stroke-width="1.5" opacity="0.4"/>
+                <line x1="72" y1="102" x2="98" y2="102" stroke="var(--color-primary)" stroke-width="1.5" opacity="0.4"/>
+                <line x1="72" y1="112" x2="90" y2="112" stroke="var(--color-primary)" stroke-width="1.5" opacity="0.4"/>
+                <line x1="72" y1="122" x2="95" y2="122" stroke="var(--color-primary)" stroke-width="1.5" opacity="0.4"/>
+              </svg>
             </div>
           </div>
         </div>
@@ -321,6 +342,16 @@ const jsonLd = {
     line-height: 1.9;
   }
   .service-highlight { font-weight: 600; color: var(--color-accent); }
+  .inheritance-illustration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .inheritance-illustration svg {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
 
   /* ── STEPS ── */
   .step-icon-grid {
@@ -378,7 +409,7 @@ const jsonLd = {
 
   /* ── CONSULTATION ── */
   .consultation-section {
-    background: var(--color-primary);
+    background: var(--color-accent);
   }
   .consultation-box {
     max-width: 720px;
@@ -386,13 +417,13 @@ const jsonLd = {
     text-align: center;
   }
   .consultation-eyebrow {
-    color: var(--color-accent-light);
+    color: rgba(255, 255, 255, 0.7);
   }
   .consultation-title {
-    color: var(--color-on-primary);
+    color: var(--color-white);
   }
   .consultation-divider {
-    border-color: var(--color-accent);
+    border-color: rgba(255, 255, 255, 0.4);
   }
   .consultation-desc {
     font-size: var(--fs-lg);
