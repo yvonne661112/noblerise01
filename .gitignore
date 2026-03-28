@@ -1,5 +1,8 @@
 # build output
 dist/
+
+# Playwright MCP 截圖暫存
+.playwright-mcp/
 # generated types
 .astro/
 
