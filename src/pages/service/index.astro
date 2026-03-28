@@ -191,6 +191,23 @@ const jsonLd = {
       </div>
     </section>
 
+    <!-- ▸ 預約諮詢 -->
+    <section class="section consultation-section">
+      <div class="container">
+        <div class="consultation-box">
+          <span class="section-eyebrow consultation-eyebrow">Free Consultation</span>
+          <h2 class="section-title consultation-title">預約諮詢</h2>
+          <hr class="section-divider section-divider--center consultation-divider" />
+          <p class="consultation-desc">若您想進一步了解財務規劃，我們提供 30 分鐘免費線上諮詢。協助釐清您的財務現況是否需要規劃，並說明諾昇的流程、服務內容與收費方式。</p>
+          <p class="consultation-result"><strong>預期成果：</strong>您將帶走清楚的下一步方向，以及選擇最適合自己方案所需的完整資訊。</p>
+          <div class="consultation-cta">
+            <a href={CONTACT.lineUrl} target="_blank" rel="noopener" class="btn btn-accent btn-lg">LINE 預約諮詢</a>
+          </div>
+          <p class="consultation-disclaimer">此為流程與方向說明，我們不會在 30 分鐘內提供個別財務問題的深入分析和解決方案建議。</p>
+        </div>
+      </div>
+    </section>
+
     {/* ▸ 免費諮詢 CTA */}
     {SHOW_CTA && (
     <section class="section section-primary cta-section">
@@ -388,6 +405,45 @@ const jsonLd = {
     font-size: var(--fs-base);
     color: var(--color-text-mid);
     line-height: 1.7;
+  }
+
+  /* ── CONSULTATION ── */
+  .consultation-section {
+    background: var(--color-primary);
+  }
+  .consultation-box {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .consultation-eyebrow {
+    color: var(--color-accent-light);
+  }
+  .consultation-title {
+    color: var(--color-on-primary);
+  }
+  .consultation-divider {
+    border-color: var(--color-accent);
+  }
+  .consultation-desc {
+    font-size: var(--fs-lg);
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 20px;
+  }
+  .consultation-result {
+    font-size: var(--fs-lg);
+    line-height: 1.9;
+    color: var(--color-on-primary);
+    margin-bottom: 32px;
+  }
+  .consultation-cta {
+    margin-bottom: 28px;
+  }
+  .consultation-disclaimer {
+    font-size: var(--fs-sm);
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.6;
   }
 
   /* ── CTA ── */
