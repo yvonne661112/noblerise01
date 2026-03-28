@@ -114,6 +114,7 @@ export const SHOW_SAKURA = false;  // 櫻花飄落特效（true = 顯示）
 4. **封面不重複**：frontmatter `image` 欄位為封面，文章 body 開頭不可再放相同或功能重複的首圖。
 5. **移除延伸閱讀**：匯入時移除原文中的「延伸閱讀」區塊（避免站外或非諾昇的連結混入）。
 6. **不加作者 bio**：文章 body 末尾不加作者資訊，post 頁面已有 `AuthorCard` 元件自動顯示。
+7. **置換舊站連結**：文章中若有指向 `https://noblerise.com.tw/` 的連結，須對應置換為新網站的相對路徑（如 `/service/`、`/about/`、`/123/` 等）。
 
 ---
 
