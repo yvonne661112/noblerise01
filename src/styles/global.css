@@ -524,7 +524,7 @@ textarea:focus-visible,
   background: var(--color-dark-section);
   text-align: center;
   padding: 14px 24px;
-  font-size: var(--fs-md);
+  font-size: var(--fs-lg);
   font-weight: 700;
   color: var(--color-text-muted);
 }
