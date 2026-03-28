@@ -126,6 +126,10 @@ tags:
 
 ---
 
+完成正文後，依照 **`/format-article`** skill 的規則進行格式驗證（標題層級、空行、偽標題、frontmatter 完整性）。
+
+---
+
 ## 階段六：build 驗證
 
 ```bash
