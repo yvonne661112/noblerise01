@@ -1,106 +1,70 @@
 # DONE — 諾昇理財網站已完成項目存檔
 
-> 完成日期：2026-03-26
-> 來源：第二輪改善清單（原 docs/TODO.md）
-
 ---
 
-## 標題階層修正
+## [session-2026-03-28] 視覺設計修改（Telegram 指令批次）
+
+> 完成日期：2026-03-28
+> 來源：Telegram chat_id 8747758312 指令批次
 
 | 項目 | 說明 | 狀態 |
 |------|------|------|
-| 首頁缺少 H1 | `src/pages/index.astro` slogan `<p>` 改為 `<h1>`，解決全頁無 H1 問題 | ✅ 完成 |
+| 首頁 FPAT Podcast 連結文字 | 改為「投資不是賺更多，是規劃更好-優雅轉身CFP®張惠芳」 | ✅ 完成 |
+| 首頁客戶見證區塊 | 移除英文 eyebrow「Testimonials」；名字與職稱移至照片旁 | ✅ 完成 |
+| 首頁首席顧問圖片外框 | 移除白色外框（section-subtle → section，解決 JPEG 白角問題） | ✅ 完成 |
+| 首頁 Header logo 放大 | logo 60→88px、導覽文字 16→20px、header 高度 80→108px | ✅ 完成（兩輪調整） |
+| 聯絡我們 QR code 移除 | 移除 LINE QR code 圖片，文字放大（--fs-body→--fs-xl），icon 與文字對齊 | ✅ 完成 |
+| 首頁 Hero 文案與底色 | 文案改「諾昇理財規劃成為您人生的底氣」、移除英文 eyebrow、底色改企業主色（深綠） | ✅ 完成 |
+| 首頁 Hero 標題換行調整 | 分三行：「諾昇理財規劃 / 成為您人生的底氣 / 陪您走向財務幸福」 | ✅ 完成 |
+| 首頁客戶見證文案更新 | 三則見證全部換新文案，字體放大（--fs-base→--fs-body），底色改 #014045 | ✅ 完成 |
+| 首頁服務項目卡片 | 移除黑色說明 `<p>` 文字，只保留圖片與綠色 h3 標題 | ✅ 完成 |
+| Stats bar 尺寸優化 | 數字 clamp(28→36px,40→52px)、標籤 --fs-sm→--fs-body、間距 4→12px | ✅ 完成 |
+| Stats bar CFP® 改圖 | CFP® 文字換為 CFP logo 圖片（cfp-logo.png） | ✅ 完成 |
+| Stats bar label 對齊 | 加 `.stat-cfp-wrap` wrapper（min-height: 65px），四個 label 統一底部對齊 | ✅ 完成 |
+| Stats bar CFP label 更名 | 「國際認證理財規劃顧問」→「國際認證高級理財規劃顧問」 | ✅ 完成 |
+| 首頁疑問區塊 | 三個問題各自換行，移除英文 eyebrow「The Challenge」，文案更新 | ✅ 完成 |
+| 首頁 empathy 回答文案 | 「不是保險公司」加逗號，改為兩行顯示 | ✅ 完成 |
+| 首頁理財新知數量 | 只顯示最新三則（slice(0,6)→slice(0,3)） | ✅ 完成 |
+| 首頁服務卡片改 SVG icon | 六張插圖換為內嵌 SVG icon，品牌色（淡綠底 + 深綠圖），hover 反白效果 | ✅ 完成 |
+| 頁尾 logo 放大 | footer-logo.jpg 130→180px | ✅ 完成 |
+| 頁尾文字改微軟黑體粗體 | footer-desc / footer-section-title / footer-nav-list / footer-contact-list 改 Microsoft JhengHei 700，字級 15→16px | ✅ 完成 |
+| 關於諾昇頁文字加粗放大 | about-mission +bold +20px；advisor-bio +bold +18px；detail-list li +bold +17px | ✅ 完成 |
+| 服務項目六大服務改版 | service-detail-card（圖文橫排）→ service-icon-card（SVG icon + 綠色標題 + 黑色說明） | ✅ 完成 |
 
 ---
 
-## M. SEO 遷移連貫性
+## [v0.0.1 → v0.0.2] 主題切換影響分析（2026-03-28）
 
-| 項目 | 說明 | 狀態 |
-|------|------|------|
-| M-1 robots.txt 切換計劃 | 建立 DNS 切換 SOP，切換前改 Disallow → Allow | ✅ 已文件化 |
-| M-2 Sitemap 檔名相容性 | deploy.yml 加入 cp 指令，自動產生底線版本 sitemap_index.xml | ✅ 完成 |
-| M-3 JSON-LD 改回 BlogPosting | [...slug].astro 改為 `@type: BlogPosting` | ✅ 完成 |
-| M-4 日期加時區 +08:00 | datePublished / dateModified 加入 +08:00 時區 | ✅ 完成 |
-| M-6 og:image 路徑確認 | og:image 使用 getAssetPath 確認可正常訪問 | ✅ 完成 |
+> 來源：`git diff v0.0.1 v0.0.2` 逐項分析
+> 問題：哪些改變在切換到其他 themes 時會被影響？哪些不會？
 
----
+### 會受主題切換影響（顏色或視覺因主題 CSS 變數不同而改變）
 
-## A. SEO 強化
+| 項目 | 說明 | 受影響原因 |
+|------|------|-----------|
+| 首頁 Hero 底色 | 移除 `backgroundImage`，改由背景色填滿 | 背景色為 `var(--color-primary)`，各主題主色不同 |
+| 首頁服務卡片 SVG icon 顏色 | icon box 淡色底、icon 主色、hover 強調色 | 使用 `var(--color-accent-pale)` / `var(--color-primary)` / `var(--color-accent)`，各主題值不同 |
+| 服務項目頁六大服務 icon 卡片顏色 | icon box、h3 標題色、hover border 色 | 使用 `var(--color-accent)` / `var(--color-accent-pale)` / `var(--color-primary)` |
+| 客戶見證區塊底色（`section-dark`） | 底色由 `#1d1d1d` 改為 `#014045` | 此改動只寫入 `theme-classic.css`（`--color-dark-section`），其他主題未同步，切換後恢復舊深色 |
 
-| 項目 | 說明 | 狀態 |
-|------|------|------|
-| A-1 og:image URL 路徑 | 改用 getAssetPath + new URL，確保 GitHub Pages base 正確 | ✅ 完成 |
-| A-2 BaseHead/Head 統一 | 刪除 BaseHead.astro，全站統一使用 Head.astro | ✅ 完成 |
-| A-3 文章 JSON-LD 加 inLanguage | 加入 `"inLanguage": "zh-TW"` | ✅ 完成 |
-| A-4 BreadcrumbList JSON-LD | blog/index 與 [category]/index 加入 BreadcrumbList | ✅ 完成 |
-| A-5 策略夥伴照片加入 JSON-LD | Person 物件補充 image 屬性 | ✅ 完成 |
+### 不受主題切換影響（結構、內容、global.css 固定值）
 
----
-
-## B. 設計改善
-
-| 項目 | 說明 | 狀態 |
-|------|------|------|
-| B-1 硬編碼色彩轉 CSS 變數 | LINE 綠、外部連結色、tag 背景色改用 CSS 變數 | ✅ 完成 |
-| B-2 CompanyName 元件化 | 建立 CompanyName.astro，contact 與 footer 統一引入 | ✅ 完成 |
-| B-3 PageHero stats 手機版 flex-wrap | 加入 flex-wrap 與小螢幕 column 排列 | ✅ 完成 |
-| B-4 服務頁 aspect-ratio | 服務卡片圖加入 aspect-ratio 防版面跳動 | ✅ 完成 |
-
----
-
-## C. 程式碼低效
-
-| 項目 | 說明 | 狀態 |
-|------|------|------|
-| C-1 BlogList categories 由 data/categories 產生 | 消除分類定義重複，改用 getCategoryNavItems() | ✅ 完成 |
-| C-2 刪除遺留元件 | 刪除 BlogPost.astro、FormattedDate.astro、HeaderLink.astro | ✅ 完成 |
-| C-3 BlogList 作者名稱由 author.ts 提供 | 改為 `{author.name}` | ✅ 完成 |
-| C-4 擴充 JSON-LD 工廠函式 | blogListLd、breadcrumbLd 等工廠函式建立 | ✅ 完成 |
-| C-5 transformPost 缺失圖片備用值 | 加入 DEFAULT_IMAGE fallback | ✅ 完成 |
-| C-6 Head.astro og:image 使用 getAssetPath | 統一圖片路徑邏輯 | ✅ 完成 |
-
----
-
-## [review] 全站程式碼檢視（R-01 ~ R-21）
-
-> 完成日期：2026-03-26
-> 來源：全面檢視網站程式碼、設計、建置設定
-
-### 高優先（R-01 ~ R-10）
-
-| 編號 | 類別 | 修復內容 | 狀態 |
-|------|------|----------|------|
-| R-01 | SEO | JSON-LD image 欄位條件式輸出，無圖時省略欄位 | ✅ 完成 |
-| R-02 | 樣式 | 新增 `--color-on-primary` CSS 變數，取代 global.css / PageHero / BlogList 中硬編碼 `#fff` | ✅ 完成 |
-| R-03 | 樣式 | 四個頁面 inline style 抽出為 CSS class（utility + 語意 class） | ✅ 完成 |
-| R-04 | 無障礙 | 全域加入 `:focus-visible` 焦點樣式（使用 `--color-accent` 環） | ✅ 完成 |
-| R-05 | 安全 | 首頁外部連結補 `noreferrer` | ✅ 完成 |
-| R-06 | 無障礙 | 策略夥伴頁 SVG 補 `aria-hidden="true"` | ✅ 完成 |
-| R-07 | 內容 | 部落格摘要改用 CSS `-webkit-line-clamp` 截斷，避免斷詞 | ✅ 完成 |
-| R-08 | 建置 | 移除未使用的 `@astrojs/rss` 依賴 | ✅ 完成 |
-| R-09 | 無障礙 | Premium-Dark `--color-text-mid` 提升至 `#8fbfc3`（符合 WCAG AA） | ✅ 完成 |
-| R-10 | 樣式 | SakuraRain 花瓣改用 `--sakura-mid` / `--sakura-deep` 主題變數 | ✅ 完成 |
-
-### 中優先（R-11 ~ R-18）
-
-| 編號 | 類別 | 修復內容 | 狀態 |
-|------|------|----------|------|
-| R-11 | 響應式 | 統一斷點：contact layout 從 768px 改為 900px | ✅ 完成 |
-| R-12 | 無障礙 | 聯絡表單加入 placeholder、LINE ID 加 aria-describedby | ✅ 完成 |
-| R-13 | 效能 | 服務頁圖片移除固定 aspect-ratio，依賴原始比例自適應 | ✅ 完成 |
-| R-14 | 效能 | 文章封面圖改為 `loading="lazy"` | ✅ 完成 |
-| R-15 | 效能 | 文章封面圖加入 `sizes` 屬性 | ✅ 完成 |
-| R-16 | 語意 | 確認所有頁面已有 `<main>` 元素（無需修改） | ✅ 已符合 |
-| R-17 | SEO | Head.astro 加入 `<meta name="robots" content="noindex, nofollow">` | ✅ 完成 |
-| R-18 | 響應式 | Google Maps iframe 改用 aspect-ratio 容器，移除固定 height | ✅ 完成 |
-
-### 低優先（R-19 ~ R-21）
-
-| 編號 | 類別 | 修復內容 | 狀態 |
-|------|------|----------|------|
-| R-19 | 效能 | preconnect crossorigin 改為 `crossorigin="anonymous"` | ✅ 完成 |
-| R-20 | 樣式 | sub-menu box-shadow 改用 `--card-shadow` 主題變數 | ✅ 完成 |
-| R-21 | 內容 | 首頁服務圖片 alt 改為實際服務名稱 | ✅ 完成 |
+| 項目 | 說明 | 不受影響原因 |
+|------|------|-------------|
+| Header logo 放大（60→88px）、header 高度（80→108px）、導覽文字（16→20px） | `global.css` 尺寸修改 | 尺寸值非 CSS 變數，全主題共用 |
+| Stats bar 數字放大、flex-column 佈局、label 字級 | `global.css` layout 調整 | 純佈局與尺寸，與主題無關 |
+| Stats bar CFP® 換為 cfp-logo.png | HTML 結構變更 | 圖片資源，與主題無關 |
+| 頁尾 logo 放大（130→180px） | `Footer.astro` img 尺寸 | HTML 屬性，與主題無關 |
+| 頁尾文字改 Microsoft JhengHei 粗體 | `global.css` font-family 硬編碼 | 字型名稱固定寫入 global.css，全主題共用 |
+| 聯絡頁移除 LINE QR Code、icon 放大（42→52px）、文字放大 | `contact/index.astro` + `global.css` | 結構與尺寸變更，不依賴主題變數 |
+| 首頁 Hero 文案改版（三行標題、移除英文 eyebrow） | `index.astro` 內容修改 | 純文字內容，與主題無關 |
+| 首頁疑問區塊文案更新、移除英文 eyebrow | `index.astro` 內容修改 | 純文字內容，與主題無關 |
+| 首頁理財新知顯示數量 6→3 則 | `slice(0,3)` 邏輯修改 | 資料邏輯，與主題無關 |
+| 首頁服務卡片改為 SVG（移除原圖及說明文字） | HTML 結構改變 | 僅結構，顏色已計入上方受影響項 |
+| 首頁客戶見證 HTML 結構重構（名字移至照片旁） | HTML 結構改變 | 結構與排版，與主題無關 |
+| 首頁客戶見證文案全部更新 | `index.astro` 內容修改 | 純文字內容，與主題無關 |
+| 關於諾昇頁文字加粗放大（mission / advisor-bio / detail-list） | `about/index.astro` `<style>` 修改 | `font-weight: 700` 為固定值；字級使用 `--fs-xl`/`--fs-lg`/`--fs-body`，全主題共用 |
+| 服務項目頁改為 icon-grid 3 欄佈局 | `service/index.astro` HTML + 頁內 `<style>` | 佈局結構，顏色已計入上方受影響項 |
 
 ---
 
@@ -213,77 +177,103 @@
 
 ---
 
-## [session-2026-03-28] 視覺設計修改（Telegram 指令批次）
+## [review] 全站程式碼檢視（R-01 ~ R-21，2026-03-26）
 
-> 完成日期：2026-03-28
-> 來源：Telegram chat_id 8747758312 指令批次
+> 來源：全面檢視網站程式碼、設計、建置設定
+
+### 高優先（R-01 ~ R-10）
+
+| 編號 | 類別 | 修復內容 | 狀態 |
+|------|------|----------|------|
+| R-01 | SEO | JSON-LD image 欄位條件式輸出，無圖時省略欄位 | ✅ 完成 |
+| R-02 | 樣式 | 新增 `--color-on-primary` CSS 變數，取代 global.css / PageHero / BlogList 中硬編碼 `#fff` | ✅ 完成 |
+| R-03 | 樣式 | 四個頁面 inline style 抽出為 CSS class（utility + 語意 class） | ✅ 完成 |
+| R-04 | 無障礙 | 全域加入 `:focus-visible` 焦點樣式（使用 `--color-accent` 環） | ✅ 完成 |
+| R-05 | 安全 | 首頁外部連結補 `noreferrer` | ✅ 完成 |
+| R-06 | 無障礙 | 策略夥伴頁 SVG 補 `aria-hidden="true"` | ✅ 完成 |
+| R-07 | 內容 | 部落格摘要改用 CSS `-webkit-line-clamp` 截斷，避免斷詞 | ✅ 完成 |
+| R-08 | 建置 | 移除未使用的 `@astrojs/rss` 依賴 | ✅ 完成 |
+| R-09 | 無障礙 | Premium-Dark `--color-text-mid` 提升至 `#8fbfc3`（符合 WCAG AA） | ✅ 完成 |
+| R-10 | 樣式 | SakuraRain 花瓣改用 `--sakura-mid` / `--sakura-deep` 主題變數 | ✅ 完成 |
+
+### 中優先（R-11 ~ R-18）
+
+| 編號 | 類別 | 修復內容 | 狀態 |
+|------|------|----------|------|
+| R-11 | 響應式 | 統一斷點：contact layout 從 768px 改為 900px | ✅ 完成 |
+| R-12 | 無障礙 | 聯絡表單加入 placeholder、LINE ID 加 aria-describedby | ✅ 完成 |
+| R-13 | 效能 | 服務頁圖片移除固定 aspect-ratio，依賴原始比例自適應 | ✅ 完成 |
+| R-14 | 效能 | 文章封面圖改為 `loading="lazy"` | ✅ 完成 |
+| R-15 | 效能 | 文章封面圖加入 `sizes` 屬性 | ✅ 完成 |
+| R-16 | 語意 | 確認所有頁面已有 `<main>` 元素（無需修改） | ✅ 已符合 |
+| R-17 | SEO | Head.astro 加入 `<meta name="robots" content="noindex, nofollow">` | ✅ 完成 |
+| R-18 | 響應式 | Google Maps iframe 改用 aspect-ratio 容器，移除固定 height | ✅ 完成 |
+
+### 低優先（R-19 ~ R-21）
+
+| 編號 | 類別 | 修復內容 | 狀態 |
+|------|------|----------|------|
+| R-19 | 效能 | preconnect crossorigin 改為 `crossorigin="anonymous"` | ✅ 完成 |
+| R-20 | 樣式 | sub-menu box-shadow 改用 `--card-shadow` 主題變數 | ✅ 完成 |
+| R-21 | 內容 | 首頁服務圖片 alt 改為實際服務名稱 | ✅ 完成 |
+
+---
+
+## 第二輪改善清單（2026-03-26）
+
+> 來源：第二輪改善清單（原 docs/TODO.md）
+
+### 標題階層修正
 
 | 項目 | 說明 | 狀態 |
 |------|------|------|
-| 首頁 FPAT Podcast 連結文字 | 改為「投資不是賺更多，是規劃更好-優雅轉身CFP®張惠芳」 | ✅ 完成 |
-| 首頁客戶見證區塊 | 移除英文 eyebrow「Testimonials」；名字與職稱移至照片旁 | ✅ 完成 |
-| 首頁首席顧問圖片外框 | 移除白色外框（section-subtle → section，解決 JPEG 白角問題） | ✅ 完成 |
-| 首頁 Header logo 放大 | logo 60→88px、導覽文字 16→20px、header 高度 80→108px | ✅ 完成（兩輪調整） |
-| 聯絡我們 QR code 移除 | 移除 LINE QR code 圖片，文字放大（--fs-body→--fs-xl），icon 與文字對齊 | ✅ 完成 |
-| 首頁 Hero 文案與底色 | 文案改「諾昇理財規劃成為您人生的底氣」、移除英文 eyebrow、底色改企業主色（深綠） | ✅ 完成 |
-| 首頁 Hero 標題換行調整 | 分三行：「諾昇理財規劃 / 成為您人生的底氣 / 陪您走向財務幸福」 | ✅ 完成 |
-| 首頁客戶見證文案更新 | 三則見證全部換新文案，字體放大（--fs-base→--fs-body），底色改 #014045 | ✅ 完成 |
-| 首頁服務項目卡片 | 移除黑色說明 `<p>` 文字，只保留圖片與綠色 h3 標題 | ✅ 完成 |
-| Stats bar 尺寸優化 | 數字 clamp(28→36px,40→52px)、標籤 --fs-sm→--fs-body、間距 4→12px | ✅ 完成 |
-| Stats bar CFP® 改圖 | CFP® 文字換為 CFP logo 圖片（cfp-logo.png） | ✅ 完成 |
-| Stats bar label 對齊 | 加 `.stat-cfp-wrap` wrapper（min-height: 65px），四個 label 統一底部對齊 | ✅ 完成 |
-| Stats bar CFP label 更名 | 「國際認證理財規劃顧問」→「國際認證高級理財規劃顧問」 | ✅ 完成 |
-| 首頁疑問區塊 | 三個問題各自換行，移除英文 eyebrow「The Challenge」，文案更新 | ✅ 完成 |
-| 首頁 empathy 回答文案 | 「不是保險公司」加逗號，改為兩行顯示 | ✅ 完成 |
-| 首頁理財新知數量 | 只顯示最新三則（slice(0,6)→slice(0,3)） | ✅ 完成 |
-| 首頁服務卡片改 SVG icon | 六張插圖換為內嵌 SVG icon，品牌色（淡綠底 + 深綠圖），hover 反白效果 | ✅ 完成 |
-| 頁尾 logo 放大 | footer-logo.jpg 130→180px | ✅ 完成 |
-| 頁尾文字改微軟黑體粗體 | footer-desc / footer-section-title / footer-nav-list / footer-contact-list 改 Microsoft JhengHei 700，字級 15→16px | ✅ 完成 |
-| 關於諾昇頁文字加粗放大 | about-mission +bold +20px；advisor-bio +bold +18px；detail-list li +bold +17px | ✅ 完成 |
-| 服務項目六大服務改版 | service-detail-card（圖文橫排）→ service-icon-card（SVG icon + 綠色標題 + 黑色說明） | ✅ 完成 |
+| 首頁缺少 H1 | `src/pages/index.astro` slogan `<p>` 改為 `<h1>`，解決全頁無 H1 問題 | ✅ 完成 |
 
----
+### M. SEO 遷移連貫性
 
-## [v0.0.1 → v0.0.2] 主題切換影響分析（2026-03-28）
+| 項目 | 說明 | 狀態 |
+|------|------|------|
+| M-1 robots.txt 切換計劃 | 建立 DNS 切換 SOP，切換前改 Disallow → Allow | ✅ 已文件化 |
+| M-2 Sitemap 檔名相容性 | deploy.yml 加入 cp 指令，自動產生底線版本 sitemap_index.xml | ✅ 完成 |
+| M-3 JSON-LD 改回 BlogPosting | [...slug].astro 改為 `@type: BlogPosting` | ✅ 完成 |
+| M-4 日期加時區 +08:00 | datePublished / dateModified 加入 +08:00 時區 | ✅ 完成 |
+| M-6 og:image 路徑確認 | og:image 使用 getAssetPath 確認可正常訪問 | ✅ 完成 |
 
-> 來源：`git diff v0.0.1 v0.0.2` 逐項分析
-> 問題：哪些改變在切換到其他 themes 時會被影響？哪些不會？
+### A. SEO 強化
 
-### 會受主題切換影響（顏色或視覺因主題 CSS 變數不同而改變）
+| 項目 | 說明 | 狀態 |
+|------|------|------|
+| A-1 og:image URL 路徑 | 改用 getAssetPath + new URL，確保 GitHub Pages base 正確 | ✅ 完成 |
+| A-2 BaseHead/Head 統一 | 刪除 BaseHead.astro，全站統一使用 Head.astro | ✅ 完成 |
+| A-3 文章 JSON-LD 加 inLanguage | 加入 `"inLanguage": "zh-TW"` | ✅ 完成 |
+| A-4 BreadcrumbList JSON-LD | blog/index 與 [category]/index 加入 BreadcrumbList | ✅ 完成 |
+| A-5 策略夥伴照片加入 JSON-LD | Person 物件補充 image 屬性 | ✅ 完成 |
 
-| 項目 | 說明 | 受影響原因 |
-|------|------|-----------|
-| 首頁 Hero 底色 | 移除 `backgroundImage`，改由背景色填滿 | 背景色為 `var(--color-primary)`，各主題主色不同 |
-| 首頁服務卡片 SVG icon 顏色 | icon box 淡色底、icon 主色、hover 強調色 | 使用 `var(--color-accent-pale)` / `var(--color-primary)` / `var(--color-accent)`，各主題值不同 |
-| 服務項目頁六大服務 icon 卡片顏色 | icon box、h3 標題色、hover border 色 | 使用 `var(--color-accent)` / `var(--color-accent-pale)` / `var(--color-primary)` |
-| 客戶見證區塊底色（`section-dark`） | 底色由 `#1d1d1d` 改為 `#014045` | 此改動只寫入 `theme-classic.css`（`--color-dark-section`），其他主題未同步，切換後恢復舊深色 |
+### B. 設計改善
 
-### 不受主題切換影響（結構、內容、global.css 固定值）
+| 項目 | 說明 | 狀態 |
+|------|------|------|
+| B-1 硬編碼色彩轉 CSS 變數 | LINE 綠、外部連結色、tag 背景色改用 CSS 變數 | ✅ 完成 |
+| B-2 CompanyName 元件化 | 建立 CompanyName.astro，contact 與 footer 統一引入 | ✅ 完成 |
+| B-3 PageHero stats 手機版 flex-wrap | 加入 flex-wrap 與小螢幕 column 排列 | ✅ 完成 |
+| B-4 服務頁 aspect-ratio | 服務卡片圖加入 aspect-ratio 防版面跳動 | ✅ 完成 |
 
-| 項目 | 說明 | 不受影響原因 |
-|------|------|-------------|
-| Header logo 放大（60→88px）、header 高度（80→108px）、導覽文字（16→20px） | `global.css` 尺寸修改 | 尺寸值非 CSS 變數，全主題共用 |
-| Stats bar 數字放大、flex-column 佈局、label 字級 | `global.css` layout 調整 | 純佈局與尺寸，與主題無關 |
-| Stats bar CFP® 換為 cfp-logo.png | HTML 結構變更 | 圖片資源，與主題無關 |
-| 頁尾 logo 放大（130→180px） | `Footer.astro` img 尺寸 | HTML 屬性，與主題無關 |
-| 頁尾文字改 Microsoft JhengHei 粗體 | `global.css` font-family 硬編碼 | 字型名稱固定寫入 global.css，全主題共用 |
-| 聯絡頁移除 LINE QR Code、icon 放大（42→52px）、文字放大 | `contact/index.astro` + `global.css` | 結構與尺寸變更，不依賴主題變數 |
-| 首頁 Hero 文案改版（三行標題、移除英文 eyebrow） | `index.astro` 內容修改 | 純文字內容，與主題無關 |
-| 首頁疑問區塊文案更新、移除英文 eyebrow | `index.astro` 內容修改 | 純文字內容，與主題無關 |
-| 首頁理財新知顯示數量 6→3 則 | `slice(0,3)` 邏輯修改 | 資料邏輯，與主題無關 |
-| 首頁服務卡片改為 SVG（移除原圖及說明文字） | HTML 結構改變 | 僅結構，顏色已計入上方受影響項 |
-| 首頁客戶見證 HTML 結構重構（名字移至照片旁） | HTML 結構改變 | 結構與排版，與主題無關 |
-| 首頁客戶見證文案全部更新 | `index.astro` 內容修改 | 純文字內容，與主題無關 |
-| 關於諾昇頁文字加粗放大（mission / advisor-bio / detail-list） | `about/index.astro` `<style>` 修改 | `font-weight: 700` 為固定值；字級使用 `--fs-xl`/`--fs-lg`/`--fs-body`，全主題共用 |
-| 服務項目頁改為 icon-grid 3 欄佈局 | `service/index.astro` HTML + 頁內 `<style>` | 佈局結構，顏色已計入上方受影響項 |
+### C. 程式碼低效
 
----
+| 項目 | 說明 | 狀態 |
+|------|------|------|
+| C-1 BlogList categories 由 data/categories 產生 | 消除分類定義重複，改用 getCategoryNavItems() | ✅ 完成 |
+| C-2 刪除遺留元件 | 刪除 BlogPost.astro、FormattedDate.astro、HeaderLink.astro | ✅ 完成 |
+| C-3 BlogList 作者名稱由 author.ts 提供 | 改為 `{author.name}` | ✅ 完成 |
+| C-4 擴充 JSON-LD 工廠函式 | blogListLd、breadcrumbLd 等工廠函式建立 | ✅ 完成 |
+| C-5 transformPost 缺失圖片備用值 | 加入 DEFAULT_IMAGE fallback | ✅ 完成 |
+| C-6 Head.astro og:image 使用 getAssetPath | 統一圖片路徑邏輯 | ✅ 完成 |
 
-## 執行批次記錄
+### 執行批次記錄
 
-> 來源：原 docs/Process.md，完成日期 2026-03-26
+> 來源：原 docs/Process.md
 
-### Batch 1：遷移連貫性（M-1 ~ M-4、A-3）
+#### Batch 1：遷移連貫性（M-1 ~ M-4、A-3）
 
 | 子項 | 實際修改 |
 |------|---------|
@@ -293,7 +283,7 @@
 | M-4 | `src/pages/[...slug].astro` datePublished/dateModified 加入 +08:00 時區 |
 | A-3 | `src/pages/[...slug].astro` JSON-LD 加入 `inLanguage: "zh-TW"` |
 
-### Batch 2：SEO 改善（A-1/C-6、A-2/C-2、A-4、A-5）
+#### Batch 2：SEO 改善（A-1/C-6、A-2/C-2、A-4、A-5）
 
 | 子項 | 實際修改 |
 |------|---------|
@@ -302,7 +292,7 @@
 | A-4 | `src/pages/blog/index.astro` 與 `src/pages/blog/[category]/index.astro` 加入 BreadcrumbList JSON-LD |
 | A-5 | `src/pages/about/策略夥伴/index.astro` JSON-LD Person 物件加入 image URL |
 
-### Batch 3：設計改善（B-1 ~ B-4）
+#### Batch 3：設計改善（B-1 ~ B-4）
 
 | 子項 | 實際修改 |
 |------|---------|
@@ -311,7 +301,7 @@
 | B-3 | `src/components/PageHero.astro` stats 加入 `flex-wrap`，小螢幕堆疊 |
 | B-4 | `src/pages/service/index.astro` 服務卡片加入 `aspect-ratio` |
 
-### Batch 4：程式碼低效（C-1、C-3、C-4、C-5）
+#### Batch 4：程式碼低效（C-1、C-3、C-4、C-5）
 
 | 子項 | 實際修改 |
 |------|---------|
