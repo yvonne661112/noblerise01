@@ -140,29 +140,41 @@ const jsonLd = {
           </div>
           <div class="inheritance-visual">
             <div class="inheritance-illustration">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" fill="none" aria-hidden="true">
-                <!-- 背景圓 -->
-                <circle cx="200" cy="160" r="140" fill="var(--color-accent-pale)" />
-                <!-- 房屋（資產象徵） -->
-                <path d="M200 60 L130 120 L130 200 L270 200 L270 120 Z" fill="var(--color-primary)" opacity="0.15" stroke="var(--color-primary)" stroke-width="2"/>
-                <rect x="150" y="140" width="40" height="60" rx="2" fill="var(--color-accent)" opacity="0.6"/>
-                <rect x="210" y="140" width="40" height="60" rx="2" fill="var(--color-accent)" opacity="0.6"/>
-                <rect x="175" y="160" width="50" height="40" rx="2" fill="var(--color-primary)" opacity="0.3"/>
-                <!-- 上方家族連結線 -->
-                <circle cx="200" cy="230" r="16" fill="var(--color-primary)" opacity="0.8"/>
-                <circle cx="155" cy="270" r="12" fill="var(--color-accent)" opacity="0.8"/>
-                <circle cx="245" cy="270" r="12" fill="var(--color-accent)" opacity="0.8"/>
-                <line x1="200" y1="246" x2="155" y2="258" stroke="var(--color-primary)" stroke-width="2" opacity="0.5"/>
-                <line x1="200" y1="246" x2="245" y2="258" stroke="var(--color-primary)" stroke-width="2" opacity="0.5"/>
-                <!-- 盾牌（保障象徵） -->
-                <path d="M320 80 L320 120 C320 145 300 160 290 165 C280 160 260 145 260 120 L260 80 L290 70 Z" fill="var(--color-accent)" opacity="0.3" stroke="var(--color-accent)" stroke-width="1.5"/>
-                <path d="M282 110 L288 116 L300 100" stroke="var(--color-accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <!-- 文件（規劃象徵） -->
-                <rect x="60" y="75" width="50" height="65" rx="4" fill="var(--color-white)" stroke="var(--color-primary)" stroke-width="1.5" opacity="0.8"/>
-                <line x1="72" y1="92" x2="98" y2="92" stroke="var(--color-primary)" stroke-width="1.5" opacity="0.4"/>
-                <line x1="72" y1="102" x2="98" y2="102" stroke="var(--color-primary)" stroke-width="1.5" opacity="0.4"/>
-                <line x1="72" y1="112" x2="90" y2="112" stroke="var(--color-primary)" stroke-width="1.5" opacity="0.4"/>
-                <line x1="72" y1="122" x2="95" y2="122" stroke="var(--color-primary)" stroke-width="1.5" opacity="0.4"/>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 360" fill="none" aria-hidden="true">
+                <!-- 背景 -->
+                <rect width="400" height="360" rx="16" fill="var(--color-accent-pale)" />
+                <!-- 大樹（家族傳承） -->
+                <rect x="188" y="160" width="24" height="120" rx="4" fill="#6b8a3e"/>
+                <ellipse cx="200" cy="130" rx="70" ry="60" fill="var(--color-accent)" opacity="0.7"/>
+                <ellipse cx="165" cy="145" rx="40" ry="35" fill="var(--color-accent)" opacity="0.5"/>
+                <ellipse cx="235" cy="145" rx="40" ry="35" fill="var(--color-accent)" opacity="0.5"/>
+                <ellipse cx="200" cy="105" rx="45" ry="38" fill="var(--color-accent)" opacity="0.6"/>
+                <!-- 根部延伸（穩固根基） -->
+                <path d="M188 275 Q170 290 150 295" stroke="#6b8a3e" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <path d="M212 275 Q230 290 250 295" stroke="#6b8a3e" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <path d="M195 270 Q185 285 180 300" stroke="#6b8a3e" stroke-width="2" fill="none" stroke-linecap="round"/>
+                <path d="M205 270 Q215 285 220 300" stroke="#6b8a3e" stroke-width="2" fill="none" stroke-linecap="round"/>
+                <!-- 左側：父母人形 -->
+                <circle cx="80" cy="185" r="14" fill="var(--color-primary)" opacity="0.7"/>
+                <rect x="71" y="202" width="18" height="30" rx="6" fill="var(--color-primary)" opacity="0.5"/>
+                <!-- 右側：子女人形 -->
+                <circle cx="320" cy="195" r="11" fill="var(--color-primary)" opacity="0.6"/>
+                <rect x="312" y="209" width="16" height="24" rx="5" fill="var(--color-primary)" opacity="0.4"/>
+                <circle cx="345" cy="200" r="9" fill="var(--color-primary)" opacity="0.5"/>
+                <rect x="338" y="212" width="14" height="20" rx="5" fill="var(--color-primary)" opacity="0.35"/>
+                <!-- 連結箭頭（傳承方向） -->
+                <path d="M97 210 Q140 230 185 240" stroke="var(--color-accent)" stroke-width="2" stroke-dasharray="6 4" fill="none" marker-end="url(#arrow)"/>
+                <path d="M215 240 Q260 230 308 215" stroke="var(--color-accent)" stroke-width="2" stroke-dasharray="6 4" fill="none" marker-end="url(#arrow)"/>
+                <defs>
+                  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--color-accent)"/>
+                  </marker>
+                </defs>
+                <!-- 金幣（財富） -->
+                <circle cx="70" cy="300" r="16" fill="#d4a843" opacity="0.6" stroke="#b8912e" stroke-width="1.5"/>
+                <text x="70" y="305" text-anchor="middle" font-size="14" font-weight="700" fill="#b8912e" opacity="0.8">$</text>
+                <circle cx="340" cy="305" r="13" fill="#d4a843" opacity="0.5" stroke="#b8912e" stroke-width="1.5"/>
+                <text x="340" y="310" text-anchor="middle" font-size="12" font-weight="700" fill="#b8912e" opacity="0.7">$</text>
               </svg>
             </div>
           </div>
@@ -222,7 +234,7 @@ const jsonLd = {
           <p class="consultation-desc">若您想進一步了解財務規劃，我們提供 30 分鐘免費線上諮詢。協助釐清您的財務現況是否需要規劃，並說明諾昇的流程、服務內容與收費方式。</p>
           <p class="consultation-result"><strong>預期成果：</strong>您將帶走清楚的下一步方向，以及選擇最適合自己方案所需的完整資訊。</p>
           <div class="consultation-cta">
-            <a href={CONTACT.lineUrl} target="_blank" rel="noopener" class="btn btn-accent btn-lg">LINE 預約諮詢</a>
+            <a href={CONTACT.lineUrl} target="_blank" rel="noopener" class="btn consultation-btn">LINE 預約諮詢</a>
           </div>
           <p class="consultation-disclaimer">此為流程與方向說明，我們不會在 30 分鐘內提供個別財務問題的深入分析和解決方案建議。</p>
         </div>
@@ -409,7 +421,8 @@ const jsonLd = {
 
   /* ── CONSULTATION ── */
   .consultation-section {
-    background: var(--color-accent);
+    background: var(--color-accent-pale);
+    border-top: 4px solid var(--color-accent);
   }
   .consultation-box {
     max-width: 720px;
@@ -417,32 +430,45 @@ const jsonLd = {
     text-align: center;
   }
   .consultation-eyebrow {
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--color-accent);
   }
   .consultation-title {
-    color: var(--color-white);
+    color: var(--color-primary);
   }
   .consultation-divider {
-    border-color: rgba(255, 255, 255, 0.4);
+    border-color: var(--color-accent);
   }
   .consultation-desc {
     font-size: var(--fs-lg);
     line-height: 1.9;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--color-text-mid);
     margin-bottom: 20px;
   }
   .consultation-result {
     font-size: var(--fs-lg);
     line-height: 1.9;
-    color: var(--color-on-primary);
-    margin-bottom: 32px;
+    color: var(--color-text);
+    margin-bottom: 36px;
   }
   .consultation-cta {
     margin-bottom: 28px;
   }
+  .consultation-btn {
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+    padding: 18px 56px;
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    border-radius: var(--card-radius);
+    box-shadow: 0 4px 16px rgba(13, 56, 58, 0.3);
+  }
+  .consultation-btn:hover {
+    background: var(--color-accent);
+    box-shadow: 0 6px 24px rgba(133, 161, 79, 0.4);
+  }
   .consultation-disclaimer {
     font-size: var(--fs-sm);
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--color-text-muted);
     line-height: 1.6;
   }
 
