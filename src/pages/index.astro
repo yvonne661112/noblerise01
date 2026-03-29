@@ -271,10 +271,7 @@ const jsonLd = [
           <p class="testimonial-text">「55歲退休能實現嗎？」惠芳CFP以專業財務顧問角度，科學量化精算一生的現金流，從退休資金、稅務、到資產信託規劃與實際執行，每一步都讓我更踏實，不只做規劃，更定期提醒與追蹤進度，讓我能專心衝刺事業，不再為未來焦慮，完成規劃後，我對人生財務藍圖更加安心！</p>
           <div class="testimonial-author">
             <img src={base + "images/home-customer2.jpg"} alt="張先生" width="72" height="72" loading="lazy" class="testimonial-avatar" />
-            <div class="testimonial-meta">
-              <p class="testimonial-name">張先生</p>
-              <p class="testimonial-role">科技業主管</p>
-            </div>
+            <p class="testimonial-label">科技業主管——張先生</p>
           </div>
         </div>
         <div class="testimonial testimonial--light testimonial--featured">
@@ -282,21 +279,15 @@ const jsonLd = [
           <p class="testimonial-text">我常思考：「保險買這麼多，真的都需要嗎？」惠芳CFP以獨立理財規劃顧問第三方角色，全面盤點保單與資產，揪出多餘的保障與不當理財商品，重新調整收支與現金流，繳更少保費，保障卻差不多，大幅降低保險支出，資產負債表一目了然，心更安定，讓我體會到：「找對顧問，是最聰明的省錢方式！」</p>
           <div class="testimonial-author">
             <img src={base + "images/home-customer3.jpg"} alt="陳小姐" width="72" height="72" loading="lazy" class="testimonial-avatar" />
-            <div class="testimonial-meta">
-              <p class="testimonial-name">陳小姐</p>
-              <p class="testimonial-role">退休人士</p>
-            </div>
+            <p class="testimonial-label">退休人士——陳小姐</p>
           </div>
         </div>
         <div class="testimonial testimonial--light testimonial--featured">
           <div class="testimonial-quote" aria-hidden="true">"</div>
           <p class="testimonial-text">我是財務投資小白，在惠芳CFP指導下，從開戶到投資執行與收支掌控逐步建立，每月養成紀錄習慣，重新確立理財目標，一步步打造理想生活藍圖與財務秩序。我也開始學習用AI自學新知，提升專業能力與收入，財務壓力漸漸減輕，不再焦慮也不盲從，逐步邁向我的財務幸福。</p>
           <div class="testimonial-author">
-            <img src={base + "images/home-customer1.jpg"} alt="王先生" width="72" height="72" loading="lazy" class="testimonial-avatar" />
-            <div class="testimonial-meta">
-              <p class="testimonial-name">王先生</p>
-              <p class="testimonial-role">工程監工</p>
-            </div>
+            <img src={base + "images/home-customer1.jpg"} alt="李先生" width="72" height="72" loading="lazy" class="testimonial-avatar" />
+            <p class="testimonial-label">工程監工——李先生</p>
           </div>
         </div>
       </div>
@@ -563,6 +554,12 @@ const jsonLd = [
     margin-top: 20px;
   }
   .testimonial-author .testimonial-avatar { margin-bottom: 0; }
+  .testimonial-label {
+    font-size: var(--fs-lg, 1.25rem);
+    font-weight: 600;
+    color: var(--color-primary);
+    margin: 0;
+  }
   .testimonial-meta { display: flex; flex-direction: column; gap: 2px; }
 
   /* ── MEDIA ── */
