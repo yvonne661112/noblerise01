@@ -363,7 +363,12 @@ const jsonLd = [
 </BaseLayout>
 
 <style>
-  /* ── HERO SUB ── */
+  /* ── HERO ── */
+  :global(.page-hero--large) {
+    min-height: 380px !important;
+    padding-top: 56px !important;
+    padding-bottom: 48px !important;
+  }
   :global(.hero-sub) {
     display: block;
     font-size: clamp(20px, 3vw, 30px);
