@@ -189,33 +189,32 @@ const jsonLd = {
   </main>
 
   <!-- ── VALUE SECTION ── -->
-  <section class="sp-value">
-    <div class="sp-value-bg-grid"></div>
-    <div class="sp-value-inner">
-      <div class="sp-value-header">
-        <span class="sp-value-eyebrow">Why Noblerise</span>
-        <h2>與諾昇策略聯盟合作的核心優勢</h2>
+  <section class="section section-subtle">
+    <div class="container">
+      <div class="text-center mb-48">
+        <span class="section-eyebrow">Why Noblerise</span>
+        <h2 class="section-title">與諾昇策略聯盟合作的核心優勢</h2>
       </div>
       <div class="sp-value-grid">
-        <div class="sp-value-item">
+        <div class="sp-value-card">
           <div class="sp-value-num">01</div>
-          <div class="sp-value-title">一站式跨域整合</div>
-          <div class="sp-value-desc">財稅、法律、勞務、信託四大領域無縫合作，客戶無需分頭尋找多家專業機構，諾昇統籌協調，一次解決。</div>
+          <h3>一站式跨域整合</h3>
+          <p>財稅、法律、勞務、信託四大領域無縫合作，客戶無需分頭尋找多家專業機構，諾昇統籌協調，一次解決。</p>
         </div>
-        <div class="sp-value-item">
+        <div class="sp-value-card">
           <div class="sp-value-num">02</div>
-          <div class="sp-value-title">超越部署・預防優先</div>
-          <div class="sp-value-desc">從股權規劃、遺囑安置到勞務合規，我們建立制度，避免家庭糾紛、稅務裂縫與勞資爭議等事後高代價。</div>
+          <h3>超越部署・預防優先</h3>
+          <p>從股權規劃、遺囑安置到勞務合規，我們建立制度，避免家庭糾紛、稅務裂縫與勞資爭議等事後高代價。</p>
         </div>
-        <div class="sp-value-item">
+        <div class="sp-value-card">
           <div class="sp-value-num">03</div>
-          <div class="sp-value-title">三維風險管控</div>
-          <div class="sp-value-desc">稅務風險（莊）、法律風險（賴）、勞務風險（劉）同步評估，再以信託架構（陳）與資產保全，形成完整防護網。</div>
+          <h3>三維風險管控</h3>
+          <p>稅務風險（莊）、法律風險（賴）、勞務風險（劉）同步評估，再以信託架構（陳）與資產保全，形成完整防護網。</p>
         </div>
-        <div class="sp-value-item">
+        <div class="sp-value-card">
           <div class="sp-value-num">04</div>
-          <div class="sp-value-title">規劃落地・制度可行</div>
-          <div class="sp-value-desc">每位夥伴都強調「可執行」，不只出具報告，而是陪您把想法變成可運作的制度與架構，落地生根。</div>
+          <h3>規劃落地・制度可行</h3>
+          <p>每位夥伴都強調「可執行」，不只出具報告，而是陪您把想法變成可運作的制度與架構，落地生根。</p>
         </div>
       </div>
     </div>
@@ -416,78 +415,57 @@ const jsonLd = {
   }
 
   /* ── VALUE SECTION ── */
-  .sp-value {
-    position: relative;
-    overflow: hidden;
-    background: var(--color-bg-subtle);
-    padding: 72px 4rem;
-    border-top: 1px solid var(--color-border);
-  }
-  .sp-value-bg-grid {
-    display: none;
-  }
-  .sp-value-inner {
-    position: relative;
-    z-index: 1;
-    max-width: 1160px;
-    margin: 0 auto;
-  }
-  .sp-value-header {
-    text-align: center;
-    margin-bottom: 48px;
-  }
-  .sp-value-eyebrow {
-    display: block;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--color-accent);
-    margin-bottom: 1rem;
-  }
-  .sp-value-header h2 {
-    font-family: var(--font-heading);
-    font-size: 28px;
-    font-weight: var(--heading-weight);
-    color: var(--color-primary);
-    letter-spacing: 0.06em;
-  }
   .sp-value-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
-    border-radius: var(--card-radius);
-    overflow: hidden;
   }
-  .sp-value-item {
-    background: var(--color-white);
-    padding: 36px 28px;
+  .sp-value-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 32px 20px;
+    border-radius: var(--card-radius);
     border: 1px solid var(--color-border);
-    border-radius: var(--card-radius);
-    transition: box-shadow 0.2s, transform 0.2s;
+    background: var(--color-white);
+    transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
   }
-  .sp-value-item:hover {
+  .sp-value-card:hover {
     box-shadow: var(--card-shadow-hover);
     transform: translateY(-3px);
+    border-color: var(--color-accent);
   }
   .sp-value-num {
+    width: 56px;
+    height: 56px;
+    background: var(--color-accent-pale);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
     font-family: var(--font-heading);
-    font-size: 40px;
+    font-size: var(--fs-2xl, 24px);
+    font-weight: 700;
+    color: var(--color-primary);
+    transition: background 0.25s, color 0.25s;
+  }
+  .sp-value-card:hover .sp-value-num {
+    background: var(--color-accent);
+    color: var(--color-white);
+  }
+  .sp-value-card h3 {
+    font-family: var(--font-heading);
+    font-size: var(--fs-lg);
     font-weight: var(--heading-weight);
     color: var(--color-accent);
-    line-height: 1;
-    margin-bottom: 18px;
+    margin-bottom: 12px;
   }
-  .sp-value-title {
-    font-size: 15.5px;
-    font-weight: 500;
-    color: var(--color-primary);
-    margin-bottom: 10px;
-    letter-spacing: 0.03em;
-  }
-  .sp-value-desc {
-    font-size: 13.5px;
+  .sp-value-card p {
+    font-size: var(--fs-base);
     color: var(--color-text-mid);
-    line-height: 1.85;
+    line-height: 1.7;
   }
 
   /* ── MOBILE ── */
@@ -497,7 +475,6 @@ const jsonLd = {
     .sp-card { grid-template-columns: 1fr; }
     .sp-card-photo { min-height: 240px; }
     .sp-card-body { padding: 24px 20px; }
-    .sp-value { padding: 56px 1.5rem; }
     .sp-value-grid { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 600px) {
