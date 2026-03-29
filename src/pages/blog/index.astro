@@ -33,7 +33,7 @@ const crumbLd = breadcrumbLd([
   <PageHero
     eyebrow="Knowledge"
     title="理財新知"
-    description="專業觀點、實用知識，幫助你做出更好的財務決策。"
+    description="專業觀點、實用知識，幫助您做出更好的財務決策。"
   />
 
   <main class="section">
@@ -78,6 +78,11 @@ const crumbLd = breadcrumbLd([
 </BaseLayout>
 
 <style>
+  :global(.page-hero-desc) {
+    font-size: var(--fs-lg) !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    max-width: 640px !important;
+  }
   .blog-toolbar {
     display: flex;
     align-items: center;
