@@ -189,7 +189,7 @@ const jsonLd = {
   </main>
 
   <!-- ── VALUE SECTION ── -->
-  <section class="section section-subtle">
+  <section class="section sp-value-section">
     <div class="container">
       <div class="text-center mb-48">
         <span class="section-eyebrow">Why Noblerise</span>
@@ -415,6 +415,10 @@ const jsonLd = {
   }
 
   /* ── VALUE SECTION ── */
+  .sp-value-section {
+    background: var(--color-accent-pale);
+    border-top: 4px solid var(--color-accent);
+  }
   .sp-value-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -457,13 +461,13 @@ const jsonLd = {
   }
   .sp-value-card h3 {
     font-family: var(--font-heading);
-    font-size: var(--fs-lg);
+    font-size: var(--fs-xl, 20px);
     font-weight: var(--heading-weight);
     color: var(--color-accent);
     margin-bottom: 12px;
   }
   .sp-value-card p {
-    font-size: var(--fs-base);
+    font-size: var(--fs-lg, 18px);
     color: var(--color-text-mid);
     line-height: 1.7;
   }
