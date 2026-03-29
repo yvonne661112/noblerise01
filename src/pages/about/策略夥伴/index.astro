@@ -31,7 +31,7 @@ const jsonLd = {
 
   <PageHero
     eyebrow="Strategic Partners"
-    title="諾昇策略夥伴<br/>專業組隊，一站對接，全方位守護您的資產"
+    title="諾昇策略夥伴<br/><span class='hero-mid'>專業組隊，一站對接<br/>全方位守護您的資產</span>"
     subtitle="財稅、法律、勞務、信託四大專業整合，以制度管理風險，以規劃創造價值，諾昇策略團隊都在這裡，為您的家庭與事業保駕護航。"
   />
 
@@ -226,6 +226,13 @@ const jsonLd = {
 
 <style>
   /* ── HERO DESC ── */
+  :global(.hero-mid) {
+    display: block;
+    font-size: clamp(22px, 3vw, 28px);
+    font-weight: 400;
+    margin-top: 8px;
+    line-height: 1.5;
+  }
   :global(.page-hero-subtitle) {
     font-size: 18px !important;
     color: #fff !important;
