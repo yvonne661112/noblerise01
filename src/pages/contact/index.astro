@@ -49,7 +49,7 @@ const jsonLd = {
   <PageHero
     eyebrow="Contact"
     title="聯絡我們"
-    description="有任何財務規劃問題，歡迎隨時與我們聯繫。"
+    subtitle="有任何財務規劃問題，歡迎隨時與我們聯繫"
   />
 
   <main class="section">
@@ -169,6 +169,11 @@ const jsonLd = {
 </BaseLayout>
 
 <style>
+  /* ── HERO ── */
+  :global(.page-hero-subtitle) {
+    color: #fff !important;
+    font-size: clamp(18px, 2.5vw, 22px) !important;
+  }
   /* ── LAYOUT ── */
   .contact-grid { align-items: start; }
   .contact-company { margin-bottom: 1.5em; font-size: var(--fs-body); }
