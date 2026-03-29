@@ -42,8 +42,8 @@ const jsonLd = {
 
   <PageHero
     eyebrow="Services"
-    title="讓金流更清楚<br/>未來更安心"
-    description="不推銷、不賣產品，只用策略把「現在的資源」連結到「你想要的生活」。"
+    title="釐清財務金流<br/>找回幸福生活的主導權"
+    description="不賣產品、只做規劃，理財不該是數字的追逐，只用策略把「現在的資源」連結到「您想要的財務幸福生活」。"
     backgroundImage="images/aboutmehead.jpg"
   />
 
@@ -310,6 +310,14 @@ const jsonLd = {
 </BaseLayout>
 
 <style>
+  /* ── HERO DESC OVERRIDE ── */
+  :global(.page-hero-desc) {
+    font-size: var(--fs-lg) !important;
+    font-weight: 700 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    max-width: 640px !important;
+  }
+
   /* ── SERVICE PHILOSOPHY ── */
   .service-philosophy {
     font-size: var(--fs-lg);
