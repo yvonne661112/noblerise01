@@ -25,7 +25,7 @@ const bgUrl = backgroundImage ? `${base}${backgroundImage}` : null;
     {eyebrow && <div class="page-hero-eyebrow">{eyebrow}</div>}
     <h1 class="page-hero-title" set:html={title} />
     {subtitle && <p class="page-hero-subtitle">{subtitle}</p>}
-    {description && <p class="page-hero-desc">{description}</p>}
+    {description && <p class="page-hero-desc" set:html={description} />}
     {stats && stats.length > 0 && (
       <div class="page-hero-stats">
         {stats.map(s => (
