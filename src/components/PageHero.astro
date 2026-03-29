@@ -21,6 +21,7 @@ const bgUrl = backgroundImage ? `${base}${backgroundImage}` : null;
 <section class:list={['page-hero', { 'page-hero--has-bg': !!bgUrl, 'page-hero--center': center, 'page-hero--large': large }]}>
   {bgUrl && <div class="page-hero-img" style={`background-image: url('${bgUrl}')`}></div>}
   <div class="page-hero-overlay"></div>
+  <div class="page-hero-accent"></div>
   <div class="page-hero-inner">
     {eyebrow && <div class="page-hero-eyebrow">{eyebrow}</div>}
     <h1 class="page-hero-title" set:html={title} />
@@ -44,7 +45,7 @@ const bgUrl = backgroundImage ? `${base}${backgroundImage}` : null;
   .page-hero {
     position: relative;
     overflow: hidden;
-    background: var(--color-primary);
+    background: var(--hero-gradient, var(--color-primary));
     padding: 56px 24px 48px;
     color: var(--color-on-primary);
   }
@@ -70,11 +71,21 @@ const bgUrl = backgroundImage ? `${base}${backgroundImage}` : null;
     pointer-events: none;
   }
   .page-hero--has-bg .page-hero-overlay {
-    background: linear-gradient(135deg, rgba(15, 31, 43, 0.88) 0%, rgba(27, 58, 75, 0.78) 100%);
+    background: linear-gradient(135deg, rgba(10, 46, 48, 0.9) 0%, rgba(13, 56, 58, 0.82) 40%, rgba(21, 69, 72, 0.78) 100%);
   }
   .page-hero:not(.page-hero--has-bg) .page-hero-overlay {
     background-image: var(--hero-pattern);
-    background-size: auto, auto, 40px 40px, 40px 40px;
+    background-size: 24px 24px;
+  }
+
+  .page-hero-accent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--color-accent) 30%, var(--color-accent) 70%, transparent);
+    z-index: 2;
   }
 
   .page-hero-inner {
