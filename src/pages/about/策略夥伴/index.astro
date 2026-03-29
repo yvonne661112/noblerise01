@@ -33,12 +33,23 @@ const jsonLd = {
     eyebrow="Strategic Partners"
     title="諾昇策略夥伴<br/>協同聯防，為您護航"
     description="財稅、法律、勞務、信託──四大專業直接整合，以制度管理風險，以規劃創造價值，為個人與企業提供全方位、長期不斷檔的守護。"
-    stats={[
-      { num: '4', label: '專業領域' },
-      { num: '20+', label: '年平均資歷' },
-      { num: '1', label: '整合平台' },
-    ]}
   />
+
+  <!-- ── STATS BAR ── -->
+  <div class="stat-bar">
+    <div class="stat-item">
+      <span class="stat-number">4</span>
+      <span class="stat-label">專業領域</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">20+</span>
+      <span class="stat-label">年平均資歷</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">1</span>
+      <span class="stat-label">整合平台</span>
+    </div>
+  </div>
 
   <!-- ── INTRO BANNER ── -->
   <div class="sp-intro-banner">
@@ -218,21 +229,6 @@ const jsonLd = {
   :global(.page-hero-desc) {
     font-size: 18px !important;
     color: #fff !important;
-  }
-  :global(.page-hero-stats) {
-    background: rgba(255, 255, 255, 0.08) !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    border-radius: 12px !important;
-    padding: 28px 40px !important;
-    margin-top: 2rem !important;
-  }
-  :global(.page-hero-stat-num) {
-    color: #fff !important;
-    font-size: 44px !important;
-  }
-  :global(.page-hero-stat-label) {
-    color: rgba(255, 255, 255, 0.75) !important;
-    font-size: 14px !important;
   }
   /* ── INTRO BANNER ── */
   .sp-intro-banner {
