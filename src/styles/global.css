@@ -482,21 +482,29 @@ textarea:focus-visible,
   color: var(--color-on-primary);
   padding: 48px 24px 36px;
 }
-.footer-inner {
+/* ── Top row: Logo left + Nav right ── */
+.footer-top-row {
   max-width: var(--max-width);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 40px 56px;
+  margin: 0 auto 32px;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 40px;
 }
-/* ── Logo (left) ── */
 .footer-logo-col img {
   display: block;
   width: var(--footer-logo-width);
   height: auto;
 }
-/* ── Info ── */
+.footer-nav-col {
+  display: flex;
+  align-items: center;
+}
+/* ── Bottom: Company info ── */
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
 .footer-info-col {
   text-align: left;
 }
@@ -534,12 +542,6 @@ textarea:focus-visible,
 }
 .footer-info-list a:hover { color: var(--color-on-primary); }
 .footer-line-id { color: var(--color-line-light); }
-/* ── Nav (horizontal, centered) ── */
-.footer-nav-row {
-  max-width: var(--max-width);
-  margin: 0 auto 32px;
-  text-align: center;
-}
 .footer-nav-list {
   list-style: none;
   padding: 0;
@@ -547,7 +549,7 @@ textarea:focus-visible,
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 12px 40px;
 }
 .footer-nav-list li { margin-bottom: 0; }
@@ -648,14 +650,17 @@ textarea:focus-visible,
   .service-card-grid { grid-template-columns: 1fr 1fr; }
   .section { padding: 56px 20px; }
   .stat-bar { gap: 24px; flex-wrap: wrap; }
-  .footer-inner {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    text-align: left;
+  .footer-top-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
   }
   .footer-logo-col img {
     width: 160px;
     margin: 0;
+  }
+  .footer-nav-list {
+    justify-content: flex-start;
   }
 }
 
