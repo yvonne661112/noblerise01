@@ -29,6 +29,9 @@
   --color-white:         #ffffff;
   --color-rose:          #ea3a60;
   --color-on-primary:    #ffffff;   /* 主色背景上的文字色 */
+  --color-line:          #06c755;   /* LINE 品牌綠 */
+  --color-line-light:    #66b966;   /* LINE 品牌綠（淡） */
+  --color-link:          #C95070;   /* 連結色（同 accent） */
 
   /* ── 櫻花花瓣（河津桜原色）── */
   --sakura-mid:          #ffb7c5;

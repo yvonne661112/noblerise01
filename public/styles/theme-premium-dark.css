@@ -33,6 +33,9 @@
   --color-text-muted:    rgba(255, 255, 255, 0.40);
   --color-rose:          #ff6b8a;   /* 深底下略亮 */
   --color-on-primary:    #ffffff;   /* 主色背景上的文字色 */
+  --color-line:          #06c755;   /* LINE 品牌綠 */
+  --color-line-light:    #66b966;   /* LINE 品牌綠（淡） */
+  --color-link:          #c8c87a;   /* 連結色（同 accent） */
 
   /* ── 櫻花花瓣 ── */
   --sakura-mid:          #8cd4d8;  /* 青藍色調（搭配 Premium-Dark 青藍主色）*/

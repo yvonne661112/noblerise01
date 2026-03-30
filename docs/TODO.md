@@ -1,6 +1,6 @@
 # TODO — 諾昇理財網站待辦事項
 
----
+> 已完成項目請見 [`docs/DONE.md`](./DONE.md)
 
 ---
 
@@ -10,6 +10,7 @@
 
 | 項目 | 說明 | 條件 |
 |------|------|------|
+| P3-04 文章列表 skeleton loading | 靜態站效益低，複雜度較高 | 需評估效益 |
 | A-6 聯絡頁加電話欄位 | siteConfig 加 phone，補入 JSON-LD | 需取得實際電話號碼 |
 | A-7 重要圖片改用 Astro Image | LCP 圖片改用 `<Image>` 元件，提升 PageSpeed | 改動範圍大，留待評估 |
 | B-5 頭像視覺語言統一 | testimonial 圓形與策略夥伴矩形不一致 | 需設計師確認規範 |
@@ -28,6 +29,38 @@
 | 2 | sitemap URL 確認指向正式網域 |
 | 3 | DNS 切換，確認部署完成 |
 | 4 | M-5：Google Search Console 重新驗證與提交 sitemap |
+
+---
+
+## [seo] SEO / E-E-A-T 改善（待辦）
+
+> 來源：`docs/seo_改良建議.md` × 2026-03-27 現況比對
+> 程式碼項目（S-01～S-09）已完成，見 `docs/DONE.md`
+
+### 在地化搜尋（Local SEO）
+
+| 編號 | 優先 | 項目 | 說明 | 條件 |
+|------|------|------|------|------|
+| S-10 | 高 | Google 我的商家（GBP）建立 | 建立 Google Business Profile，NAP 與網站一致 | 需客戶操作 Google 帳號 |
+| S-11 | — | Footer / Schema 補電話 | 已列於 deferred A-6，取得號碼後補入 | 需取得實際電話號碼 |
+
+### 內容行銷（Content SEO）
+
+| 編號 | 優先 | 項目 | 說明 |
+|------|------|------|------|
+| S-12 | 中 | 媒體採訪轉深度文章 | 將 TVBS、天下雜誌等採訪主題撰寫為原創部落格文章，內連至媒體曝光頁 |
+| S-13 | 中 | 長尾關鍵字文章規劃 | 鎖定「退休金要存多少」「勞保年金」等痛點關鍵字，規劃新文章 |
+
+---
+
+## [theme] 主題審查改善
+
+> 來源：2026-03-27 全主題審查（7 個主題逐一比對）
+> T-01 ~ T-05 已完成（2026-03-27），見 `docs/DONE.md`
+
+### 低：Classic 主題字型缺中文 fallback【低】
+
+已列於 [typography] 問題三，此處備查。Classic 的 `--font-heading: 'Montserrat'` 與 `--font-body: 'Poppins'` 無中文字型，中文字 fallback 至系統字型。
 
 ---
 
@@ -67,21 +100,12 @@
 /* 移除 --fs-body，全域替換為 --fs-xl（約 8 處）*/
 ```
 
-### 問題二：`.post-content` 行高過大【高】
-
-**現狀**：`line-height: 2.5`（文章內文）
-中文閱讀建議 1.8～2.0，2.5 行距過鬆，段落結構不清晰。
-
-```css
-.post-content { line-height: 1.95; }  /* 2.5 → 1.95 */
-```
-
-### 問題三：卡片說明、文章摘要 14px 偏小【中】
+### 問題二：卡片說明、文章摘要 14px 偏小【中】
 
 受影響：`.card-body p`、`.blog-card-excerpt`、`.partner-title`、`.form-group input`
 → 隨問題一將 `--fs-base` 調為 15px 後自動解決。
 
-### 問題四：Classic 主題無中文字型【低】
+### 問題三：Classic 主題無中文字型【低】
 
 `theme-classic.css` 使用純拉丁字型（Montserrat / Poppins），中文 fallback 至系統字型，顯示不一致。
 
@@ -93,7 +117,7 @@
 
 > 目前 `activeTheme = 'kawazu'`，切換至 Classic 前再處理亦可。
 
-### 問題五：聯絡頁 inline `line-height:2.2`【低】
+### 問題四：聯絡頁 inline `line-height:2.2`【低】
 
 `src/pages/contact/index.astro` 有 inline `line-height:2.2`，應改為 CSS class 管理。
 

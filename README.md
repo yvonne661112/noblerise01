@@ -24,15 +24,17 @@
 
 ### 主題系統
 
-網站採用可切換的多主題設計，目前啟用 **kawazu**：
+網站採用可切換的多主題設計，目前啟用 **classic**：
 
 | 主題 | 說明 | 主色 |
 |------|------|------|
-| `classic` | 清雅綠色風格 | `#0d383a` |
+| `classic` ★ | 清雅綠色風格（目前啟用） | `#0d383a` |
 | `premium` | 深翠精緻風格 | `#014045` |
 | `prestige` | 深藍銅金風格 | `#1a2744` |
 | `premium-dark` | 深色模式 | `#2d9daa` |
-| `kawazu` ★ | 河津桜色系（目前啟用） | `#3B2442` |
+| `kawazu` | 河津桜色系 | `#3B2442` |
+| `kintsugi` | 金繼黃金修復風格 | `#2C2420` |
+| `noble` | 高雅信賴，深邃藍灰×溫潤金 | `#1B3A4B` |
 
 切換方式：修改 `src/data/siteConfig.ts` 的 `activeTheme` 一行，SEO 標籤不受影響。
 
@@ -169,7 +171,9 @@ public/
     ├── theme-premium.css
     ├── theme-prestige.css
     ├── theme-premium-dark.css
-    └── theme-kawazu.css
+    ├── theme-kawazu.css
+    ├── theme-kintsugi.css
+    └── theme-noble.css
 .github/workflows/
 └── deploy.yml              # GitHub Actions 部署設定
 docs/
@@ -188,7 +192,8 @@ docs/
 ```ts
 // src/data/siteConfig.ts
 export const SHOW_BOOKING = false;  // 預約諮詢功能
-export const SHOW_SAKURA  = true;   // 櫻花飄落特效
+export const SHOW_CTA     = false;  // 全站 CTA 區塊（LINE 預約諮詢）
+export const SHOW_SAKURA  = false;  // 櫻花飄落特效
 ```
 
 ---

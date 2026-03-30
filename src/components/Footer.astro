@@ -1,26 +1,37 @@
 ---
 import { CONTACT } from '../data/siteConfig';
 import CompanyName from './CompanyName.astro';
+const base = import.meta.env.BASE_URL;
 ---
 <footer class="site-footer">
   <div class="footer-main">
     <div class="footer-inner">
-      <div class="footer-left">
-        <img src={import.meta.env.BASE_URL + "images/footer-logo.jpg"} alt="諾昇理財規劃" width="150" height="92" loading="lazy" />
-        <p>財務規劃是幫個人或家庭做好管理財務的過程，幫助大家達成財務目標，包括儲蓄、退休、投資、孩子教育、購屋、買車、旅遊、稅務、傳承等，可以盤點目前的財務資源和收入，量化財務目標，以實現FIRE（Financial Independence Retire Early）的幸福財富人生！</p>
+      <div class="footer-brand">
+        <img src={base + "images/footer-logo.jpg"} alt="諾昇理財規劃" width="300" height="185" loading="lazy" />
+        <p class="footer-desc">諾昇以「財務幸福」為核心，由 CFP® 張惠芳領軍，以獨立理財顧問立場提供中立、專業的財務建議，陪伴您走向財務幸福。</p>
       </div>
-      <div class="footer-right">
-        <h6 class="footer-contact-title">聯絡資訊：</h6>
+      <div class="footer-nav">
+        <h6 class="footer-section-title">導覽</h6>
+        <ul class="footer-nav-list">
+          <li><a href={base}>首頁</a></li>
+          <li><a href={base + "about/"}>關於諾昇</a></li>
+          <li><a href={base + "service/"}>服務項目</a></li>
+          <li><a href={base + "blog/"}>知識文章</a></li>
+          <li><a href={base + "contact/"}>聯絡我們</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h6 class="footer-section-title">聯絡資訊</h6>
         <ul class="footer-contact-list">
           <li><CompanyName /></li>
           <li><a href={CONTACT.lineUrl} target="_blank" rel="noopener nofollow">LINE : <span class="footer-line-id">{CONTACT.line}</span></a></li>
-          <li><a href={`mailto:${CONTACT.email}`}>電子郵件：{CONTACT.email}</a></li>
+          <li><a href={`mailto:${CONTACT.email}`}>Email：{CONTACT.email}</a></li>
           <li>地址：{CONTACT.address}</li>
         </ul>
       </div>
     </div>
   </div>
   <div class="footer-copy">
-    <p>© 2026 諾昇理財規劃顧問股份有限公司 All Rights Reserved.</p>
+    <p>&copy; 2026 {CONTACT.companyNameZh} All Rights Reserved.</p>
   </div>
 </footer>

@@ -11,7 +11,7 @@
 
   /* ── 背景 / 區塊 ── */
   --color-bg-subtle:     #f5f5f5;
-  --color-dark-section:  #1d1d1d;
+  --color-dark-section:  #014045;
   --color-footer-bg:     #171717;
 
   /* ── 邊框 ── */
@@ -36,7 +36,8 @@
 
   /* ── Hero ── */
   --hero-overlay:        rgba(0, 0, 0, 0.5);
-  --hero-pattern:        none;
+  --hero-gradient:       linear-gradient(135deg, #0a2e30 0%, #0d383a 40%, #154548 70%, #0f3234 100%);
+  --hero-pattern:        radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0);
 
   /* ── 卡片 ── */
   --card-radius:         8px;

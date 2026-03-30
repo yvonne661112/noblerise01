@@ -1,7 +1,5 @@
 ---
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import Head from '../../components/Head.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import BlogList from '../../components/BlogList.astro';
 import PageHero from '../../components/PageHero.astro';
 import { getCollection } from 'astro:content';
@@ -25,24 +23,112 @@ const crumbLd = breadcrumbLd([
 ]);
 
 ---
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-  <Head title="理財新知 | 諾昇理財規劃" description="諾昇理財規劃知識文章，涵蓋投資理財、保險權益、財務規劃、信託規劃、傳承稅務、證照進修等主題，由 CFP® 張惠芳撰寫。" />
-  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
-  <script type="application/ld+json" is:inline set:html={JSON.stringify(crumbLd)} />
-</head>
-<body>
-  <Header />
+<BaseLayout
+  title="理財新知 | 諾昇理財規劃"
+  description="諾昇理財規劃知識文章，涵蓋投資理財、保險權益、財務規劃、信託規劃、傳承稅務、證照進修等主題，由 CFP® 張惠芳撰寫。"
+>
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(crumbLd)} />
 
-  <PageHero eyebrow="Knowledge" title="知識文章" />
+  <PageHero
+    eyebrow="Knowledge"
+    title="理財新知"
+    description="專業觀點、實用知識，幫助您做出更好的財務決策。"
+  />
 
   <main class="section">
     <div class="container">
+      <div class="blog-toolbar">
+        <div class="blog-search">
+          <svg class="blog-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input type="text" id="blog-search-input" placeholder="搜尋文章標題或關鍵字..." class="blog-search-input" />
+        </div>
+        <div class="blog-count">共 <span id="blog-count-num">{postViews.length}</span> 篇文章</div>
+      </div>
       <BlogList posts={postViews} currentCat="" />
     </div>
   </main>
 
-  <Footer />
-</body>
-</html>
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+      const input = document.getElementById('blog-search-input');
+      const cards = document.querySelectorAll('.blog-list-card');
+      const countEl = document.getElementById('blog-count-num');
+      if (!input) return;
+      input.addEventListener('input', function() {
+        const q = this.value.trim().toLowerCase();
+        let visible = 0;
+        cards.forEach(function(card) {
+          const title = (card.querySelector('h2') || {}).textContent || '';
+          const desc = (card.querySelector('.blog-card-excerpt') || {}).textContent || '';
+          const tags = (card.querySelector('.blog-card-taxonomy') || {}).textContent || '';
+          const match = !q || title.toLowerCase().includes(q) || desc.toLowerCase().includes(q) || tags.toLowerCase().includes(q);
+          card.style.display = match ? '' : 'none';
+          if (match) visible++;
+        });
+        if (countEl) countEl.textContent = visible;
+      });
+    });
+  </script>
+
+
+</BaseLayout>
+
+<style>
+  :global(.page-hero-desc) {
+    font-size: var(--fs-lg) !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    max-width: 640px !important;
+  }
+  .blog-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .blog-search {
+    position: relative;
+    flex: 1;
+    max-width: 400px;
+  }
+  .blog-search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-mid);
+    pointer-events: none;
+  }
+  .blog-search-input {
+    width: 100%;
+    padding: 12px 16px 12px 44px;
+    font-size: var(--fs-base);
+    border: 1px solid var(--color-border);
+    border-radius: var(--card-radius);
+    background: var(--color-white);
+    color: var(--color-text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .blog-search-input:focus {
+    border-color: var(--color-accent);
+  }
+  .blog-search-input::placeholder {
+    color: var(--color-text-mid);
+  }
+  .blog-count {
+    font-size: var(--fs-sm);
+    color: var(--color-text-mid);
+    white-space: nowrap;
+  }
+  @media (max-width: 600px) {
+    .blog-toolbar { flex-direction: column; align-items: stretch; }
+    .blog-search { max-width: 100%; }
+    .blog-count { text-align: right; }
+  }
+</style>

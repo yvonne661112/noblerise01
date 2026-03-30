@@ -55,8 +55,8 @@
 切換主題：修改 `src/data/siteConfig.ts` 的 `activeTheme` 一行即可。
 
 ```ts
-// 可選值：'classic' | 'premium' | 'prestige' | 'premium-dark' | 'kawazu'
-export const activeTheme: 'classic' | 'premium' | 'prestige' | 'premium-dark' | 'kawazu' = 'kawazu';
+// 可選值：'classic' | 'premium' | 'prestige' | 'premium-dark' | 'kawazu' | 'kintsugi' | 'noble'
+export const activeTheme: 'classic' | 'premium' | 'prestige' | 'premium-dark' | 'kawazu' | 'kintsugi' | 'noble' = 'classic';
 ```
 
 新增主題：
@@ -71,7 +71,8 @@ export const activeTheme: 'classic' | 'premium' | 'prestige' | 'premium-dark' | 
 ```ts
 // src/data/siteConfig.ts
 export const SHOW_BOOKING = false; // 預約諮詢功能（true = 顯示）
-export const SHOW_SAKURA = true;   // 櫻花飄落特效（true = 顯示）
+export const SHOW_CTA = false;     // 全站 CTA 區塊（true = 顯示）
+export const SHOW_SAKURA = false;  // 櫻花飄落特效（true = 顯示）
 ```
 
 ---
@@ -103,6 +104,18 @@ export const SHOW_SAKURA = true;   // 櫻花飄落特效（true = 顯示）
 
 ---
 
+## 從外部網址匯入文章
+
+收到文章上傳需求時，使用 **`/upload-article`** skill（`.claude/skills/upload-article/SKILL.md`），該 skill 包含完整流程與規則，涵蓋：Playwright 渲染、原文保留、圖片下載、封面不重複、移除延伸閱讀、不加作者 bio、置換舊站連結（`https://noblerise.com.tw/` → 相對路徑）。
+
+---
+
+## Blog 文章 Markdown 規範
+
+處理 `src/content/blog/` 下的文章時，使用 **`/format-article`** skill（`.claude/skills/format-article/SKILL.md`），該 skill 包含完整的 8 條排版規則：Frontmatter 完整性、標題層級、清單、強調/引言、表格、空行斷行、禁止偽標題、不修改中文文字。
+
+---
+
 ## 行為規範
 
 - 收到用戶經由 Channels（如 Telegram）傳來的訊息時，**先立即回覆「收到」**，再繼續完成後續動作
@@ -111,6 +124,7 @@ export const SHOW_SAKURA = true;   // 櫻花飄落特效（true = 顯示）
 - `docs/TODO.md` 中已完成的項目，完成後須移至 `docs/DONE.md` 存檔，不可留在 TODO 中
 - 執行任何刪除操作前，**列出將被刪除的檔案清單並等待確認**
 - **git push 前須等待使用者確認**
+- 當 Telegram `chat_id: "8747758312"` 傳來工作要求時，完成所有任務後**自動執行** commit → `push origin` → `push github`，無需另行確認
 
 ---
 
@@ -163,10 +177,10 @@ npm run preview
 
 ## 品牌色彩（供參考）
 
-| 用途 | Classic | Premium | Prestige | Premium-Dark | Kawazu（目前） |
-|------|---------|---------|----------|--------------|---------------|
-| 主色 | `#0d383a` | `#014045` | `#1a2744` | `#2d9daa` | `#3B2442` |
-| 強調色 | `#85a14f` | `#979660` | `#c9956a` | `#c8c87a` | `#C95070` |
-| 頁尾背景 | `#171717` | `#171717` | `#171717` | `#171717` | `#171717` |
+| 用途 | Classic（目前） | Premium | Prestige | Premium-Dark | Kawazu | Kintsugi | Noble |
+|------|----------------|---------|----------|--------------|--------|----------|-------|
+| 主色 | `#0d383a` | `#014045` | `#1a2744` | `#2d9daa` | `#3B2442` | `#2C2420` | `#1B3A4B` |
+| 強調色 | `#85a14f` | `#979660` | `#c9956a` | `#c8c87a` | `#C95070` | `#C6A355` | `#C6923A` |
+| 頁尾背景 | `#171717` | `#171717` | `#171717` | `#171717` | `#171717` | `#141110` | `#0A1520` |
 
 完整色彩變數清單請參閱 `public/styles/theme-*.css`。
