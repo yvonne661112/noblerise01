@@ -107,14 +107,17 @@ const jsonLd = [
     <div class="container">
       <div class="promise-header text-center reveal">
         <span class="section-eyebrow">Our Promise</span>
-        <h2 class="promise-title">諾昇承諾</h2>
-        <p class="promise-tagline">
-          <span class="promise-tag">獨立</span>
-          <span class="promise-x">×</span>
-          <span class="promise-tag">專業</span>
-          <span class="promise-x">×</span>
-          <span class="promise-tag">陪伴</span>
-        </p>
+        <div class="promise-inline">
+          <h2 class="promise-title">諾昇承諾</h2>
+          <span class="promise-sep">｜</span>
+          <p class="promise-tagline">
+            <span class="promise-tag">獨立</span>
+            <span class="promise-x">×</span>
+            <span class="promise-tag">專業</span>
+            <span class="promise-x">×</span>
+            <span class="promise-tag">陪伴</span>
+          </p>
+        </div>
         <hr class="section-divider section-divider--center" />
       </div>
       <div class="grid-3 values-grid reveal">
@@ -392,27 +395,39 @@ const jsonLd = [
 
   /* ── PROMISE HEADER ── */
   .promise-header { margin-bottom: 48px; }
+  .promise-inline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 4px 0 8px;
+  }
   .promise-title {
-    font-size: clamp(28px, 4vw, 40px);
+    font-size: clamp(24px, 3.5vw, 36px);
     font-weight: var(--heading-weight);
     color: var(--color-primary);
-    margin: 4px 0 16px;
+    margin: 0;
+  }
+  .promise-sep {
+    font-size: clamp(24px, 3vw, 36px);
+    color: var(--color-text-mid);
+    font-weight: 300;
   }
   .promise-tagline {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 16px;
-    margin: 0 0 8px;
+    gap: 12px;
+    margin: 0;
   }
   .promise-tag {
-    font-size: clamp(20px, 2.5vw, 28px);
+    font-size: clamp(20px, 2.5vw, 32px);
     font-weight: 800;
     color: var(--color-accent);
     letter-spacing: 0.05em;
   }
   .promise-x {
-    font-size: clamp(18px, 2vw, 24px);
+    font-size: clamp(16px, 2vw, 24px);
     color: var(--color-text-mid);
     font-weight: 300;
   }
