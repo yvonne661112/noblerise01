@@ -496,9 +496,9 @@ textarea:focus-visible,
   width: var(--footer-logo-width);
   height: auto;
 }
-/* ── Info (center) ── */
+/* ── Info ── */
 .footer-info-col {
-  text-align: center;
+  text-align: left;
 }
 .footer-company-zh {
   font-size: var(--fs-lg);
@@ -653,9 +653,6 @@ textarea:focus-visible,
   .footer-logo-col img {
     width: 160px;
     margin: 0;
-  }
-  .footer-info-col {
-    text-align: left;
   }
   .footer-nav-list {
     flex-direction: row;
