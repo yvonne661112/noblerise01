@@ -41,9 +41,7 @@ const jsonLd = {
   <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
 
   <PageHero
-    eyebrow="Services"
-    title="釐清財務金流<br/>找回幸福生活的主導權"
-    description="不賣產品、只做規劃，理財不該是數字的追逐，<br/>只用策略把「現在的資源」連結到「您想要的財務幸福生活」。"
+    title="財務幸福，<br/>由諾昇理財規劃陪伴您落地執行！"
     backgroundImage="images/aboutmehead.jpg"
   />
 
@@ -301,12 +299,11 @@ const jsonLd = {
 </BaseLayout>
 
 <style>
-  /* ── HERO DESC OVERRIDE ── */
-  :global(.page-hero-desc) {
-    font-size: var(--fs-lg) !important;
-    font-weight: 400 !important;
-    color: rgba(255, 255, 255, 0.85) !important;
-    max-width: 640px !important;
+  /* ── HERO COMPACT ── */
+  :global(.page-hero--has-bg) {
+    min-height: 240px !important;
+    padding-top: 40px !important;
+    padding-bottom: 36px !important;
   }
 
   /* ── SERVICE PHILOSOPHY ── */
