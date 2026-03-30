@@ -41,9 +41,6 @@ function isActive(href: string): boolean {
           <li><a href={base + "contact/"} class:list={[isActive(base + "contact/") && 'active']}>聯絡我們</a></li>
         </ul>
       </nav>
-      <a href={CONTACT.lineUrl} class="header-line-btn" target="_blank" rel="noopener" aria-label="加入 LINE">
-        <img src={base + "images/LINE_New_App_Icon.png"} alt="LINE" width="36" height="36" loading="eager" />
-      </a>
     </div>
     <!-- 漢堡按鈕（手機版） -->
     <button class="mobile-menu-btn" aria-label="開啟選單" aria-expanded="false">
