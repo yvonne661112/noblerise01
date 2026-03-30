@@ -1,0 +1,112 @@
+---
+/**
+ * SectionCard — 通用卡片元件
+ *
+ * 用於首頁三大價值卡片、服務頁六大服務卡片、策略夥伴核心優勢卡片等。
+ * 樣式變數：--section-card-*（定義於 theme CSS）
+ *
+ * Props:
+ *   variant   — 'icon'（預設，top 區域放 <slot name="icon">）| 'number'（顯示編號圓圈）
+ *   number    — variant='number' 時的編號文字（如 "01"）
+ *   titleColor — 'primary' | 'accent'（h3 顏色，預設 'accent'）
+ */
+interface Props {
+  variant?: 'icon' | 'number';
+  number?: string;
+  titleColor?: 'primary' | 'accent';
+  class?: string;
+}
+const { variant = 'icon', number, titleColor = 'accent', class: className } = Astro.props;
+---
+<div class:list={['section-card', `section-card--title-${titleColor}`, className]}>
+  {variant === 'number' && number && (
+    <div class="section-card-num">{number}</div>
+  )}
+  {variant === 'icon' && (
+    <div class="section-card-icon"><slot name="icon" /></div>
+  )}
+  <slot />
+</div>
+
+<style>
+  .section-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--section-card-padding);
+    border-radius: var(--card-radius);
+    border: 1px solid var(--section-card-border);
+    background: var(--section-card-bg);
+    transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+  }
+  .section-card:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(var(--section-card-hover-lift));
+    border-color: var(--color-accent);
+  }
+
+  /* ── Icon variant ── */
+  .section-card-icon {
+    margin-bottom: 20px;
+  }
+  .section-card-icon :global(.section-card-icon-box) {
+    width: 88px;
+    height: 88px;
+    background: var(--color-accent-pale);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    transition: background 0.25s, color 0.25s;
+  }
+  .section-card:hover .section-card-icon :global(.section-card-icon-box) {
+    background: var(--color-accent);
+    color: var(--color-white);
+  }
+
+  /* ── Number variant ── */
+  .section-card-num {
+    width: 56px;
+    height: 56px;
+    background: var(--color-accent-pale);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-family: var(--font-heading);
+    font-size: var(--fs-2xl, 22px);
+    font-weight: 700;
+    color: var(--color-primary);
+    transition: background 0.25s, color 0.25s;
+  }
+  .section-card:hover .section-card-num {
+    background: var(--color-accent);
+    color: var(--color-white);
+  }
+
+  /* ── Title colors ── */
+  .section-card--title-accent :global(h3) {
+    font-family: var(--font-heading);
+    font-size: var(--card-title-size);
+    font-weight: var(--heading-weight);
+    color: var(--section-card-title-color);
+    margin-bottom: 12px;
+  }
+  .section-card--title-primary :global(h3) {
+    font-family: var(--font-heading);
+    font-size: var(--card-title-size);
+    font-weight: var(--heading-weight);
+    color: var(--color-primary);
+    margin-bottom: 12px;
+  }
+
+  /* ── Body text ── */
+  .section-card :global(p) {
+    font-size: var(--card-body-size);
+    color: var(--color-text-mid);
+    line-height: 1.7;
+  }
+</style>

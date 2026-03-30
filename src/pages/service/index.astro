@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
+import SectionCard from '../../components/SectionCard.astro';
 import { SHOW_BOOKING, SHOW_CTA, CONTACT } from '../../data/siteConfig';
 
 const base = import.meta.env.BASE_URL;
@@ -64,60 +65,60 @@ const jsonLd = {
           <h2 class="section-title">六大服務領域</h2>
         </div>
         <div class="service-icon-grid">
-          <div class="service-icon-card">
-            <div class="service-icon-box">
+          <SectionCard>
+            <div class="section-card-icon-box" slot="icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="40" height="40" aria-hidden="true">
                 <path d="M5 9.2h3V19H5V9.2zm5.6-4.2h2.8v14h-2.8V5zm5.6 8h2.8v6h-2.8v-6z"/>
               </svg>
             </div>
             <h3>收支管理與財務盤點</h3>
             <p>全面釐清收入與支出結構，建立可持續的財務管理架構，讓每一筆錢都花在對的地方。</p>
-          </div>
-          <div class="service-icon-card">
-            <div class="service-icon-box">
+          </SectionCard>
+          <SectionCard>
+            <div class="section-card-icon-box" slot="icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="40" height="40" aria-hidden="true">
                 <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
               </svg>
             </div>
             <h3>保險保障規劃</h3>
             <p>以第三方角度審視現有保單，揪出多餘保障與不當商品，花更少保費、享更好保障。</p>
-          </div>
-          <div class="service-icon-card">
-            <div class="service-icon-box">
+          </SectionCard>
+          <SectionCard>
+            <div class="section-card-icon-box" slot="icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="40" height="40" aria-hidden="true">
                 <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
               </svg>
             </div>
             <h3>教育與家庭目標規劃</h3>
             <p>為孩子教育金、買房購車等家庭里程碑做好財務準備，讓夢想有實現的時間表。</p>
-          </div>
-          <div class="service-icon-card">
-            <div class="service-icon-box">
+          </SectionCard>
+          <SectionCard>
+            <div class="section-card-icon-box" slot="icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="40" height="40" aria-hidden="true">
                 <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
               </svg>
             </div>
             <h3>房產與重大資產決策</h3>
             <p>理性評估買房時機與金額，做出聰明的資產配置決策，避免過度負債。</p>
-          </div>
-          <div class="service-icon-card">
-            <div class="service-icon-box">
+          </SectionCard>
+          <SectionCard>
+            <div class="section-card-icon-box" slot="icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="40" height="40" aria-hidden="true">
                 <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
               </svg>
             </div>
             <h3>退休與投資策略</h3>
             <p>科學規劃退休金缺口、設定合理投資目標，讓未來的自己無後顧之憂。</p>
-          </div>
-          <div class="service-icon-card">
-            <div class="service-icon-box">
+          </SectionCard>
+          <SectionCard>
+            <div class="section-card-icon-box" slot="icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="40" height="40" aria-hidden="true">
                 <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
               </svg>
             </div>
             <h3>傳承與高齡照護規劃</h3>
             <p>信託、稅務、傳承一站規劃。提前設計資產流向，守護家族財富，避免爭議。</p>
-          </div>
+          </SectionCard>
         </div>
       </div>
     </section>
@@ -199,36 +200,30 @@ const jsonLd = {
           <h2 class="section-title">財務規劃六步驟</h2>
         </div>
         <div class="step-icon-grid">
-          <div class="step-icon-card">
-            <div class="step-number">1</div>
+          <SectionCard variant="number" number="1">
             <h3>線上諮詢</h3>
             <p>30分鐘免費諮詢，了解需求，服務內容與合作方式，初步確認合作方向。</p>
-          </div>
-          <div class="step-icon-card">
-            <div class="step-number">2</div>
+          </SectionCard>
+          <SectionCard variant="number" number="2">
             <h3>初次面談及正式合約</h3>
             <p>溝通理財價值觀、合作方式，並明訂雙方權利義務以及保密條款。</p>
-          </div>
-          <div class="step-icon-card">
-            <div class="step-number">3</div>
+          </SectionCard>
+          <SectionCard variant="number" number="3">
             <h3>財務面談</h3>
             <p>設定財務目標與風險責任，協助建立家庭財務報表並蒐集相關資料，進行風險承受度分析。</p>
-          </div>
-          <div class="step-icon-card">
-            <div class="step-number">4</div>
+          </SectionCard>
+          <SectionCard variant="number" number="4">
             <h3>規劃報告</h3>
             <p>說明財務需求、分析結果，提供可執行的策略方案與效益比較。</p>
-          </div>
-          <div class="step-icon-card">
-            <div class="step-number">5</div>
+          </SectionCard>
+          <SectionCard variant="number" number="5">
             <h3>方案執行</h3>
             <p>依目標協助執行：收支管理，保障規劃、資產規劃、稅務與其他需求。</p>
-          </div>
-          <div class="step-icon-card">
-            <div class="step-number">6</div>
+          </SectionCard>
+          <SectionCard variant="number" number="6">
             <h3>定期檢視</h3>
             <p>追蹤財務目標達成率、投資組合表現與行為紀律，並依人生階段滾動式調整。</p>
-          </div>
+          </SectionCard>
         </div>
       </div>
     </section>
@@ -244,7 +239,7 @@ const jsonLd = {
             <div class="pricing-item">
               <h4>諮詢費</h4>
               <p class="pricing-amount">5,000 元 / 時</p>
-              <p class="pricing-note">第一小時優惠 <span style="color: #d32f2f; font-weight: 700;">3,600 元</span><br />（半小時 <span style="color: #d32f2f; font-weight: 700;">1,800 元</span>）</p>
+              <p class="pricing-note">第一小時優惠 <span class="price-highlight">3,600 元</span><br />（半小時 <span class="price-highlight">1,800 元</span>）</p>
             </div>
             <div class="pricing-item">
               <h4>財務規劃</h4>
@@ -272,8 +267,8 @@ const jsonLd = {
         <div class="cta-layout">
           <div class="cta-content">
             <h2 class="section-title" style="color: var(--color-on-primary)">30 分鐘免費諮詢</h2>
-            <p style="color: rgba(255,255,255,0.8); margin-bottom: 24px;">若您想進一步了解財務規劃，我們提供 30 分鐘免費線上諮詢。協助釐清您的財務現況是否需要規劃，並說明諾昇的流程、服務內容與收費方式。</p>
-            <p style="color: var(--color-on-primary); font-weight: 600; margin-bottom: 32px;">您將帶走清楚的下一步方向，以及選擇最適合自己方案所需的完整資訊。</p>
+            <p class="cta-desc">若您想進一步了解財務規劃，我們提供 30 分鐘免費線上諮詢。協助釐清您的財務現況是否需要規劃，並說明諾昇的流程、服務內容與收費方式。</p>
+            <p class="cta-emphasis">您將帶走清楚的下一步方向，以及選擇最適合自己方案所需的完整資訊。</p>
             <div class="cta-buttons">
               <a href={CONTACT.lineUrl} target="_blank" rel="noopener" class="btn btn-accent btn-lg">LINE 預約諮詢</a>
               {SHOW_BOOKING && (
@@ -321,50 +316,6 @@ const jsonLd = {
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
   }
-  .service-icon-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 32px 20px;
-    border-radius: var(--card-radius);
-    border: 1px solid var(--color-border);
-    background: var(--color-white);
-    transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
-  }
-  .service-icon-card:hover {
-    box-shadow: var(--card-shadow-hover);
-    transform: translateY(-3px);
-    border-color: var(--color-accent);
-  }
-  .service-icon-box {
-    width: 88px;
-    height: 88px;
-    background: var(--color-accent-pale);
-    border-radius: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    color: var(--color-primary);
-    transition: background 0.25s, color 0.25s;
-  }
-  .service-icon-card:hover .service-icon-box {
-    background: var(--color-accent);
-    color: var(--color-white);
-  }
-  .service-icon-card h3 {
-    font-family: var(--font-heading);
-    font-size: var(--fs-lg);
-    font-weight: var(--heading-weight);
-    color: var(--color-accent);
-    margin-bottom: 12px;
-  }
-  .service-icon-card p {
-    font-size: var(--fs-base);
-    color: var(--color-text-mid);
-    line-height: 1.7;
-  }
 
   /* ── INHERITANCE ── */
   .inheritance-block {
@@ -394,57 +345,10 @@ const jsonLd = {
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
   }
-  .step-icon-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 32px 20px;
-    border-radius: var(--card-radius);
-    border: 1px solid var(--color-border);
-    background: var(--color-white);
-    transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
-  }
-  .step-icon-card:hover {
-    box-shadow: var(--card-shadow-hover);
-    transform: translateY(-3px);
-    border-color: var(--color-accent);
-  }
-  .step-number {
-    width: 56px;
-    height: 56px;
-    background: var(--color-accent-pale);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    font-family: var(--font-heading);
-    font-size: var(--fs-2xl);
-    font-weight: 700;
-    color: var(--color-primary);
-    transition: background 0.25s, color 0.25s;
-  }
-  .step-icon-card:hover .step-number {
-    background: var(--color-accent);
-    color: var(--color-white);
-  }
-  .step-icon-card h3 {
-    font-family: var(--font-heading);
-    font-size: var(--fs-lg);
-    font-weight: var(--heading-weight);
-    color: var(--color-accent);
-    margin-bottom: 12px;
-  }
-  .step-icon-card p {
-    font-size: var(--fs-base);
-    color: var(--color-text-mid);
-    line-height: 1.7;
-  }
 
   /* ── CONSULTATION ── */
   .consultation-section {
-    background: var(--color-accent-pale);
+    background: var(--section-bg-highlight);
     border-top: 4px solid var(--color-accent);
   }
   .consultation-box {
@@ -522,6 +426,10 @@ const jsonLd = {
     color: var(--color-text-mid);
     line-height: 1.6;
   }
+  .price-highlight {
+    color: var(--color-price-highlight);
+    font-weight: 700;
+  }
   .consultation-disclaimer {
     font-size: var(--fs-lg);
     color: var(--color-text);
@@ -535,6 +443,15 @@ const jsonLd = {
   /* ── CTA ── */
   .cta-section {
     background-image: var(--hero-pattern);
+  }
+  .cta-desc {
+    color: var(--cta-desc-color);
+    margin-bottom: 24px;
+  }
+  .cta-emphasis {
+    color: var(--cta-text);
+    font-weight: 600;
+    margin-bottom: 32px;
   }
   .cta-layout {
     display: grid;

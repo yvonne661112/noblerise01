@@ -231,13 +231,13 @@ textarea:focus-visible,
 .section { padding: 80px 24px; }
 .section-sm { padding: 48px 24px; }
 .section-dark { background: var(--color-dark-section); color: var(--color-on-primary); }
-.section-primary { background: var(--color-primary); color: var(--color-on-primary); }
-.section-subtle { background: var(--color-bg-subtle); }
+.section-primary { background: var(--cta-bg); color: var(--cta-text); }
+.section-subtle { background: var(--section-bg-alt); }
 .container { max-width: var(--max-width); margin: 0 auto; }
 
 .section-title {
   font-family: var(--font-heading);
-  font-size: clamp(24px, 3.5vw, 36px);
+  font-size: var(--section-title-size);
   font-weight: var(--heading-weight);
   color: var(--color-primary);
   margin-bottom: 16px;
@@ -493,7 +493,7 @@ textarea:focus-visible,
 /* ── Logo (left) ── */
 .footer-logo-col img {
   display: block;
-  width: 180px;
+  width: var(--footer-logo-width);
   height: auto;
 }
 /* ── Info (center) ── */

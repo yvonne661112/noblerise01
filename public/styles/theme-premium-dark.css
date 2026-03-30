@@ -57,4 +57,44 @@
   --font-heading:        'Noto Serif TC', serif;
   --font-body:           'Noto Sans TC', sans-serif;
   --heading-weight:      300;
+
+  /* ── Hero 文字與間距 ── */
+  --hero-padding:            56px 24px 48px;
+  --hero-padding-mobile:     48px 20px 40px;
+  --hero-title-size:         clamp(26px, 4.5vw, 44px);
+  --hero-subtitle-color:     rgba(255, 255, 255, 0.85);
+  --hero-subtitle-weight:    500;
+  --hero-desc-color:         rgba(255, 255, 255, 0.6);
+  --hero-stat-num-size:      28px;
+  --hero-stat-label-color:   rgba(255, 255, 255, 0.45);
+  --hero-stats-border:       rgba(255, 255, 255, 0.1);
+
+  /* ── 語意字型尺寸 ── */
+  --section-title-size:      clamp(24px, 3.5vw, 36px);
+  --card-title-size:         18px;
+  --card-body-size:          15px;
+  --footer-text-size:        15px;
+  --footer-logo-width:       180px;
+
+  /* ── 區塊底色 ── */
+  --section-bg-alt:          var(--color-bg-subtle);
+  --section-bg-highlight:    var(--color-accent-pale);
+  --cta-bg:                  var(--color-primary);
+  --cta-text:                var(--color-on-primary);
+  --cta-desc-color:          rgba(255, 255, 255, 0.8);
+
+  /* ── 卡片語意 ── */
+  --section-card-padding:    32px 20px;
+  --section-card-bg:         var(--color-white);
+  --section-card-border:     var(--color-border);
+  --section-card-title-color: var(--color-accent);
+  --section-card-hover-lift: -3px;
+
+  /* ── 浮動按鈕 ── */
+  --floating-btn-size:       52px;
+  --floating-btn-size-sm:    46px;
+  --color-youtube:           #FF0000;
+
+  /* ── 特殊色 ── */
+  --color-price-highlight:   #d32f2f;
 }
