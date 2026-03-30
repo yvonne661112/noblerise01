@@ -55,8 +55,8 @@
 
   /* ── 字型（同 premium）── */
   --font-heading:        'Noto Serif TC', 'PingFang TC', 'Microsoft JhengHei', serif;
-  --font-body:           'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
-  --font-accent:         'Noto Serif TC', 'PingFang TC', serif;
+  --font-body:           'Inter', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  --font-accent:         'Noto Sans TC', 'PingFang TC', sans-serif;
   --heading-weight:      300;
 
   /* ── Hero 文字與間距 ── */

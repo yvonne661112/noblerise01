@@ -53,8 +53,8 @@
 
   /* ── 字型 ── */
   --font-heading:        'Cormorant Infant', 'Noto Serif TC', 'PingFang TC', 'Microsoft JhengHei', serif;
-  --font-body:           'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
-  --font-accent:         'Cormorant Infant', 'Noto Serif TC', 'PingFang TC', serif;
+  --font-body:           'Inter', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  --font-accent:         'Noto Serif TC', 'PingFang TC', serif;
   --heading-weight:      500;
 
   /* ── Hero 文字與間距 ── */

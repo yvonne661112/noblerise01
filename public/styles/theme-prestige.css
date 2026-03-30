@@ -52,7 +52,7 @@
   /* ── 字型 ── */
   --font-heading:        'Playfair Display', 'Noto Serif TC', 'PingFang TC', 'Microsoft JhengHei', serif;
   --font-body:           'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
-  --font-accent:         'Playfair Display', 'Noto Serif TC', 'PingFang TC', serif;
+  --font-accent:         Georgia, 'Noto Serif TC', 'PingFang TC', serif;
   --heading-weight:      600;
 
   /* ── Hero 文字與間距 ── */
