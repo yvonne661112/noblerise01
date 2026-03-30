@@ -50,9 +50,9 @@
   --card-shadow-hover:   0 16px 48px rgba(59, 36, 66, 0.13);
 
   /* ── 字型 ── */
-  --font-heading:        'Cormorant Garamond', 'Noto Serif TC', serif;
-  --font-body:           'Noto Sans TC', sans-serif;
-  --font-accent:         'Cormorant Garamond', 'Noto Serif TC', serif;
+  --font-heading:        'Cormorant Garamond', 'Noto Serif TC', 'PingFang TC', 'Microsoft JhengHei', serif;
+  --font-body:           'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  --font-accent:         'Cormorant Garamond', 'Noto Serif TC', 'PingFang TC', serif;
   --heading-weight:      400;
 
   /* ── Hero 文字與間距 ── */
