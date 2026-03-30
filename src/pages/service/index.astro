@@ -41,9 +41,7 @@ const jsonLd = {
   <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
 
   <PageHero
-    eyebrow="Services"
-    title="釐清財務金流<br/>找回幸福生活的主導權"
-    description="不賣產品、只做規劃，理財不該是數字的追逐，<br/>只用策略把「現在的資源」連結到「您想要的財務幸福生活」。"
+    title="財務幸福<br/>由諾昇理財規劃陪伴您落地執行"
     backgroundImage="images/aboutmehead.jpg"
   />
 
@@ -52,11 +50,10 @@ const jsonLd = {
     <section class="section">
       <div class="container narrow-container">
         <div class="text-center">
-          <span class="section-eyebrow">Our Approach</span>
           <h2 class="section-title">財務規劃，不是報告</h2>
-          <hr class="section-divider section-divider--center" />
         </div>
-        <p class="service-philosophy">面對眾多理財資訊與商品，您是否常常不知如何判斷？努力理財卻沒有回報？想開始規劃，卻不知道第一步？在諾昇，財務規劃是陪你真正做好財務 — 用策略把「現在的資源」連結到「想要的生活」，一起把財務幸福做到位。</p>
+        <p class="service-philosophy">面對眾多理財資訊與商品，您是否常常不知如何判斷？努力理財卻沒有回報？想開始規劃，卻不知道第一步？</p>
+        <p class="service-philosophy" style="margin-top: 16px;">在諾昇，財務規劃不是報告，而是陪您真正做好財務規劃 ，不推銷、不賣產品，只讓金流更清楚，未來更安心！用策略把「現在的資源」連結到「想要的生活」，一起把財務幸福做到位。</p>
       </div>
     </section>
 
@@ -64,7 +61,6 @@ const jsonLd = {
     <section class="section section-subtle">
       <div class="container">
         <div class="text-center mb-48">
-          <span class="section-eyebrow">What We Do</span>
           <h2 class="section-title">六大服務領域</h2>
         </div>
         <div class="service-icon-grid">
@@ -131,9 +127,7 @@ const jsonLd = {
       <div class="container">
         <div class="inheritance-block">
           <div class="inheritance-content">
-            <span class="section-eyebrow">Inheritance Planning</span>
             <h2 class="section-title">傳承規劃</h2>
-            <hr class="section-divider" />
             <p>傳承規劃不僅是財產分配，更是為家人避開未來高成本風險的重要準備。若缺乏事前設計，家人可能面臨資產凍結、稅負提高、分配爭議與流程延誤。</p>
             <p class="mt-16">透過專業協作，提前設計稅務、信託與資產流向，讓財富分配更清楚、合法節稅，並確保資產確實留給最重要的人。</p>
             <p class="service-highlight mt-24">傳承要得早布局；現在的準備，就是給家人未來最實在的安心。</p>
@@ -202,7 +196,6 @@ const jsonLd = {
     <section class="section section-subtle">
       <div class="container">
         <div class="text-center mb-48">
-          <span class="section-eyebrow">Process</span>
           <h2 class="section-title">財務規劃六步驟</h2>
         </div>
         <div class="step-icon-grid">
@@ -244,9 +237,7 @@ const jsonLd = {
     <section class="section consultation-section">
       <div class="container">
         <div class="consultation-box">
-          <span class="section-eyebrow consultation-eyebrow">Free Consultation</span>
           <h2 class="section-title consultation-title">預約諮詢</h2>
-          <hr class="section-divider section-divider--center consultation-divider" />
           <p class="consultation-desc">若您想進一步了解財務規劃，我們提供 30 分鐘免費線上諮詢。協助釐清您的財務現況是否需要規劃，並說明諾昇的流程、服務內容與收費方式。</p>
           <p class="consultation-result"><strong>預期成果：</strong>您將帶走清楚的下一步方向，以及選擇最適合自己方案所需的完整資訊。</p>
           <div class="consultation-pricing">
@@ -261,9 +252,15 @@ const jsonLd = {
             </div>
           </div>
           <div class="consultation-cta">
-            <a href={CONTACT.lineUrl} target="_blank" rel="noopener" class="btn consultation-btn">LINE 預約免費諮詢</a>
+            <a href={CONTACT.lineUrl} target="_blank" rel="noopener" class="btn consultation-btn">馬上預約諮詢</a>
           </div>
-          <p class="consultation-disclaimer">免費諮詢此為流程與方向說明，我們不會在 30 分鐘內提供個別財務問題的深入分析和解決方案建議。</p>
+          <div class="consultation-disclaimer">
+            <p style="font-weight: 600; margin-bottom: 8px;">請注意：</p>
+            <ol style="padding-left: 1.2em; margin: 0;">
+              <li>免費諮詢此為流程與方向說明，我們不會在 30 分鐘內提供個別財務問題的深入分析和解決方案建議。</li>
+              <li>本服務提供財務建議，非屬投資或證券買賣建議。</li>
+            </ol>
+          </div>
         </div>
       </div>
     </section>
@@ -274,7 +271,6 @@ const jsonLd = {
       <div class="container">
         <div class="cta-layout">
           <div class="cta-content">
-            <span class="section-eyebrow" style="color: var(--color-accent-light)">Free Consultation</span>
             <h2 class="section-title" style="color: var(--color-on-primary)">30 分鐘免費諮詢</h2>
             <p style="color: rgba(255,255,255,0.8); margin-bottom: 24px;">若您想進一步了解財務規劃，我們提供 30 分鐘免費線上諮詢。協助釐清您的財務現況是否需要規劃，並說明諾昇的流程、服務內容與收費方式。</p>
             <p style="color: var(--color-on-primary); font-weight: 600; margin-bottom: 32px;">您將帶走清楚的下一步方向，以及選擇最適合自己方案所需的完整資訊。</p>
@@ -310,12 +306,11 @@ const jsonLd = {
 </BaseLayout>
 
 <style>
-  /* ── HERO DESC OVERRIDE ── */
-  :global(.page-hero-desc) {
-    font-size: var(--fs-lg) !important;
-    font-weight: 400 !important;
-    color: rgba(255, 255, 255, 0.85) !important;
-    max-width: 640px !important;
+  /* ── HERO COMPACT ── */
+  :global(.page-hero--has-bg) {
+    min-height: 240px !important;
+    padding-top: 40px !important;
+    padding-bottom: 36px !important;
   }
 
   /* ── SERVICE PHILOSOPHY ── */
@@ -535,9 +530,13 @@ const jsonLd = {
     line-height: 1.6;
   }
   .consultation-disclaimer {
-    font-size: var(--fs-base);
+    font-size: var(--fs-lg);
     color: var(--color-text);
-    line-height: 1.6;
+    line-height: 1.8;
+    text-align: left;
+  }
+  .consultation-disclaimer li {
+    margin-bottom: 6px;
   }
 
   /* ── CTA ── */

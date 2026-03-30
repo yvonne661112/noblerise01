@@ -15,13 +15,14 @@ interface Props {
   posts: PostView[];
   currentCat?: string;
   showCatBar?: boolean;
+  layout?: 'list' | 'grid';
 }
 
 import { getAssetPath } from '../utils/assets';
 import { getCategoryNavItems } from '../data/categories';
 import { author } from '../data/author';
 
-const { posts, currentCat = '', showCatBar = true } = Astro.props;
+const { posts, currentCat = '', showCatBar = true, layout = 'list' } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const catParam = currentCat ? `?cat=${currentCat}` : '?cat=all';
 
@@ -36,9 +37,9 @@ const categories = getCategoryNavItems(base);
   ))}
 </nav>}
 
-<div class="blog-list">
+<div class={layout === 'grid' ? 'blog-grid' : 'blog-list'}>
   {posts.map(p => (
-    <article class="blog-list-card">
+    <article class={layout === 'grid' ? 'blog-grid-card' : 'blog-list-card'}>
       <a href={`${base}${p.slug}/${catParam}`} class="blog-list-img-wrap">
         {p.image
           ? <img src={getAssetPath(p.image, base)} alt={p.title} width="320" height="200" loading="lazy" />
@@ -66,6 +67,67 @@ const categories = getCategoryNavItems(base);
 </div>
 
 <style>
+/* ===== GRID LAYOUT (3-column for homepage) ===== */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.blog-grid-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface, #fff);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.blog-grid-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+.blog-grid-card .blog-list-img-wrap {
+  display: block;
+  overflow: hidden;
+  border-radius: 0;
+}
+.blog-grid-card .blog-list-img-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 16/10;
+  transition: transform var(--transition);
+}
+.blog-grid-card:hover .blog-list-img-wrap img { transform: scale(1.03); }
+.blog-grid-card .blog-list-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 24px 24px;
+  flex: 1;
+}
+.blog-grid-card .blog-list-body h2 {
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.45;
+  margin: 0;
+}
+.blog-grid-card .blog-list-body h2 a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition);
+}
+.blog-grid-card .blog-list-body h2 a:hover { color: var(--color-primary); }
+@media (max-width: 900px) {
+  .blog-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .blog-grid { grid-template-columns: 1fr; gap: 20px; }
+}
+
+/* ===== LIST STYLES ===== */
 .blog-card-cat {
   font-size: var(--fs-xs);
   font-weight: 600;

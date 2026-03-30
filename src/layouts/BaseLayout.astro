@@ -31,15 +31,14 @@ const base = import.meta.env.BASE_URL;
     <a href={CONTACT.lineUrl} target="_blank" rel="noopener noreferrer" class="floating-btn" aria-label="LINE 聯繫我們">
       <img src={`${base}images/LINE_New_App_Icon.png`} alt="LINE" width="52" height="52" />
     </a>
-    <a href={`mailto:${CONTACT.email}`} class="floating-btn floating-btn--email" aria-label="Email 聯繫我們">
-      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-        <rect x="2" y="4" width="20" height="16" rx="2"/>
-        <path d="M2 7l10 7 10-7"/>
-      </svg>
-    </a>
-    <a href="https://www.youtube.com/channel/UC23W3r9y9tVDcXMOXuwpPHg/about" target="_blank" rel="noopener noreferrer" class="floating-btn floating-btn--youtube" aria-label="YouTube 頻道">
+<a href="https://www.youtube.com/channel/UC23W3r9y9tVDcXMOXuwpPHg/about" target="_blank" rel="noopener noreferrer" class="floating-btn floating-btn--youtube" aria-label="YouTube 頻道">
       <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true">
         <path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 0 0 .5 6.19 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.81 3.02 3.02 0 0 0 2.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.81zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/>
+      </svg>
+    </a>
+    <a href={`mailto:${CONTACT.email}`} class="floating-btn floating-btn--email" aria-label="Email 聯繫我們">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
       </svg>
     </a>
   </div>
@@ -71,11 +70,11 @@ const base = import.meta.env.BASE_URL;
       transform: translateY(-3px);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     }
-    .floating-btn--email {
-      background: var(--color-accent);
-    }
     .floating-btn--youtube {
       background: #FF0000;
+    }
+    .floating-btn--email {
+      background: var(--color-accent, #85a14f);
     }
     @media (max-width: 600px) {
       .floating-contacts { right: 14px; bottom: 20px; }

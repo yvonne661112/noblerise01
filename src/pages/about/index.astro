@@ -52,19 +52,60 @@ const jsonLd = {
     backgroundImage="images/aboutmehead.jpg"
   />
 
-  <main>
-    <!-- ▸ 關於諾昇 -->
-    <section class="section">
-      <div class="container narrow-container">
-        <div class="text-center">
-          <span class="section-eyebrow">Our Mission</span>
-          <h2 class="section-title">關於諾昇</h2>
-          <hr class="section-divider section-divider--center" />
-        </div>
-        <p class="about-mission">諾昇以「財務幸福」為核心，由國際認證高級理財規劃顧問 CFP® 張惠芳領軍，<br />以獨立理財規劃顧問（IFA）的立場，提供中立、專業、以客戶利益優先的財務建議，<br />我們不推銷金融商品，不受任何機構 KPI 影響，諾昇陪伴您，走向財務幸福！</p>
-      </div>
-    </section>
+  <!-- ▸ STATS BAR -->
+  <div class="stat-bar" id="stat-bar">
+    <div class="stat-item">
+      <span class="stat-number" data-count="20" data-suffix="+">0</span>
+      <span class="stat-label">年金融實務經驗</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number stat-cfp-wrap">
+        <a href="https://www.fpat.org.tw/LecturerResume/SearchPage/5009" target="_blank" rel="noopener nofollow noreferrer"><img src={base + "images/cfp-logo.png"} alt="CFP® 國際認證" class="stat-cfp-logo" /></a>
+      </span>
+      <span class="stat-label">國際認證高級理財規劃顧問</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number stat-cfp-wrap">
+        <img src={base + "images/fchfp-logo.jpg"} alt="FChFP 特許財務規劃師" class="stat-cfp-logo" />
+      </span>
+      <span class="stat-label">特許財務規劃師</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number" data-count="6">0</span>
+      <span class="stat-label">大媒體專欄作家</span>
+    </div>
+  </div>
 
+  <script>
+    const bar = document.getElementById('stat-bar');
+    if (bar) {
+      const counters = bar.querySelectorAll('[data-count]');
+      let animated = false;
+      const animate = () => {
+        if (animated) return;
+        animated = true;
+        counters.forEach(el => {
+          const target = parseInt(el.getAttribute('data-count')!, 10);
+          const suffix = el.getAttribute('data-suffix') || '';
+          const duration = 1200;
+          const start = performance.now();
+          const tick = (now: number) => {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.round(eased * target) + suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        });
+      };
+      const obs = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) { animate(); obs.disconnect(); }
+      }, { threshold: 0.5 });
+      obs.observe(bar);
+    }
+  </script>
+
+  <main>
     <!-- ▸ 首席顧問 -->
     <section class="section section-subtle">
       <div class="container">
@@ -79,11 +120,8 @@ const jsonLd = {
             </div>
           </div>
           <div class="advisor-detail">
-            <span class="section-eyebrow">Chief Planning Advisor</span>
             <h2 class="section-title">張惠芳 CFP®</h2>
-            <p class="advisor-tagline">諾昇理財執行長 ／ 首席規劃顧問</p>
-            <hr class="section-divider" />
-            <p class="advisor-bio">惠芳 CFP®以 20 年金融實務經驗建立諾昇的服務理念與方法，深入了解您的價值觀、財務現況、風險需求及期待達成的財務目標（買房、教育金、退休、貸款、傳承等議題），資料彙整與分析後量身訂製執行方案，以收費式獨立財務規劃顧問模式，確保每一項財務建議都以客戶利益為核心出發點，陪伴客戶走向財務幸福！</p>
+            <p class="advisor-bio">國際認證高級理財規劃顧問 CFP® 張惠芳是諾昇的創辦人兼首席理財規劃顧問。她以 20 年金融實務經驗，建立諾昇的服務理念與方法，深入了解您的價值觀、財務現況、風險需求及期待達成的財務目標（買房、教育金、退休、貸款、傳承等議題），資料彙整與分析後量身訂製執行方案，確保每一項財務建議都以客戶利益為核心出發點，陪伴客戶走向財務幸福！</p>
 
             <div class="detail-block">
               <h3 class="detail-title">現職</h3>
@@ -125,9 +163,7 @@ const jsonLd = {
     <section class="section">
       <div class="container">
         <div class="text-center mb-48">
-          <span class="section-eyebrow">Awards</span>
           <h2 class="section-title">獲獎紀錄</h2>
-          <hr class="section-divider section-divider--center" />
         </div>
         <div class="awards-grid">
           <div class="award-card reveal">
@@ -171,6 +207,25 @@ const jsonLd = {
 </BaseLayout>
 
 <style>
+  /* ── CFP LOGO ── */
+  .stat-cfp-wrap {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    min-height: 65px;
+  }
+  .stat-cfp-logo {
+    height: 52px;
+    width: auto;
+    display: block;
+  }
+  #stat-bar .stat-number {
+    min-height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   /* ── MISSION ── */
   .about-mission {
     font-size: var(--fs-xl);
