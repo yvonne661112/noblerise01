@@ -470,6 +470,13 @@ textarea:focus-visible,
 
 /* ===== FOOTER ===== */
 .site-footer { margin-top: 0; }
+/* ── HERO COMPACT (全站統一：有底圖時縮小高度) ── */
+.page-hero--has-bg {
+  min-height: 240px !important;
+  padding-top: 40px !important;
+  padding-bottom: 36px !important;
+}
+
 .footer-main {
   background: var(--color-primary);
   color: var(--color-on-primary);
