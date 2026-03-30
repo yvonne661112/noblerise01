@@ -645,10 +645,24 @@ textarea:focus-visible,
   .service-card-grid { grid-template-columns: 1fr 1fr; }
   .section { padding: 56px 20px; }
   .stat-bar { gap: 24px; flex-wrap: wrap; }
-  .footer-inner { grid-template-columns: 1fr; gap: 28px; text-align: center; }
-  .footer-info-col { text-align: center; }
-  .footer-nav-list { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 10px 24px; }
-  .footer-logo-col img { margin: 0 auto; }
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: left;
+  }
+  .footer-logo-col img {
+    width: 160px;
+    margin: 0;
+  }
+  .footer-info-col {
+    text-align: left;
+  }
+  .footer-nav-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 12px 32px;
+  }
 }
 
 /* ===== MOBILE NAV ===== */
