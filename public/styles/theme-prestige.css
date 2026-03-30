@@ -50,8 +50,9 @@
   --card-shadow-hover:   0 14px 44px rgba(26, 39, 68, 0.13);
 
   /* ── 字型 ── */
-  --font-heading:        'Playfair Display', 'Noto Serif TC', serif;
-  --font-body:           'Noto Sans TC', sans-serif;
+  --font-heading:        'Playfair Display', 'Noto Serif TC', 'PingFang TC', 'Microsoft JhengHei', serif;
+  --font-body:           'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  --font-accent:         Georgia, 'Noto Serif TC', 'PingFang TC', serif;
   --heading-weight:      600;
 
   /* ── Hero 文字與間距 ── */

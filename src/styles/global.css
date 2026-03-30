@@ -517,7 +517,7 @@ textarea:focus-visible,
 .footer-nav-list > li > a {
   color: var(--color-on-primary);
   font-size: var(--fs-lg);
-  font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
+  font-family: var(--font-body);
   font-weight: 700;
   text-decoration: none;
   transition: color 0.2s;
@@ -549,7 +549,7 @@ textarea:focus-visible,
   padding: 6px 18px;
   color: var(--color-text-mid);
   font-size: var(--fs-sm);
-  font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
+  font-family: var(--font-body);
   font-weight: 400;
   text-decoration: none;
   transition: color 0.2s, background 0.2s;
@@ -566,7 +566,7 @@ textarea:focus-visible,
 }
 .footer-company-zh {
   font-size: var(--fs-lg);
-  font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   color: var(--color-on-primary);
   margin: 0 0 4px;
@@ -575,7 +575,7 @@ textarea:focus-visible,
 }
 .footer-company-en {
   font-size: var(--fs-lg);
-  font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
+  font-family: var(--font-body);
   color: var(--color-text-muted);
   margin: 0 0 14px;
   padding: 0;
@@ -588,7 +588,7 @@ textarea:focus-visible,
 }
 .footer-info-list li {
   font-size: var(--fs-lg);
-  font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
+  font-family: var(--font-body);
   color: var(--color-text-muted);
   margin-bottom: 6px;
   line-height: 1.7;
@@ -1065,7 +1065,7 @@ textarea:focus-visible,
   top: 8px;
   left: 18px;
   font-size: 52px;
-  font-family: Georgia, 'Noto Serif TC', serif;
+  font-family: var(--font-accent);
   color: var(--color-accent-light);
   line-height: 1;
 }
@@ -1198,7 +1198,7 @@ a.post-nav-link:hover {
 @media (max-width: 600px) {
   .value-icon-img { width: 96px; }
 }
-.intro-block { max-width: 800px; text-align: center; margin: 0 auto 48px; }
+.intro-block { max-width: 800px; text-align: left; margin: 0 auto 48px; }
 .img-fluid { width: 100%; height: auto; border-radius: var(--card-radius); }
 .inline-line-height { line-height: 1.9; }
 

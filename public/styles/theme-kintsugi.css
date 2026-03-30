@@ -52,8 +52,9 @@
   --card-shadow-hover:   0 14px 42px rgba(44, 36, 32, 0.14);
 
   /* ── 字型 ── */
-  --font-heading:        'Cormorant Infant', 'Noto Serif TC', serif;
-  --font-body:           'Noto Sans TC', sans-serif;
+  --font-heading:        'Cormorant Infant', 'Noto Serif TC', 'PingFang TC', 'Microsoft JhengHei', serif;
+  --font-body:           'Inter', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  --font-accent:         'Noto Serif TC', 'PingFang TC', serif;
   --heading-weight:      500;
 
   /* ── Hero 文字與間距 ── */
