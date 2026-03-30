@@ -103,6 +103,18 @@ const jsonLd = [
   <!-- ▸ 三大價值 -->
   <section class="section">
     <div class="container">
+      <div class="promise-header text-center reveal">
+        <span class="section-eyebrow">Our Promise</span>
+        <h2 class="promise-title">諾昇承諾</h2>
+        <p class="promise-tagline">
+          <span class="promise-tag">獨立</span>
+          <span class="promise-x">×</span>
+          <span class="promise-tag">專業</span>
+          <span class="promise-x">×</span>
+          <span class="promise-tag">陪伴</span>
+        </p>
+        <hr class="section-divider section-divider--center" />
+      </div>
       <div class="grid-3 values-grid reveal">
         <div class="value-card">
           <div class="value-icon">
@@ -402,6 +414,33 @@ const jsonLd = [
     color: var(--color-accent);
     font-weight: 600;
     margin-bottom: 4px;
+  }
+
+  /* ── PROMISE HEADER ── */
+  .promise-header { margin-bottom: 48px; }
+  .promise-title {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: var(--heading-weight);
+    color: var(--color-primary);
+    margin: 4px 0 16px;
+  }
+  .promise-tagline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 0 0 8px;
+  }
+  .promise-tag {
+    font-size: clamp(20px, 2.5vw, 28px);
+    font-weight: 800;
+    color: var(--color-accent);
+    letter-spacing: 0.05em;
+  }
+  .promise-x {
+    font-size: clamp(18px, 2vw, 24px);
+    color: var(--color-text-mid);
+    font-weight: 300;
   }
 
   /* ── VALUES ── */
