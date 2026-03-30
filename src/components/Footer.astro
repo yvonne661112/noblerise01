@@ -1,5 +1,5 @@
 ---
-import { CONTACT } from '../data/siteConfig';
+import { CONTACT, SHOW_FOOTER_SUB_NAV } from '../data/siteConfig';
 import { mainNav } from '../data/navLinks';
 const base = import.meta.env.BASE_URL;
 ---
@@ -14,7 +14,16 @@ const base = import.meta.env.BASE_URL;
       <nav class="footer-nav-col" aria-label="頁尾導覽">
         <ul class="footer-nav-list">
           {mainNav.map(item => (
-            <li><a href={base + item.href}>{item.label}</a></li>
+            <li>
+              <a href={base + item.href}>{item.label}</a>
+              {SHOW_FOOTER_SUB_NAV && item.children && (
+                <ul class="footer-sub-list">
+                  {item.children.map(child => (
+                    <li><a href={base + child.href}>{child.label}</a></li>
+                  ))}
+                </ul>
+              )}
+            </li>
           ))}
         </ul>
       </nav>

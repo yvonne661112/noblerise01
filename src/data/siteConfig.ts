@@ -37,6 +37,13 @@ export const SHOW_SAKURA = false;
 export const SHOW_FLOATING_BUTTONS = true;
 
 /**
+ * 頁尾導覽子選單（hover 向上展開）
+ *   true  — 顯示子選單（策略夥伴、文章分類）
+ *   false — 僅顯示頂層連結
+ */
+export const SHOW_FOOTER_SUB_NAV = false;
+
+/**
  * Dev 開發工具頁（導覽列最右側）
  *   true  — 顯示 Dev 分頁（可切換主題、功能開關）
  *   false — 隱藏

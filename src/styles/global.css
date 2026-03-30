@@ -513,8 +513,8 @@ textarea:focus-visible,
   justify-content: center;
   gap: 14px 36px;
 }
-.footer-nav-list li { margin-bottom: 0; }
-.footer-nav-list a {
+.footer-nav-list > li { margin-bottom: 0; }
+.footer-nav-list > li > a {
   color: var(--color-on-primary);
   font-size: var(--fs-lg);
   font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
@@ -524,7 +524,38 @@ textarea:focus-visible,
   white-space: nowrap;
   letter-spacing: 0.04em;
 }
-.footer-nav-list a:hover { color: var(--color-accent); }
+.footer-nav-list > li > a:hover { color: var(--color-accent); }
+.footer-nav-list > li { position: relative; }
+.footer-sub-list {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  background: var(--color-white);
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.15);
+  border-radius: var(--card-radius, 8px);
+  min-width: 140px;
+  z-index: 10;
+}
+.footer-nav-list > li:hover .footer-sub-list { display: flex; }
+.footer-sub-list li { margin-bottom: 0; }
+.footer-sub-list a {
+  display: block;
+  padding: 6px 18px;
+  color: var(--color-text-mid);
+  font-size: var(--fs-sm);
+  font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
+  font-weight: 400;
+  text-decoration: none;
+  transition: color 0.2s, background 0.2s;
+  white-space: nowrap;
+}
+.footer-sub-list a:hover { color: var(--color-primary); background: var(--color-bg-subtle); }
 .footer-logo-col img {
   display: block;
   width: var(--footer-logo-width);
@@ -670,8 +701,12 @@ textarea:focus-visible,
   .footer-nav-list {
     gap: 12px 32px;
   }
-  .footer-nav-list a {
+  .footer-nav-list > li > a {
     font-size: var(--fs-base);
+  }
+  .footer-sub-list a {
+    font-size: var(--fs-xs, 0.75rem);
+    padding: 5px 14px;
   }
 }
 /* ── Mobile only: nav moves to bottom, single row ── */
@@ -689,9 +724,10 @@ textarea:focus-visible,
     gap: 8px 16px;
     justify-content: center;
   }
-  .footer-nav-list a {
+  .footer-nav-list > li > a {
     font-size: var(--fs-sm);
   }
+  .footer-sub-list { display: none; }
 }
 
 /* ===== MOBILE NAV ===== */
