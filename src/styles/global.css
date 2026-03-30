@@ -482,28 +482,53 @@ textarea:focus-visible,
   color: var(--color-on-primary);
   padding: 48px 24px 36px;
 }
-/* ── Top row: Logo left + Nav right ── */
-.footer-top-row {
+/* ── Nav row: centered, larger text ── */
+.footer-nav-row {
   max-width: var(--max-width);
-  margin: 0 auto 32px;
+  margin: 0 auto;
+  text-align: center;
+}
+.footer-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px 48px;
+}
+.footer-nav-list li { margin-bottom: 0; }
+.footer-nav-list a {
+  color: var(--color-on-primary);
+  font-size: var(--fs-lg);
+  font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+}
+.footer-nav-list a:hover { color: var(--color-accent); }
+/* ── Divider ── */
+.footer-divider {
+  max-width: var(--max-width);
+  margin: 28px auto;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+/* ── Content row: Logo left + Info right ── */
+.footer-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 40px;
+  gap: 48px;
 }
 .footer-logo-col img {
   display: block;
   width: var(--footer-logo-width);
   height: auto;
-}
-.footer-nav-col {
-  display: flex;
-  align-items: center;
-}
-/* ── Bottom: Company info ── */
-.footer-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
 }
 .footer-info-col {
   text-align: left;
@@ -520,7 +545,7 @@ textarea:focus-visible,
   font-size: var(--fs-base);
   font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
   color: var(--color-text-muted);
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   line-height: 1.5;
 }
 .footer-info-list {
@@ -532,7 +557,7 @@ textarea:focus-visible,
   font-size: var(--fs-base);
   font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
   color: var(--color-text-muted);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   line-height: 1.7;
 }
 .footer-info-list a {
@@ -542,27 +567,6 @@ textarea:focus-visible,
 }
 .footer-info-list a:hover { color: var(--color-on-primary); }
 .footer-line-id { color: var(--color-line-light); }
-.footer-nav-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 12px 40px;
-}
-.footer-nav-list li { margin-bottom: 0; }
-.footer-nav-list a {
-  color: var(--color-text-muted);
-  font-size: var(--fs-base);
-  font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
-  font-weight: 700;
-  text-decoration: none;
-  transition: color 0.2s;
-  white-space: nowrap;
-}
-.footer-nav-list a:hover { color: var(--color-on-primary); }
 .footer-copy {
   background: var(--color-dark-section);
   text-align: center;
@@ -650,17 +654,20 @@ textarea:focus-visible,
   .service-card-grid { grid-template-columns: 1fr 1fr; }
   .section { padding: 56px 20px; }
   .stat-bar { gap: 24px; flex-wrap: wrap; }
-  .footer-top-row {
+  .footer-content {
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    gap: 24px;
   }
   .footer-logo-col img {
     width: 160px;
     margin: 0;
   }
   .footer-nav-list {
-    justify-content: flex-start;
+    gap: 12px 32px;
+  }
+  .footer-nav-list a {
+    font-size: var(--fs-base);
   }
 }
 
