@@ -485,35 +485,34 @@ textarea:focus-visible,
 .footer-inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 48px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 40px 56px;
+  align-items: center;
 }
-/* ── Brand (left) ── */
-.footer-brand {
-  flex: 0 0 auto;
-  max-width: 360px;
-}
-.footer-brand img {
+/* ── Logo (left) ── */
+.footer-logo-col img {
   display: block;
   width: 180px;
   height: auto;
-  margin-bottom: 16px;
+}
+/* ── Info (center) ── */
+.footer-info-col {
+  text-align: center;
 }
 .footer-company-zh {
-  font-size: var(--fs-base);
+  font-size: var(--fs-lg);
   font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
   font-weight: 700;
   color: var(--color-on-primary);
   margin-bottom: 4px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 .footer-company-en {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-base);
   font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
   color: var(--color-text-muted);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   line-height: 1.5;
 }
 .footer-info-list {
@@ -522,10 +521,10 @@ textarea:focus-visible,
   margin: 0;
 }
 .footer-info-list li {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-base);
   font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
   color: var(--color-text-muted);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   line-height: 1.7;
 }
 .footer-info-list a {
@@ -536,19 +535,17 @@ textarea:focus-visible,
 .footer-info-list a:hover { color: var(--color-on-primary); }
 .footer-line-id { color: var(--color-line-light); }
 /* ── Nav (right) ── */
-.footer-nav {
+.footer-nav-col {
   display: flex;
-  align-items: flex-start;
-  padding-top: 4px;
+  align-items: center;
 }
 .footer-nav-list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px 32px;
-  justify-content: flex-end;
+  flex-direction: column;
+  gap: 10px;
 }
 .footer-nav-list li { margin-bottom: 0; }
 .footer-nav-list a {
@@ -648,8 +645,10 @@ textarea:focus-visible,
   .service-card-grid { grid-template-columns: 1fr 1fr; }
   .section { padding: 56px 20px; }
   .stat-bar { gap: 24px; flex-wrap: wrap; }
-  .footer-inner { flex-direction: column; gap: 32px; }
-  .footer-nav-list { justify-content: flex-start; }
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; text-align: center; }
+  .footer-info-col { text-align: center; }
+  .footer-nav-list { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 10px 24px; }
+  .footer-logo-col img { margin: 0 auto; }
 }
 
 /* ===== MOBILE NAV ===== */
