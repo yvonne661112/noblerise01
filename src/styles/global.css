@@ -530,14 +530,16 @@ textarea:focus-visible,
   font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
   font-weight: 700;
   color: var(--color-on-primary);
-  margin-bottom: 4px;
+  margin: 0 0 2px;
+  padding: 0;
   line-height: 1.6;
 }
 .footer-company-en {
   font-size: var(--fs-lg);
   font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
   color: var(--color-text-muted);
-  margin-bottom: 14px;
+  margin: 0 0 14px;
+  padding: 0;
   line-height: 1.5;
 }
 .footer-info-list {
@@ -662,6 +664,18 @@ textarea:focus-visible,
   }
   .footer-nav-list a {
     font-size: var(--fs-base);
+  }
+}
+/* ── Mobile only: nav moves to bottom ── */
+@media (max-width: 600px) {
+  .footer-nav-col {
+    order: 3;
+  }
+  .footer-logo-col {
+    order: 1;
+  }
+  .footer-info-col {
+    order: 2;
   }
 }
 
