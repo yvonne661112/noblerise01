@@ -526,11 +526,11 @@ textarea:focus-visible,
   text-align: left;
 }
 .footer-company-zh {
-  font-size: var(--fs-xl);
+  font-size: var(--fs-lg);
   font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
   font-weight: 700;
   color: var(--color-on-primary);
-  margin: 0 0 2px;
+  margin: 0 0 4px;
   padding: 0;
   line-height: 1.6;
 }
