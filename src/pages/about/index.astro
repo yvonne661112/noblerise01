@@ -52,6 +52,59 @@ const jsonLd = {
     backgroundImage="images/aboutmehead.jpg"
   />
 
+  <!-- ▸ STATS BAR -->
+  <div class="stat-bar" id="stat-bar">
+    <div class="stat-item">
+      <span class="stat-number" data-count="20" data-suffix="+">0</span>
+      <span class="stat-label">年金融實務經驗</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number stat-cfp-wrap">
+        <a href="https://www.fpat.org.tw/LecturerResume/SearchPage/5009" target="_blank" rel="noopener nofollow noreferrer"><img src={base + "images/cfp-logo.png"} alt="CFP® 國際認證" class="stat-cfp-logo" /></a>
+      </span>
+      <span class="stat-label">國際認證高級理財規劃顧問</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number stat-cfp-wrap">
+        <img src={base + "images/fchfp-logo.jpg"} alt="FChFP 特許財務規劃師" class="stat-cfp-logo" />
+      </span>
+      <span class="stat-label">特許財務規劃師</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number" data-count="6">0</span>
+      <span class="stat-label">大媒體專欄作家</span>
+    </div>
+  </div>
+
+  <script>
+    const bar = document.getElementById('stat-bar');
+    if (bar) {
+      const counters = bar.querySelectorAll('[data-count]');
+      let animated = false;
+      const animate = () => {
+        if (animated) return;
+        animated = true;
+        counters.forEach(el => {
+          const target = parseInt(el.getAttribute('data-count')!, 10);
+          const suffix = el.getAttribute('data-suffix') || '';
+          const duration = 1200;
+          const start = performance.now();
+          const tick = (now: number) => {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.round(eased * target) + suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        });
+      };
+      const obs = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) { animate(); obs.disconnect(); }
+      }, { threshold: 0.5 });
+      obs.observe(bar);
+    }
+  </script>
+
   <main>
     <!-- ▸ 關於諾昇 -->
     <section class="section">
@@ -171,6 +224,25 @@ const jsonLd = {
 </BaseLayout>
 
 <style>
+  /* ── CFP LOGO ── */
+  .stat-cfp-wrap {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    min-height: 65px;
+  }
+  .stat-cfp-logo {
+    height: 52px;
+    width: auto;
+    display: block;
+  }
+  #stat-bar .stat-number {
+    min-height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   /* ── MISSION ── */
   .about-mission {
     font-size: var(--fs-xl);
