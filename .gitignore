@@ -29,8 +29,8 @@ pnpm-debug.log*
 # 內部工作文件（實際存放於 nr01/，透過 symlink 連結）
 *.log
 CLAUDE.md
-.claude/
-docs/
+.claude
+docs
 
 # IDE 設定
 .vscode/launch.json
