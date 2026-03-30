@@ -666,7 +666,7 @@ textarea:focus-visible,
     font-size: var(--fs-base);
   }
 }
-/* ── Mobile only: nav moves to bottom ── */
+/* ── Mobile only: nav moves to bottom, single row ── */
 @media (max-width: 600px) {
   .footer-nav-col {
     order: 3;
@@ -676,6 +676,13 @@ textarea:focus-visible,
   }
   .footer-info-col {
     order: 2;
+  }
+  .footer-nav-list {
+    gap: 8px 16px;
+    justify-content: center;
+  }
+  .footer-nav-list a {
+    font-size: var(--fs-sm);
   }
 }
 
