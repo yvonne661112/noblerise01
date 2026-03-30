@@ -45,8 +45,9 @@
   --card-shadow-hover:   0 8px 24px rgba(0, 0, 0, 0.14);
 
   /* ── 字型 ── */
-  --font-heading:        'Montserrat', sans-serif;
-  --font-body:           'Poppins', 'Open Sans', sans-serif;
+  --font-heading:        'Montserrat', 'Noto Sans TC', sans-serif;
+  --font-body:           'Poppins', 'Open Sans', 'Noto Sans TC', sans-serif;
+  --font-accent:         Georgia, 'Noto Serif TC', serif;
   --heading-weight:      700;
 
   /* ── Hero 文字與間距 ── */

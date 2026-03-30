@@ -49,6 +49,7 @@
   /* ── 字型 ── */
   --font-heading:        'Noto Serif TC', serif;
   --font-body:           'Noto Sans TC', sans-serif;
+  --font-accent:         'Noto Serif TC', serif;
   --heading-weight:      300;
 
   /* ── Hero 文字與間距 ── */

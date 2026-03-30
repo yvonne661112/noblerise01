@@ -54,6 +54,7 @@
   /* ── 字型 ── */
   --font-heading:        'Cormorant Infant', 'Noto Serif TC', serif;
   --font-body:           'Noto Sans TC', sans-serif;
+  --font-accent:         'Cormorant Infant', 'Noto Serif TC', serif;
   --heading-weight:      500;
 
   /* ── Hero 文字與間距 ── */

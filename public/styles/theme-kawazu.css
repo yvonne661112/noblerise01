@@ -52,6 +52,7 @@
   /* ── 字型 ── */
   --font-heading:        'Cormorant Garamond', 'Noto Serif TC', serif;
   --font-body:           'Noto Sans TC', sans-serif;
+  --font-accent:         'Cormorant Garamond', 'Noto Serif TC', serif;
   --heading-weight:      400;
 
   /* ── Hero 文字與間距 ── */

@@ -54,6 +54,7 @@
   /* ── 字型 ── */
   --font-heading:        'Playfair Display', 'Noto Serif TC', serif;
   --font-body:           'Noto Sans TC', sans-serif;
+  --font-accent:         'Playfair Display', 'Noto Serif TC', serif;
   --heading-weight:      600;
 
   /* ── Hero 文字與間距 ── */
