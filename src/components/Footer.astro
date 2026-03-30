@@ -1,17 +1,25 @@
 ---
 import { CONTACT } from '../data/siteConfig';
-import CompanyName from './CompanyName.astro';
 const base = import.meta.env.BASE_URL;
 ---
 <footer class="site-footer">
   <div class="footer-main">
     <div class="footer-inner">
+
+      <!-- 左側：Logo + 公司資訊 -->
       <div class="footer-brand">
-        <img src={base + "images/footer-logo.jpg"} alt="諾昇理財規劃" width="300" height="185" loading="lazy" />
-        <p class="footer-desc">諾昇以「財務幸福」為核心，由 CFP® 張惠芳領軍，以獨立理財顧問立場提供中立、專業的財務建議，陪伴您走向財務幸福。</p>
+        <img src={base + "images/footer-logo-new.jpg"} alt="諾昇理財規劃" width="200" loading="lazy" />
+        <p class="footer-company-zh">{CONTACT.companyNameZh}</p>
+        <p class="footer-company-en">{CONTACT.companyNameEn}</p>
+        <ul class="footer-info-list">
+          <li><a href={CONTACT.lineUrl} target="_blank" rel="noopener nofollow">LINE：<span class="footer-line-id">{CONTACT.line}</span></a></li>
+          <li><a href={`mailto:${CONTACT.email}`}>Email：{CONTACT.email}</a></li>
+          <li>地址：{CONTACT.address}</li>
+        </ul>
       </div>
-      <div class="footer-nav">
-        <h6 class="footer-section-title">導覽</h6>
+
+      <!-- 右側：導覽 -->
+      <nav class="footer-nav" aria-label="頁尾導覽">
         <ul class="footer-nav-list">
           <li><a href={base}>首頁</a></li>
           <li><a href={base + "about/"}>關於諾昇</a></li>
@@ -19,16 +27,8 @@ const base = import.meta.env.BASE_URL;
           <li><a href={base + "blog/"}>知識文章</a></li>
           <li><a href={base + "contact/"}>聯絡我們</a></li>
         </ul>
-      </div>
-      <div class="footer-contact">
-        <h6 class="footer-section-title">聯絡資訊</h6>
-        <ul class="footer-contact-list">
-          <li><CompanyName /></li>
-          <li><a href={CONTACT.lineUrl} target="_blank" rel="noopener nofollow">LINE : <span class="footer-line-id">{CONTACT.line}</span></a></li>
-          <li><a href={`mailto:${CONTACT.email}`}>Email：{CONTACT.email}</a></li>
-          <li>地址：{CONTACT.address}</li>
-        </ul>
-      </div>
+      </nav>
+
     </div>
   </div>
   <div class="footer-copy">
