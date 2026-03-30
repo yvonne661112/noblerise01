@@ -64,6 +64,6 @@ const { eyebrow, title, align = 'left' } = Astro.props;
   /* 在深色背景 section 內使用時覆蓋文字色 */
   .section-dark .section-hdr-title,
   .section-primary .section-hdr-title {
-    color: #fff;
+    color: var(--color-on-primary);
   }
 </style>

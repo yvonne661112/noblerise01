@@ -62,7 +62,9 @@
   --hero-title-size:         clamp(26px, 4.5vw, 44px);
   --hero-subtitle-color:     rgba(255, 255, 255, 0.85);
   --hero-subtitle-weight:    500;
-  --hero-desc-color:         rgba(255, 255, 255, 0.6);
+  --hero-desc-color:         rgba(255, 255, 255, 0.85);
+  --hero-desc-size:          var(--fs-lg);
+  --hero-desc-max-width:     640px;
   --hero-stat-num-size:      28px;
   --hero-stat-label-color:   rgba(255, 255, 255, 0.45);
   --hero-stats-border:       rgba(255, 255, 255, 0.1);
