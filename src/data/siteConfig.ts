@@ -30,6 +30,13 @@ export const SHOW_CTA = false;
 export const SHOW_SAKURA = false;
 
 /**
+ * 浮動聯絡按鈕（全站右下角 LINE / YouTube / Email）
+ *   true  — 顯示
+ *   false — 隱藏
+ */
+export const SHOW_FLOATING_BUTTONS = true;
+
+/**
  * 公司聯絡資訊（統一管理，修改此處全站自動同步）
  */
 export const CONTACT = {

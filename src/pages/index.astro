@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import BlogList from '../components/BlogList.astro';
+import SectionCard from '../components/SectionCard.astro';
 import { getCollection } from 'astro:content';
 import { CONTACT, SHOW_CTA } from '../data/siteConfig';
 import { sortPostsByDate, transformPost } from '../utils/post';
@@ -74,8 +75,8 @@ const jsonLd = [
 
   <!-- ▸ HERO -->
   <PageHero
-    title="諾昇理財規劃<br/><span class='hero-sub'>成為您人生的底氣<br/>陪您走向財務幸福</span>"
-    large
+    title="諾昇規劃成為您人生的底氣<br/>陪您走向財務幸福"
+    backgroundImage="images/aboutmehead.jpg"
   />
 
   <!-- ▸ MISSION -->
@@ -117,27 +118,27 @@ const jsonLd = [
         </div>
       </div>
       <div class="grid-3 values-grid reveal">
-        <div class="value-card">
-          <div class="value-icon">
+        <SectionCard variant="icon" titleColor="primary">
+          <div class="value-icon-wrap" slot="icon">
             <img src={base + "images/真正獨立.png"} alt="真正獨立 不賣產品" loading="lazy" class="value-icon-img" />
           </div>
           <h3>真正獨立，不賣產品</h3>
           <p>不受金融機構 KPI 影響，完全站在客戶立場，只給最適合您的建議。</p>
-        </div>
-        <div class="value-card">
-          <div class="value-icon">
+        </SectionCard>
+        <SectionCard variant="icon" titleColor="primary">
+          <div class="value-icon-wrap" slot="icon">
             <img src={base + "images/專業規劃客製方案.png"} alt="專業規劃 客製方案" loading="lazy" class="value-icon-img" />
           </div>
           <h3>專業規劃，客製方案</h3>
           <p>依國際理財規劃 FPSB 流程量身打造，採規劃收費，確保建議客觀純粹。</p>
-        </div>
-        <div class="value-card">
-          <div class="value-icon">
+        </SectionCard>
+        <SectionCard variant="icon" titleColor="primary">
+          <div class="value-icon-wrap" slot="icon">
             <img src={base + "images/全程陪伴規劃.png"} alt="全程陪伴 規劃＋執行" loading="lazy" class="value-icon-img" />
           </div>
           <h3>全程陪伴，規劃到執行</h3>
           <p>不只給建議，更協助落地執行。隨人生變化調整，讓財務規劃看得見成果。</p>
-        </div>
+        </SectionCard>
       </div>
     </div>
   </section>
@@ -293,7 +294,7 @@ const jsonLd = [
   <section class="section section-primary cta-section">
     <div class="container text-center">
       <h2 class="section-title" style="color: var(--color-on-primary)">準備好開始您的財務規劃了嗎？</h2>
-      <p style="color: rgba(255,255,255,0.8); font-size: var(--fs-lg); max-width: 560px; margin: 0 auto 36px;">我們提供 30 分鐘免費線上諮詢，協助釐清您的財務現況與下一步方向。</p>
+      <p class="cta-desc">我們提供 30 分鐘免費線上諮詢，協助釐清您的財務現況與下一步方向。</p>
       <div class="cta-buttons">
         <a href={CONTACT.lineUrl} target="_blank" rel="noopener" class="btn btn-accent btn-lg">LINE 預約諮詢</a>
         <a href={base + "contact/"} class="btn btn-outline-light btn-lg">聯絡我們</a>
@@ -306,19 +307,6 @@ const jsonLd = [
 </BaseLayout>
 
 <style>
-  /* ── HERO ── */
-  :global(.page-hero--large) {
-    min-height: auto !important;
-    padding-top: 48px !important;
-    padding-bottom: 40px !important;
-  }
-  :global(.hero-sub) {
-    display: block;
-    font-size: clamp(16px, 2.2vw, 22px);
-    font-weight: 400;
-    margin-top: 8px;
-    line-height: 1.5;
-  }
   /* ── MISSION ── */
   .mission-layout {
     display: flex;
@@ -426,31 +414,6 @@ const jsonLd = [
 
   /* ── VALUES ── */
   .values-grid { }
-  .value-card {
-    background: var(--color-white);
-    border-radius: var(--card-radius);
-    padding: 36px 28px;
-    text-align: center;
-    border: 1px solid var(--color-border);
-    transition: box-shadow 0.25s, transform 0.25s;
-  }
-  .value-card:hover {
-    box-shadow: var(--card-shadow-hover);
-    transform: translateY(-4px);
-  }
-  .value-card .value-icon { margin-bottom: 20px; }
-  .value-card h3 {
-    font-family: var(--font-heading);
-    font-size: var(--fs-xl);
-    font-weight: var(--heading-weight);
-    color: var(--color-primary);
-    margin-bottom: 12px;
-  }
-  .value-card p {
-    font-size: var(--fs-base);
-    color: var(--color-text-mid);
-    line-height: 1.7;
-  }
 
 
   /* ── SERVICE GRID ── */
@@ -533,7 +496,7 @@ const jsonLd = [
     margin-top: 2px;
   }
   .section-testimonial {
-    background: var(--color-accent-pale);
+    background: var(--section-bg-highlight);
   }
   .testimonial--dark {
     background: rgba(255, 255, 255, 0.06);
@@ -604,8 +567,14 @@ const jsonLd = [
 
   /* ── CTA ── */
   .cta-section {
-    background: var(--color-primary);
+    background: var(--cta-bg);
     background-image: var(--hero-pattern);
+  }
+  .cta-desc {
+    color: var(--cta-desc-color);
+    font-size: var(--fs-lg);
+    max-width: 560px;
+    margin: 0 auto 36px;
   }
   .cta-buttons {
     display: flex;
@@ -656,14 +625,8 @@ const jsonLd = [
       line-height: 1.9;
     }
     .empathy-answer br { display: none; }
-.value-card :global(.value-icon-img) {
+    :global(.value-icon-img) {
       width: 96px !important;
-    }
-    .value-card h3 {
-      font-size: 22px;
-    }
-    .value-card p {
-      font-size: 17px;
     }
   }
 </style>
