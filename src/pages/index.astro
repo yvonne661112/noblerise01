@@ -79,14 +79,19 @@ const jsonLd = [
   />
 
   <!-- ▸ MISSION -->
-  <section class="section">
-    <div class="container narrow-container">
-      <div class="text-center">
-        <span class="section-eyebrow">Our Mission</span>
-        <h2 class="section-title">關於諾昇</h2>
-        <hr class="section-divider section-divider--center" />
+  <section class="section mission-section">
+    <div class="container">
+      <div class="mission-layout">
+        <div class="mission-photo-col">
+          <img src={base + "images/yvonne-cfp.jpeg"} alt="首席顧問 張惠芳 CFP®" class="mission-photo" loading="lazy" />
+        </div>
+        <div class="mission-text-col">
+          <span class="section-eyebrow">Our Mission</span>
+          <h2 class="section-title">關於諾昇</h2>
+          <hr class="section-divider" />
+          <p class="about-mission">諾昇以「財務幸福」為核心，由國際認證高級理財規劃顧問 CFP® 張惠芳領軍，以獨立理財規劃顧問（IFA）的立場，提供中立、專業、以客戶利益優先的財務建議，我們不推銷金融商品，不受任何機構 KPI 影響，諾昇陪伴您，走向財務幸福！</p>
+        </div>
       </div>
-      <p class="about-mission">諾昇以「財務幸福」為核心，由國際認證高級理財規劃顧問 CFP® 張惠芳領軍，<br />以獨立理財規劃顧問（IFA）的立場，提供中立、專業、以客戶利益優先的財務建議，<br />我們不推銷金融商品，不受任何機構 KPI 影響，諾昇陪伴您，走向財務幸福！</p>
     </div>
   </section>
 
@@ -333,14 +338,29 @@ const jsonLd = [
     line-height: 1.5;
   }
   /* ── MISSION ── */
+  .mission-layout {
+    display: flex;
+    align-items: center;
+    gap: 56px;
+  }
+  .mission-photo-col {
+    flex: 0 0 auto;
+  }
+  .mission-photo {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+  }
+  .mission-text-col {
+    flex: 1;
+  }
   .about-mission {
-    font-size: var(--fs-xl);
+    font-size: var(--fs-lg);
     font-weight: 700;
     line-height: 2;
-    text-align: center;
-    max-width: 860px;
-    margin: 0 auto;
     color: var(--color-text);
+    margin: 0;
   }
 
   /* ── EMPATHY BLOCK ── */
@@ -590,6 +610,19 @@ const jsonLd = [
     .service-grid { grid-template-columns: 1fr 1fr; }
     .media-section { grid-template-columns: 1fr; gap: 40px; }
   }
+  @media (max-width: 768px) {
+    .mission-layout {
+      flex-direction: column;
+      gap: 32px;
+      text-align: center;
+    }
+    .mission-photo {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+    }
+  }
+
   @media (max-width: 600px) {
     .service-grid { grid-template-columns: 1fr 1fr; }
     .stat-bar { justify-content: space-around; }
