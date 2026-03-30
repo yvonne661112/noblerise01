@@ -37,6 +37,13 @@ export const SHOW_SAKURA = false;
 export const SHOW_FLOATING_BUTTONS = true;
 
 /**
+ * Dev 開發工具頁（導覽列最右側）
+ *   true  — 顯示 Dev 分頁（可切換主題、功能開關）
+ *   false — 隱藏
+ */
+export const SHOW_DEV_PAGE = false;
+
+/**
  * 公司聯絡資訊（統一管理，修改此處全站自動同步）
  */
 export const CONTACT = {

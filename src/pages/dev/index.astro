@@ -1,0 +1,285 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { activeTheme } from '../../data/siteConfig';
+
+const base = import.meta.env.BASE_URL;
+
+const themes = [
+  { value: 'classic', label: 'Classic（WordPress 風格）' },
+  { value: 'premium', label: 'Premium（策略夥伴風格）' },
+  { value: 'prestige', label: 'Prestige（深藍銅金風格）' },
+  { value: 'premium-dark', label: 'Premium Dark（深色模式）' },
+  { value: 'kawazu', label: 'Kawazu（河津桜色系）' },
+  { value: 'kintsugi', label: 'Kintsugi（金繼黃金修復）' },
+  { value: 'noble', label: 'Noble（深邃藍灰×溫潤金）' },
+];
+
+const fontUrls: Record<string, string> = {
+  classic:       'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;500;600&family=Open+Sans:wght@400;600&display=swap',
+  premium:       'https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500&display=swap',
+  prestige:      'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Noto+Serif+TC:wght@400;500;700&family=Noto+Sans+TC:wght@300;400;500&display=swap',
+  'premium-dark':'https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500&display=swap',
+  kawazu:        'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+TC:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500&display=swap',
+  kintsugi:      'https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Serif+TC:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500&display=swap',
+  noble:         'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap',
+};
+---
+<BaseLayout title="Dev Tools | 諾昇理財規劃" description="開發工具：主題切換、功能開關">
+  <main class="section">
+    <div class="container">
+      <h1 class="dev-title">Dev Tools</h1>
+      <p class="dev-desc">開發用工具面板，切換主題與功能開關（僅影響當前瀏覽器，不會修改原始碼）</p>
+
+      <div class="dev-grid">
+        <!-- Theme Switcher -->
+        <div class="dev-card">
+          <h2 class="dev-card-title">Theme 主題切換</h2>
+          <p class="dev-card-hint">Build 預設：<code>{activeTheme}</code></p>
+          <label for="theme-select" class="dev-label">選擇主題</label>
+          <select id="theme-select" class="dev-select">
+            {themes.map(t => (
+              <option value={t.value} selected={t.value === activeTheme}>{t.label}</option>
+            ))}
+          </select>
+        </div>
+
+        <!-- Feature Toggles -->
+        <div class="dev-card">
+          <h2 class="dev-card-title">Feature Toggles 功能開關</h2>
+          <p class="dev-card-hint">切換後自動重新載入頁面</p>
+          <div class="dev-toggle-list">
+            <label class="dev-toggle">
+              <span class="dev-toggle-label">SHOW_BOOKING</span>
+              <span class="dev-toggle-desc">預約諮詢功能</span>
+              <input type="checkbox" id="toggle-booking" class="dev-toggle-input" />
+              <span class="dev-toggle-slider"></span>
+            </label>
+            <label class="dev-toggle">
+              <span class="dev-toggle-label">SHOW_CTA</span>
+              <span class="dev-toggle-desc">全站 CTA 區塊</span>
+              <input type="checkbox" id="toggle-cta" class="dev-toggle-input" />
+              <span class="dev-toggle-slider"></span>
+            </label>
+            <label class="dev-toggle">
+              <span class="dev-toggle-label">SHOW_SAKURA</span>
+              <span class="dev-toggle-desc">櫻花飄落特效</span>
+              <input type="checkbox" id="toggle-sakura" class="dev-toggle-input" />
+              <span class="dev-toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="dev-note">
+        <strong>Note：</strong>主題與功能開關皆為即時預覽（透過 CSS 替換 + JS 切換顯隱），設定儲存於 localStorage，跨頁保持。正式部署請修改 <code>siteConfig.ts</code>。
+      </div>
+    </div>
+  </main>
+
+  <script define:vars={{ base: base, fontUrls: fontUrls }}>
+    const themeSelect = document.getElementById('theme-select');
+    const themeLink = document.querySelector('link[href*="styles/theme-"]');
+    const fontLink = document.querySelector('link[href*="fonts.googleapis.com/css2"]');
+
+    // Restore saved theme
+    const savedTheme = localStorage.getItem('dev-theme');
+    if (savedTheme && themeSelect) {
+      themeSelect.value = savedTheme;
+      if (themeLink) themeLink.setAttribute('href', `${base}styles/theme-${savedTheme}.css`);
+      if (fontLink && fontUrls[savedTheme]) fontLink.setAttribute('href', fontUrls[savedTheme]);
+    }
+
+    // Theme switch handler
+    if (themeSelect) {
+      themeSelect.addEventListener('change', (e) => {
+        const theme = e.target.value;
+        localStorage.setItem('dev-theme', theme);
+        if (themeLink) themeLink.setAttribute('href', `${base}styles/theme-${theme}.css`);
+        if (fontLink && fontUrls[theme]) fontLink.setAttribute('href', fontUrls[theme]);
+      });
+    }
+
+    // Feature toggle mapping
+    const featureMap = {
+      'dev-show-booking': { feature: 'booking', inverse: 'no-booking' },
+      'dev-show-cta':     { feature: 'cta',     inverse: null },
+      'dev-show-sakura':  { feature: 'sakura',  inverse: null },
+    };
+
+    const toggles = [
+      { id: 'toggle-booking', key: 'dev-show-booking' },
+      { id: 'toggle-cta', key: 'dev-show-cta' },
+      { id: 'toggle-sakura', key: 'dev-show-sakura' },
+    ];
+
+    function applyFeature(key, on) {
+      const m = featureMap[key];
+      if (!m) return;
+      document.querySelectorAll('[data-dev-feature="' + m.feature + '"]').forEach(el => {
+        el.style.display = on ? '' : 'none';
+      });
+      if (m.inverse) {
+        document.querySelectorAll('[data-dev-feature="' + m.inverse + '"]').forEach(el => {
+          el.style.display = on ? 'none' : '';
+        });
+      }
+    }
+
+    toggles.forEach(({ id, key }) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.checked = localStorage.getItem(key) === 'true';
+      el.addEventListener('change', () => {
+        localStorage.setItem(key, el.checked ? 'true' : 'false');
+        applyFeature(key, el.checked);
+      });
+    });
+  </script>
+</BaseLayout>
+
+<style>
+  .dev-title {
+    font-size: var(--fs-3xl, 2rem);
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--color-primary);
+  }
+  .dev-desc {
+    color: var(--color-text-mid);
+    margin-bottom: 40px;
+  }
+  .dev-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 768px) {
+    .dev-grid { grid-template-columns: 1fr; }
+  }
+  .dev-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--card-radius, 12px);
+    padding: 32px;
+  }
+  .dev-card-title {
+    font-size: var(--fs-xl, 1.25rem);
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--color-text-dark);
+  }
+  .dev-card-hint {
+    font-size: var(--fs-sm, 0.875rem);
+    color: var(--color-text-mid);
+    margin-bottom: 20px;
+  }
+  .dev-card-hint code {
+    background: var(--color-bg-subtle);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: inherit;
+  }
+  .dev-label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--color-text);
+  }
+  .dev-select {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: var(--fs-body, 1rem);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-bg-subtle);
+    color: var(--color-text);
+    cursor: pointer;
+  }
+  .dev-select:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  /* Toggle switches */
+  .dev-toggle-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .dev-toggle {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+    gap: 0 16px;
+    cursor: pointer;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border, #eee);
+  }
+  .dev-toggle:last-child { border-bottom: none; }
+  .dev-toggle-label {
+    font-weight: 600;
+    font-size: var(--fs-body, 1rem);
+    color: var(--color-text);
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .dev-toggle-desc {
+    font-size: var(--fs-sm, 0.875rem);
+    color: var(--color-text-mid);
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .dev-toggle-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .dev-toggle-slider {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    width: 48px;
+    height: 26px;
+    background: var(--color-border, #ccc);
+    border-radius: 13px;
+    position: relative;
+    transition: background 0.2s;
+  }
+  .dev-toggle-slider::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.2s;
+  }
+  .dev-toggle-input:checked + .dev-toggle-slider {
+    background: var(--color-accent, #85a14f);
+  }
+  .dev-toggle-input:checked + .dev-toggle-slider::after {
+    transform: translateX(22px);
+  }
+  .dev-toggle-input:focus-visible + .dev-toggle-slider {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .dev-note {
+    background: var(--color-bg-subtle);
+    border-left: 4px solid var(--color-accent);
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    font-size: var(--fs-sm, 0.875rem);
+    color: var(--color-text-mid);
+  }
+  .dev-note code {
+    background: var(--color-white);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+</style>

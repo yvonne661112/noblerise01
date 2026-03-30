@@ -191,15 +191,13 @@ const jsonLd = {
     </section>
 
     {/* ▸ CTA */}
-    {SHOW_CTA && (
-    <section class="section section-primary cta-section">
+    <section class="section section-primary cta-section" data-dev-feature="cta" style={SHOW_CTA ? undefined : 'display:none'}>
       <div class="container text-center">
         <h2 class="section-title" style="color: var(--color-on-primary)">想和我們聊聊你的財務目標？</h2>
         <p class="cta-desc">30 分鐘免費諮詢，釐清方向、無壓力。</p>
         <a href={CONTACT.lineUrl} target="_blank" rel="noopener" class="btn btn-accent btn-lg">LINE 預約諮詢</a>
       </div>
     </section>
-    )}
   </main>
 
 

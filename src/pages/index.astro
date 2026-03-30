@@ -290,8 +290,7 @@ const jsonLd = [
   </section>
 
   {/* ▸ CTA */}
-  {SHOW_CTA && (
-  <section class="section section-primary cta-section">
+  <section class="section section-primary cta-section" data-dev-feature="cta" style={SHOW_CTA ? undefined : 'display:none'}>
     <div class="container text-center">
       <h2 class="section-title" style="color: var(--color-on-primary)">準備好開始您的財務規劃了嗎？</h2>
       <p class="cta-desc">我們提供 30 分鐘免費線上諮詢，協助釐清您的財務現況與下一步方向。</p>
@@ -301,7 +300,6 @@ const jsonLd = [
       </div>
     </div>
   </section>
-  )}
 
 
 </BaseLayout>

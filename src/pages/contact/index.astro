@@ -53,8 +53,7 @@ const jsonLd = {
 
   <main class="section">
     <div class="container">
-      {SHOW_BOOKING ? (
-        <div class="grid-2 contact-grid">
+        <div class="grid-2 contact-grid" data-dev-feature="booking" style={SHOW_BOOKING ? undefined : 'display:none'}>
           <div>
             <h2 class="section-title mb-32">預約諮詢</h2>
             <form class="contact-form" name="contact" method="POST" action="/contact/">
@@ -135,8 +134,7 @@ const jsonLd = {
             </div>
           </div>
         </div>
-      ) : (
-        <div class="contact-layout">
+        <div class="contact-layout" data-dev-feature="no-booking" style={SHOW_BOOKING ? 'display:none' : undefined}>
           <div class="contact-image-col">
             <img src={base + "images/聯絡我們.jpg"} alt="聯絡我們" loading="lazy" />
           </div>
@@ -185,20 +183,17 @@ const jsonLd = {
             </div>
           </div>
         </div>
-      )}
     </div>
   </main>
 
   {/* ▸ CTA */}
-  {SHOW_CTA && (
-  <section class="section section-primary contact-cta">
+  <section class="section section-primary contact-cta" data-dev-feature="cta" style={SHOW_CTA ? undefined : 'display:none'}>
     <div class="container text-center">
       <h2 class="section-title" style="color: var(--color-on-primary)">30 分鐘免費諮詢，釐清方向、無壓力</h2>
       <p class="contact-cta-desc">我們協助您了解財務現況是否需要規劃，並說明諾昇的服務流程與收費方式。</p>
       <a href={CONTACT.lineUrl} target="_blank" rel="noopener" class="btn btn-accent btn-lg">LINE 預約諮詢</a>
     </div>
   </section>
-  )}
 
 </BaseLayout>
 

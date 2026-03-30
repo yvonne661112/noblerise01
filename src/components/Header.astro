@@ -1,6 +1,6 @@
 ---
 import SakuraRain from './SakuraRain.astro';
-import { SHOW_SAKURA, CONTACT } from '../data/siteConfig';
+import { SHOW_SAKURA, SHOW_DEV_PAGE, CONTACT } from '../data/siteConfig';
 const base = import.meta.env.BASE_URL;
 const path = Astro.url.pathname;
 
@@ -10,7 +10,7 @@ function isActive(href: string): boolean {
   return path.startsWith(href);
 }
 ---
-{SHOW_SAKURA && <SakuraRain />}
+<div data-dev-feature="sakura" style={SHOW_SAKURA ? undefined : 'display:none'}><SakuraRain /></div>
 <header class="site-header">
   <div class="header-inner">
     <a href={base} class="logo-link">
@@ -39,6 +39,7 @@ function isActive(href: string): boolean {
             </ul>
           </li>
           <li><a href={base + "contact/"} class:list={[isActive(base + "contact/") && 'active']}>聯絡我們</a></li>
+          {SHOW_DEV_PAGE && <li><a href={base + "dev/"} class:list={[isActive(base + "dev/") && 'active']}>Dev</a></li>}
         </ul>
       </nav>
     </div>
@@ -74,6 +75,7 @@ function isActive(href: string): boolean {
       </ul>
     </li>
     <li><a href={base + "contact/"} class:list={[isActive(base + "contact/") && 'active']}>聯絡我們</a></li>
+    {SHOW_DEV_PAGE && <li><a href={base + "dev/"} class:list={[isActive(base + "dev/") && 'active']}>Dev</a></li>}
   </ul>
 </nav>
 

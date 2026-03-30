@@ -4,6 +4,7 @@ import Footer from '../components/Footer.astro';
 import Head from '../components/Head.astro';
 import ScrollReveal from '../components/ScrollReveal.astro';
 import FloatingButtons from '../components/FloatingButtons.astro';
+import { SHOW_DEV_PAGE } from '../data/siteConfig';
 
 interface Props {
   title: string;
@@ -25,5 +26,30 @@ const { title, description, image, type } = Astro.props;
   <Footer />
   <ScrollReveal />
   <FloatingButtons />
+  {SHOW_DEV_PAGE && (
+  <script is:inline>
+  (function() {
+    var map = {
+      'dev-show-booking': { feature: 'booking', inverse: 'no-booking' },
+      'dev-show-cta':     { feature: 'cta',     inverse: null },
+      'dev-show-sakura':  { feature: 'sakura',  inverse: null },
+    };
+    Object.keys(map).forEach(function(key) {
+      var val = localStorage.getItem(key);
+      if (val === null) return;
+      var on = val === 'true';
+      var m = map[key];
+      document.querySelectorAll('[data-dev-feature="' + m.feature + '"]').forEach(function(el) {
+        el.style.display = on ? '' : 'none';
+      });
+      if (m.inverse) {
+        document.querySelectorAll('[data-dev-feature="' + m.inverse + '"]').forEach(function(el) {
+          el.style.display = on ? 'none' : '';
+        });
+      }
+    });
+  })();
+  </script>
+  )}
 </body>
 </html>

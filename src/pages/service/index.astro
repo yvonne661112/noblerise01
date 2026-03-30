@@ -261,8 +261,7 @@ const jsonLd = {
     </section>
 
     {/* ▸ 免費諮詢 CTA */}
-    {SHOW_CTA && (
-    <section class="section section-primary cta-section">
+    <section class="section section-primary cta-section" data-dev-feature="cta" style={SHOW_CTA ? undefined : 'display:none'}>
       <div class="container">
         <div class="cta-layout">
           <div class="cta-content">
@@ -271,9 +270,7 @@ const jsonLd = {
             <p class="cta-emphasis">您將帶走清楚的下一步方向，以及選擇最適合自己方案所需的完整資訊。</p>
             <div class="cta-buttons">
               <a href={CONTACT.lineUrl} target="_blank" rel="noopener" class="btn btn-accent btn-lg">LINE 預約諮詢</a>
-              {SHOW_BOOKING && (
-                <a href={base + "contact/"} class="btn btn-outline-light">預約免費諮詢</a>
-              )}
+              <a href={base + "contact/"} class="btn btn-outline-light" data-dev-feature="booking" style={SHOW_BOOKING ? undefined : 'display:none'}>預約免費諮詢</a>
             </div>
           </div>
           <div class="cta-notes">
@@ -293,7 +290,6 @@ const jsonLd = {
         </div>
       </div>
     </section>
-    )}
 
   </main>
 
