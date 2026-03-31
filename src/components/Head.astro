@@ -45,8 +45,19 @@ const fontUrls: Record<typeof activeTheme, string> = {
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={absoluteImageUrl} />
 <!-- Theme CSS（切換主題只需改 siteConfig.ts 的 activeTheme） -->
-<link rel="stylesheet" href={`${base}styles/theme-${activeTheme}.css`} />
+<link rel="stylesheet" href={`${base}styles/theme-${activeTheme}.css`} data-theme-link />
 <!-- Google Fonts（依主題載入對應字型） -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-<link href={fontUrls[activeTheme]} rel="stylesheet" />
+<link href={fontUrls[activeTheme]} rel="stylesheet" data-font-link />
+<!-- Dev theme restore：讀取 localStorage 即時替換主題，避免閃爍 -->
+<script is:inline define:vars={{ base, fontUrls }}>
+(function(){
+  var t = localStorage.getItem('dev-theme');
+  if (!t) return;
+  var tl = document.querySelector('[data-theme-link]');
+  var fl = document.querySelector('[data-font-link]');
+  if (tl) tl.setAttribute('href', base + 'styles/theme-' + t + '.css');
+  if (fl && fontUrls[t]) fl.setAttribute('href', fontUrls[t]);
+})();
+</script>

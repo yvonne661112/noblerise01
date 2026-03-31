@@ -78,15 +78,13 @@ const fontUrls: Record<string, string> = {
 
   <script define:vars={{ base: base, fontUrls: fontUrls }}>
     const themeSelect = document.getElementById('theme-select');
-    const themeLink = document.querySelector('link[href*="styles/theme-"]');
-    const fontLink = document.querySelector('link[href*="fonts.googleapis.com/css2"]');
+    const themeLink = document.querySelector('[data-theme-link]');
+    const fontLink = document.querySelector('[data-font-link]');
 
-    // Restore saved theme
+    // Restore saved theme (select UI only — CSS already swapped by Head.astro)
     const savedTheme = localStorage.getItem('dev-theme');
     if (savedTheme && themeSelect) {
       themeSelect.value = savedTheme;
-      if (themeLink) themeLink.setAttribute('href', `${base}styles/theme-${savedTheme}.css`);
-      if (fontLink && fontUrls[savedTheme]) fontLink.setAttribute('href', fontUrls[savedTheme]);
     }
 
     // Theme switch handler

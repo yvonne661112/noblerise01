@@ -67,7 +67,7 @@
 
 ### 文章系統
 
-- **34 篇** Markdown 文章，存放於 `src/content/blog/`
+- **35 篇** Markdown 文章，存放於 `src/content/blog/`
 - 動態路由：`src/pages/[...slug].astro`，透過 `numericSlug` frontmatter 產生數字 URL（如 `/123/`）
 - 6 個分類頁面（動態路由 `src/pages/blog/[category]/index.astro`）：投資理財、保險權益、證照進修、財務規劃、信託規劃、傳承稅務
 
@@ -136,12 +136,15 @@ src/
 │   ├── PageHero.astro      # 各頁面 Hero 區塊
 │   ├── SectionHeader.astro # 各節標題 + 裝飾線
 │   ├── ContentCard.astro   # 通用內容卡片
+│   ├── SectionCard.astro   # 通用卡片元件（首頁價值卡、服務卡等共用）
 │   ├── TagBadge.astro      # 標籤徽章
 │   ├── BlogList.astro      # 文章列表
 │   ├── AuthorCard.astro    # 作者資訊卡
 │   ├── CompanyName.astro   # 公司名稱（中英文格式）
+│   ├── FloatingButtons.astro # 右下角浮動聯絡按鈕（LINE / YouTube / Email）
+│   ├── ScrollReveal.astro  # 捲動進場動畫
 │   └── SakuraRain.astro    # 櫻花飄落特效
-├── content/blog/           # Markdown 文章（34 篇）
+├── content/blog/           # Markdown 文章（35 篇）
 ├── data/
 │   ├── siteConfig.ts       # 全站設定（主題、功能開關、聯絡資訊）
 │   ├── categories.ts       # 分類 slug 與標籤對照
@@ -154,6 +157,7 @@ src/
 │   │   ├── index.astro
 │   │   └── [category]/index.astro
 │   ├── contact/
+│   ├── dev/                # 開發工具頁（主題切換、功能開關）
 │   └── [...slug].astro     # 文章動態路由
 ├── content.config.ts       # Content Collections 型別設定
 ├── styles/
@@ -178,11 +182,14 @@ public/
 └── deploy.yml              # GitHub Actions 部署設定
 docs/
 ├── INDEX.md                # 任務文件索引與進度總覽
-├── TODO.md                 # 待辦事項（字型改善、DNS 切換等）
+├── TODO.md                 # 待辦事項
 ├── DONE.md                 # 已完成項目存檔
 ├── task01.md               # WordPress → Astro 遷移紀錄
 ├── task02.md               # DNS 切換與正式上線計畫
-└── Process.md              # 執行批次記錄
+├── Process.md              # 執行批次記錄
+├── plan_website_test.md    # 網站測試計畫
+├── resume.md               # 履歷資料
+└── seo_改良建議.md          # SEO 改善建議
 ```
 
 ---
@@ -191,9 +198,12 @@ docs/
 
 ```ts
 // src/data/siteConfig.ts
-export const SHOW_BOOKING = false;  // 預約諮詢功能
-export const SHOW_CTA     = false;  // 全站 CTA 區塊（LINE 預約諮詢）
-export const SHOW_SAKURA  = false;  // 櫻花飄落特效
+export const SHOW_BOOKING          = false;  // 預約諮詢功能
+export const SHOW_CTA              = false;  // 全站 CTA 區塊（LINE 預約諮詢）
+export const SHOW_SAKURA           = false;  // 櫻花飄落特效
+export const SHOW_FLOATING_BUTTONS = true;   // 右下角浮動按鈕（LINE / YouTube / Email）
+export const SHOW_FOOTER_SUB_NAV   = false;  // 頁尾導覽子選單
+export const SHOW_DEV_PAGE         = false;  // Dev 開發工具頁
 ```
 
 ---

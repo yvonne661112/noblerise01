@@ -61,6 +61,17 @@ textarea:focus-visible,
   height: 108px;
 }
 .logo-link img { height: 88px; width: auto; }
+.dev-dot-link {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  font-size: 12px;
+  line-height: 1;
+  color: var(--color-text-muted, #999);
+  text-decoration: none;
+  opacity: 0.4;
+}
+.dev-dot-link:hover { opacity: 1; }
 .header-right {
   display: flex;
   flex-direction: row;
