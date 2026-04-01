@@ -145,12 +145,12 @@ const jsonLd = {
             <div class="detail-block">
               <h3 class="detail-title">媒體曝光</h3>
               <ul class="detail-list media-exposure">
-                <li><strong>天下雜誌</strong>：<a href="https://www.cw.com.tw/article/5138572?tos=true" target="_blank" rel="noopener nofollow noreferrer">所得替代率是什麼？一張表看懂你需要多少退休金</a></li>
-                <li><strong>風傳媒</strong>：<a href="https://www.storm.mg/lifestyle/11112031" target="_blank" rel="noopener nofollow noreferrer">康橋、復興、靜心學費大公開！私立、公立學校學費差多少？過來人曝：不只學費，「1隱形成本」就破百萬</a></li>
-                <li><strong>橘世代</strong>：<a href="https://orange.udn.com/orange/story/121196/8923151" target="_blank" rel="noopener nofollow noreferrer">60歲前存滿2千萬，可原地退休？小資夫妻靠4策略「永遠有錢花」</a></li>
-                <li><strong>Smart自學網</strong>：<a href="https://smart.businessweekly.com.tw/Reading/IndepArticle.aspx?id=6017240" target="_blank" rel="noopener nofollow noreferrer">遇到車禍不要慌！6步驟教你正確報案，完整SOP教你保障理賠權利</a></li>
-                <li><strong>BabyHome</strong>：<a href="https://forum.babyhome.com.tw/article/5042928" target="_blank" rel="noopener nofollow noreferrer">台灣養孩子的低標和富養孩子費用是多少？看看你家是哪一種</a></li>
-                <li><strong>FPAT Podcast</strong>：<a href="https://solink.soundon.fm/episode/5c950785-667b-4cd3-bc5a-2d108321a0c0" target="_blank" rel="noopener nofollow noreferrer">EP7 理財小白的財務重生故事</a></li>
+                <li><img src={`${import.meta.env.BASE_URL}images/logos/天下雜誌.png`} alt="天下雜誌" class="media-logo" /><a href="https://www.cw.com.tw/article/5138572?tos=true" target="_blank" rel="noopener nofollow noreferrer">所得替代率是什麼？一張表看懂你需要多少退休金</a></li>
+                <li><img src={`${import.meta.env.BASE_URL}images/logos/logo-storm.png`} alt="風傳媒" class="media-logo" /><a href="https://www.storm.mg/lifestyle/11112031" target="_blank" rel="noopener nofollow noreferrer">康橋、復興、靜心學費大公開！私立、公立學校學費差多少？過來人曝：不只學費，「1隱形成本」就破百萬</a></li>
+                <li><img src={`${import.meta.env.BASE_URL}images/logos/橘世代Logo.png`} alt="橘世代" class="media-logo" /><a href="https://orange.udn.com/orange/story/121196/8923151" target="_blank" rel="noopener nofollow noreferrer">60歲前存滿2千萬，可原地退休？小資夫妻靠4策略「永遠有錢花」</a></li>
+                <li><img src={`${import.meta.env.BASE_URL}images/logos/Smart 自學網.png`} alt="Smart自學網" class="media-logo" /><a href="https://smart.businessweekly.com.tw/Reading/IndepArticle.aspx?id=6017240" target="_blank" rel="noopener nofollow noreferrer">遇到車禍不要慌！6步驟教你正確報案，完整SOP教你保障理賠權利</a></li>
+                <li><img src={`${import.meta.env.BASE_URL}images/logos/Babyhome.svg`} alt="BabyHome" class="media-logo" /><a href="https://forum.babyhome.com.tw/article/5042928" target="_blank" rel="noopener nofollow noreferrer">台灣養孩子的低標和富養孩子費用是多少？看看你家是哪一種</a></li>
+                <li><img src={`${import.meta.env.BASE_URL}images/logos/FPAT LOGO.png`} alt="FPAT Podcast" class="media-logo" /><a href="https://solink.soundon.fm/episode/5c950785-667b-4cd3-bc5a-2d108321a0c0" target="_blank" rel="noopener nofollow noreferrer">EP7 理財小白的財務重生故事</a></li>
               </ul>
             </div>
           </div>
@@ -309,6 +309,15 @@ const jsonLd = {
   .media-exposure li {
     font-size: var(--fs-base);
     font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .media-logo {
+    height: 24px;
+    width: auto;
+    flex-shrink: 0;
+    object-fit: contain;
   }
   .media-exposure a {
     color: var(--color-link);
