@@ -1,7 +1,7 @@
 User-agent: *
-Disallow: /
+Allow: /
 
-# Sitemap: https://noblerise.com.tw/sitemap-index.xml
+Sitemap: https://noblerise.com.tw/sitemap-index.xml
 #
 # === DNS 切換 SOP（task02 執行時解除下方注解）===
 # 步驟 1：至 Cloudflare（或 DNS 服務商）將 noblerise.com.tw 的 A/CNAME 指向 GitHub Pages IP。

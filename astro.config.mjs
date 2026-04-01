@@ -4,7 +4,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 
-const BASE = '/noblerise01/';
+const BASE = '/';
 
 /** Remark plugin: 將 Markdown 內嵌圖片與內部連結的 / 開頭路徑補上 base path */
 function remarkFixImageBase() {
