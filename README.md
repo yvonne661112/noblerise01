@@ -2,9 +2,7 @@
 
 **諾昇理財規劃顧問股份有限公司**的官方網站，由 CFP® 張惠芳領軍，提供獨立、中立、以客戶利益優先的財務規劃服務。
 
-- 線上網址：[https://yvonne661112.github.io/noblerise01/](https://yvonne661112.github.io/noblerise01/)
-- 目標網域：[https://noblerise.com.tw/](https://noblerise.com.tw/)（DNS 切換留待 task02）
-- 對標舊站：[https://noblerise.com.tw/](https://noblerise.com.tw/)（WordPress 版本，視覺與內容參考基準）
+- 線上網址：[https://noblerise.com.tw/](https://noblerise.com.tw/)
 
 > 任務進度與文件索引請見 [docs/INDEX.md](./docs/INDEX.md)
 
@@ -48,7 +46,7 @@
 
 ### 自訂 Remark Plugin
 
-`remarkFixImageBase`（定義於 `astro.config.mjs`）：將 Markdown 文章內嵌圖片路徑（如 `/images/foo.jpg`）自動補上 base path（`/noblerise01/images/foo.jpg`），解決 GitHub Pages 子路徑部署時圖片 404 的問題。
+`remarkFixImageBase`（定義於 `astro.config.mjs`）：將 Markdown 文章內嵌圖片路徑（如 `/images/foo.jpg`）自動補上 base path，確保圖片路徑正確。
 
 ---
 
@@ -79,7 +77,7 @@
 # 安裝相依套件
 npm install
 
-# 啟動開發伺服器（http://localhost:4321/noblerise01/）
+# 啟動開發伺服器（http://localhost:4321/）
 npm run dev
 
 # 建置靜態檔案（輸出至 dist/）
@@ -113,15 +111,15 @@ GitHub Actions 工作流程（`.github/workflows/deploy.yml`）：
 
 ### Base Path 設定
 
-部署在 `github.io/noblerise01/` 子路徑，`astro.config.mjs` 設定：
+部署在正式網域 `noblerise.com.tw`，`astro.config.mjs` 設定：
 
 ```js
 site: 'https://noblerise.com.tw',
-base: '/noblerise01/',
+base: '/',
 trailingSlash: 'always',
 ```
 
-所有內部連結與圖片路徑透過 `import.meta.env.BASE_URL` 動態處理。切換正式網域時，更新 `site` 與 `base` 即可。
+所有內部連結與圖片路徑透過 `import.meta.env.BASE_URL` 動態處理。
 
 ---
 
@@ -168,7 +166,8 @@ src/
     └── post.ts              # 文章排序、資料轉換
 public/
 ├── favicon.ico / favicon.svg
-├── robots.txt              # 爬蟲封鎖（DNS 切換前維持 Disallow: /）
+├── robots.txt              # 爬蟲設定（Allow: /）
+├── CNAME                   # GitHub Pages 自訂網域（noblerise.com.tw）
 ├── images/                 # 靜態圖片
 └── styles/
     ├── theme-classic.css
@@ -210,6 +209,6 @@ export const SHOW_DEV_PAGE         = false;  // Dev 開發工具頁
 
 ## 注意事項
 
-- `robots.txt` 目前維持 `Disallow: /`，DNS 切換至正式網域前請勿變更
-- 不可在 `public/CNAME` 手動加入自訂網域（由 GitHub Pages 管理）
+- 不可刪除 `public/CNAME`（GitHub Pages Custom domain 需要此檔案）
+- 不可將 `robots.txt` 改回 `Disallow: /`（網站已正式上線）
 - 詳細操作規範請見 [CLAUDE.md](./CLAUDE.md)
