@@ -593,8 +593,6 @@ textarea:focus-visible,
   margin: 0 0 14px;
   padding: 0;
   line-height: 1.5;
-  text-align: justify;
-  text-align-last: justify;
 }
 .footer-info-list {
   list-style: none;
