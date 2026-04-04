@@ -78,16 +78,16 @@ const crumbLd = breadcrumbLd([
             <img src={`${base}images/yvonne-cfp.jpeg`} alt="首席顧問 張惠芳 CFP®" class="news-speaker-photo" loading="lazy" />
           </div>
           <div class="news-speaker-info">
-            <div class="news-spk-credential">
-              <img src={`${base}images/cfp-logo.png`} alt="CFP®" class="news-cfp-logo" />
-              國際認證高級理財規劃顧問
-            </div>
+            <div class="news-spk-credential">國際認證高級理財規劃顧問</div>
             <div class="news-spk-name">張惠芳</div>
             <div class="news-spk-sub">諾昇理財首席規劃顧問</div>
             <div class="news-spk-stats">
               <div><div class="news-stat-val">20+</div><div class="news-stat-lbl">年金融實戰經驗</div></div>
               <div><div class="news-stat-val">IFA</div><div class="news-stat-lbl">獨立理財規劃顧問</div></div>
-              <div><div class="news-stat-val">CFP®</div><div class="news-stat-lbl">國際認證專業資格</div></div>
+              <div>
+                <div class="news-stat-val"><img src={`${base}images/cfp-logo.png`} alt="CFP®" class="news-cfp-logo" /></div>
+                <div class="news-stat-lbl">國際認證專業資格</div>
+              </div>
             </div>
             <p class="news-spk-bio">惠芳以「財務幸福」為核心理念，不受任何金融機構 KPI 影響，以獨立理財規劃顧問（IFA）立場，提供中立、專業、以客戶利益優先的財務建議。曾榮獲 FPAT 2022 理財規劃書競賽最佳顧問獎，多次受邀媒體採訪分享財務規劃觀點。</p>
             <div>
@@ -380,15 +380,13 @@ const crumbLd = breadcrumbLd([
     padding: 36px 36px 36px 0;
   }
   .news-cfp-logo {
-    height: 28px;
+    height: clamp(28px, 3vw, 36px);
     width: auto;
-    display: inline-block;
-    vertical-align: middle;
+    display: block;
   }
   .news-spk-credential {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
     background: var(--section-bg-alt);
     border: 1px solid var(--color-border);
     border-radius: 6px;
