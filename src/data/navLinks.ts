@@ -27,11 +27,11 @@ export const mainNav: NavLink[] = [
     href: 'blog/',
     children: [
       { label: '投資理財', href: 'blog/investment/' },
-      { label: '保險權益', href: 'blog/insurance/' },
-      { label: '證照進修', href: 'blog/certification/' },
       { label: '財務規劃', href: 'blog/business-planning/' },
       { label: '信託規劃', href: 'blog/elderly-care-trust/' },
       { label: '傳承稅務', href: 'blog/tax-planning/' },
+      { label: '保險權益', href: 'blog/insurance/' },
+      { label: '證照進修', href: 'blog/certification/' },
     ],
   },
   { label: '最新消息', href: 'news/' },
