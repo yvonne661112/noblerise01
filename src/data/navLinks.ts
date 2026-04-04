@@ -23,7 +23,7 @@ export const mainNav: NavLink[] = [
   },
   { label: '服務項目', href: 'service/' },
   {
-    label: '知識文章',
+    label: '理財新知',
     href: 'blog/',
     children: [
       { label: '投資理財', href: 'blog/investment/' },
