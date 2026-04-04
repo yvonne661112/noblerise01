@@ -1001,7 +1001,8 @@ const crumbLd = breadcrumbLd([
 
   /* ── CTA ── */
   .news-cta {
-    background: var(--color-primary);
+    background: var(--color-white);
+    border: 2px solid var(--color-border);
     border-radius: 14px;
     padding: 56px 44px;
     text-align: center;
@@ -1009,19 +1010,18 @@ const crumbLd = breadcrumbLd([
     overflow: hidden;
     margin-top: 56px;
   }
-  .news-cta::before, .news-cta::after {
+  .news-cta::before {
     content: '';
     position: absolute;
-    width: 280px; height: 280px;
-    background: radial-gradient(circle, rgba(133,161,79,0.1) 0%, transparent 70%);
-    pointer-events: none;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
   }
-  .news-cta::before { top: -80px; left: -80px; }
-  .news-cta::after { bottom: -80px; right: -80px; }
   .news-cta-eyebrow {
     display: inline-block;
+    background: var(--color-accent-pale);
     border: 1px solid var(--color-accent);
-    color: var(--color-accent-light);
+    color: var(--color-primary);
     font-size: 11px; font-weight: 700;
     letter-spacing: 2px;
     padding: 4px 14px; border-radius: 2px;
@@ -1031,22 +1031,22 @@ const crumbLd = breadcrumbLd([
     font-family: var(--font-heading);
     font-size: clamp(18px, 3vw, 26px);
     font-weight: 900;
-    color: var(--color-white);
+    color: var(--color-primary);
     line-height: 1.55;
     margin-bottom: 10px;
     position: relative; z-index: 1;
   }
-  .news-cta-title em { color: var(--color-accent-light); font-style: normal; }
+  .news-cta-title em { color: var(--color-accent); font-style: normal; }
   .news-cta-sub {
     font-size: 14px;
-    color: rgba(255,255,255,0.55);
+    color: var(--color-text-mid);
     margin-bottom: 30px;
     line-height: 1.85;
     position: relative; z-index: 1;
   }
   .news-cta-btn {
     display: inline-block;
-    background: var(--color-accent);
+    background: var(--color-primary);
     color: var(--color-white);
     font-size: 17px; font-weight: 700;
     font-family: var(--font-heading);
@@ -1055,12 +1055,12 @@ const crumbLd = breadcrumbLd([
     text-decoration: none;
     letter-spacing: 1px;
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 6px 20px rgba(133,161,79,0.35);
+    box-shadow: 0 4px 16px rgba(13,56,58,0.2);
     position: relative; z-index: 1;
   }
   .news-cta-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 28px rgba(133,161,79,0.45);
+    box-shadow: 0 8px 24px rgba(13,56,58,0.3);
   }
 
   /* ── Responsive ── */
