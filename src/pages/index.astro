@@ -79,6 +79,11 @@ const jsonLd = [
     backgroundImage="images/aboutmehead.jpg"
   />
 
+  <!-- ▸ 公告橫幅 -->
+  <a href={base + "news/"} class="announcement-bar">
+    📢 4/25 財務規劃講座，名額有限，立即報名 →
+  </a>
+
   <!-- ▸ MISSION -->
   <section class="section mission-section">
     <div class="container">
@@ -281,6 +286,24 @@ const jsonLd = [
 </BaseLayout>
 
 <style>
+  /* ── 公告橫幅 ── */
+  .announcement-bar {
+    display: block;
+    width: 100%;
+    padding: 14px 20px;
+    background: var(--color-accent);
+    color: var(--color-white);
+    text-align: center;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .announcement-bar:hover {
+    background: var(--color-accent-light);
+  }
+
   /* ── MISSION ── */
   .mission-layout {
     display: flex;
