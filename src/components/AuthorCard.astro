@@ -62,11 +62,11 @@ const awards = author.awards.split('、');
   background: var(--color-white);
 }
 .author-card-body {
-  padding: 20px 22px;
+  padding: 24px 28px;
 }
 .author-name {
-  font-size: var(--fs-body);
-  font-weight: 500;
+  font-size: var(--fs-2xl);
+  font-weight: 600;
   color: var(--color-primary);
   margin-bottom: 16px;
 }
@@ -77,11 +77,11 @@ const awards = author.awards.split('、');
   margin-bottom: 16px;
 }
 .author-cert-tag {
-  font-size: var(--fs-xs);
+  font-size: var(--fs-sm);
   color: var(--color-white);
   background: var(--color-primary);
   border-radius: 20px;
-  padding: 5px 13px;
+  padding: 6px 15px;
   font-weight: 500;
 }
 .author-rows {
@@ -91,23 +91,23 @@ const awards = author.awards.split('、');
 }
 .author-row {
   display: flex;
-  gap: 10px;
-  font-size: var(--fs-sm);
-  line-height: 1.65;
+  gap: 12px;
+  font-size: var(--fs-base);
+  line-height: 1.7;
 }
 .author-key {
   color: var(--color-accent);
-  font-weight: 500;
+  font-weight: 600;
   flex-shrink: 0;
   min-width: 36px;
-  font-size: var(--fs-xs);
+  font-size: var(--fs-sm);
 }
 .author-key::after {
   content: '';
 }
 .author-val {
   color: var(--color-text);
-  font-size: var(--fs-sm);
+  font-size: var(--fs-base);
 }
 .author-val a {
   color: var(--color-primary);
@@ -123,16 +123,16 @@ const awards = author.awards.split('、');
   gap: 5px;
 }
 .author-award {
-  font-size: 11px;
+  font-size: var(--fs-xs);
   background: var(--color-accent-pale);
   color: var(--color-accent);
-  padding: 2px 8px;
+  padding: 3px 10px;
   border-radius: 8px;
 }
 .author-more-link {
   display: block;
   margin-top: 14px;
-  font-size: var(--fs-sm);
+  font-size: var(--fs-base);
   font-weight: 500;
   color: var(--color-primary);
   text-decoration: none;
@@ -146,7 +146,7 @@ const awards = author.awards.split('、');
 }
 .author-cta {
   background: var(--color-primary);
-  padding: 18px 22px;
+  padding: 20px 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -154,13 +154,13 @@ const awards = author.awards.split('、');
   flex-wrap: wrap;
 }
 .author-cta-text {
-  font-size: var(--fs-base);
+  font-size: var(--fs-body);
   font-weight: 500;
   color: var(--color-white);
   margin-bottom: 3px;
 }
 .author-cta-sub {
-  font-size: var(--fs-xs);
+  font-size: var(--fs-sm);
   color: rgba(255, 255, 255, 0.6);
 }
 .author-cta-btn {
