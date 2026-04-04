@@ -57,6 +57,20 @@ const crumbLd = breadcrumbLd([
 
     <div class="news-divider"></div>
 
+    <!-- 這堂課適合誰 -->
+    <div class="news-section-head"><h2>這堂課適合誰？</h2></div>
+    <div class="news-block">
+      <div class="news-audience-list">
+        <div class="news-audience-item">月收入穩定，卻總覺得錢不夠用、存不下來的上班族</div>
+        <div class="news-audience-item">準備在 5–10 年內退休，但不確定退休金到底夠不夠的你</div>
+        <div class="news-audience-item">保單買了好幾張，卻說不清楚自己到底保了什麼的家庭</div>
+        <div class="news-audience-item">想長期投資卻不知從何開始，或曾因追高殺低受傷的投資人</div>
+        <div class="news-audience-item">面臨買房、換屋等重大財務決策，希望有專業依據的你</div>
+      </div>
+    </div>
+
+    <div class="news-divider"></div>
+
     <!-- 講座重點主題 -->
     <div class="news-section-head"><h2>這堂3小時課程，您將獲得的 5 大財務升級</h2></div>
     <div class="news-block">
@@ -202,10 +216,15 @@ const crumbLd = breadcrumbLd([
           <div class="news-pricing-header-icon">💳</div>
           <div>
             <h3>講座費用</h3>
-            <p>多人同行更優惠，或使用優惠碼每人享 NT$800 優惠價</p>
+            <p>早鳥優惠 4/10 前每人 NT$900，多人同行更優惠</p>
           </div>
         </div>
         <div class="news-pricing-grid">
+          <div class="news-price-item news-price-item--promo">
+            <span class="news-promo-badge">早鳥價 4/10 前</span>
+            <span class="news-price-amount">900<small> 元</small></span>
+            <span class="news-price-tag">每人 NT$900</span>
+          </div>
           <div class="news-price-item">
             <span class="news-price-label">單人</span>
             <span class="news-price-amount">1,000<small> 元</small></span>
@@ -227,7 +246,7 @@ const crumbLd = breadcrumbLd([
             <span class="news-price-tag">每人 NT$800</span>
           </div>
         </div>
-        <div class="news-pricing-note">持優惠碼報名，每人費用 NT$800，報名時填入優惠碼即可享有折扣。</div>
+        <div class="news-pricing-note">早鳥價：4/10 前報名每人 NT$900，現省 NT$100｜持優惠碼報名每人 NT$800</div>
       </div>
     </div>
 
@@ -275,14 +294,21 @@ const crumbLd = breadcrumbLd([
             <div><span class="news-test-name">陳小姐</span><span class="news-test-role">退休人士</span></div>
           </div>
         </div>
+        <div class="news-test-card">
+          <p class="news-test-text">我是財務投資小白，在惠芳CFP指導下，從開戶到投資執行與收支掌控逐步建立，每月養成紀錄習慣，重新確立理財目標，一步步打造理想生活藍圖與財務秩序。財務壓力漸漸減輕，不再焦慮也不盲從，逐步邁向我的財務幸福。</p>
+          <div class="news-test-author">
+            <div class="news-test-avatar">👨</div>
+            <div><span class="news-test-name">李先生</span><span class="news-test-role">工程監工</span></div>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- CTA 報名 -->
     <div class="news-cta">
-      <div class="news-cta-eyebrow">名額有限 · 把握機會</div>
+      <div class="news-cta-eyebrow">僅剩 30 位 · 報名截止 4/12</div>
       <h2 class="news-cta-title">財務幸福，從這一步開始<br><em>4/25 等您一起走這條路</em></h2>
-      <p class="news-cta-sub">名額有限，現在報名，立刻確認您的座位</p>
+      <p class="news-cta-sub">限額 30 位，報名截止日 115/4/12，立刻確認您的座位</p>
       <a href="https://forms.gle/b7v1gvohc4ri8LBK6" target="_blank" rel="noopener" class="news-cta-btn">立即購票</a>
     </div>
 
@@ -325,6 +351,43 @@ const crumbLd = breadcrumbLd([
     font-weight: var(--heading-weight);
     color: var(--color-primary);
     letter-spacing: 0.04em;
+  }
+
+  /* ── Audience ── */
+  .news-audience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .news-audience-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: var(--fs-lg);
+    color: var(--color-text);
+    line-height: 1.8;
+    padding: 16px 24px;
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--card-radius);
+    transition: border-color 0.25s;
+  }
+  .news-audience-item::before {
+    content: '✓';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--color-accent);
+    color: var(--color-white);
+    border-radius: 50%;
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .news-audience-item:hover {
+    border-color: var(--color-accent);
   }
 
   /* ── Pain Points Grid ── */
@@ -594,7 +657,7 @@ const crumbLd = breadcrumbLd([
   }
   .news-pricing-header h3 { font-family: var(--font-heading); font-size: var(--fs-lg); font-weight: var(--heading-weight); color: var(--color-white); }
   .news-pricing-header p { font-size: var(--fs-sm); color: rgba(255,255,255,0.55); margin-top: 3px; }
-  .news-pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .news-pricing-grid { display: grid; grid-template-columns: repeat(5, 1fr); }
   .news-price-item {
     padding: 28px 20px;
     border-right: 1px solid var(--color-border);
@@ -777,9 +840,9 @@ const crumbLd = breadcrumbLd([
     .news-ec-item { border-right: none; border-bottom: 1px solid var(--color-border); }
     .news-ec-item:last-child { border-bottom: none; }
     .news-pricing-grid { grid-template-columns: repeat(2, 1fr); }
-    .news-price-item:nth-child(2) { border-right: none; }
-    .news-price-item:nth-child(3) { border-right: 1px solid var(--color-border); }
-    .news-price-item:nth-child(3), .news-price-item:nth-child(4) { border-top: 1px solid var(--color-border); }
+    .news-price-item { border-right: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+    .news-price-item:nth-child(2n) { border-right: none; }
+    .news-price-item:last-child { border-bottom: none; }
     .news-pain-grid, .news-test-grid, .news-gifts-grid { grid-template-columns: 1fr; }
     .news-cta { padding: 40px 20px; }
   }
