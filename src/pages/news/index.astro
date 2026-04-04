@@ -150,7 +150,7 @@ const crumbLd = breadcrumbLd([
               <div><div class="news-stat-val">IFA</div><div class="news-stat-lbl">獨立理財規劃顧問</div></div>
               <div>
                 <div class="news-stat-val"><img src={`${base}images/cfp-logo.png`} alt="CFP®" class="news-cfp-logo" /></div>
-                <div class="news-stat-lbl">國際認證專業資格</div>
+                <div class="news-stat-lbl">國際認證高級理財規劃顧問</div>
               </div>
               <div>
                 <div class="news-stat-val"><img src={`${base}images/rfa-logo.png`} alt="RFA" class="news-cfp-logo" /></div>
@@ -565,9 +565,9 @@ const crumbLd = breadcrumbLd([
     margin-bottom: 20px;
   }
   .news-spk-stats {
-    display: flex;
-    gap: 32px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 32px;
     margin-bottom: 20px;
     align-items: flex-start;
   }
