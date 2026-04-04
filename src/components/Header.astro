@@ -35,7 +35,6 @@ function isActive(href: string): boolean {
           ))}
         </ul>
       </nav>
-      {SHOW_DEV_PAGE && <a href={base + "dev/"} class="dev-dot-link" aria-label="Dev">.</a>}
     </div>
     <!-- 漢堡按鈕（手機版） -->
     <button class="mobile-menu-btn" aria-label="開啟選單" aria-expanded="false">
@@ -61,7 +60,6 @@ function isActive(href: string): boolean {
     ) : (
       <li><a href={base + item.href} class:list={[isActive(item.href) && 'active']}>{item.label}</a></li>
     ))}
-    {SHOW_DEV_PAGE && <li><a href={base + "dev/"} class:list={[isActive("dev/") && 'active']}>.</a></li>}
   </ul>
 </nav>
 
