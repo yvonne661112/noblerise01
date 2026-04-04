@@ -952,18 +952,18 @@ const crumbLd = breadcrumbLd([
     font-family: var(--font-heading);
     flex-shrink: 0;
   }
-  .news-gift-card h4 { font-family: var(--font-heading); font-size: var(--fs-lg); font-weight: var(--heading-weight); color: var(--color-white); margin-bottom: 6px; }
-  .news-gift-value { font-size: var(--fs-sm); color: var(--color-accent-light); font-weight: 600; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .news-gift-card h4 { font-family: var(--font-heading); font-size: clamp(18px, 2.5vw, 22px); font-weight: var(--heading-weight); color: var(--color-white); margin-bottom: 6px; }
+  .news-gift-value { font-size: var(--fs-base); color: var(--color-accent-light); font-weight: 600; letter-spacing: 0.5px; margin-bottom: 8px; }
   .news-gift-note {
     margin-top: 10px;
-    font-size: 12px; color: rgba(255,255,255,0.55);
+    font-size: 14px; color: var(--color-white);
     background: rgba(255,255,255,0.08);
     border-radius: 4px; padding: 8px 11px;
-    line-height: 1.65;
+    line-height: 1.75;
     border-left: 2px solid var(--color-accent);
   }
-  .news-gift-note strong { color: rgba(255,255,255,0.85); }
-  .news-gift-desc { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.8; margin-top: 8px; }
+  .news-gift-note strong { color: var(--color-white); font-weight: 700; }
+  .news-gift-desc { font-size: 15px; color: var(--color-white); line-height: 1.8; margin-top: 8px; }
 
   /* ── Testimonials ── */
   .news-test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
