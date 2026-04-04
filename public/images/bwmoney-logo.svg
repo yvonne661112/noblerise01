@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" width="200" height="40">
+  <rect width="200" height="40" rx="3" fill="#000000"/>
+  <text x="10" y="29" font-family="'Noto Sans TC', 'Microsoft JhengHei', sans-serif" font-size="24" font-weight="700" fill="#FFFFFF">商周</text>
+  <text x="62" y="29" font-family="'Noto Sans TC', 'Microsoft JhengHei', sans-serif" font-size="24" font-weight="700" fill="#D4A843">財富網</text>
+</svg>
