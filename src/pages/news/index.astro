@@ -78,7 +78,6 @@ const crumbLd = breadcrumbLd([
             <img src={`${base}images/yvonne-cfp.jpeg`} alt="首席顧問 張惠芳 CFP®" class="news-speaker-photo" loading="lazy" />
           </div>
           <div class="news-speaker-info">
-            <div class="news-spk-credential">國際認證高級理財規劃顧問</div>
             <div class="news-spk-name">張惠芳</div>
             <div class="news-spk-sub">諾昇理財首席規劃顧問</div>
             <div class="news-spk-stats">
@@ -380,21 +379,9 @@ const crumbLd = breadcrumbLd([
     padding: 36px 36px 36px 0;
   }
   .news-cfp-logo {
-    height: clamp(28px, 3vw, 36px);
+    height: 34px;
     width: auto;
     display: block;
-  }
-  .news-spk-credential {
-    display: inline-flex;
-    align-items: center;
-    background: var(--section-bg-alt);
-    border: 1px solid var(--color-border);
-    border-radius: 6px;
-    padding: 6px 14px;
-    width: fit-content;
-    font-size: var(--fs-sm); font-weight: 700;
-    color: var(--color-primary);
-    margin-bottom: 14px;
   }
   .news-spk-name {
     font-family: var(--font-heading);
@@ -410,13 +397,26 @@ const crumbLd = breadcrumbLd([
     font-weight: 500;
     margin-bottom: 20px;
   }
-  .news-spk-stats { display: flex; gap: 28px; flex-wrap: wrap; margin-bottom: 20px; }
+  .news-spk-stats {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+  .news-spk-stats > div {
+    min-width: 80px;
+  }
   .news-stat-val {
     font-family: var(--font-heading);
     font-size: clamp(20px, 2.5vw, 26px);
     font-weight: var(--heading-weight);
     color: var(--color-accent);
-    line-height: 1; margin-bottom: 4px;
+    line-height: 1;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
   }
   .news-stat-lbl { font-size: var(--fs-xs); color: var(--color-text-mid); font-weight: 500; }
   .news-spk-bio {
