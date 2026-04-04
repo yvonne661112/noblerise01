@@ -24,10 +24,43 @@ const crumbLd = breadcrumbLd([
 
   <main class="news-body">
 
-    <!-- 講座重點主題 -->
-    <div class="news-section-head"><h2>講座重點主題</h2></div>
+    <!-- 財務困惑 -->
+    <div class="news-section-head"><h2>您的財務，是否也有這些困惑？</h2></div>
     <div class="news-block">
-      <p class="news-topics-intro">五大核心主題，從日常收支到海外投資節稅，帶您系統性思考財務每一個面向。</p>
+      <p class="news-topics-intro">收入、保險、投資、稅務、退休、置產，每一個環節都影響您的財務未來。諾昇以獨立 CFP® 顧問的專業，幫您一次看清財務全局，找出缺口，讓規劃真正落地。</p>
+      <div class="news-pain-grid">
+        <div class="news-pain-card">
+          <h4>財富增長</h4>
+          <p>收入不低，為什麼每個月錢還是不夠用？錢沒有自動幫您工作，問題不在賺多賺少，而在於有沒有一套科學化的金錢配置系統，讓每一分錢精準到位。</p>
+        </div>
+        <div class="news-pain-card">
+          <h4>退休規劃</h4>
+          <p>退休金準備了，但「夠不夠用」心裡真的有底嗎？只買0050就能安心退休？通膨、長壽風險、醫療費用，有沒有用數字模擬過您真實的退休缺口？</p>
+        </div>
+        <div class="news-pain-card">
+          <h4>保險保障</h4>
+          <p>每年繳了不少保費，卻說不清楚自己到底保了什麼？有沒有可能用更少的錢，打造更強的保障？真實個案告訴您：保險量化分析，可以省下百萬保費。</p>
+        </div>
+        <div class="news-pain-card">
+          <h4>稅務規劃</h4>
+          <p>薪水有扣稅，為何還要補繳？買海外ETF、美股到底要不要申報？股利合併還是分開計稅？搞不清楚這些申報眉角，就是把辛苦賺來的錢白白繳出去。</p>
+        </div>
+        <div class="news-pain-card">
+          <h4>投資策略</h4>
+          <p>想長期投資，卻不知道如何建立適合自己的資產組合？0050、S&amp;P 500、全方位規劃，哪個退休金差最多？過去因追高殺低而受傷，是因為少了一張屬於自己的財務地圖。</p>
+        </div>
+        <div class="news-pain-card">
+          <h4>買房換屋</h4>
+          <p>買房還是租房？換屋時機到了嗎？貸款規模是否在財務安全範圍內？這些重大決策，不應該靠感覺。財務健康指數幫您科學評估，讓每一個置產決定都有所依據。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="news-divider"></div>
+
+    <!-- 講座重點主題 -->
+    <div class="news-section-head"><h2>這堂課，您將獲得的 5 大財務升級</h2></div>
+    <div class="news-block">
       <div class="news-topic-list">
         <div class="news-topic-item">
           <div class="news-topic-num">1</div>
@@ -294,6 +327,36 @@ const crumbLd = breadcrumbLd([
     font-weight: var(--heading-weight);
     color: var(--color-primary);
     letter-spacing: 0.04em;
+  }
+
+  /* ── Pain Points Grid ── */
+  .news-pain-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .news-pain-card {
+    background: var(--section-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--card-radius);
+    padding: 28px 24px;
+    transition: border-color 0.25s, box-shadow 0.25s;
+  }
+  .news-pain-card:hover {
+    border-color: var(--color-accent);
+    box-shadow: var(--card-shadow-hover);
+  }
+  .news-pain-card h4 {
+    font-family: var(--font-heading);
+    font-size: var(--fs-lg);
+    font-weight: var(--heading-weight);
+    color: var(--color-primary);
+    margin-bottom: 10px;
+  }
+  .news-pain-card p {
+    font-size: var(--fs-base);
+    color: var(--color-text-mid);
+    line-height: 1.9;
   }
 
   /* ── Topics ── */
@@ -719,7 +782,7 @@ const crumbLd = breadcrumbLd([
     .news-price-item:nth-child(2) { border-right: none; }
     .news-price-item:nth-child(3) { border-right: 1px solid var(--color-border); }
     .news-price-item:nth-child(3), .news-price-item:nth-child(4) { border-top: 1px solid var(--color-border); }
-    .news-test-grid, .news-gifts-grid { grid-template-columns: 1fr; }
+    .news-pain-grid, .news-test-grid, .news-gifts-grid { grid-template-columns: 1fr; }
     .news-cta { padding: 40px 20px; }
   }
 </style>
