@@ -58,14 +58,33 @@ const crumbLd = breadcrumbLd([
     <div class="news-divider"></div>
 
     <!-- 這堂課適合誰 -->
-    <div class="news-section-head"><h2>這堂課適合誰？</h2></div>
+    <div class="news-section-head"><h2>這場講座特別適合您，如果您是：</h2></div>
     <div class="news-block">
       <div class="news-audience-list">
-        <div class="news-audience-item">月收入穩定，卻總覺得錢不夠用、存不下來的上班族</div>
-        <div class="news-audience-item">準備在 5–10 年內退休，但不確定退休金到底夠不夠的你</div>
-        <div class="news-audience-item">保單買了好幾張，卻說不清楚自己到底保了什麼的家庭</div>
-        <div class="news-audience-item">想長期投資卻不知從何開始，或曾因追高殺低受傷的投資人</div>
-        <div class="news-audience-item">面臨買房、換屋等重大財務決策，希望有專業依據的你</div>
+        <div class="news-audience-item">
+          <strong>高收入雙薪家庭</strong>
+          <span>收入不低，卻感覺錢不夠用，想建立系統化的財務規劃</span>
+        </div>
+        <div class="news-audience-item">
+          <strong>持有海外ETF、美股的投資人</strong>
+          <span>不確定海外所得怎麼申報，擔心踩雷被補稅</span>
+        </div>
+        <div class="news-audience-item">
+          <strong>正在考慮買房換屋</strong>
+          <span>想用數字評估現在的財務體質，而不是靠感覺決定</span>
+        </div>
+        <div class="news-audience-item">
+          <strong>剛出社會的高薪族</strong>
+          <span>薪水不錯但沒有方向，想建立正確的投資與理財觀念</span>
+        </div>
+        <div class="news-audience-item">
+          <strong>距離退休還有10-20年</strong>
+          <span>想認真試算退休缺口，提前做好準備</span>
+        </div>
+        <div class="news-audience-item">
+          <strong>曾被推銷、對金融機構失去信任</strong>
+          <span>想要獨立、中立的第三方財務評估與建議</span>
+        </div>
       </div>
     </div>
 
@@ -361,9 +380,8 @@ const crumbLd = breadcrumbLd([
   }
   .news-audience-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 14px;
-    font-size: var(--fs-lg);
     color: var(--color-text);
     line-height: 1.8;
     padding: 16px 24px;
@@ -372,6 +390,17 @@ const crumbLd = breadcrumbLd([
     border-radius: var(--card-radius);
     transition: border-color 0.25s;
   }
+  .news-audience-item strong {
+    display: block;
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+  .news-audience-item span {
+    display: block;
+    font-size: var(--fs-base);
+    color: var(--color-text-mid);
+  }
   .news-audience-item::before {
     content: '✓';
     display: flex;
@@ -379,6 +408,7 @@ const crumbLd = breadcrumbLd([
     justify-content: center;
     width: 28px;
     height: 28px;
+    margin-top: 4px;
     background: var(--color-accent);
     color: var(--color-white);
     border-radius: 50%;
