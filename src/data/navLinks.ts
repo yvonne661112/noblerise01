@@ -8,10 +8,12 @@ export interface NavLink {
   /** 相對於 base 的路徑，空字串代表首頁 */
   href: string;
   children?: NavLink[];
+  /** 設為 true 時在導覽列與頁尾隱藏此項目 */
+  hidden?: boolean;
 }
 
 export const mainNav: NavLink[] = [
-  { label: '首頁', href: '' },
+  { label: '首頁', href: '', hidden: true },
   {
     label: '關於諾昇',
     href: 'about/',
@@ -32,5 +34,6 @@ export const mainNav: NavLink[] = [
       { label: '傳承稅務', href: 'blog/tax-planning/' },
     ],
   },
+  { label: '最新消息', href: 'news/' },
   { label: '聯絡我們', href: 'contact/' },
 ];

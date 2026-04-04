@@ -21,7 +21,7 @@ function isActive(href: string): boolean {
     <div class="header-right">
       <nav class="main-nav">
         <ul>
-          {mainNav.map(item => item.children ? (
+          {mainNav.filter(item => !item.hidden).map(item => item.children ? (
             <li class="has-sub">
               <a href={base + item.href} class:list={[isActive(item.href) && 'active']}>{item.label}</a>
               <ul class="sub-menu">
@@ -49,7 +49,7 @@ function isActive(href: string): boolean {
 <nav class="mobile-nav">
   <button class="mobile-nav-close" aria-label="關閉選單">✕</button>
   <ul>
-    {mainNav.map(item => item.children ? (
+    {mainNav.filter(item => !item.hidden).map(item => item.children ? (
       <li>
         <a href={base + item.href} class:list={[isActive(item.href) && 'active']}>{item.label}</a>
         <ul class="mobile-sub">

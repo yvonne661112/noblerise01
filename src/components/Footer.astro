@@ -13,7 +13,7 @@ const base = import.meta.env.BASE_URL;
 
       <nav class="footer-nav-col" aria-label="頁尾導覽">
         <ul class="footer-nav-list">
-          {mainNav.map(item => (
+          {mainNav.filter(item => !item.hidden).map(item => (
             <li>
               <a href={base + item.href}>{item.label}</a>
               {SHOW_FOOTER_SUB_NAV && item.children && (
