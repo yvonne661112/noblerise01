@@ -54,6 +54,7 @@
   --hero-padding:            56px 24px 48px;
   --hero-padding-mobile:     48px 20px 40px;
   --hero-title-size:         clamp(26px, 4.5vw, 44px);
+  --hero-eyebrow-size:        var(--fs-base);
   --hero-subtitle-color:     rgba(255, 255, 255, 0.85);
   --hero-subtitle-weight:    500;
   --hero-desc-color:         rgba(255, 255, 255, 0.85);
