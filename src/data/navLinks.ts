@@ -21,7 +21,13 @@ export const mainNav: NavLink[] = [
       { label: '策略夥伴', href: 'about/策略夥伴/' },
     ],
   },
-  { label: '服務項目', href: 'service/' },
+  {
+    label: '服務項目',
+    href: 'service/',
+    children: [
+      { label: '客戶回饋', href: 'service/feedback/' },
+    ],
+  },
   {
     label: '理財新知',
     href: 'blog/',

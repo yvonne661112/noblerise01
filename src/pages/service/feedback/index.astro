@@ -1,0 +1,332 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import { breadcrumbLd } from '../../../utils/jsonld';
+
+const base = import.meta.env.BASE_URL;
+const crumbLd = breadcrumbLd([
+  { name: '首頁', item: 'https://noblerise.com.tw/' },
+  { name: '服務項目', item: 'https://noblerise.com.tw/service/' },
+  { name: '客戶回饋', item: 'https://noblerise.com.tw/service/feedback/' },
+]);
+---
+<BaseLayout
+  title="客戶回饋 | 諾昇理財規劃"
+  description="諾昇理財規劃客戶真實回饋，規劃後的改變與成長，由 CFP® 張惠芳陪伴每位客戶走向財務幸福。"
+>
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(crumbLd)} />
+
+  <PageHero
+    title="規劃後，客戶的真實回饋"
+    description="真實客戶・真實回饋・不推銷・只陪伴"
+    backgroundImage="images/aboutmehead.jpg"
+  />
+
+  <main class="feedback-body">
+
+    <div class="feedback-block">
+      <div class="feedback-list">
+
+        <!-- 見證① 三明治家庭 -->
+        <div class="feedback-card">
+          <div class="feedback-card-top"></div>
+          <div class="feedback-card-inner">
+            <div class="feedback-tags">
+              <span class="feedback-tag-main">三明治家庭</span>
+              <span class="feedback-tag-sub">陪伴傳承</span>
+              <span class="feedback-tag-sub">父母健康・家庭財務</span>
+            </div>
+            <h2 class="feedback-card-title">「在最難的那一年，她不只幫我整理財務，更幫我整理人生」</h2>
+            <div class="feedback-card-sub">上有年邁父母・下有子女・財務與傳承同步規劃</div>
+            <div class="feedback-quote">
+              <p>「財務整理更用說了，更是幫了我們（和我媽）的大忙」</p>
+              <p>「這一路我們也算是從戰友變朋友，真的感謝神，也感激有妳♡」</p>
+            </div>
+            <div class="feedback-img-wrap">
+              <img src={`${base}images/testimonial-letter.jpg`} alt="客戶手寫親筆信" class="feedback-img" loading="lazy" />
+            </div>
+            <div class="feedback-img-hint">📝 手寫親筆信</div>
+            <div class="feedback-ba">
+              <div class="feedback-ba-box feedback-ba-before">
+                <div class="feedback-ba-label">規劃前的困境</div>
+                <div class="feedback-ba-text">同時面對媽媽的事・爸爸健康報告・家庭財務多頭馬車</div>
+              </div>
+              <div class="feedback-ba-box feedback-ba-after">
+                <div class="feedback-ba-label">規劃後的改變</div>
+                <div class="feedback-ba-text">財務有人陪伴整理・人生最難的時刻不再孤單面對</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 見證② 財務小白 -->
+        <div class="feedback-card">
+          <div class="feedback-card-top"></div>
+          <div class="feedback-card-inner">
+            <div class="feedback-tags">
+              <span class="feedback-tag-main">財務小白</span>
+              <span class="feedback-tag-sub">從零開始</span>
+              <span class="feedback-tag-sub">投資方向・目標建立</span>
+            </div>
+            <h2 class="feedback-card-title">「從不知道投資如何開始，到有了明確的人生財務藍圖」</h2>
+            <div class="feedback-card-sub">第一次做財務規劃・從零建立投資方向與人生目標</div>
+            <div class="feedback-quote">
+              <p>「財務規劃不只有理財，而是不斷學習，建立目標非常重要」</p>
+              <p>「了解到自己還有非常多額外的學習空間，還有了解目前的資產缺口」</p>
+            </div>
+            <div class="feedback-img-wrap">
+              <img src={`${base}images/testimonial-survey1.jpg`} alt="客戶規劃回饋問卷" class="feedback-img" loading="lazy" />
+            </div>
+            <div class="feedback-img-hint">📋 真實規劃回饋問卷</div>
+            <div class="feedback-ba">
+              <div class="feedback-ba-box feedback-ba-before">
+                <div class="feedback-ba-label">規劃前的困境</div>
+                <div class="feedback-ba-text">沒有目標・沒有明確計畫・不知投資如何開始</div>
+              </div>
+              <div class="feedback-ba-box feedback-ba-after">
+                <div class="feedback-ba-label">規劃後的改變</div>
+                <div class="feedback-ba-text">有明確的人生財務規劃・找到投資方向・改變學習方式</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 見證③ 認真主管 -->
+        <div class="feedback-card">
+          <div class="feedback-card-top"></div>
+          <div class="feedback-card-inner">
+            <div class="feedback-tags">
+              <span class="feedback-tag-main">認真主管</span>
+              <span class="feedback-tag-sub">多才多藝・企圖心強</span>
+              <span class="feedback-tag-sub">高收入・財務待整理</span>
+            </div>
+            <h2 class="feedback-card-title">「規劃後，我開始用數字做決定，不再靠感覺」</h2>
+            <div class="feedback-card-sub">收入不差但支出難管控・從財務混亂到目標清晰・立即行動</div>
+            <div class="feedback-quote">
+              <p>「惠芳心思縝密、邏輯好，可以協助我去思考我不曾想過的問題」</p>
+              <p>「用錢更謹慎，對未來的想法更確立」</p>
+            </div>
+            <div class="feedback-img-wrap">
+              <img src={`${base}images/testimonial-survey2.jpg`} alt="客戶規劃回饋問卷" class="feedback-img" loading="lazy" />
+            </div>
+            <div class="feedback-img-hint">📋 真實規劃回饋問卷</div>
+            <div class="feedback-ba">
+              <div class="feedback-ba-box feedback-ba-before">
+                <div class="feedback-ba-label">規劃前的困境</div>
+                <div class="feedback-ba-text">沒有財務目標・支出較難管控・想買房但不知道時機</div>
+              </div>
+              <div class="feedback-ba-box feedback-ba-after">
+                <div class="feedback-ba-label">規劃後的改變</div>
+                <div class="feedback-ba-text">開始執行記帳節流・規劃買房換車目標・對未來更確立</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="feedback-cta">
+      <h2 class="feedback-cta-title">您也準備好了嗎？</h2>
+      <p class="feedback-cta-sub">讓 CFP® 為您做一次專屬的財務健康檢查<br>找出缺口，讓規劃真正落地</p>
+      <div class="feedback-cta-btns">
+        <a href={`${base}contact/`} class="feedback-btn-w">預約免費諮詢</a>
+        <a href="https://line.me/R/ti/p/@noblerise" target="_blank" rel="noopener" class="feedback-btn-g">LINE 聯繫</a>
+      </div>
+    </div>
+
+  </main>
+</BaseLayout>
+
+<style>
+  .feedback-body {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 48px 20px;
+  }
+  .feedback-block {
+    margin-bottom: 40px;
+  }
+  .feedback-list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .feedback-card {
+    background: var(--color-white);
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--card-shadow);
+  }
+  .feedback-card-top {
+    height: 4px;
+    background: var(--color-primary);
+  }
+  .feedback-card-inner {
+    padding: 24px 28px;
+  }
+  .feedback-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+  .feedback-tag-main {
+    background: var(--color-primary);
+    color: var(--color-white);
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+  .feedback-tag-sub {
+    background: var(--color-accent-pale);
+    color: var(--color-accent);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+  .feedback-card-title {
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1.5;
+    margin-bottom: 5px;
+  }
+  .feedback-card-sub {
+    font-size: var(--fs-sm);
+    color: var(--color-accent);
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+  .feedback-quote {
+    background: var(--color-bg-subtle);
+    border-left: 3px solid var(--color-accent);
+    border-radius: 0 var(--card-radius) var(--card-radius) 0;
+    padding: 14px 18px;
+    margin-bottom: 18px;
+  }
+  .feedback-quote p {
+    font-size: var(--fs-base);
+    color: var(--color-text-mid);
+    line-height: 1.85;
+    font-style: italic;
+  }
+  .feedback-quote p + p {
+    margin-top: 8px;
+  }
+  .feedback-img-wrap {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+  }
+  .feedback-img {
+    width: 100%;
+    display: block;
+  }
+  .feedback-img-hint {
+    text-align: center;
+    font-size: var(--fs-xs);
+    color: var(--color-accent);
+    margin-top: 8px;
+  }
+  .feedback-ba {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 18px;
+  }
+  .feedback-ba-box {
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .feedback-ba-before {
+    background: #fdf0ed;
+    border: 1px solid #f5c4b3;
+  }
+  .feedback-ba-after {
+    background: #e8f0ef;
+    border: 1px solid #9fe1cb;
+  }
+  .feedback-ba-label {
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+  }
+  .feedback-ba-before .feedback-ba-label {
+    color: #d85a30;
+  }
+  .feedback-ba-after .feedback-ba-label {
+    color: #0f6e56;
+  }
+  .feedback-ba-text {
+    font-size: var(--fs-sm);
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+
+  /* CTA */
+  .feedback-cta {
+    background: var(--color-primary);
+    border-radius: 16px;
+    padding: 40px 32px;
+    text-align: center;
+  }
+  .feedback-cta-title {
+    font-size: var(--fs-2xl);
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  .feedback-cta-sub {
+    font-size: var(--fs-base);
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 22px;
+    line-height: 1.7;
+  }
+  .feedback-cta-btns {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .feedback-btn-w {
+    background: var(--color-white);
+    color: var(--color-primary);
+    border-radius: 10px;
+    padding: 13px 28px;
+    font-size: var(--fs-base);
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .feedback-btn-w:hover {
+    opacity: 0.9;
+  }
+  .feedback-btn-g {
+    background: #06C755;
+    color: var(--color-white);
+    border-radius: 10px;
+    padding: 13px 28px;
+    font-size: var(--fs-base);
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .feedback-btn-g:hover {
+    opacity: 0.9;
+  }
+
+  @media (max-width: 600px) {
+    .feedback-body { padding: 32px 14px; }
+    .feedback-card-inner { padding: 18px 16px; }
+    .feedback-ba { grid-template-columns: 1fr; }
+    .feedback-cta { padding: 24px 18px; }
+  }
+</style>
