@@ -50,6 +50,19 @@ const fontUrls: Record<typeof activeTheme, string> = {
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 <link href={fontUrls[activeTheme]} rel="stylesheet" data-font-link />
+<!-- Google Analytics (GA4) -->
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-GZ1LR6ZZ6F"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GZ1LR6ZZ6F');
+</script>
+<!-- Google Tag Manager -->
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=GT-NFBTBVRK"></script>
+<script is:inline>
+  gtag('config', 'GT-NFBTBVRK');
+</script>
 <!-- Dev theme restore：讀取 localStorage 即時替換主題，避免閃爍 -->
 <script is:inline define:vars={{ base, fontUrls }}>
 (function(){
