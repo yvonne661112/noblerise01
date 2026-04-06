@@ -14,15 +14,15 @@ const awards = author.awards.split('、');
     <div class="author-rows">
       <div class="author-row">
         <span class="author-key">現職</span>
-        <span class="author-val">{author.position.replace(/、/g, '・')}</span>
+        <span class="author-val">{author.position}</span>
       </div>
       <div class="author-row">
         <span class="author-key">專長</span>
-        <span class="author-val">{author.specialties.replace(/、/g, '・')}</span>
+        <span class="author-val">{author.specialties}</span>
       </div>
       <div class="author-row">
         <span class="author-key">證照</span>
-        <span class="author-val">{certs.join('・')}</span>
+        <span class="author-val">{certs.join('、')}</span>
       </div>
       <div class="author-row">
         <span class="author-key">獲獎</span>
