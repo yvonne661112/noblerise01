@@ -30,6 +30,23 @@ open graphify-out/graph.html
 
 **最適合**：想一眼看出「哪些文章黏在一起、哪些是孤島、哪個節點是樞紐」。
 
+#### 中文介面後製步驟
+
+Graphify 的 `to_html()` 沒有語言參數，預設輸出英文 UI。每次 `/graphify` 或 `--update`
+跑完後，執行以下腳本把介面與社群名稱改為正體中文：
+
+```bash
+python3 scripts/graphify-zh.py
+```
+
+特性：
+- 冪等（重複執行會偵測到已翻譯並跳過）
+- 支援 `--check` dry-run 模式
+- UI 字串 + 30 個社群名稱一次處理完
+
+若未來 `--update` 後 clustering 變動、產生新的社群名稱，需在
+`scripts/graphify-zh.py` 的 `COMMUNITY_NAMES` dict 追加翻譯。
+
 ---
 
 ### 2. 問問題：`/graphify query "..."`
@@ -120,7 +137,8 @@ Graph 標出 `2025最低稅負制與美股海外所得稅務6大重點` 跟 `台
 
 因為諾昇理財是 SEO/內容驅動的網站，最自然的 graphify 工作流是：
 
-1. **每次寫完新 blog** → `/graphify src --update`（增量更新，省 token）
+1. **每次寫完新 blog** → `/graphify src --update && python3 scripts/graphify-zh.py`
+   （增量更新 + 中文後製）
 2. **每月一次** → `/graphify query "..."` 檢查內容孤島、重複主題、內鏈機會
 3. **改版前** → 看 `graph.html` 確認資訊架構沒退化
 
