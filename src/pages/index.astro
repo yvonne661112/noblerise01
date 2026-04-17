@@ -307,15 +307,16 @@ const jsonLd = [
   /* ── MISSION ── */
   .mission-layout {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 56px;
   }
   .mission-photo-col {
     flex: 0 0 auto;
   }
   .mission-photo {
-    width: 220px;
-    height: auto;
+    width: 360px;
+    height: 360px;
+    object-fit: cover;
     display: block;
   }
   .mission-text-col {
@@ -596,8 +597,8 @@ const jsonLd = [
       text-align: left;
     }
     .mission-photo {
-      width: 160px;
-      height: auto;
+      width: 200px;
+      height: 200px;
       margin: 0 auto;
     }
   }
