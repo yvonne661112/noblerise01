@@ -135,8 +135,15 @@ const jsonLd = {
           </div>
         </div>
         <div class="contact-layout" data-dev-feature="no-booking" style={SHOW_BOOKING ? 'display:none' : undefined}>
-          <div class="contact-image-col">
-            <img src={base + "images/聯絡我們.jpg"} alt="聯絡我們" loading="lazy" />
+          <div class="contact-map-col">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.8488013209458!2d121.54089257480517!3d25.039204738083015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abd127faaaab%3A0xaa3abe32ac4257c7!2zMTA26Ie65YyX5biC5aSn5a6J5Y2A5b6p6IiI5Y2X6Lev5LiA5q61MjIy6JmfMuaokw!5e0!3m2!1szh-TW!2stw!4v1774483760498!5m2!1szh-TW!2stw"
+              class="contact-map-full"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="諾昇理財規劃顧問地圖"
+            ></iframe>
           </div>
           <div class="contact-info-col">
             <h2 class="section-title mb-16">聯絡資訊</h2>
@@ -171,16 +178,6 @@ const jsonLd = {
                 <span>{CONTACT.address}</span>
               </li>
             </ul>
-            <div class="mt-32 contact-map-wrap">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.8488013209458!2d121.54089257480517!3d25.039204738083015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abd127faaaab%3A0xaa3abe32ac4257c7!2zMTA26Ie65YyX5biC5aSn5a6J5Y2A5b6p6IiI5Y2X6Lev5LiA5q61MjIy6JmfMuaokw!5e0!3m2!1szh-TW!2stw!4v1774483760498!5m2!1szh-TW!2stw"
-                class="contact-map"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                title="諾昇理財規劃顧問地圖"
-              ></iframe>
-            </div>
           </div>
         </div>
     </div>
