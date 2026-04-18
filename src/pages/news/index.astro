@@ -377,10 +377,10 @@ const crumbLd = breadcrumbLd([
 
     <!-- CTA 報名 -->
     <div class="news-cta">
-      <div class="news-cta-eyebrow">名額有限 · 報名截止 4/12</div>
+      <div class="news-cta-eyebrow">本梯次名額已滿</div>
       <h2 class="news-cta-title">財務幸福，從這一步開始<br><em>4/25 等您一起走這條路</em></h2>
-      <p class="news-cta-sub">名額有限，額滿截止，報名截止日 115/4/12，立刻確認您的座位</p>
-      <a href="https://forms.gle/b7v1gvohc4ri8LBK6" target="_blank" rel="noopener" class="news-cta-btn">立即購票</a>
+      <p class="news-cta-sub">感謝踴躍報名，本梯次名額已額滿。敬請期待下次講座消息。</p>
+      <span class="news-cta-btn news-cta-btn--sold-out" aria-disabled="true">名額已滿</span>
     </div>
 
   </main>
@@ -1056,6 +1056,16 @@ const crumbLd = breadcrumbLd([
   .news-cta-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(13,56,58,0.3);
+  }
+  .news-cta-btn--sold-out {
+    background: #9ca3af;
+    cursor: not-allowed;
+    box-shadow: none;
+    pointer-events: none;
+  }
+  .news-cta-btn--sold-out:hover {
+    transform: none;
+    box-shadow: none;
   }
 
   /* ── Responsive ── */
