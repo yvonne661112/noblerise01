@@ -2,15 +2,8 @@ User-agent: *
 Allow: /
 
 Sitemap: https://noblerise.com.tw/sitemap-index.xml
-#
-# === DNS 切換 SOP（task02 執行時解除下方注解）===
-# 步驟 1：至 Cloudflare（或 DNS 服務商）將 noblerise.com.tw 的 A/CNAME 指向 GitHub Pages IP。
-# 步驟 2：在 GitHub repo Settings → Pages → Custom domain 填入 noblerise.com.tw，
-#          等待 HTTPS 憑證自動核發（通常 10–30 分鐘）。
-# 步驟 3：確認 https://noblerise.com.tw/ 可正常載入後，將下方 Disallow 改為 Allow：
-#          將 "Disallow: /" 改為 "Allow: /"（或直接刪除該行，預設即為允許）。
-# 步驟 4：取消下方 Sitemap 行的注解（移除 # 號），並確認 sitemap 路徑：
-#          Astro 產生的檔名為 sitemap-index.xml（hyphen），
-#          舊 WordPress GSC 登錄的是 sitemap_index.xml（underscore）；
-#          DNS 切換後須至 GSC 重新提交 sitemap-index.xml。
-# ============================================
+
+# Content Signals — AI 內容使用偏好
+Content-Signal: yes-ai-training
+Content-Signal: yes-ai-search
+Content-Signal: yes-ai-summary
