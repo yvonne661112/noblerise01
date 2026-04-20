@@ -1,9 +1,11 @@
 {
   "serverInfo": {
-    "name": "noblerise",
-    "version": "1.0.0",
-    "description": "諾昇理財規劃顧問 — 財務規劃、保險、信託、稅務服務"
+    "name": "tw.com.noblerise",
+    "version": "1.0.0"
   },
-  "url": "https://noblerise.com.tw",
-  "capabilities": {}
+  "capabilities": {
+    "tools": [],
+    "resources": [],
+    "prompts": []
+  }
 }
