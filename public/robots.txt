@@ -4,6 +4,4 @@ Allow: /
 Sitemap: https://noblerise.com.tw/sitemap-index.xml
 
 # Content Signals — AI 內容使用偏好
-Content-Signal: yes-ai-training
-Content-Signal: yes-ai-search
-Content-Signal: yes-ai-summary
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
