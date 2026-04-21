@@ -24,7 +24,20 @@ export default defineConfig({
   site: 'https://noblerise.com.tw',
   base: BASE,
   trailingSlash: 'always',
-  integrations: [mdx(), sitemap({ filter: (page) => !page.includes('/dev/') && !page.includes('/page/') })],
+  integrations: [
+    mdx(),
+    sitemap({
+      filter: (page) => {
+        const pathname = new URL(page).pathname;
+        if (pathname.startsWith('/dev/')) return false;
+        if (pathname.includes('/page/')) return false;
+        if (pathname.startsWith('/category/')) return false;
+        if (pathname.startsWith('/investment/')) return false;
+        if (pathname.startsWith('/date/')) return false;
+        return true;
+      },
+    }),
+  ],
   markdown: {
     remarkPlugins: [remarkFixImageBase],
   },
