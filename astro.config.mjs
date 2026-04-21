@@ -24,7 +24,7 @@ export default defineConfig({
   site: 'https://noblerise.com.tw',
   base: BASE,
   trailingSlash: 'always',
-  integrations: [mdx(), sitemap({ filter: (page) => !page.includes('/dev/') })],
+  integrations: [mdx(), sitemap({ filter: (page) => !page.includes('/dev/') && !page.includes('/page/') })],
   markdown: {
     remarkPlugins: [remarkFixImageBase],
   },
