@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+---
+<BaseLayout
+  title="找不到頁面｜諾昇理財規劃顧問"
+  description="您要找的頁面不存在或已經移動。請回到首頁重新開始，或從下列連結繼續瀏覽。"
+>
+  <PageHero
+    eyebrow="404"
+    title="找不到這個頁面"
+    description="您要找的頁面不存在，或是已經移動到其他位置。"
+  />
+
+  <main class="section">
+    <div class="container text-center">
+      <p class="not-found-hint">您可以回到首頁重新開始，或從下列連結繼續瀏覽：</p>
+      <ul class="not-found-links">
+        <li><a href="/">首頁</a></li>
+        <li><a href="/about/">關於諾昇</a></li>
+        <li><a href="/service/">服務項目</a></li>
+        <li><a href="/blog/">理財新知</a></li>
+        <li><a href="/contact/">聯繫我們</a></li>
+      </ul>
+      <div class="not-found-action">
+        <a href="/" class="btn btn-primary">回到首頁</a>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .not-found-hint {
+    color: var(--color-text-muted);
+    font-size: var(--fs-lg);
+    margin-bottom: 24px;
+  }
+  .not-found-links {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 36px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+  }
+  .not-found-links a {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .not-found-links a:hover { text-decoration: underline; }
+  .not-found-action { display: flex; justify-content: center; }
+</style>
