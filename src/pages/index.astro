@@ -66,8 +66,8 @@ const jsonLd = [
 ];
 ---
 <BaseLayout
-  title="諾昇理財規劃顧問｜財務規劃、信託、退休、資產配置｜財務幸福"
-  description="諾昇以財務幸福為核心，由 CFP® 張惠芳領軍，提供中立、專業、以客戶利益優先的獨立財務規劃服務，涵蓋投資、保險、退休、信託、稅務規劃。"
+  title="諾昇理財規劃顧問｜獨立財務顧問・CFP® 財務規劃顧問"
+  description="獨立財務顧問・財務規劃顧問｜諾昇由 CFP® 張惠芳領軍，提供中立、專業、以客戶利益優先的財務規劃服務，涵蓋投資、保險、退休、信託、稅務規劃。"
 >
   {jsonLd.map(ld => (
     <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(ld)} />
@@ -76,6 +76,7 @@ const jsonLd = [
   <!-- ▸ HERO -->
   <PageHero
     title="諾昇規劃成為您人生的底氣<br/>陪您走向財務幸福"
+    subtitle="獨立財務顧問・CFP® 財務規劃顧問"
     backgroundImage="images/aboutmehead.jpg"
   />
 
@@ -87,8 +88,8 @@ const jsonLd = [
           <div>
             <h2 class="section-title">關於諾昇</h2>
           </div>
-          <p class="about-mission">諾昇以「財務幸福」為核心，由國際認證高級理財規劃顧問 CFP® 張惠芳領軍。</p>
-          <p class="about-mission">以獨立理財規劃顧問（IFA）的立場，提供中立、專業、以客戶利益優先的財務建議，我們不推銷金融商品，不受任何機構 KPI 影響。</p>
+          <p class="about-mission">諾昇是獨立財務顧問團隊（亦稱財務規劃顧問），以「財務幸福」為核心，由國際認證高級理財規劃顧問 CFP® 張惠芳領軍。</p>
+          <p class="about-mission">以獨立理財規劃顧問（IFA）的立場，提供中立、專業、以客戶利益優先的財務顧問建議，我們不推銷金融商品，不受任何機構 KPI 影響。</p>
           <p class="about-mission">諾昇陪伴您讓規劃真正落地，成為走向財務幸福的力量！</p>
           <div class="text-center" style="margin-top: 28px;">
             <a href={base + "about/"} class="btn btn-primary">了解更多</a>

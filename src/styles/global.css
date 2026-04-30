@@ -586,6 +586,14 @@ textarea:focus-visible,
   text-align: justify;
   text-align-last: justify;
 }
+.footer-company-tagline {
+  font-size: var(--fs-sm);
+  color: var(--color-accent-light);
+  margin: 0 0 4px;
+  padding: 0;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
 .footer-company-en {
   font-size: var(--fs-lg);
   font-family: var(--font-body);
