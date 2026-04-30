@@ -23,4 +23,6 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy ./dist --project-name=noblerise01 --branch=main
+          # commit-message / commit-hash 強制使用 SHA（純 ASCII），
+          # 否則 CJK 字元會被 Cloudflare API 以 "Invalid commit message" (code 8000111) 拒絕。
+          command: pages deploy ./dist --project-name=noblerise01 --branch=main --commit-hash=${{ github.sha }} --commit-message=${{ github.sha }}
